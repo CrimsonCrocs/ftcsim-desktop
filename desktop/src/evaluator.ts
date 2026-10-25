@@ -143,6 +143,9 @@ export class AutonomousEvaluator {
           const robot=observation.robots.find(r=>r.id==="red-1")!;
           tick={sensors,frame:reply.frame,signature,payload,...(flight.length?{flight:{time:game.matchTimeMs/1000,elements:flight}}:{}),
             ...(sequence%50===0||sequence===1499?{sample:{time:game.matchTimeMs/1000,tips:game.rules.tips.red,position:robot.position,heading:sensors.orientation.yawRadians,payload:robot.payload,
+              velocity:robot.linearVelocity,angularVelocity:robot.angularVelocity,servos:robot.servos,motorCommands:reply.frame.motors,
+              contacts:game.world.contacts({robotsOnly:true}).filter(c=>c.first==="red-1"||c.second==="red-1"),
+              otherRobots:observation.robots.filter(r=>r.id!=="red-1").map(r=>({id:r.id,position:r.position,rotation:r.rotation})),
               hives:observation.hives.map(h=>({id:h.id,angleRadians:2*Math.atan2(h.rotation.x,h.rotation.w),angularVelocity:h.angularVelocity.x})),
               elements:observation.elements.map(e=>({id:e.id,position:e.position,controlledBy:e.controlledBy,cells:game.rules.elements[e.id]?.cellMemberships??[]})),
             }}:{})};

@@ -2,9 +2,14 @@ import { serialize, deserialize } from "node:v8";
 import { deflateSync, inflateSync } from "node:zlib";
 import type { GameSnapshot } from "../../packages/ftc-sim-core/src/game-simulation";
 import type { SimulationFrame, WorldRobotSensorFrame } from "@ftc-studio/opmode-protocol";
+import type { WorldRobotState } from "../../packages/ftc-sim-core/src/world-types";
 
 export type TrialSample = {
   time: number; tips: number; position: { x:number;y:number;z:number }; heading: number; payload: string[];
+  velocity?: WorldRobotState["linearVelocity"]; angularVelocity?: WorldRobotState["angularVelocity"];
+  servos?: WorldRobotState["servos"]; motorCommands?: SimulationFrame["motors"];
+  contacts?: Array<{first:string;second:string}>;
+  otherRobots?: Array<Pick<WorldRobotState,"id"|"position"|"rotation">>;
   hives?: Array<{id:string;angleRadians:number;angularVelocity:number}>;
   elements?: Array<{id:string;position:{x:number;y:number;z:number};controlledBy:string|null;cells:readonly {hiveAlliance:"red"|"blue";facing:"up"|"down"}[]}>;
 };

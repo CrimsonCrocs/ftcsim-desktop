@@ -103,6 +103,8 @@ A useful tuning loop is: read the source, patch one value, evaluate with a fixed
 
 Each trial records payload changes at the 20 ms control interval. Use `payloadChanges` to find a dropped element or a brief capacity breach between the one-second telemetry samples.
 
+The samples include contact pairs, robot velocity, physical servo state, motor commands, and the other robots' positions. Use these fields to distinguish a blocked path from a controller that has stopped short.
+
 You can also call the MCP from a shell:
 
 ```sh
