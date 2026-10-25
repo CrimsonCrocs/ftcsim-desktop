@@ -96,10 +96,12 @@ For another MCP client, use a stdio server configuration with `/bin/sh` as the c
 | `editor_control` | Build, run, stop, reload, show, or quit the app. |
 | `build_project` | Compile disk source through the evaluator's warm build path. |
 | `evaluate_autonomous` | Run a timed autonomous trial and return its result and ID. |
-| `get_trial` | Read the recorded robot path, telemetry, and optional pollen flight paths. |
+| `get_trial` | Read the robot path, telemetry, hive angles, cell contents, payload changes, and optional pollen flight paths. |
 | `simulator_view` | Get a PNG of the actual app through its native snapshot API. |
 
 A useful tuning loop is: read the source, patch one value, evaluate with a fixed seed, and inspect the result. Set `full: true` on `evaluate_autonomous` to check a candidate with fresh physics. Compare tip count, parking, payload, and STOP output before keeping the edit.
+
+Each trial records payload changes at the 20 ms control interval. Use `payloadChanges` to find a dropped element or a brief capacity breach between the one-second telemetry samples.
 
 You can also call the MCP from a shell:
 

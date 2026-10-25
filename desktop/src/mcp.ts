@@ -41,7 +41,7 @@ server.registerTool("editor_control",{description:"Run, stop, build, reload, sho
 server.registerTool("build_project",{description:"Compile the current disk sources using the evaluator's warm compiler. The first build and build-configuration edits use Gradle. Returns real OpMode discovery and compiler timing without running physics.",annotations:localWrite},()=>respond(()=>request("/build")));
 server.registerTool("evaluate_autonomous",{description:"Run 30 simulated seconds with real Java and fixed 5 ms physics. Red/Near, idle other robots. Unchanged actuator prefixes can reuse deterministic physics. Set full=true for a fresh reference trial. Returns score, tips, park, capacity, STOP checks, timing, and trialId.",inputSchema:{seed:z.number().int().safe().optional(),entryClass:z.string().optional(),full:z.boolean().optional()},annotations:localWrite},args=>respond(async()=>{
   const {full,...options}=args;
-  const {samples,flightPaths,...result}=await request("/evaluate",{...options,...(full?{replay:false}:{})});
+  const {samples,flightPaths,payloadChanges,...result}=await request("/evaluate",{...options,...(full?{replay:false}:{})});
   return {...result,sampleCount:Array.isArray(samples)?samples.length:0};
 }));
 server.registerTool("get_trial",{description:"View a completed autonomous result, recorded path, collected elements, and one-second Java telemetry samples with actual hive angles, element positions and cell occupancy. Set includeFlightPaths to inspect pollen flight at 20 ms intervals. The app keeps its last 12 trials in memory. Omit trialId for the newest result.",inputSchema:{trialId:z.string().optional(),includeSamples:z.boolean().optional(),includeFlightPaths:z.boolean().optional()},annotations:readonly},args=>respond(async()=>{

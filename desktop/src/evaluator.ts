@@ -163,11 +163,13 @@ export class AutonomousEvaluator {
       const own=game.rules.robots["red-1"];
       const nectar=[...collected].filter(id=>id.startsWith("nectar"));
       const parked=Boolean(own?.loadingZoneOverlap);
+      const payloadChanges=ticks.flatMap((tick,index)=>index===0||JSON.stringify(tick.payload)!==JSON.stringify(ticks[index-1]!.payload)
+        ?[{time:(index+1)*20/1000,payload:tick.payload}]:[]);
       this.trace={key:traceKey,initSensors,ticks,checkpoints};
       return {seed,sourceDigest,entryClass,compileKind,compileMs,wallMs:Math.round(performance.now()-start),
         reusedPrefixSeconds:reusedTicks*.02,physicsTicksExecuted:physicsTicks,checkpointBytes,
         simulatedSeconds:game.matchTimeMs/1000,tips:game.rules.tips.red,score:game.rules.scores.red,parked,stoppedNeutral,peakPayload,collected:[...collected],collectedNectar:nectar,
-        valid:stoppedNeutral&&nectar.length===0&&peakPayload<=4&&game.matchTimeMs<=30000,scoreBreakdown:game.rules.scoreBreakdown.red,samples,flightPaths:ticks.flatMap(t=>t.flight?[t.flight]:[])};
+        valid:stoppedNeutral&&nectar.length===0&&peakPayload<=4&&game.matchTimeMs<=30000,scoreBreakdown:game.rules.scoreBreakdown.red,samples,payloadChanges,flightPaths:ticks.flatMap(t=>t.flight?[t.flight]:[])};
     }finally{
       try{if(!stopped)await this.command({command:"stop"});}
       catch{if(this.prepared)await this.sessions.close(this.prepared.id,true);this.prepared=undefined;}
