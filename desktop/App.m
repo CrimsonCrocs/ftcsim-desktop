@@ -1,7 +1,7 @@
 #import <Cocoa/Cocoa.h>
 #import <WebKit/WebKit.h>
 
-@interface FTCDesktopApplication : NSObject <NSApplicationDelegate,NSWindowDelegate,WKNavigationDelegate,WKScriptMessageHandlerWithReply>
+@interface FTCDesktopApplication : NSObject <NSApplicationDelegate,NSWindowDelegate,NSToolbarDelegate,WKNavigationDelegate,WKScriptMessageHandlerWithReply>
 @property NSWindow *window;
 @property WKWebView *web;
 @property NSURL *base;
@@ -14,6 +14,11 @@
 @property BOOL pollingAutomation;
 @property(strong) id workActivity;
 @property(strong) NSDate *workActivityUntil;
+@property(strong) NSDate *rendererActivityUntil;
+@property NSTextField *projectPath;
+@property NSTextField *evaluationSummary;
+@property NSButton *evaluateButton;
+@property NSLayoutConstraint *projectPathWidth;
 @end
 
 @implementation FTCDesktopApplication
@@ -23,8 +28,10 @@
     [self createMenus];
     self.window=[[NSWindow alloc] initWithContentRect:NSMakeRect(0,0,1440,920) styleMask:NSWindowStyleMaskTitled|NSWindowStyleMaskClosable|NSWindowStyleMaskMiniaturizable|NSWindowStyleMaskResizable backing:NSBackingStoreBuffered defer:NO];
     self.window.title=@"FTC Simulator Desktop";self.window.minSize=NSMakeSize(900,600);self.window.delegate=self;
+    [self createToolbar];
     [self.window setFrameAutosaveName:@"FTCDesktopMain"];
     WKWebViewConfiguration *configuration=[WKWebViewConfiguration new];
+    configuration.preferences.inactiveSchedulingPolicy=WKInactiveSchedulingPolicyNone;
     [configuration.userContentController addScriptMessageHandlerWithReply:self contentWorld:WKContentWorld.pageWorld name:@"desktop"];
     [configuration.userContentController addUserScript:[[WKUserScript alloc] initWithSource:@"window.ftcDesktop={request:(path,body)=>window.webkit.messageHandlers.desktop.postMessage(JSON.parse(JSON.stringify({path,body:body??{}})))};" injectionTime:WKUserScriptInjectionTimeAtDocumentStart forMainFrameOnly:YES]];
     self.web=[[WKWebView alloc] initWithFrame:NSZeroRect configuration:configuration];self.web.navigationDelegate=self;self.web.inspectable=YES;
@@ -33,6 +40,77 @@
     NSImage *icon=[[NSImage alloc] initWithContentsOfURL:[NSBundle.mainBundle.resourceURL URLByAppendingPathComponent:@"AppIcon.png"]];
     NSApp.applicationIconImage=icon?:[NSImage imageWithSystemSymbolName:@"cpu" accessibilityDescription:@"FTC Simulator Desktop"];
     dispatch_async(self.serviceQueue,^{[self startBackend];});
+}
+- (void)createToolbar {
+    self.projectPath=[NSTextField labelWithString:@""];
+    self.projectPath.font=[NSFont systemFontOfSize:NSFont.smallSystemFontSize];
+    self.projectPath.textColor=NSColor.secondaryLabelColor;
+    self.projectPath.lineBreakMode=NSLineBreakByTruncatingMiddle;
+    [self.projectPath setAccessibilityLabel:@"Project folder"];
+    [self.projectPath setContentCompressionResistancePriority:NSLayoutPriorityDefaultLow forOrientation:NSLayoutConstraintOrientationHorizontal];
+    [self.projectPath.widthAnchor constraintGreaterThanOrEqualToConstant:100].active=YES;
+    self.projectPathWidth=[self.projectPath.widthAnchor constraintLessThanOrEqualToConstant:620];self.projectPathWidth.active=YES;
+    NSLayoutConstraint *preferred=[self.projectPath.widthAnchor constraintEqualToConstant:500];preferred.priority=NSLayoutPriorityDefaultLow;preferred.active=YES;
+    self.evaluationSummary=[NSTextField labelWithString:@""];
+    self.evaluationSummary.font=[NSFont systemFontOfSize:NSFont.smallSystemFontSize];
+    self.evaluationSummary.textColor=NSColor.secondaryLabelColor;
+    self.evaluationSummary.lineBreakMode=NSLineBreakByTruncatingTail;
+    [self.evaluationSummary setAccessibilityLabel:@"Autonomous result"];
+    [self.evaluationSummary.widthAnchor constraintLessThanOrEqualToConstant:260].active=YES;
+    self.evaluateButton=[NSButton buttonWithTitle:@"Evaluate 30 s" target:self action:@selector(evaluate:)];
+    self.evaluateButton.bezelStyle=NSBezelStyleRounded;self.evaluateButton.controlSize=NSControlSizeSmall;self.evaluateButton.enabled=NO;
+    self.evaluateButton.toolTip=@"Evaluate 30 simulated seconds (⌘E). Run and Evaluate use rehearsal seed 20261024.";
+    [self.evaluateButton setAccessibilityLabel:@"Evaluate 30 seconds"];
+    NSToolbar *toolbar=[[NSToolbar alloc] initWithIdentifier:@"FTCDesktopToolbar"];
+    toolbar.delegate=self;toolbar.displayMode=NSToolbarDisplayModeIconOnly;toolbar.allowsUserCustomization=NO;
+    self.window.toolbarStyle=NSWindowToolbarStyleUnifiedCompact;self.window.toolbar=toolbar;
+    [self fitProjectPath];
+}
+- (void)fitProjectPath {
+    CGFloat titleWidth=[self.window.title sizeWithAttributes:@{NSFontAttributeName:[NSFont boldSystemFontOfSize:NSFont.systemFontSize]}].width;
+    CGFloat resultWidth=self.evaluationSummary.stringValue.length?self.evaluationSummary.fittingSize.width:0;
+    self.projectPathWidth.constant=MAX(100,MIN(620,self.window.frame.size.width-titleWidth-self.evaluateButton.fittingSize.width-resultWidth-150));
+}
+- (void)windowDidResize:(NSNotification *)notification {[self fitProjectPath];}
+- (NSArray<NSToolbarItemIdentifier> *)toolbarDefaultItemIdentifiers:(NSToolbar *)toolbar {
+    return @[@"project-path",NSToolbarFlexibleSpaceItemIdentifier,@"evaluate"];
+}
+- (NSArray<NSToolbarItemIdentifier> *)toolbarAllowedItemIdentifiers:(NSToolbar *)toolbar {
+    return @[@"project-path",NSToolbarFlexibleSpaceItemIdentifier,@"evaluation-result",@"evaluate"];
+}
+- (NSToolbarItem *)toolbar:(NSToolbar *)toolbar itemForItemIdentifier:(NSToolbarItemIdentifier)identifier willBeInsertedIntoToolbar:(BOOL)inserted {
+    NSToolbarItem *item=[[NSToolbarItem alloc] initWithItemIdentifier:identifier];item.autovalidates=NO;
+    if([identifier isEqual:@"project-path"]){item.label=@"Project folder";item.view=self.projectPath;item.visibilityPriority=NSToolbarItemVisibilityPriorityHigh;}
+    else if([identifier isEqual:@"evaluation-result"]){item.label=@"Autonomous result";item.view=self.evaluationSummary;item.visibilityPriority=NSToolbarItemVisibilityPriorityLow;}
+    else if([identifier isEqual:@"evaluate"]){item.label=@"Evaluate 30 s";item.view=self.evaluateButton;item.target=self;item.action=@selector(evaluate:);item.visibilityPriority=NSToolbarItemVisibilityPriorityUser;}
+    else return nil;
+    return item;
+}
+- (void)updateChrome:(NSDictionary *)body {
+    self.projectPath.stringValue=[body[@"directory"] isKindOfClass:NSString.class]?body[@"directory"]:@"";
+    self.projectPath.toolTip=self.projectPath.stringValue;
+    self.evaluateButton.title=[body[@"busy"] boolValue]?@"Evaluating…":@"Evaluate 30 s";
+    self.evaluateButton.enabled=[body[@"ready"] boolValue]&&![body[@"busy"] boolValue];
+    self.evaluationSummary.stringValue=[body[@"summary"] isKindOfClass:NSString.class]?body[@"summary"]:@"";
+    self.evaluationSummary.toolTip=[body[@"detail"] isKindOfClass:NSString.class]?body[@"detail"]:nil;
+    BOOL present=NO;for(NSToolbarItem *item in self.window.toolbar.items)if([item.itemIdentifier isEqual:@"evaluation-result"])present=YES;
+    if(self.evaluationSummary.stringValue.length&&!present)[self.window.toolbar insertItemWithItemIdentifier:@"evaluation-result" atIndex:self.window.toolbar.items.count-1];
+    else if(!self.evaluationSummary.stringValue.length&&present){NSUInteger index=[self.window.toolbar.items indexOfObjectPassingTest:^BOOL(NSToolbarItem *item,NSUInteger i,BOOL *stop){return [item.itemIdentifier isEqual:@"evaluation-result"];}];[self.window.toolbar removeItemAtIndex:index];}
+    [self fitProjectPath];
+}
+- (void)captureWindow:(void (^)(id,NSString *))reply {
+    [self.web takeSnapshotWithConfiguration:nil completionHandler:^(NSImage *image,NSError *failure){
+        if(!image){reply(nil,failure.localizedDescription?:@"Could not capture the app view");return;}
+        NSView *frame=self.window.contentView.superview;NSRect bounds=frame.bounds;
+        NSBitmapImageRep *bitmap=[frame bitmapImageRepForCachingDisplayInRect:bounds];
+        if(!bitmap){reply(nil,@"Could not capture the window frame");return;}
+        [frame cacheDisplayInRect:bounds toBitmapImageRep:bitmap];
+        [NSGraphicsContext saveGraphicsState];[NSGraphicsContext setCurrentContext:[NSGraphicsContext graphicsContextWithBitmapImageRep:bitmap]];
+        [image drawInRect:[self.web convertRect:self.web.bounds toView:frame] fromRect:NSZeroRect operation:NSCompositingOperationCopy fraction:1 respectFlipped:YES hints:nil];
+        [NSGraphicsContext restoreGraphicsState];
+        NSData *png=[bitmap representationUsingType:NSBitmapImageFileTypePNG properties:@{}];
+        reply(png?@{@"base64":[png base64EncodedStringWithOptions:0],@"mimeType":@"image/png"}:nil,png?nil:@"Could not encode the app view");
+    }];
 }
 - (void)startBackend {
     @autoreleasepool {
@@ -114,15 +192,18 @@
         dispatch_async(dispatch_get_main_queue(),^{
             self.pollingAutomation=NO;
             if(![command isKindOfClass:NSDictionary.class])return;
-            [self setWorkActive:[command[@"activeWork"] boolValue]];
+            [self setWorkActive:[command[@"activeWork"] boolValue]||self.rendererActivityUntil.timeIntervalSinceNow>0];
             if(![command[@"id"] isKindOfClass:NSString.class])return;
             NSString *action=command[@"action"];
             if([action isEqual:@"snapshot"]){
-                [self.web takeSnapshotWithConfiguration:nil completionHandler:^(NSImage *image,NSError *failure){
-                    NSBitmapImageRep *bitmap=image?[[NSBitmapImageRep alloc] initWithData:image.TIFFRepresentation]:nil;
-                    NSData *png=[bitmap representationUsingType:NSBitmapImageFileTypePNG properties:@{}];
-                    [self completeAutomation:command result:png?@{@"base64":[png base64EncodedStringWithOptions:0],@"mimeType":@"image/png"}:nil error:png?nil:(failure.localizedDescription?:@"Could not capture the app view") after:nil];
-                }];return;
+                [self captureWindow:^(id result,NSString *error){[self completeAutomation:command result:result error:error after:nil];}];return;
+            }
+            if([action isEqual:@"evaluate"]){if(!self.evaluateButton.enabled){[self completeAutomation:command result:nil error:@"Evaluation is unavailable or already running" after:nil];return;}[self.evaluateButton performClick:nil];[self completeAutomation:command result:@{@"requested":@"evaluate"} error:nil after:nil];return;}
+            if([action isEqual:@"resize"]){
+                NSDictionary *args=command[@"args"];NSNumber *width=args[@"width"],*height=args[@"height"];
+                if(![width isKindOfClass:NSNumber.class]||![height isKindOfClass:NSNumber.class]||width.doubleValue<900||height.doubleValue<600||width.doubleValue>4096||height.doubleValue>4096){[self completeAutomation:command result:nil error:@"Window size must be 900–4096 by 600–4096 points" after:nil];return;}
+                NSRect frame=self.window.frame;frame.origin.y+=frame.size.height-height.doubleValue;frame.size=NSMakeSize(width.doubleValue,height.doubleValue);[self.window setFrame:frame display:YES];
+                [self completeAutomation:command result:@{@"width":@(self.window.frame.size.width),@"height":@(self.window.frame.size.height)} error:nil after:nil];return;
             }
             if([action isEqual:@"show"]){[self.window makeKeyAndOrderFront:nil];[NSApp activateIgnoringOtherApps:YES];[self completeAutomation:command result:@{@"shown":@YES} error:nil after:nil];return;}
             if([action isEqual:@"hide"]){[NSApp hide:nil];[self completeAutomation:command result:@{@"hidden":@YES} error:nil after:nil];return;}
@@ -131,7 +212,10 @@
             NSString *script=reload||quit?@"await window.__ftcDesktopControl?.('stop',{});await window.__ftcDesktopDrain?.();return {saved:true};":@"if(!window.__ftcDesktopControl)throw new Error('Editor is still opening');return await window.__ftcDesktopControl(action,args);";
             [self.web callAsyncJavaScript:script arguments:@{@"action":action,@"args":command[@"args"]?:@{}} inFrame:nil inContentWorld:WKContentWorld.pageWorld completionHandler:^(id result,NSError *failure){
                 if([action isEqual:@"status"]&&[result isKindOfClass:NSDictionary.class]){
-                    NSMutableDictionary *state=[result mutableCopy];state[@"nativeWorkActive"]=@(self.workActivity!=nil);state[@"windowVisible"]=@(self.window.visible&&!NSApp.hidden);result=state;
+                    NSMutableDictionary *state=[result mutableCopy];state[@"nativeWorkActive"]=@(self.workActivity!=nil);state[@"windowVisible"]=@(self.window.visible&&!NSApp.hidden);
+                    state[@"nativeActive"]=@(NSApp.active);state[@"nativeOcclusionVisible"]=@((self.window.occlusionState&NSWindowOcclusionStateVisible)!=0);
+                    state[@"windowSize"]=@{@"width":@(self.window.frame.size.width),@"height":@(self.window.frame.size.height)};
+                    state[@"toolbar"]=@{@"projectPath":self.projectPath.stringValue,@"evaluation":self.evaluationSummary.stringValue,@"evaluationDetail":self.evaluationSummary.toolTip?:@"",@"evaluateEnabled":@(self.evaluateButton.enabled),@"evaluateTitle":self.evaluateButton.title,@"visibleItems":[self.window.toolbar.visibleItems valueForKey:@"itemIdentifier"]?:@[]};result=state;
                 }
                 [self completeAutomation:command result:result error:failure.localizedDescription after:^{
                     if(failure)return;
@@ -148,14 +232,11 @@
     NSURL *origin=message.frameInfo.request.URL;
     if(!message.frameInfo.mainFrame || !self.base || ![origin.host isEqual:@"127.0.0.1"] || ![origin.port isEqual:self.base.port] || ![path hasPrefix:@"/"] || [path containsString:@".."] || [path containsString:@"?"]){reply(nil,@"Invalid desktop request");return;}
     if([path isEqual:@"/native/show"]){[self.window makeKeyAndOrderFront:nil];[NSApp activateIgnoringOtherApps:YES];reply(@{@"shown":@YES},nil);return;}
+    if([path isEqual:@"/native/chrome"]){[self updateChrome:[payload[@"body"] isKindOfClass:NSDictionary.class]?payload[@"body"]:@{}];reply(@{@"updated":@YES},nil);return;}
+    if([path isEqual:@"/native/activity"]){NSDictionary *body=[payload[@"body"] isKindOfClass:NSDictionary.class]?payload[@"body"]:@{};self.rendererActivityUntil=[body[@"active"] boolValue]?[NSDate dateWithTimeIntervalSinceNow:30]:nil;reply(@{@"updated":@YES},nil);return;}
     if([path isEqual:@"/native/quit"]){reply(@{@"quitting":@YES},nil);[NSApp performSelector:@selector(terminate:) withObject:nil afterDelay:0];return;}
     if([path isEqual:@"/native/snapshot"]){
-        [self.web takeSnapshotWithConfiguration:nil completionHandler:^(NSImage *image,NSError *failure){
-            NSBitmapImageRep *bitmap=image?[[NSBitmapImageRep alloc] initWithData:image.TIFFRepresentation]:nil;
-            NSData *png=[bitmap representationUsingType:NSBitmapImageFileTypePNG properties:@{}];
-            if(!png){reply(nil,failure.localizedDescription?:@"Could not capture the simulator view");return;}
-            reply(@{@"base64":[png base64EncodedStringWithOptions:0],@"mimeType":@"image/png"},nil);
-        }];return;
+        [self captureWindow:reply];return;
     }
     NSError *error=nil;id body=[payload[@"body"] isKindOfClass:NSDictionary.class]?payload[@"body"]:@{};
     NSData *data=[NSJSONSerialization dataWithJSONObject:body options:0 error:&error];if(!data){reply(nil,error.localizedDescription);return;}
@@ -174,7 +255,7 @@
     if([url.scheme isEqual:@"about"] || ([url.host isEqual:@"127.0.0.1"]&&[url.port isEqual:self.base.port]))decide(WKNavigationActionPolicyAllow);
     else{decide(WKNavigationActionPolicyCancel);if([@[@"http",@"https"] containsObject:url.scheme])[NSWorkspace.sharedWorkspace openURL:url];}
 }
-- (void)webViewWebContentProcessDidTerminate:(WKWebView *)web{[self report:@"The editor process stopped. Reload Project to reopen saved files."];}
+- (void)webViewWebContentProcessDidTerminate:(WKWebView *)web{self.rendererActivityUntil=nil;[self setWorkActive:NO];[self report:@"The editor process stopped. Reload Project to reopen saved files."];}
 - (BOOL)windowShouldClose:(NSWindow *)sender{[NSApp terminate:nil];return NO;}
 - (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender {
     if(self.quitting)return NSTerminateLater;self.quitting=YES;

@@ -2,13 +2,13 @@
 
 Write FTC autonomous code, run it locally, and test the next change without a cloud build queue.
 
-FTC Simulator Desktop is a native macOS app with a Java/Kotlin editor, a 3D field, robot configuration, telemetry, and the FTC Simulator physics and scoring engine. It runs real FTC OpModes against the published SDK and project libraries. The included Red Pollen Auto uses NextFTC and Pedro Pathing.
+FTC Simulator Desktop is a native macOS app with a Java/Kotlin editor, a 3D field, robot configuration, telemetry, and the FTC Simulator physics and scoring engine. It runs real FTC OpModes against the published SDK and project libraries. The included Kotlin Red Pollen Auto uses NextFTC and Pedro Pathing.
 
 The main task is simple: change a value, save the file, and see what the robot does. You can use the editor or connect an AI coding agent through MCP. Both use the same local project files and runner.
 
 ## What makes the loop fast
 
-The app keeps the compiler and runtime JVMs open. After the first Gradle build, a source edit uses the Java compiler already in memory. A fresh classloader then starts the changed program. Static fields reset, and changes can add or remove fields and methods.
+The app keeps the compiler and runtime JVMs open. After the first Gradle build, a source edit uses the Java or Kotlin compiler already in memory. A fresh classloader then starts the changed program. Static fields reset, and changes can add or remove fields and methods.
 
 The app build compiles the fixed simulator SDK shim once. Cold project builds reuse those classes only after checking the source, compiler options, and class-file hashes. A mismatch uses the real compiler. Robot code always passes through the compiler.
 
@@ -16,11 +16,11 @@ Run reuses the loaded build. It does not upload or unpack the project each time.
 
 A failed evaluation stops its runtime. The next trial resets that runtime and keeps the compiled classes when the loaded build is still valid. A control timeout alone does not require another Gradle build.
 
-Autonomous evaluation runs 30 simulated seconds without waiting 30 real seconds. The physics step stays at 5 ms. A repeated trial can reuse an unchanged section of the previous physics run. The new Java program still runs every control tick. If a motor or servo output changes, the evaluator restores a checkpoint and computes the remaining physics. A feedback mismatch causes a fresh full trial.
+Autonomous evaluation runs 30 simulated seconds without waiting 30 real seconds. The physics step stays at 5 ms. A repeated trial can reuse an unchanged section of the previous physics run. The new robot program still runs every control tick. If a motor or servo output changes, the evaluator restores a checkpoint and computes the remaining physics. A feedback mismatch causes a fresh full trial.
 
 For a LinearOpMode, each tick waits for the program to reach `idle()` or a simulated `sleep()`. Host delays do not count as completed ticks. A program that misses this bounded control deadline stops with an error and neutral motor output.
 
-During a build or evaluation, the Mac app holds a native work activity. This keeps an active job out of App Nap, including when the window is hidden. The activity ends when the job ends, with a 30-second heartbeat limit if the local service stops responding. Control errors identify the command and source revision, plus the virtual tick and last reported phase when available.
+During a build, run, or evaluation, the Mac app holds a native work activity. This keeps active work out of App Nap, including when the window is hidden. The activity ends when the work ends, with a 30-second heartbeat limit if the local service or editor stops responding. Control errors identify the command and source revision, plus the virtual tick and last reported phase when available.
 
 The evaluator worker uses macOS user-initiated scheduling for each job, then restores its previous setting. Single-use Gradle JVMs use the fast startup compiler tier; the robot runtime retains the full JIT.
 
@@ -32,7 +32,8 @@ Measured on an Apple M4 Pro during development:
 | --- | ---: |
 | Run an already built OpMode | 0.50 s |
 | Save a constant and restart through Hot Reload | 2.25 s |
-| Compile a small autonomous edit in the warm evaluator | 0.18–0.51 s |
+| Compile a small Java edit in the warm evaluator | 0.18–0.51 s |
+| Compile a subsequent Kotlin edit through Hot Reload | 1.2 s |
 | Run all 30 simulated seconds with fresh physics | 12.54 s |
 | Repeat an unchanged 30-second trial | 1.36 s |
 | Test an edit to the final volley | 4.0–4.8 s |
@@ -82,9 +83,15 @@ Use **Build and Play** for the first run. **Hot Reload** is on by default. Save 
 
 Use **Run** to start the loaded build again. Use **Stop** to end the run and return motor demand to zero. Use **Evaluate 30 s** or `⌘E` for an accelerated autonomous trial.
 
+The project folder, Evaluate button, and latest result share the native title bar. Run, Hot Reload, the editor, and the field view keep working when another app covers the window.
+
+Desktop Run advances four 5 ms physics steps for each 20 ms control tick. The program and field clocks stay together when the host is busy. Native transport requests preserve the program's tick order.
+
+Run uses the current field state. Through MCP, call `editor_control` with `{"action":"rewind"}` to stop the robot and reset the field while keeping the loaded build. Wait for `simulator_status.fieldReady`, then Run again. Use Evaluate for a fresh, fixed-seed autonomous comparison.
+
 Use **File → Open Project** for another folder that contains `ftcsim.project.json`. Files save to disk automatically. If another process changes a file, unchanged editor buffers preserve that change. Conflicting edits require a reload. Use **View → Reload Project** or `⌘R` after a disk edit.
 
-The included [Red Pollen Auto](desktop/examples/Red%20Pollen%20Auto/README.md) handles pollen through a compliant intake. Its shooter and drivetrain do not use compliant rollers. It uses FTC SDK 11.1.0, NextFTC 1.1.0, and Pedro core/revhub 3.0.2. The baseline completes one tip and parks for 28 points.
+The included [Red Pollen Auto](desktop/examples/Red%20Pollen%20Auto/README.md) handles pollen through a compliant intake. Its shooter and drivetrain do not use compliant rollers. It uses FTC SDK 11.1.0, NextFTC 1.1.0, and Pedro core/revhub 3.0.2. The best verified route completes **four red hive tips and parks for 88 points** within 30 simulated seconds, using seed `20261024` and idle partner/opponent robots. The [recorded result](desktop/examples/Red%20Pollen%20Auto/validation.json) identifies its source and configuration. Five pollen-only tips with park has not been achieved; this is not a claim that five is impossible.
 
 ## Connect an AI agent through MCP
 
@@ -106,12 +113,13 @@ For another MCP client, use a stdio server configuration with `/bin/sh` as the c
 | `project_files` | List the current project's files. |
 | `read_file` | Read source and its SHA-256. |
 | `write_file` / `patch_file` | Change disk source with a check against the last file hash. |
+| `delete_file` | Remove a source file with a check against its last file hash. |
 | `editor_patch` | Change source through the editor and test actual Hot Reload. |
-| `editor_control` | Build, run, stop, reload, show, hide, or quit the app. |
+| `editor_control` | Build, run, stop, rewind, reload, show, hide, press Evaluate, resize, or quit. |
 | `build_project` | Compile disk source through the evaluator's warm build path. |
 | `evaluate_autonomous` | Run a timed autonomous trial and return its result and ID. |
 | `get_trial` | Read the robot path, telemetry, hive angles, cell contents, payload changes, and optional pollen flight paths. |
-| `simulator_view` | Get a PNG of the actual app through its native snapshot API. |
+| `simulator_view` | Get a PNG of the actual app window, including the native title bar. |
 
 A useful tuning loop is: read the source, patch one value, evaluate with a fixed seed, and inspect the result. Set `full: true` on `evaluate_autonomous` to check a candidate with fresh physics. Compare tip count, parking, payload, and STOP output before keeping the edit.
 

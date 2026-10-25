@@ -10,11 +10,14 @@ import { openCatalogDatabase, getRecord, putRecord, putProjectAndSession } from 
 import { PROJECT_CATALOG_DATABASE, type ProjectRecord, type ProjectSession } from "../../src/lib/projects/types";
 import { desktopRequest, publishDesktopCompletions } from "./client-session";
 import type { DesktopFile } from "./workspace";
+import { installDesktopBackgroundFrames } from "./background-frames";
 import "../../src/app/globals.css";
 import "./desktop.css";
 
 (window as unknown as {Buffer:typeof Buffer}).Buffer = Buffer;
+installDesktopBackgroundFrames();
 const desktop = {hotReload:true,rehearsalSeed:20261024,publishCompletions:publishDesktopCompletions,saveFiles:async(projectId:string,files:Record<string,string>) => { await desktopRequest("/workspace/save",{projectId,files}); },
+  setRuntimeActive:(active:boolean)=>desktopRequest("/native/activity",{active}).then(()=>undefined),
   registerAutomation:(control:(action:string,args:Record<string,unknown>)=>Promise<unknown>)=>{window.__ftcDesktopControl=control;return()=>{if(window.__ftcDesktopControl===control)delete window.__ftcDesktopControl;};},
   registerSaveBarrier:(save:()=>Promise<void>)=>{window.__ftcDesktopDrain=save;return()=>{if(window.__ftcDesktopDrain===save)delete window.__ftcDesktopDrain;};}};
 type Workspace = {id:string;name:string;directory:string;files:DesktopFile[]};
@@ -30,18 +33,19 @@ async function prepareWorkspace():Promise<Workspace> {
   for(const file of workspace.files) if(file.text!==undefined && state.files[file.path]!==file.text) await git.writeFile(file.path,file.text);
   const db = await openCatalogDatabase(PROJECT_CATALOG_DATABASE);
   const existing = await getRecord<ProjectRecord>(db,"projects",workspace.id);
+  const starter = workspace.files.some(f=>f.path.endsWith(".kt")&&f.text?.includes("@Autonomous"))?"kotlin":"java";
   if(!existing){
     const now=new Date().toISOString();
-    const javaFile=workspace.files.find(f=>f.path.endsWith(".java")&&f.text?.includes("@Autonomous"));
-    const javaPackage=javaFile?.text?.match(/package\s+([\w.]+)\s*;/)?.[1]??"org.firstinspires.ftc.teamcode";
-    const className=javaFile?.text?.match(/public\s+(?:final\s+)?class\s+(\w+)/)?.[1];
+    const opModeFile=workspace.files.find(f=>/\.(java|kt)$/.test(f.path)&&f.text?.includes("@Autonomous"));
+    const javaPackage=opModeFile?.text?.match(/package\s+([\w.]+)/)?.[1]??"org.firstinspires.ftc.teamcode";
+    const className=opModeFile?.text?.match(/(?:public\s+)?(?:final\s+)?class\s+(\w+)/)?.[1];
     const project:ProjectRecord={schemaVersion:1,id:workspace.id,name:workspace.name,nameKey:workspace.name.toLowerCase(),javaPackage,storageNamespace:namespace,
-      state:"ready",starter:"java",drivetrain:"mecanum",motorNamingPreset:"descriptive",sdkVersion:"11.1.0",kotlinVersion:"2.2.10",createdAt:now,updatedAt:now,lastOpenedAt:now,cloudSyncEnabled:false};
-    const path=javaFile?.path??null;
+      state:"ready",starter,drivetrain:"mecanum",motorNamingPreset:"descriptive",sdkVersion:"11.1.0",kotlinVersion:"2.2.10",createdAt:now,updatedAt:now,lastOpenedAt:now,cloudSyncEnabled:false};
+    const path=opModeFile?.path??null;
     const session:ProjectSession={schemaVersion:1,projectId:workspace.id,openTabs:path?[path]:[],activeFile:path,selectedOpMode:className?`${javaPackage}.${className}`:null,
       robotConfiguration:{drivetrain:"mecanum",motorNamingPreset:"descriptive"},toolWindows:{project:true,simulator:true,rightTool:"simulator",bottom:true,bottomTab:"Run"},updatedAt:now};
     await putProjectAndSession(db,project,session);
-  }else if(existing.cloudSyncEnabled || existing.ownerUserId)await putRecord(db,"projects",{...existing,ownerUserId:undefined,cloud:undefined,cloudSyncEnabled:false});
+  }else if(existing.cloudSyncEnabled || existing.ownerUserId || existing.starter!==starter)await putRecord(db,"projects",{...existing,starter,ownerUserId:undefined,cloud:undefined,cloudSyncEnabled:false});
   db.close(); return workspace;
 }
 
@@ -52,12 +56,15 @@ function DesktopApp(){
   useEffect(()=>{let live=true;void prepareWorkspace().then(w=>{if(!live)return;setWorkspace(w);if(!window.location.pathname.startsWith("/studio/")){history.replaceState({},"",`/studio/${w.id}`);setRoute(`/studio/${w.id}`);}}).catch(e=>{if(live)setError(String(e));});const pop=()=>setRoute(window.location.pathname);window.addEventListener("popstate",pop);return()=>{live=false;window.removeEventListener("popstate",pop);};},[]);
   const evaluate=useCallback(async()=>{if(evaluating.current)return;evaluating.current=true;setBusy(true);setError(null);try{await window.__ftcDesktopDrain?.();setEvaluation(await desktopRequest<Evaluation>("/evaluate",{seed:20261024}));}catch(e){setError(e instanceof Error?e.message:String(e));}finally{evaluating.current=false;setBusy(false);}},[]);
   useEffect(()=>{const run=()=>{void evaluate();};window.addEventListener("ftc-desktop-evaluate",run);return()=>window.removeEventListener("ftc-desktop-evaluate",run);},[evaluate]);
+  useEffect(()=>{
+    const summary=evaluation?`${evaluation.valid?"":"Invalid trial · "}${evaluation.tips} tips · ${evaluation.parked?"Parked":"Not parked"} · ${evaluation.score} pts`:"";
+    const detail=evaluation?`30 simulated seconds; seed ${evaluation.seed}; ${evaluation.compileMs.toFixed(0)} ms compile; ${(evaluation.wallMs/1000).toFixed(2)} s trial; reused ${evaluation.reusedPrefixSeconds.toFixed(2)} unchanged seconds`:"";
+    void desktopRequest("/native/chrome",{directory:workspace?.directory??"",ready:Boolean(workspace),busy,summary,detail}).catch(e=>setError(String(e)));
+  },[workspace,busy,evaluation]);
   if(!workspace)return <main className="desktop-start" role={error?"alert":"status"}>{error??"Opening local project…"}{error&&<button onClick={()=>window.location.reload()}>Retry</button>}</main>;
   const projectId=route.match(/^\/studio\/([^/]+)/)?.[1];
   return <LiveAuthBoundary expectedUserId={null}><ProjectCatalogProvider accountId={null}>
-    <div className="desktop-frame"><div className="desktop-bar"><strong>FTC Simulator Desktop</strong><span className="desktop-path" title={workspace.directory}>{workspace.directory}</span>
-      {evaluation&&<output aria-live="polite" title={`30 simulated seconds; seed ${evaluation.seed}; reused ${evaluation.reusedPrefixSeconds.toFixed(2)} unchanged seconds`}>{evaluation.valid?"":"Invalid trial · "}{evaluation.tips} tips · {evaluation.parked?"Parked":"Not parked"} · {evaluation.score} pts · {evaluation.compileMs.toFixed(0)} ms compile · {(evaluation.wallMs/1000).toFixed(2)} s trial</output>}
-      <button onClick={()=>{void evaluate();}} disabled={busy} title="Run and Evaluate use rehearsal seed 20261024.">{busy?"Evaluating…":"Evaluate 30 s"}</button></div>
+    <div className="desktop-frame">
       {error&&<div className="desktop-error" role="alert">{error}<button onClick={()=>setError(null)}>Dismiss</button></div>}
       <div className="desktop-content">{projectId?<StudioShell key={projectId} projectId={projectId} desktop={desktop}/>:<WelcomeScreen version="0.1.0"/>}</div>
     </div>

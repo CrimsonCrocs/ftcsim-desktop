@@ -28,6 +28,7 @@ import {
   X,
 } from "lucide-react";
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, useSyncExternalStore, type CSSProperties } from "react";
+import { flushSync } from "react-dom";
 import { useRouter } from "next/navigation";
 import { EditorPane } from "./editor-pane";
 import { BlocksEditorPane } from "./blocks-editor-pane";
@@ -428,6 +429,7 @@ export function StudioShell({ projectId, desktop }: { projectId: string; desktop
   hotReload: boolean;
   rehearsalSeed?: number;
   saveFiles(projectId: string, files: Record<string, string>): Promise<void>;
+  setRuntimeActive?(active:boolean):Promise<void>;
   registerSaveBarrier?(save:()=>Promise<void>):()=>void;
   registerAutomation?(control:(action:string,args:Record<string,unknown>)=>Promise<unknown>):()=>void;
   publishCompletions?: typeof publishProjectArtifactCompletions;
@@ -977,6 +979,17 @@ export function StudioShell({ projectId, desktop }: { projectId: string; desktop
   const appendLog = useCallback((message: string) => {
     setRunLog((lines) => [...lines.slice(-40), message]);
   }, []);
+
+  useEffect(() => {
+    const notify = desktop?.setRuntimeActive;
+    if (!notify) return;
+    const active = buildState.status === "building" || opModeState === "initializing" ||
+      opModeState === "ready" || opModeState === "running";
+    const publish = () => {void notify(active).catch(error => appendLog(`DESKTOP — ${String(error)}`));};
+    publish();
+    const timer = active ? setInterval(publish,5000) : undefined;
+    return () => {if(timer)clearInterval(timer);void notify(false).catch(()=>undefined);};
+  }, [appendLog,buildState.status,desktop,opModeState]);
 
   const appendRuntimeLog = useCallback((message: string) => {
     runtimeLogBufferRef.current.push(message);
@@ -2398,7 +2411,9 @@ export function StudioShell({ projectId, desktop }: { projectId: string; desktop
     const generation = ++runtimeGenerationRef.current;
     runtimeHardwareRef.current.clear();
     tickBudget.reset();
-    let lastSensorTime = hardwareFrameRef.current?.simulationTimeMs ?? -1;
+    // The first desktop tick consumes the sensor frame granted at START.
+    // Waiting for a newer frame would leave both fixed-step clocks waiting.
+    let lastSensorTime = desktop ? -1 : hardwareFrameRef.current?.simulationTimeMs ?? -1;
 
     const issueTick = () => {
       if (runtimeGenerationRef.current !== generation) return;
@@ -2449,6 +2464,7 @@ export function StudioShell({ projectId, desktop }: { projectId: string; desktop
         },
       });
       const tracked = request.then((frame) => deliverRuntimeFrame(frame, {
+        advanceEachFrame: Boolean(desktop),
         isCurrent: () => runtimeGenerationRef.current === generation,
         apply: applyRuntimeFrame,
         waitForPhysics: () => tickBudget.grant(++physicsGrantSequenceRef.current),
@@ -2488,7 +2504,7 @@ export function StudioShell({ projectId, desktop }: { projectId: string; desktop
       dispatch: issueTick,
       schedule: (callback, delay) => { runtimeTimerRef.current = setTimeout(callback, delay); },
     });
-  }, [appendLog, applyRuntimeFrame, configuredMotorNames, debuggerController, gamepadRegistry, neutralizeActuators, openBottom, tickBudget]);
+  }, [appendLog, applyRuntimeFrame, configuredMotorNames, debuggerController, desktop, gamepadRegistry, neutralizeActuators, openBottom, tickBudget]);
 
   const startRuntime = useCallback(async (
     session: OpModeSession,
@@ -2505,18 +2521,21 @@ export function StudioShell({ projectId, desktop }: { projectId: string; desktop
       return;
     }
     if (frame) applyRuntimeFrame(frame, { lifecycle: true });
-    setOpModeState("running");
+    // Native Run continues under an occluded window, where rAF can be suspended.
+    // Commit Running synchronously there before granting the first physics step.
+    if (desktop) flushSync(() => setOpModeState("running"));
+    else setOpModeState("running");
     openBottom("Run");
     appendLog(`START received. ${inputSourceLabel} is feeding TeamCode.`);
     // Let React commit the Running phase before Rapier consumes START output.
     // Otherwise a same-frame grant can be stepped under the Ready phase and
     // discard the first motor command returned by the JVM.
-    await new Promise<void>((resolve) => window.requestAnimationFrame(() => resolve()));
+    if (!desktop) await new Promise<void>((resolve) => window.requestAnimationFrame(() => resolve()));
     if (lifecycleGenerationRef.current !== lifecycleGeneration) return;
     await tickBudget.grant(++physicsGrantSequenceRef.current);
     if (lifecycleGenerationRef.current !== lifecycleGeneration) return;
     startControlLoop(session);
-  }, [appendLog, applyRuntimeFrame, drainRuntimeTicks, inputSourceLabel, openBottom, startControlLoop, tickBudget]);
+  }, [appendLog, applyRuntimeFrame, desktop, drainRuntimeTicks, inputSourceLabel, openBottom, startControlLoop, tickBudget]);
 
   const initializeRuntime = useCallback(async (
     startAfterInit: boolean,
@@ -2972,7 +2991,7 @@ export function StudioShell({ projectId, desktop }: { projectId: string; desktop
   }, [appendLog, cancelWorkspaceMutationLock, hotReload, neutralizeActuators, telemetryStore, tickBudget]);
 
   useEffect(() => desktop?.registerAutomation?.(async (action,args) => {
-    if(action==="status")return {projectId,opModeState,buildState,hotReloadEnabled,hotReloadActive,saveStatus:fileSaveStatus,activeFile:activePath,runLog:runLog.slice(-60),telemetry:telemetryStore.getSnapshot(),simulationTimeMs:hardwareFrameRef.current?.simulationTimeMs??0,actuators:actuatorStore.getSnapshot(),rehearsalSeed:desktop?.rehearsalSeed??2026};
+    if(action==="status")return {projectId,opModeState,buildState,hotReloadEnabled,hotReloadActive,saveStatus:fileSaveStatus,activeFile:activePath,runLog:runLog.slice(-60),telemetry:telemetryStore.getSnapshot(),simulationTimeMs:hardwareFrameRef.current?.simulationTimeMs??0,fieldReady:Boolean(hardwareFrameRef.current?.sensors),documentVisible:!document.hidden,sceneVisible:showSimulator&&!gameSimulationOpen,debugPaused,view:{editorCharacters:document.querySelector(".monaco-editor .view-lines")?.textContent?.length??0,canvases:Array.from(document.querySelectorAll("canvas")).map(canvas=>({width:canvas.width,height:canvas.height})),busyRegions:Array.from(document.querySelectorAll('[aria-busy="true"],[role="status"]')).map(node=>node.getAttribute("aria-label")??node.textContent?.slice(0,100))},actuators:actuatorStore.getSnapshot(),rehearsalSeed:desktop?.rehearsalSeed??2026};
     if(action==="run"){
       if(opModeState==="running")throw new Error("OpMode is already running");
       if(!canRunWorkspace)throw new Error("The workspace is not ready to run");
@@ -2982,6 +3001,30 @@ export function StudioShell({ projectId, desktop }: { projectId: string; desktop
       if(opModeState==="running"||hotReload.active)await handleRun();
       else if(opModeState==="initializing"||opModeState==="ready")await invalidateRuntime("STOP requested through MCP.");
       return {requested:"stop"};
+    }
+    if(action==="rewind"){
+      if(workspaceMutationLockRef.current||opModeStateRef.current==="initializing")throw new Error("Wait for the current operation before rewinding the field");
+      hotReload.stop();setHotReloadActive(false);
+      const generation=++lifecycleGenerationRef.current;
+      opModeStateRef.current="initializing";setOpModeState("initializing");
+      runtimeGenerationRef.current++;
+      if(runtimeTimerRef.current)clearTimeout(runtimeTimerRef.current);
+      neutralizeActuators();tickBudget.reset();
+      const session=opModeSessionRef.current;opModeSessionRef.current=null;
+      try{
+        const frame=await stopRuntimeSessionForReuse(session,runtimeTickPromisesRef.current);
+        if(lifecycleGenerationRef.current!==generation)throw new Error("Field rewind was superseded");
+        if(frame){opModeSessionRef.current=session;applyRuntimeFrame(frame,{lifecycle:true});}
+      }catch(error){
+        await session?.close().catch(()=>undefined);
+        if(lifecycleGenerationRef.current===generation)setOpModeState("stopped");
+        throw error;
+      }finally{if(lifecycleGenerationRef.current===generation)neutralizeActuators();}
+      runtimeTickSequenceRef.current=0;hardwareFrameRef.current=null;
+      telemetryStore.reset();setOpModeState(buildArtifact?"stopped":"idle");
+      setResetSignal(signal=>signal+1);
+      appendLog("Field rewound. The loaded build is ready to run again.");
+      return {requested:"rewind"};
     }
     if(action==="build"){
       if(!canBuildWorkspace)throw new Error("The workspace is not ready to build");
@@ -2995,6 +3038,7 @@ export function StudioShell({ projectId, desktop }: { projectId: string; desktop
       if(current===undefined)throw new Error("File is not open in this project");
       const index=current.indexOf(search);
       if(index<0||current.indexOf(search,index+search.length)>=0)throw new Error("Editor search must match exactly once");
+      handleOpenFile(path);
       handleEditorChange(path,current.slice(0,index)+replacement+current.slice(index+search.length));
       return {path,updated:true};
     }
@@ -3580,6 +3624,8 @@ export function StudioShell({ projectId, desktop }: { projectId: string; desktop
                 inputSource={inputSourceLabel}
                 fullscreenControls={opModeRunControls}
                 simulateWhileHidden={mobile}
+                runInBackground={Boolean(desktop)}
+                controlDriven={Boolean(desktop)}
                 touchControls={mobile && opModeState === "running" && <TouchGamepad registry={gamepadRegistry} active={showSimulator && !gameSimulationOpen && !configurationMaximized && !commandOpen && !gamepadConfigurationOpen} />}
                 keyboardBindings={playSettings.keyboard}
                 fieldPreset={fieldPreset}

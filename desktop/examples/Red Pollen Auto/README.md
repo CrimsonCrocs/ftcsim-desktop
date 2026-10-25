@@ -1,31 +1,39 @@
 # Red Pollen Auto
 
-A BIOBUZZ red-alliance autonomous using the actual NextFTC 1.1.0 command scheduler and Pedro Pathing revhub/core 3.0.2. The robot handles pollen through a channel narrower than nectar. Intake compliance is supplied by simulator physics v9; the shooter and drivetrain use their existing models.
+A Kotlin red-alliance BIOBUZZ autonomous that uses real NextFTC 1.1.0 and Pedro Pathing core/revhub 3.0.2. The robot collects pollen through a compliant intake. Its shooter and drivetrain are rigid.
 
-## Run in FTC Simulator
+The best verified route makes **four red hive tips and parks for 88 points** within 30 simulated seconds. This result uses seed `20261024`, the supplied robot, and three idle robots. Five pollen-only tips with park has not been achieved. The tests do not prove that five is impossible.
 
-1. Select BIOBUZZ, Red alliance, Near start, and four starting pollen. Keep this project's robot configuration.
-2. Select **Red Pollen — Tips + Park**, then Build, INIT, and START.
-3. Watch Phase, Observed tips, Throat beam, and the timer in telemetry.
+## Run it
 
-The robot collects the four starting pollen, shoots into the initially upright red cell, collects three red garden pollen while reserving room for a retained starting pollen, and follows Pedro paths into the red loading area. It shoots the final volley from there and shuts down by 29.5 simulated seconds. The final scoring position overlaps the loading area while leaving clearance for an idle far-start partner.
+1. Open this project in FTC Simulator Desktop. Keep its robot configuration and the Red/Near field setup. The four starting pollen begin on the floor beside the robot.
+2. Select **Red Pollen — Tips + Park**. Use **Build and Play** for the first run, then **Run** to reuse the loaded build.
+3. Use **Evaluate 30 s** for a fast, repeatable trial. For a fresh physics check through MCP, call `evaluate_autonomous` with `{"seed":20261024,"full":true}`.
 
-Pedro controls every drive leg and holds each endpoint. Transitions require position and heading to settle. AprilTag orientation selects the upright cell; a hysteresis latch retains the last observed near-stop orientation when the cell hides its tags. A throat beam sequences individual feeds, and the flywheel encoder gates each feed on speed recovery. No game-state or score API is read by the autonomous.
+Telemetry shows the current phase, time, Pedro pose, flywheel speed, throat beam, and hive tag observations. Source edits use the warm compiler after the first build.
+
+## The route
+
+The robot shoots three starting pollen into the first upward cell. It collects three garden pollen and keeps the fourth starting pollen for the next volley. It then crosses to the far partner's four starting pollen and makes the third tip.
+
+For the fourth volley, the robot waits outside the landing area, collects the discharged pollen from the floor, and moves left for a diagonal shot. It follows the outside lane into the red loading area and stops. The route reserves time for park and has a motor cutoff at 29.9 seconds.
+
+Pedro controls each drive path and holds its endpoint. Short pickup and shooting legs use their own speed and braking profile. The throat beam tracks feed events, and the flywheel encoder controls wheel speed. The autonomous uses SDK sensors and known field coordinates; it does not read simulator scores or private game state.
 
 ## Robot and libraries
 
-- REV mappings and all physical dimensions are in `ftcsim.project.json`.
-- The intake is a compliant roller with a backing ramp. The 80 mm storage channel admits 71 mm pollen and excludes 91 mm nectar.
-- The feeder has its own motor. A servo aims the turret; the hood servo sets elevation. The lift remains stowed.
-- `pedro/Constants.java` configures four mecanum drive motors and Pinpoint `odo`. Pedro uses inches and radians; `pose()` converts the simulator field's metres and Z axis.
-- NextFTC 1.1.0 is the supported NextFTC lifecycle used by this project. It is pinned deliberately; this project does not claim to use NextFTC 2.
-- Pedro 3.0.2 was the latest stable `com.pedropathing:revhub` published in Maven Central when checked on 2026-10-24.
-- FTC SDK 11.1.0, Kotlin 2.2.10 tooling, Gradle 8.9.
+- All hardware names and physical dimensions are in `ftcsim.project.json`.
+- The intake uses a compliant roller and backing ramp. The 80 mm storage channel admits 71 mm pollen and excludes 91 mm Nectar.
+- The feeder has its own motor. A servo aims the turret, and another servo sets the hood angle. The lift stays stowed.
+- `pedro/Constants.kt` configures the mecanum motors and Pinpoint `odo`. Pedro uses inches and radians. `pose()` converts the field's metres and Z axis.
+- FTC SDK 11.1.0, NextFTC 1.1.0, Pedro core/revhub 3.0.2, Kotlin tooling 2.2.10, and Gradle 8.9 are pinned. Pedro [core](https://repo.maven.apache.org/maven2/com/pedropathing/core/maven-metadata.xml) and [revhub](https://repo.maven.apache.org/maven2/com/pedropathing/revhub/maven-metadata.xml) 3.0.2 were the latest stable Maven releases checked on 2026-10-25.
 
-`onWaitForStart()` uses the SDK start latch, and `onUpdate()` yields with `idle()` so NextFTC participates in the simulator's clocked LinearOpMode lifecycle. The project compiles against the published libraries rather than lookalike local classes.
+`onWaitForStart()` uses the SDK start latch. `onUpdate()` calls `idle()` so the NextFTC program yields to the simulator's control clock. The code compiles against the published libraries.
 
-## Validation
+## Recorded result and limits
 
-The development harness runs the compiled Java OpMode for the full 30 simulated seconds against the BIOBUZZ rigid-body world. It checks tip count, park completion, controlled elements, nectar intake, and neutral motor outputs. The best verified result from the route and shooter sweeps is one tip, 3 leave points, and 5 park points (28 total), with shutdown at 28.8 s. Checks across seeds 2026, 20261024, and 20261025 confirmed a park, at most four controlled elements, no nectar intake, no rule warnings, and neutral motor outputs. The second volley is an attempt, not a guaranteed second tip. Other robots are present but idle. This is a solo route and does not claim collision avoidance against moving opponents or a mathematical maximum number of tips.
+[validation.json](validation.json) records the seed, source hashes, score, parking result, element types, peak payload, neutral STOP output, and fresh physics step count. A full check advances all 6,000 physics steps for the 30-second autonomous. The Kotlin version retains the four-tip result of the earlier Java route.
 
-The intake contact model is an uncalibrated reduced pinch model, not a deforming mesh or a hardware-validated material simulation. Retune the physical parameters and drive/shooter calibration for a real robot.
+The recorded run collected no Nectar, carried at most four pollen, and ended with neutral motor outputs. It used the original floor start and robot configuration. Other robots were present and idle. A fixed-seed result does not establish performance against moving opponents or across all seeds.
+
+The intake contact model is a reduced pinch model. It is not a deforming mesh or a material model calibrated against a real intake. Physics, drive, and shooter parameters need measured calibration before results can transfer to hardware.

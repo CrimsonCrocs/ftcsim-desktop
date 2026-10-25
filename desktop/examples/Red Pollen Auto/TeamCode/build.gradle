@@ -1,7 +1,11 @@
+apply plugin: 'kotlin-android'
 apply from: '../build.common.gradle'
 apply from: '../build.dependencies.gradle'
 
 android {
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
     namespace = 'org.firstinspires.ftc.teamcode'
 
     packagingOptions {

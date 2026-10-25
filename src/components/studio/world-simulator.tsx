@@ -132,13 +132,14 @@ export function WorldSimulator(props: RobotSimulatorProps) {
         const delta = (beganAt - lastFrameAt) / 1000;
         lastFrameAt = beganAt;
         const current = latestProps.current;
-        if (!current.paused && !document.hidden && (current.visible !== false || current.simulateWhileHidden) && current.state !== "idle") {
+        if (!current.paused && (!document.hidden || current.runInBackground) && (current.visible !== false || current.simulateWhileHidden) && current.state !== "idle") {
           const running = current.state === "ready" || current.state === "running";
           if (running) {
             // Physics owns its clock; remote commands update demand. Waiting
             // for a network round trip here turns 120 ms latency into 16% speed.
-            for (let ticks = clock.consume(delta); ticks > 0; ticks--) {
-              const sequences = tickBudget.consumeSequences();
+            const ticksDue = current.controlDriven ? Math.min(1, tickBudget.size()) : clock.consume(delta);
+            for (let ticks = ticksDue; ticks > 0; ticks--) {
+              const sequences = tickBudget.consumeSequences(current.controlDriven ? 1 : Infinity);
               const frame = actuatorStore.getSnapshot();
               if (frame) applyFrame(world, frame, ++commandSequence, playerRobot);
               await advanceBrowserPhysics(PHYSICS_SUBSTEPS_PER_CONTROL_TICK, () => { world.step(1); }, { isCurrent });

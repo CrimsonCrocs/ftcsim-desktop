@@ -16,6 +16,10 @@ export class FastExecutor implements ProcessExecutor {
       const prepared = process.env.FTC_DESKTOP_RESOURCE_ROOT ? await usePrecompiledShim(request, process.env.FTC_DESKTOP_RESOURCE_ROOT) : undefined;
       kind = prepared ? "precompiled-shim" : "warm-javac";
       result = prepared ?? await compiler().request("COMPILE", [request.cwd, ...request.argv.slice(1)], request.timeoutMs, request.signal);
+    } else if (executable === "java" && request.argv.includes("org.jetbrains.kotlin.cli.jvm.K2JVMCompiler")) {
+      kind = "warm-kotlinc";
+      const main = request.argv.indexOf("org.jetbrains.kotlin.cli.jvm.K2JVMCompiler"), cp = request.argv.indexOf("-cp");
+      result = await compiler().request("KOTLIN", [request.argv[cp + 1]!, ...request.argv.slice(main + 1)], request.timeoutMs, request.signal);
     } else if (executable === "java" && request.argv.includes("org.firstinspires.ftc.sim.OpModeDiscoveryCli")) {
       kind = "warm-discovery";
       const main = request.argv.indexOf("org.firstinspires.ftc.sim.OpModeDiscoveryCli"), cp = request.argv.indexOf("-cp");

@@ -28,6 +28,7 @@ export async function desktopRequest<T>(path: string, body?: unknown): Promise<T
 export class WebSocketOpModeSession implements OpModeSession {
   private sequence = 0;
   private closed = false;
+  private commandTail: Promise<unknown> = Promise.resolve();
   private cameraRequests: Set<string> | null = null;
   private cameraCaptures = new Map<string, number>();
   private listeners = new Set<(state: DebugState) => void>();
@@ -99,8 +100,15 @@ export class WebSocketOpModeSession implements OpModeSession {
   }
   private async send(body: Record<string, unknown>): Promise<Extract<OpModeServerMessage, { type: "response"; status: "ok" }>> {
     if (this.closed) throw new OpModeSessionError("Desktop session closed", "SESSION_CLOSED");
-    const reply = await desktopRequest<Extract<OpModeServerMessage, { type: "response" }>>("/sessions/command", {
-      sessionId: this.id, message: { protocolVersion: 3, requestId: this.next(), ...body } as OpModeClientMessage });
+    // Independent native HTTP tasks can arrive out of order. Preserve the
+    // session command order before they cross that transport boundary.
+    const message = { protocolVersion: 3, requestId: this.next(), ...body } as OpModeClientMessage;
+    const request = this.commandTail.then(() => {
+      if (this.closed) throw new OpModeSessionError("Desktop session closed", "SESSION_CLOSED");
+      return desktopRequest<Extract<OpModeServerMessage, { type: "response" }>>("/sessions/command", { sessionId: this.id, message });
+    });
+    this.commandTail = request.catch(() => undefined);
+    const reply = await request;
     if (reply.status === "error") throw new OpModeSessionError(reply.error.message, reply.error.code, reply.error.diagnostics);
     if (reply.status !== "ok") throw new Error("Unexpected asynchronous build response");
     if(reply.frame?.cameraFrameRequests!==undefined)this.cameraRequests=new Set(reply.frame.cameraFrameRequests);

@@ -19,3 +19,30 @@ test("native editor tick carries the same fixed control interval as the web tran
     else Reflect.deleteProperty(globalThis, "window");
   }
 });
+
+test("native session commands reach HTTP in order and recover after a rejected command",async()=>{
+  const previous=Object.getOwnPropertyDescriptor(globalThis,"window");
+  let release!:()=>void;
+  const gate=new Promise<void>(resolve=>{release=resolve;});
+  const commands:string[]=[];
+  Object.defineProperty(globalThis,"window",{configurable:true,value:{ftcDesktop:{
+    async request(path:string,body:any){
+      if(path==="/sessions/open")return {sessionId:"ordered"};
+      commands.push(body.message.command);
+      if(commands.length===1){await gate;throw new Error("First request failed");}
+      return {type:"response",status:"ok"};
+    },
+  }}});
+  try{
+    const session=await WebSocketOpModeSession.connect();
+    const first=session.keepAlive().catch(error=>error.message),second=session.transition("stop");
+    await new Promise(resolve=>setTimeout(resolve,0));
+    expect(commands).toEqual(["heartbeat"]);
+    release();expect(await first).toContain("First request failed");await second;
+    expect(commands).toEqual(["heartbeat","stop"]);
+  }finally{
+    release();
+    if(previous)Object.defineProperty(globalThis,"window",previous);
+    else Reflect.deleteProperty(globalThis,"window");
+  }
+});

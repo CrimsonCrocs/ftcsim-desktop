@@ -13,6 +13,8 @@ public final class DesktopHost {
     private static final JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();
     private static final StandardJavaFileManager files = compiler.getStandardFileManager(null, Locale.ROOT, StandardCharsets.UTF_8);
     private static RuntimeGeneration generation;
+    private static URLClassLoader kotlinCompiler;
+    private static String kotlinCompilerClasspath;
 
     public static void main(String[] ignored) throws Exception {
         BufferedReader input = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
@@ -27,6 +29,7 @@ public final class DesktopHost {
                 List<String> args = new ArrayList<>();
                 for (int i = 2; i < fields.length; i++) args.add(decode(fields[i]));
                 if (command.equals("COMPILE")) compile(id, args, start);
+                else if (command.equals("KOTLIN")) compileKotlin(id, args, start);
                 else if (command.equals("INVOKE")) invoke(id, args, start);
                 else if (command.equals("OPEN")) {
                     dispose();
@@ -44,7 +47,26 @@ public final class DesktopHost {
                 result(id, 1, "", trace.toString(), start);
             }
         }
-        dispose(); files.close();
+        dispose(); files.close(); if (kotlinCompiler != null) kotlinCompiler.close();
+    }
+
+    private static void compileKotlin(String id, List<String> args, long start) throws Exception {
+        String classpath = args.remove(0);
+        if (!classpath.equals(kotlinCompilerClasspath)) {
+            if (kotlinCompiler != null) kotlinCompiler.close();
+            kotlinCompiler = loader(classpath); kotlinCompilerClasspath = classpath;
+        }
+        ByteArrayOutputStream output = new ByteArrayOutputStream();
+        ClassLoader previous = Thread.currentThread().getContextClassLoader();
+        try (PrintStream diagnostics = new PrintStream(output, true, "UTF-8")) {
+            Thread.currentThread().setContextClassLoader(kotlinCompiler);
+            Class<?> type = kotlinCompiler.loadClass("org.jetbrains.kotlin.cli.jvm.K2JVMCompiler");
+            Object compiler = type.getConstructor().newInstance();
+            Object exit = type.getMethod("exec", PrintStream.class, String[].class)
+                .invoke(compiler, diagnostics, args.toArray(new String[0]));
+            int code = (Integer)exit.getClass().getMethod("getCode").invoke(exit);
+            result(id, code, "", output.toString("UTF-8"), start);
+        } finally { Thread.currentThread().setContextClassLoader(previous); }
     }
 
     private static void compile(String id, List<String> arguments, long start) throws Exception {

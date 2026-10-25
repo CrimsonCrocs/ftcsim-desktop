@@ -1,0 +1,87 @@
+{
+  "recordedAt": "2026-10-25",
+  "method": "Installed desktop native Evaluate button invoked through MCP; Kotlin robot program, published NextFTC/Pedro libraries, and all 6,000 fixed 5 ms physics steps",
+  "setup": {
+    "alliance": "red",
+    "start": "near",
+    "startingPollen": "four on floor beside robot",
+    "otherRobots": "present and idle",
+    "hardwareChanged": false,
+    "physicsParametersChanged": false
+  },
+  "sourceSha256": {
+    "TeamCode/src/main/java/org/firstinspires/ftc/teamcode/RedPollenAuto.kt": "83e7a933b05fad1536294ed2317448a28730a45d42ec0d89f57e6674695f5442",
+    "TeamCode/src/main/java/org/firstinspires/ftc/teamcode/pedro/Constants.kt": "8f75eb9b07fdd613499c86e619653f943fd8fc5489f9eca1f63cbee1ddbb92d0",
+    "ftcsim.project.json": "fbaecc1bbae5a18dd51b98673590a582e4d53fa8cb31f0cec7f3dddcbf8e5a7e",
+    "build.gradle": "6bf6e7482d7cc802f38d2726c067526bf66b0efc615d950d35996f5b095bd6d0",
+    "TeamCode/build.gradle": "84cd14bd4f031da70fd11848a8e65742a1b90a46b2b149fcfdfaf97d424d4506",
+    "gradle.properties": "0d7517b3e3be8dde190c5d9a4a3349fa91255b82493310f6825eb3b64a52d9d0"
+  },
+  "freshTrial": {
+    "trialId": "76f06cd9-a611-4575-bb1b-4099c28d6a39",
+    "seed": 20261024,
+    "sourceDigest": "bd4f952a77323d2aa0ef6d2c90c2c2c65a8a9b59af61c1fb4ab99942003c517a",
+    "entryClass": "org.firstinspires.ftc.teamcode.RedPollenAuto",
+    "compileKind": "gradle",
+    "compileMs": 14551,
+    "wallMs": 12278,
+    "reusedPrefixSeconds": 0,
+    "physicsTicksExecuted": 6000,
+    "simulatedSeconds": 30,
+    "tips": 4,
+    "score": 88,
+    "parked": true,
+    "stoppedNeutral": true,
+    "peakPayload": 4,
+    "collected": [
+      "pollen-25",
+      "pollen-26",
+      "pollen-27",
+      "pollen-28",
+      "pollen-18",
+      "pollen-19",
+      "pollen-20",
+      "pollen-32",
+      "pollen-31",
+      "pollen-30",
+      "pollen-29"
+    ],
+    "collectedNectar": [],
+    "valid": true,
+    "scoreBreakdown": {
+      "leave": 3,
+      "autoPark": 5,
+      "teleopPark": 0,
+      "hiveTips": 80,
+      "upwardCellElements": 0,
+      "ownedFlowerElements": 0,
+      "bottomNectarBonuses": 0,
+      "gardenElements": 0,
+      "foulsReceived": 0,
+      "refereeAdjustments": 0
+    }
+  },
+  "tipSamples": [
+    {
+      "firstSampleSeconds": 7.02,
+      "tips": 1
+    },
+    {
+      "firstSampleSeconds": 13.02,
+      "tips": 2
+    },
+    {
+      "firstSampleSeconds": 20.02,
+      "tips": 3
+    },
+    {
+      "firstSampleSeconds": 27.02,
+      "tips": 4
+    }
+  ],
+  "limits": [
+    "One fixed seed; moving robots were not tested.",
+    "Five pollen-only tips with park has not been achieved.",
+    "Physics parameters have not been calibrated against a real robot."
+  ]
+}

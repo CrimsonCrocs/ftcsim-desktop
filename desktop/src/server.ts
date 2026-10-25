@@ -42,6 +42,10 @@ const server = Bun.serve({ hostname: "127.0.0.1", port, idleTimeout: 255, maxReq
           const change=typeof body.content==="string"?{content:body.content}:{search:text(body.search,"patch search",16*1024*1024),replacement:typeof body.replacement==="string"?body.replacement:(()=>{throw new Error("Invalid replacement");})()};
           result=await workspace.edit(text(body.path,"file path"),expected,change);
         }
+        else if(path==="/workspace/delete"){
+          if(typeof body.expectedSha256!=="string"||!/^[a-f0-9]{64}$/.test(body.expectedSha256))throw new Error("An expected SHA-256 is required");
+          result=await workspace.remove(text(body.path,"file path"),body.expectedSha256);
+        }
         else if(path==="/automation/request")result=await automation.request(text(body.action,"editor action",40),body.args===undefined?{}:object(body.args));
         else if(path==="/automation/poll")result={...automation.poll(),activeWork:evaluator.busy};
         else if(path==="/automation/complete"){automation.complete(text(body.id,"command id",80),body.result,typeof body.error==="string"?body.error:undefined);result={received:true};}

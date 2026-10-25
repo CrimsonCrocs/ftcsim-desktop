@@ -5,11 +5,11 @@
   "kotlinVersion": "2.2.10",
   "javaBytecodeTarget": 8,
   "package": "org.firstinspires.ftc.teamcode",
-  "starter": "java",
+  "starter": "kotlin",
   "template": {
     "id": "empty",
     "revision": 1,
-    "language": "java"
+    "language": "kotlin"
   },
   "field": {
     "preset": "biobuzz-2026-2027"

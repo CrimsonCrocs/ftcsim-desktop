@@ -3,7 +3,7 @@ type Command={id:string;action:string;args:Record<string,unknown>};
 export class EditorAutomation {
   private waiting=new Map<string,{command:Command;delivered:boolean;resolve:(result:unknown)=>void;reject:(error:Error)=>void;timer:ReturnType<typeof setTimeout>}>();
   request(action:string,args:Record<string,unknown>={}):Promise<unknown>{
-    if(!["status","run","stop","build","edit","reload","snapshot","show","hide","quit"].includes(action))throw new Error("Unknown editor action");
+    if(!["status","run","stop","rewind","build","edit","reload","snapshot","show","hide","evaluate","resize","quit"].includes(action))throw new Error("Unknown editor action");
     if(this.waiting.size>=8)throw new Error("Editor command queue is full");
     const id=crypto.randomUUID();
     return new Promise((resolve,reject)=>{

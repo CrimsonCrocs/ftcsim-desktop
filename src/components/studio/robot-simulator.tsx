@@ -23,6 +23,10 @@ export interface RobotSimulatorProps {
   fullscreenControls?: ReactNode;
   touchControls?: ReactNode;
   simulateWhileHidden?: boolean;
+  /** Native desktop Run must keep advancing when another app covers its window. */
+  runInBackground?: boolean;
+  /** Local desktop control and physics share one fixed-step boundary. */
+  controlDriven?: boolean;
   keyboardBindings: KeyboardBindings;
   fieldPreset: FieldPresetId;
   fieldParameters: FieldParameters;

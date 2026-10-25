@@ -40,5 +40,10 @@ test("MCP edits require the current source hash and one exact patch match",async
     expect(await readFile(resolve(root,"Auto.java"),"utf8")).toBe("power=0.41;");
     await workspace.edit("New.java",null,{content:"new"});
     await expect(workspace.edit("New.java",null,{content:"overwrite"})).rejects.toThrow("changed");
+    await expect(workspace.remove("Auto.java",hash("stale"))).rejects.toThrow("changed");
+    await symlink(resolve(root,"Auto.java"),resolve(root,"Link.java"));
+    await expect(workspace.remove("Link.java",result.sha256)).rejects.toThrow("symbolic links");
+    expect(await workspace.remove("Auto.java",result.sha256)).toEqual({path:"Auto.java",deleted:true});
+    await expect(readFile(resolve(root,"Auto.java"))).rejects.toThrow();
   }finally{await rm(root,{recursive:true,force:true});}
 });

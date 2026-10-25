@@ -42,6 +42,13 @@ export class DesktopWorkspace {
     await writeFile(temporary,content);await rename(temporary,target);
     return {path,sha256:digest(content),bytes:Buffer.byteLength(content)};
   }
+  async remove(path:string,expectedSha256:string) {
+    const target=safePath(this.directory,path);
+    await rejectSymlinks(this.directory,path);
+    if(digest(await readFile(target))!==expectedSha256)throw new Error(`${path} changed. Read it again before deleting.`);
+    await unlink(target);
+    return {path,deleted:true};
+  }
   async snapshot(trackEditor = true) {
     const files: DesktopFile[] = [];
     let bytes = 0;

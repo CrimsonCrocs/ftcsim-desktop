@@ -46,7 +46,7 @@ export class JavaHost {
     void this.ready.catch(() => undefined);
   }
 
-  request(command: "COMPILE" | "INVOKE" | "OPEN" | "FRAME" | "DISPOSE", args: string[], timeoutMs = 10_000, signal?: AbortSignal): Promise<ProcessResult> {
+  request(command: "COMPILE" | "KOTLIN" | "INVOKE" | "OPEN" | "FRAME" | "DISPOSE", args: string[], timeoutMs = 10_000, signal?: AbortSignal): Promise<ProcessResult> {
     const task = this.tail.then(async () => {
       if (signal?.aborted) throw new Error("Operation cancelled");
       await this.ready;
