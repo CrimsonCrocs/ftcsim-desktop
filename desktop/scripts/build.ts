@@ -2,6 +2,7 @@ import { spawnSync } from "node:child_process";
 import { mkdir, readFile, readdir, rename, writeFile, stat, chmod, realpath } from "node:fs/promises";
 import { resolve, dirname, relative } from "node:path";
 import { fileURLToPath } from "node:url";
+import { precompileShim } from "./precompile-shim";
 
 const root=resolve(dirname(fileURLToPath(import.meta.url)),"../..");
 const app=resolve(root,"desktop/build/FTC Simulator Desktop.app");
@@ -40,9 +41,16 @@ run(process.execPath,[resolve(root,"desktop/node_modules/vite/bin/vite.js"),"bui
 timings.rendererMs=Math.round(performance.now()-before);
 before=performance.now();
 run("/usr/bin/xcrun",["clang","-fobjc-arc","-fblocks","-fno-modules","-O2","-mmacosx-version-min=14.0",resolve(root,"desktop/App.m"),"-o",resolve(contents,"MacOS/FTC Simulator Desktop"),"-framework","Cocoa","-framework","WebKit"]);
+const nodeHeaders=process.env.FTC_DESKTOP_NODE_HEADERS??"/opt/homebrew/include/node";
+await stat(resolve(nodeHeaders,"node_api.h"));
+run("/usr/bin/xcrun",["clang","-dynamiclib","-undefined","dynamic_lookup","-DNAPI_VERSION=8","-O2","-mmacosx-version-min=14.0","-I",nodeHeaders,
+  resolve(root,"desktop/work-policy.c"),"-o",resolve(resources,"desktop/scheduling.node")]);
 timings.nativeMs=Math.round(performance.now()-before);
 await mkdir(resolve(resources,"desktop/host"),{recursive:true});
 run(resolve(javaHome,"bin/javac"),["--release","17","-d",resolve(resources,"desktop/host"),resolve(root,"desktop/java/DesktopHost.java")]);
+run("/usr/bin/xcrun",["clang","-dynamiclib","-O2","-mmacosx-version-min=14.0","-I",resolve(javaHome,"include"),"-I",resolve(javaHome,"include/darwin"),
+  resolve(root,"desktop/java/work-policy.c"),"-o",resolve(resources,"desktop/work-policy.dylib")]);
+await precompileShim(javaHome,resolve(root,"runtime/java-sdk-shim/src/main/java"),resolve(resources,"desktop/precompiled-shim"));
 
 // Preserve each original module's resource URL when bundling the existing local runner.
 // This keeps SDK/adapters/debugger lookup identical inside the installed application.

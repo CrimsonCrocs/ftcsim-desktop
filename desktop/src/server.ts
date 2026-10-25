@@ -43,7 +43,7 @@ const server = Bun.serve({ hostname: "127.0.0.1", port, idleTimeout: 255, maxReq
           result=await workspace.edit(text(body.path,"file path"),expected,change);
         }
         else if(path==="/automation/request")result=await automation.request(text(body.action,"editor action",40),body.args===undefined?{}:object(body.args));
-        else if(path==="/automation/poll")result=automation.poll();
+        else if(path==="/automation/poll")result={...automation.poll(),activeWork:evaluator.busy};
         else if(path==="/automation/complete"){automation.complete(text(body.id,"command id",80),body.result,typeof body.error==="string"?body.error:undefined);result={received:true};}
         else if(path==="/build")result=await evaluator.build(workspace.path);
         else if (path === "/sessions/open") result = await sessions.open(sessionOptions(body));

@@ -426,6 +426,7 @@ function RunStateLabel({ state }: { state: OpModeState }) {
 
 export function StudioShell({ projectId, desktop }: { projectId: string; desktop?: {
   hotReload: boolean;
+  rehearsalSeed?: number;
   saveFiles(projectId: string, files: Record<string, string>): Promise<void>;
   registerSaveBarrier?(save:()=>Promise<void>):()=>void;
   registerAutomation?(control:(action:string,args:Record<string,unknown>)=>Promise<unknown>):()=>void;
@@ -2971,7 +2972,7 @@ export function StudioShell({ projectId, desktop }: { projectId: string; desktop
   }, [appendLog, cancelWorkspaceMutationLock, hotReload, neutralizeActuators, telemetryStore, tickBudget]);
 
   useEffect(() => desktop?.registerAutomation?.(async (action,args) => {
-    if(action==="status")return {projectId,opModeState,buildState,hotReloadEnabled,hotReloadActive,saveStatus:fileSaveStatus,activeFile:activePath,runLog:runLog.slice(-60),telemetry:telemetryStore.getSnapshot(),simulationTimeMs:hardwareFrameRef.current?.simulationTimeMs??0,actuators:actuatorStore.getSnapshot()};
+    if(action==="status")return {projectId,opModeState,buildState,hotReloadEnabled,hotReloadActive,saveStatus:fileSaveStatus,activeFile:activePath,runLog:runLog.slice(-60),telemetry:telemetryStore.getSnapshot(),simulationTimeMs:hardwareFrameRef.current?.simulationTimeMs??0,actuators:actuatorStore.getSnapshot(),rehearsalSeed:desktop?.rehearsalSeed??2026};
     if(action==="run"){
       if(opModeState==="running")throw new Error("OpMode is already running");
       if(!canRunWorkspace)throw new Error("The workspace is not ready to run");
@@ -3568,6 +3569,7 @@ export function StudioShell({ projectId, desktop }: { projectId: string; desktop
               inert={showSimulator ? undefined : true}
             >
               <RobotSimulator
+                worldSetup={desktop?.rehearsalSeed===undefined?undefined:{seed:desktop.rehearsalSeed,alliance:"red",startPosition:"near"}}
                 variant={activeVariant}
                 state={opModeState}
                 paused={debugPaused}
@@ -3883,6 +3885,7 @@ export function StudioShell({ projectId, desktop }: { projectId: string; desktop
       </div>}
 
       {gameSimulationOpen && <GameSimulationPanel
+        rehearsalSeed={desktop?.rehearsalSeed}
         open
         onClose={() => setGameSimulationOpen(false)}
         onConfigureRobot={() => { setGameSimulationOpen(false); openRobotConfigurationDialog(); }}

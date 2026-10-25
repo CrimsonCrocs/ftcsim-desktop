@@ -507,9 +507,11 @@ async function compileSimulatorShim(
   output: string,
 ): Promise<void> {
   const sources = await listJavaSources(config.shimSourceRoot);
+  const emptyClasspath = join(workspace, "empty-shim-classpath");
+  await mkdir(emptyClasspath);
   const result = await config.executor.run({
     argv: [
-      "javac", "--release", "8", "-proc:none", "-encoding", "UTF-8",
+      "javac", "--release", "8", "-g", "-proc:none", "-Xlint:all", "-classpath", emptyClasspath, "-encoding", "UTF-8",
       "-J-Xms16m", "-J-Xmx256m", "-J-XX:MaxMetaspaceSize=128m", "-J-Xss512k",
       "-d", output, ...sources,
     ],

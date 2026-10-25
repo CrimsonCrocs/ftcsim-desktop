@@ -9,6 +9,7 @@ export class DesktopEvaluatorClient {
   private next=0;
   private pending=new Map<number,{resolve:(result:unknown)=>void;reject:(error:Error)=>void;timer:ReturnType<typeof setTimeout>}>();
   constructor(private readonly root:string){}
+  get busy():boolean{return this.pending.size>0;}
   async evaluate(directory:string,options:Options):Promise<Result>{
     return this.request<Result>(directory,"evaluate",options);
   }

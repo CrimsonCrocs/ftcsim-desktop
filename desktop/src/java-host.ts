@@ -1,4 +1,5 @@
 import { resolve } from "node:path";
+import { jvmWorkPolicyArgument } from "./work-policy";
 import type { Subprocess } from "bun";
 import type { ProcessResult } from "../../services/java-runner/src/process-executor";
 
@@ -16,7 +17,9 @@ export class JavaHost {
   closed = false;
 
   constructor() {
-    this.child = Bun.spawn([process.env.FTC_DESKTOP_JAVA ?? "java", "-Xms32m", "-Xmx384m", "-Djava.awt.headless=true", "-cp",
+    const policy = process.platform === "darwin" ? ["/usr/sbin/taskpolicy", "-a"] : [];
+    const argument = jvmWorkPolicyArgument(), agent = argument ? [argument] : [];
+    this.child = Bun.spawn([...policy, process.env.FTC_DESKTOP_JAVA ?? "java", ...agent, "-Xms32m", "-Xmx384m", "-Djava.awt.headless=true", "-Dftcsim.cooperativeDeadlineMillis=300", "-cp",
       process.env.FTC_DESKTOP_HOST_CLASSES ?? resolve("desktop/.cache/host"), "ftc.desktop.DesktopHost"], { stdin:"pipe",stdout:"pipe",stderr:"pipe" });
     hosts.add(this);
     this.ready = new Promise<void>((resolveReady, rejectReady) => {

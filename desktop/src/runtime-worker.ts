@@ -28,7 +28,10 @@ export class DesktopJvmWorker implements OpModeJvmWorker {
     if (this.closed) throw new Error("Runtime generation is closed");
     await this.ready;
     const encoded = encodeWorkerCommand(message, Boolean(this.input.robotId || this.input.cameras?.length || this.input.sensors?.length), this.input.motors.map(m => m.name), (this.input.cameras ?? []).map(c => c.name));
-    const result = await this.host.request("FRAME", [encoded], message.command === "init" || message.command === "handoff" ? 2500 : OPMODE_MAX_TICK_EXECUTION_MILLIS);
+    // The cooperative control deadline is enforced inside Java (300 ms on
+    // desktop). Give its reply bounded transport time during host contention;
+    // an ordinary frame returns immediately when the current tick yields.
+    const result = await this.host.request("FRAME", [encoded], message.command === "init" || message.command === "handoff" ? 2500 : Math.max(1000, OPMODE_MAX_TICK_EXECUTION_MILLIS));
     if (result.exitCode) throw new Error(result.stderr);
     const frame = JSON.parse(result.stdout) as JvmWorkerReply & { error?: { message: string } };
     if (!frame.ok || frame.error) throw new Error(frame.error?.message ?? "Invalid runtime reply");

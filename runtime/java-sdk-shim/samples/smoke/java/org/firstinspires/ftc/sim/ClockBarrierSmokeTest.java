@@ -12,6 +12,12 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 /** A slow host must never turn a pending control loop into a completed tick. */
 public final class ClockBarrierSmokeTest {
     public static void main(String[] args) throws Exception {
+        if (args.length > 0 && "runner-probe".equals(args[0])) {
+            PersistentOpModeRunnerCli.main(java.util.Arrays.copyOfRange(args, 1, args.length));
+            DcMotor motor = NeverYieldOpMode.lastMotor;
+            if (motor != null) require(motor.getPower() == 0, "failed control must leave the actual motor neutral");
+            return;
+        }
         slowCooperativeLoop();
         virtualSleep();
         initAndDeadline();
@@ -79,9 +85,12 @@ public final class ClockBarrierSmokeTest {
     }
 
     private static void persistentRunner() throws Exception {
-        for (boolean neverYields : new boolean[] {false, true}) {
+        for (int[] configuration : new int[][] {{0, 60, 120}, {0, 180, 300}, {1, 0, 120}, {1, 0, 300}}) {
+            boolean neverYields = configuration[0] == 1;
             Process process = new ProcessBuilder(System.getProperty("java.home") + "/bin/java",
-                    "-cp", System.getProperty("java.class.path"), PersistentOpModeRunnerCli.class.getName(),
+                    "-Dftcsim.test.workMillis=" + configuration[1],
+                    "-Dftcsim.cooperativeDeadlineMillis=" + configuration[2],
+                    "-cp", System.getProperty("java.class.path"), ClockBarrierSmokeTest.class.getName(), "runner-probe",
                     "--class", (neverYields ? NeverYieldOpMode.class : SlowYieldOpMode.class).getName(),
                     "--robot-id", "red-1", "--motor-profile", "v1,drive,goBILDA-312rpm,537.7,312,0.85")
                     .redirectErrorStream(true).start();
@@ -102,13 +111,14 @@ public final class ClockBarrierSmokeTest {
                                 + "\t0,0,0,0,0,0,12.5,0\tred-1\t" + i + "\t" + (i * 20) + "\t");
                         String frame = replies.readLine();
                         require(frame.contains("\"ok\":true") && frame.contains("\"power\":" + ((i + 1) / 10.0)),
-                                "TICK must wait for its own delayed command");
+                                "TICK must wait for its own delayed command " + java.util.Arrays.toString(configuration) + ": " + frame);
                     }
                     commands.println("CLOSE\tclose");
                     require(replies.readLine().contains("\"ok\":true"), "fixture CLOSE must succeed");
                 }
                 commands.close();
                 require(process.waitFor(2, TimeUnit.SECONDS), "runner must close after its bounded control deadline");
+                require(process.exitValue() == 0, "runner must pass its actual motor-neutrality check");
             } finally { process.destroyForcibly(); }
         }
     }
@@ -119,7 +129,7 @@ public final class ClockBarrierSmokeTest {
             waitForStart();
             int count = 0;
             while (opModeIsActive()) {
-                LockSupport.parkNanos(60_000_000L);
+                LockSupport.parkNanos(Integer.getInteger("ftcsim.test.workMillis", 60) * 1_000_000L);
                 drive.setPower(++count / 10.0);
                 idle();
             }
@@ -127,8 +137,10 @@ public final class ClockBarrierSmokeTest {
     }
 
     public static final class NeverYieldOpMode extends LinearOpMode {
+        static volatile DcMotor lastMotor;
         @Override public void runOpMode() {
             waitForStart();
+            lastMotor = hardwareMap.get(DcMotor.class, "drive"); lastMotor.setPower(0.8);
             while (opModeIsActive()) LockSupport.parkNanos(1_000_000L);
         }
     }

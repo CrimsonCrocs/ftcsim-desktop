@@ -20,10 +20,12 @@ export class AutonomousEvaluator {
   private prepared?:Prepared;
   private tail:Promise<unknown>=Promise.resolve();
   private sequence=0;
+  private lastPhase?:string;
   private assets=new Map<string,Uint8Array>();
   private world?:{key:string;game:GameSimulation;initial:Uint8Array};
   private trace?:TrialTrace;
   constructor(private readonly root:string,private readonly workspace:DesktopWorkspace,private readonly sessions:DesktopSessions){}
+  private report(stage:string,details:Record<string,unknown>={}){process.stderr.write(JSON.stringify({event:"autonomous-progress",stage,...details})+"\n");}
   dispose():void{this.world?.game.dispose();this.world=undefined;this.trace=undefined;}
   evaluate(options:{seed?:number;entryClass?:string;replay?:boolean}={}) {
     const result=this.tail.then(async()=>{
@@ -41,6 +43,7 @@ export class AutonomousEvaluator {
   }
   private async prepare(){
     const compileStart=performance.now();
+    this.report("prepare",{loadedArtifact:Boolean(this.prepared)});
     const snapshot=await this.workspace.snapshot(false);
     const manifest=snapshot.files.find(f=>f.path==="ftcsim.project.json")?.text;
     if(!manifest)throw new Error("Project has no robot configuration");
@@ -53,6 +56,7 @@ export class AutonomousEvaluator {
       sensors:document.resolved.physical.sensors.map(s=>({name:s.name,kind:s.kind})),cameras:document.resolved.physical.cameras.map(c=>({name:c.name})),configurationHash:document.resolved.configurationHash};
     let compileKind="unchanged";
     if(!this.prepared||this.prepared.configurationDigest!==configurationDigest){
+      this.report("gradle-build");
       if(this.prepared)await this.sessions.close(this.prepared.id,true);
       const opened=await this.sessions.open({});
       const files=snapshot.files.map(f=>({path:f.path,bytes:Uint8Array.from(Buffer.from(f.base64,"base64"))}));
@@ -65,12 +69,14 @@ export class AutonomousEvaluator {
       this.prepared={id:opened.sessionId,artifact,configurationDigest:hash(snapshot.id+snapshot.files.filter(f=>!editable.has(f.path)).map(f=>`${f.path}:${f.base64}`).join("\n")),sourceDigest};
       compileKind="gradle";
     }else if(this.prepared.sourceDigest!==sourceDigest){
+      this.report("source-compile");
       const sources:ProgramSource[]=[];
       for(const path of sourcePaths){const file=snapshot.files.find(f=>f.path===path);if(file?.text===undefined)throw new Error("Source set changed. Rebuild the project.");sources.push({path,content:file.text});}
-      await this.command({command:"reload-sources",sources});
+      await this.command({command:"reload-sources",sources},sourceDigest);
       this.prepared.sourceDigest=sourceDigest;compileKind="warm-compiler";
     }
     const compileMs=Math.round(performance.now()-compileStart);
+    this.report("prepared",{compileKind,compileMs,source:sourceDigest.slice(0,12)});
     return {document,compileMs,compileKind,sourceDigest};
   }
   private async run(options:{seed?:number;entryClass?:string;replay?:boolean}){
@@ -82,6 +88,7 @@ export class AutonomousEvaluator {
     const start=performance.now();
     const worldKey=hash(`${this.prepared!.configurationDigest}:${seed}`);
     if(!this.world||this.world.key!==worldKey||options.replay===false){
+      this.report("create-field");
       this.world?.game.dispose();this.world=undefined;
       const field=await createBiobuzzWorldOptions({seed,alliance:"red",startPosition:"near",robotConfiguration:document.resolved.physical},async url=>{
         let bytes=this.assets.get(url);if(!bytes){bytes=new Uint8Array(await readFile(resolve(this.root,"public",url.replace(/^\//,""))));this.assets.set(url,bytes);}return bytes;
@@ -91,7 +98,8 @@ export class AutonomousEvaluator {
       // uninitialized broad phase can change the first camera occlusion query.
       game.initialize();
       this.world={key:worldKey,game,initial:packSnapshot(game.snapshot())};
-    }else this.world.game.restore(unpackSnapshot(this.world.initial));
+    }else {this.report("restore-field");this.world.game.restore(unpackSnapshot(this.world.initial));}
+    this.report("field-ready",{wallMs:Math.round(performance.now()-start)});
     const game=this.world.game;
     const traceKey=hash(`${worldKey}:${entryClass}`);
     const cached=options.replay!==false&&this.trace?.key===traceKey?this.trace:undefined;
@@ -99,14 +107,17 @@ export class AutonomousEvaluator {
     const ticks:TrialTick[]=[],checkpoints=new Map<number,Uint8Array>();let checkpointBytes=0;
     const collected=new Set<string>();let peakPayload=0;let stoppedNeutral=false;let stopped=false;
     const samples:Array<Record<string,unknown>>=[];
+    this.lastPhase=undefined;
     try{
+      this.report("reset");
       await this.command({command:"reset"});
       if(game.phase!=="init")game.initialize();
       const initSensors=toRunnerWorldSensorFrame(game.world.sensorFrame("red-1"));
       if(cached&&!equalSensors(initSensors,cached.initSensors))replaying=false;
-      await this.command({command:"init",entryClass,sensors:initSensors});
-      game.start();await this.command({command:"start"});
+      this.report("init");await this.command({command:"init",entryClass,sensors:initSensors});
+      game.start();this.report("start");await this.command({command:"start"});
       for(let sequence=0;sequence<1500;sequence++){
+        if(sequence%250===0)this.report("running",{simulatedSeconds:sequence*.02,...(!replaying?{tips:game.rules.tips.red}:{}),replaying,phase:this.lastPhase,wallMs:Math.round(performance.now()-start)});
         if(sequence%250===0){
           const bytes=replaying?cached!.checkpoints.get(sequence):packSnapshot(game.snapshot());
           if(bytes&&checkpointBytes+bytes.byteLength<=192*1024*1024){checkpoints.set(sequence,bytes);checkpointBytes+=bytes.byteLength;}
@@ -160,7 +171,7 @@ export class AutonomousEvaluator {
         game.restore(unpackSnapshot(end));
       }
       const final=packSnapshot(game.snapshot());checkpoints.set(1500,final);checkpointBytes+=final.byteLength;
-      const stop=await this.command({command:"stop"});
+      this.report("stop");const stop=await this.command({command:"stop"});
       stopped=true;
       stoppedNeutral=Boolean(stop.frame)&&Object.values(stop.frame!.motors).every(m=>m.power===0&&(m.velocitySetpointTicksPerSecond==null||m.velocitySetpointTicksPerSecond===0));
       const own=game.rules.robots["red-1"];
@@ -173,18 +184,35 @@ export class AutonomousEvaluator {
         reusedPrefixSeconds:reusedTicks*.02,physicsTicksExecuted:physicsTicks,checkpointBytes,
         simulatedSeconds:game.matchTimeMs/1000,tips:game.rules.tips.red,score:game.rules.scores.red,parked,stoppedNeutral,peakPayload,collected:[...collected],collectedNectar:nectar,
         valid:stoppedNeutral&&nectar.length===0&&peakPayload<=4&&game.matchTimeMs<=30000,scoreBreakdown:game.rules.scoreBreakdown.red,samples,payloadChanges,flightPaths:ticks.flatMap(t=>t.flight?[t.flight]:[])};
-    }finally{
+    }catch(error){this.report("failed",{simulatedSeconds:game.matchTimeMs/1000,tips:game.rules.tips.red,message:error instanceof Error?error.message:String(error)});throw error;}
+    finally{
+      this.report("cleanup",{stopped});
       try{if(!stopped)await this.command({command:"stop"});}
-      catch{if(this.prepared)await this.sessions.close(this.prepared.id,true);this.prepared=undefined;}
+      catch{
+        // Runtime failure neutralizes and terminates its worker, but leaves the
+        // verified compilation loaded. RESET can start a fresh JVM generation.
+        // Discard classes only when that recovery also fails.
+        try{await this.command({command:"reset"});}
+        catch{if(this.prepared)await this.sessions.close(this.prepared.id,true);this.prepared=undefined;}
+      }
     }
   }
   private next(){return `trial-${++this.sequence}`;}
-  private async command(body:Record<string,unknown>){
+  private async command(body:Record<string,unknown>,attemptedSourceDigest?:string){
     if(!this.prepared)throw new Error("No compiled trial program");
-    const reply=await this.sessions.command(this.prepared.id,{protocolVersion:3,requestId:this.next(),...body} as OpModeClientMessage);
+    const context=[body.command,typeof body.sequence==="number"?`tick ${body.sequence} at ${((body.sequence+1)*.02).toFixed(2)} simulated seconds`:undefined,
+      this.lastPhase&&body.command!=="reload-sources"?`last reported phase: ${this.lastPhase}`:undefined,`source ${(attemptedSourceDigest??this.prepared.sourceDigest).slice(0,12)}`].filter(Boolean).join(" · ");
+    let reply;
+    try{reply=await this.sessions.command(this.prepared.id,{protocolVersion:3,requestId:this.next(),...body} as OpModeClientMessage);}
+    catch(error){throw new Error(`${context}: ${error instanceof Error?error.message:String(error)}`);}
     if(reply.type!=="response")throw new Error("Unexpected trial response");
-    if(reply.status==="error")throw new Error(`${reply.error.code}: ${reply.error.message}`);
+    if(reply.status==="error"){
+      const diagnostics=(reply.error.diagnostics??[]).map(d=>[d.file,d.line,d.column].filter(v=>v!==undefined).join(":")+(d.file?": ":"")+d.message);
+      throw new Error([`${context}: ${reply.error.code}: ${reply.error.message}`,...diagnostics].join("\n"));
+    }
     if(reply.status!=="ok")throw new Error("Unexpected asynchronous build response");
+    const phase=reply.frame?.telemetry?.Phase;
+    if(typeof phase==="string")this.lastPhase=phase;
     return reply;
   }
 }

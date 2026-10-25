@@ -10,11 +10,21 @@ The main task is simple: change a value, save the file, and see what the robot d
 
 The app keeps the compiler and runtime JVMs open. After the first Gradle build, a source edit uses the Java compiler already in memory. A fresh classloader then starts the changed program. Static fields reset, and changes can add or remove fields and methods.
 
+The app build compiles the fixed simulator SDK shim once. Cold project builds reuse those classes only after checking the source, compiler options, and class-file hashes. A mismatch uses the real compiler. Robot code always passes through the compiler.
+
 Run reuses the loaded build. It does not upload or unpack the project each time. Changes to Gradle files or the dependency graph still need a full build.
+
+A failed evaluation stops its runtime. The next trial resets that runtime and keeps the compiled classes when the loaded build is still valid. A control timeout alone does not require another Gradle build.
 
 Autonomous evaluation runs 30 simulated seconds without waiting 30 real seconds. The physics step stays at 5 ms. A repeated trial can reuse an unchanged section of the previous physics run. The new Java program still runs every control tick. If a motor or servo output changes, the evaluator restores a checkpoint and computes the remaining physics. A feedback mismatch causes a fresh full trial.
 
 For a LinearOpMode, each tick waits for the program to reach `idle()` or a simulated `sleep()`. Host delays do not count as completed ticks. A program that misses this bounded control deadline stops with an error and neutral motor output.
+
+During a build or evaluation, the Mac app holds a native work activity. This keeps an active job out of App Nap, including when the window is hidden. The activity ends when the job ends, with a 30-second heartbeat limit if the local service stops responding. Control errors identify the command and source revision, plus the virtual tick and last reported phase when available.
+
+The evaluator worker uses macOS user-initiated scheduling for each job, then restores its previous setting. Single-use Gradle JVMs use the fast startup compiler tier; the robot runtime retains the full JIT.
+
+Desktop Run and Evaluate use rehearsal seed `20261024` by default. Match resets retain that seed. An MCP evaluation can request another seed explicitly. Matching the seed controls the initial random state; different INIT timing or live input can still change a live run.
 
 Measured on an Apple M4 Pro during development:
 
@@ -31,7 +41,7 @@ These are observed runs, not fixed limits. The first Gradle build, dependency do
 
 ## Build and install
 
-This version builds from source on an Apple Silicon Mac. It targets macOS 14 or later and uses an APFS volume for fast bundle copies. You need Xcode command-line tools, Bun 1.3.14, JDK 17, Gradle 8.9, and an Android SDK with platform 30 and build-tools 34.0.0. Use your existing Android SDK installation and accepted licenses.
+This version builds from source on an Apple Silicon Mac. It targets macOS 14 or later and uses an APFS volume for fast bundle copies. You need Xcode command-line tools, Bun 1.3.14, Node.js with its Node-API headers, JDK 17, Gradle 8.9, and an Android SDK with platform 30 and build-tools 34.0.0. Use your existing Android SDK installation and accepted licenses.
 
 1. Install the command-line tools if needed: `xcode-select --install`.
 2. Install JDK 17 and download the [Gradle 8.9 binary distribution](https://services.gradle.org/distributions/gradle-8.9-bin.zip). Extract Gradle to a permanent folder.
@@ -55,6 +65,8 @@ open "$HOME/Applications/FTC Simulator Desktop.app"
 ```
 
 The toolchain command downloads checksum-checked FTC SDK and Kotlin compiler files. The packager uses `~/Library/Android/sdk` for Android build tools. Set `FTC_DESKTOP_ANDROID_SDK` if your SDK is elsewhere. Set `FTC_DESKTOP_JDK` if JDK 17 is not your selected `JAVA_HOME`.
+
+The native scheduling helper uses Node-API headers from `/opt/homebrew/include/node`. Set `FTC_DESKTOP_NODE_HEADERS` if your headers are elsewhere. Node.js is a build tool; the installed app runs on its bundled Bun runtime.
 
 The installed app includes the runtime tools and assets. It can run after you move or close this checkout. It is signed locally with an ad hoc signature; this repository does not provide a notarized download.
 
@@ -95,7 +107,7 @@ For another MCP client, use a stdio server configuration with `/bin/sh` as the c
 | `read_file` | Read source and its SHA-256. |
 | `write_file` / `patch_file` | Change disk source with a check against the last file hash. |
 | `editor_patch` | Change source through the editor and test actual Hot Reload. |
-| `editor_control` | Build, run, stop, reload, show, or quit the app. |
+| `editor_control` | Build, run, stop, reload, show, hide, or quit the app. |
 | `build_project` | Compile disk source through the evaluator's warm build path. |
 | `evaluate_autonomous` | Run a timed autonomous trial and return its result and ID. |
 | `get_trial` | Read the robot path, telemetry, hive angles, cell contents, payload changes, and optional pollen flight paths. |

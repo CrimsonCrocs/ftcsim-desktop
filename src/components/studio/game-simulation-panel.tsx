@@ -81,6 +81,8 @@ export interface GameSimulationOpMode {
 }
 
 export interface GameSimulationPanelProps {
+  /** Desktop rehearsals retain the evaluator's initial seed across resets. */
+  rehearsalSeed?: number;
   open: boolean;
   onClose: () => void;
   onConfigureRobot?: () => void;
@@ -189,6 +191,7 @@ function retainCanonicalFieldReference(options: SimulationWorldOptions): Simulat
 }
 
 export function GameSimulationPanel({
+  rehearsalSeed,
   open,
   onClose,
   onConfigureRobot,
@@ -314,7 +317,7 @@ export function GameSimulationPanel({
     let prepared: PreparedMatchWorld | null = null;
     const pending = (async () => {
       try {
-        const options = await loadWorldOptions({ seed: Math.floor(Math.random() * 0x7fffffff), alliance, startPosition, robotConfiguration });
+        const options = await loadWorldOptions({ seed: rehearsalSeed??Math.floor(Math.random() * 0x7fffffff), alliance, startPosition, robotConfiguration });
         if (cancelled) return null;
         const match = await GameSimulation.create(options);
         if (cancelled) { match.dispose(); return null; }
@@ -334,7 +337,7 @@ export function GameSimulationPanel({
       if (prepared && !prepared.claimed) prepared.match.dispose();
       if (previewPromiseRef.current === pending) previewPromiseRef.current = null;
     };
-  }, [alliance, loadWorldOptions, open, robotConfiguration, startPosition]);
+  }, [alliance, loadWorldOptions, open, robotConfiguration, startPosition,rehearsalSeed]);
 
   const publish = useCallback((options: { force?: boolean; observation?: WorldObservation | null } = {}) => {
     const active = gameRef.current;
@@ -791,7 +794,7 @@ export function GameSimulationPanel({
       const preview = await previewPromiseRef.current;
       const reusable = preview && !preview.claimed ? preview : null;
       const options = reusable?.options ?? await loadWorldOptions({
-        seed: Math.floor(Math.random() * 0x7fffffff),
+        seed: rehearsalSeed??Math.floor(Math.random() * 0x7fffffff),
         alliance,
         startPosition,
         robotConfiguration,
@@ -846,7 +849,7 @@ export function GameSimulationPanel({
     } catch (cause) {
       await enterFailure(cause, String(cause).toLowerCase().includes("policy") ? "policy" : "setup");
     }
-  }, [alliance, clearReplay, createPolicies, difficulty, enterFailure, handoffProgram, lifecycle, loadWorldOptions, prepareProgram, publish, robotConfiguration, selectedAutoClass, selectedTeleopClass, startControlLoop, startPosition, runnerSensorFrame, cameraFrames]);
+  }, [alliance, clearReplay, createPolicies, difficulty, enterFailure, handoffProgram, lifecycle, loadWorldOptions, prepareProgram, publish, robotConfiguration, selectedAutoClass, selectedTeleopClass, startControlLoop, startPosition, runnerSensorFrame, cameraFrames,rehearsalSeed]);
 
   const startMatch = useCallback(async () => {
     const active = gameRef.current;
@@ -937,7 +940,7 @@ export function GameSimulationPanel({
     }
     try {
       clearReplay();
-      const resetSeed = Math.floor(Math.random() * 0x7fffffff);
+      const resetSeed = rehearsalSeed??Math.floor(Math.random() * 0x7fffffff);
       active.reset(resetSeed);
       if (worldOptionsRef.current) worldOptionsRef.current = { ...worldOptionsRef.current, seed: resetSeed };
       pauseRequestedRef.current = false;
@@ -981,7 +984,7 @@ export function GameSimulationPanel({
     } catch (cause) {
       await enterFailure(cause, "runner");
     }
-  }, [clearReplay, closePolicies, createPolicies, difficulty, enterFailure, handoffProgram, initialize, lifecycle, prepareProgram, publish, selectedAutoClass, selectedTeleopClass, startControlLoop, stopLoop, runnerSensorFrame]);
+  }, [clearReplay, closePolicies, createPolicies, difficulty, enterFailure, handoffProgram, initialize, lifecycle, prepareProgram, publish, selectedAutoClass, selectedTeleopClass, startControlLoop, stopLoop, runnerSensorFrame,rehearsalSeed]);
 
   const resume = useCallback(() => {
     const active = gameRef.current;

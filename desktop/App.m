@@ -12,6 +12,8 @@
 @property BOOL quitting;
 @property NSTimer *automationTimer;
 @property BOOL pollingAutomation;
+@property(strong) id workActivity;
+@property(strong) NSDate *workActivityUntil;
 @end
 
 @implementation FTCDesktopApplication
@@ -61,8 +63,9 @@
         environment[@"JAVA_RUNNER_FTC_SDK_HOME"]=[[resources URLByAppendingPathComponent:@"services/java-runner/.runtime/ftc-sdk-11.1.0"] path];
         environment[@"JAVA_RUNNER_ANDROID_JAR"]=[[resources URLByAppendingPathComponent:@"services/java-runner/.runtime/android-sdk/platforms/android-30/android.jar"] path];
         environment[@"JAVA_RUNNER_KOTLIN_HOME"]=[[resources URLByAppendingPathComponent:@"services/java-runner/.runtime/kotlin-2.2.10"] path];
-        NSTask *process=[NSTask new];process.executableURL=[resources URLByAppendingPathComponent:@"bin/bun"];
-        process.arguments=@[[[resources URLByAppendingPathComponent:@"desktop/backend.js"] path]];process.currentDirectoryURL=resources;
+        NSTask *process=[NSTask new];process.executableURL=[NSURL fileURLWithPath:@"/usr/sbin/taskpolicy"];
+        process.qualityOfService=NSQualityOfServiceUserInitiated;
+        process.arguments=@[@"-a",[[resources URLByAppendingPathComponent:@"bin/bun"] path],[[resources URLByAppendingPathComponent:@"desktop/backend.js"] path]];process.currentDirectoryURL=resources;
         process.environment=environment;process.standardOutput=self.log;process.standardError=self.log;
         if(![process launchAndReturnError:&error]){[self report:error.localizedDescription];return;}self.backend=process;
         for(int i=0;i<240;i++){
@@ -93,14 +96,26 @@
     if(error)body[@"error"]=error;else body[@"result"]=result?:NSNull.null;
     [[[NSURLSession sharedSession] dataTaskWithRequest:[self automationRequest:@"/automation/complete" body:body] completionHandler:^(NSData *data,NSURLResponse *response,NSError *failure){if(after)dispatch_async(dispatch_get_main_queue(),after);}] resume];
 }
+- (void)setWorkActive:(BOOL)active {
+    if(active){
+        self.workActivityUntil=[NSDate dateWithTimeIntervalSinceNow:30];
+        if(!self.workActivity)self.workActivity=[NSProcessInfo.processInfo beginActivityWithOptions:NSActivityUserInitiated reason:@"Build and evaluate FTC autonomous"];
+    }else{
+        if(self.workActivity)[NSProcessInfo.processInfo endActivity:self.workActivity];
+        self.workActivity=nil;self.workActivityUntil=nil;
+    }
+}
 - (void)pollAutomation:(NSTimer *)timer {
+    if(self.workActivity&&self.workActivityUntil.timeIntervalSinceNow<0)[self setWorkActive:NO];
     if(self.quitting||self.pollingAutomation||!self.base)return;
     self.pollingAutomation=YES;
     [[[NSURLSession sharedSession] dataTaskWithRequest:[self automationRequest:@"/automation/poll" body:@{}] completionHandler:^(NSData *data,NSURLResponse *response,NSError *error){
         id command=data?[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingFragmentsAllowed error:nil]:nil;
         dispatch_async(dispatch_get_main_queue(),^{
             self.pollingAutomation=NO;
-            if(![command isKindOfClass:NSDictionary.class]||![command[@"id"] isKindOfClass:NSString.class])return;
+            if(![command isKindOfClass:NSDictionary.class])return;
+            [self setWorkActive:[command[@"activeWork"] boolValue]];
+            if(![command[@"id"] isKindOfClass:NSString.class])return;
             NSString *action=command[@"action"];
             if([action isEqual:@"snapshot"]){
                 [self.web takeSnapshotWithConfiguration:nil completionHandler:^(NSImage *image,NSError *failure){
@@ -110,10 +125,14 @@
                 }];return;
             }
             if([action isEqual:@"show"]){[self.window makeKeyAndOrderFront:nil];[NSApp activateIgnoringOtherApps:YES];[self completeAutomation:command result:@{@"shown":@YES} error:nil after:nil];return;}
+            if([action isEqual:@"hide"]){[NSApp hide:nil];[self completeAutomation:command result:@{@"hidden":@YES} error:nil after:nil];return;}
             if([action isEqual:@"run"]||[action isEqual:@"edit"]){[self.window makeKeyAndOrderFront:nil];[NSApp activateIgnoringOtherApps:YES];}
             BOOL reload=[action isEqual:@"reload"],quit=[action isEqual:@"quit"];
             NSString *script=reload||quit?@"await window.__ftcDesktopControl?.('stop',{});await window.__ftcDesktopDrain?.();return {saved:true};":@"if(!window.__ftcDesktopControl)throw new Error('Editor is still opening');return await window.__ftcDesktopControl(action,args);";
             [self.web callAsyncJavaScript:script arguments:@{@"action":action,@"args":command[@"args"]?:@{}} inFrame:nil inContentWorld:WKContentWorld.pageWorld completionHandler:^(id result,NSError *failure){
+                if([action isEqual:@"status"]&&[result isKindOfClass:NSDictionary.class]){
+                    NSMutableDictionary *state=[result mutableCopy];state[@"nativeWorkActive"]=@(self.workActivity!=nil);state[@"windowVisible"]=@(self.window.visible&&!NSApp.hidden);result=state;
+                }
                 [self completeAutomation:command result:result error:failure.localizedDescription after:^{
                     if(failure)return;
                     if(reload)[self.web reload];
@@ -159,6 +178,7 @@
 - (BOOL)windowShouldClose:(NSWindow *)sender{[NSApp terminate:nil];return NO;}
 - (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender {
     if(self.quitting)return NSTerminateLater;self.quitting=YES;
+    [self setWorkActive:NO];
     [self.web callAsyncJavaScript:@"await window.__ftcDesktopDrain?.();return true" arguments:@{} inFrame:nil inContentWorld:WKContentWorld.pageWorld completionHandler:^(id result,NSError *error){
         if(error){NSAlert *alert=[NSAlert new];alert.messageText=@"Project could not be saved";alert.informativeText=error.localizedDescription;[alert addButtonWithTitle:@"Return to Project"];[alert addButtonWithTitle:@"Quit Without Saving"];
             if([alert runModal]==NSAlertFirstButtonReturn){self.quitting=NO;[sender replyToApplicationShouldTerminate:NO];return;}}

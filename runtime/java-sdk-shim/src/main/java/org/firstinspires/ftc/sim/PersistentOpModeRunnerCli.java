@@ -423,7 +423,10 @@ public final class PersistentOpModeRunnerCli {
         }
         // A fixed 20 ms wall wait could expire during JIT or host contention and
         // silently publish the previous tick. Wait for a real cooperative yield.
-        if (!SimulatorClock.awaitLinearLoopForCurrentTick(120)) {
+        // Desktop gives the reply a separate bounded transport allowance. The
+        // web runner retains its default; neither path may publish a missed yield.
+        int budget = Math.max(1, Math.min(300, Integer.getInteger("ftcsim.cooperativeDeadlineMillis", 120)));
+        if (!SimulatorClock.awaitLinearLoopForCurrentTick(budget)) {
             neutralize();
             throw new IllegalStateException("LinearOpMode did not yield at idle() or sleep() within the control deadline");
         }

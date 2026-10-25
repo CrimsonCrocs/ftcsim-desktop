@@ -14,7 +14,7 @@ import "../../src/app/globals.css";
 import "./desktop.css";
 
 (window as unknown as {Buffer:typeof Buffer}).Buffer = Buffer;
-const desktop = {hotReload:true,publishCompletions:publishDesktopCompletions,saveFiles:async(projectId:string,files:Record<string,string>) => { await desktopRequest("/workspace/save",{projectId,files}); },
+const desktop = {hotReload:true,rehearsalSeed:20261024,publishCompletions:publishDesktopCompletions,saveFiles:async(projectId:string,files:Record<string,string>) => { await desktopRequest("/workspace/save",{projectId,files}); },
   registerAutomation:(control:(action:string,args:Record<string,unknown>)=>Promise<unknown>)=>{window.__ftcDesktopControl=control;return()=>{if(window.__ftcDesktopControl===control)delete window.__ftcDesktopControl;};},
   registerSaveBarrier:(save:()=>Promise<void>)=>{window.__ftcDesktopDrain=save;return()=>{if(window.__ftcDesktopDrain===save)delete window.__ftcDesktopDrain;};}};
 type Workspace = {id:string;name:string;directory:string;files:DesktopFile[]};
@@ -57,7 +57,7 @@ function DesktopApp(){
   return <LiveAuthBoundary expectedUserId={null}><ProjectCatalogProvider accountId={null}>
     <div className="desktop-frame"><div className="desktop-bar"><strong>FTC Simulator Desktop</strong><span className="desktop-path" title={workspace.directory}>{workspace.directory}</span>
       {evaluation&&<output aria-live="polite" title={`30 simulated seconds; seed ${evaluation.seed}; reused ${evaluation.reusedPrefixSeconds.toFixed(2)} unchanged seconds`}>{evaluation.valid?"":"Invalid trial · "}{evaluation.tips} tips · {evaluation.parked?"Parked":"Not parked"} · {evaluation.score} pts · {evaluation.compileMs.toFixed(0)} ms compile · {(evaluation.wallMs/1000).toFixed(2)} s trial</output>}
-      <button onClick={()=>{void evaluate();}} disabled={busy}>{busy?"Evaluating…":"Evaluate 30 s"}</button></div>
+      <button onClick={()=>{void evaluate();}} disabled={busy} title="Run and Evaluate use rehearsal seed 20261024.">{busy?"Evaluating…":"Evaluate 30 s"}</button></div>
       {error&&<div className="desktop-error" role="alert">{error}<button onClick={()=>setError(null)}>Dismiss</button></div>}
       <div className="desktop-content">{projectId?<StudioShell key={projectId} projectId={projectId} desktop={desktop}/>:<WelcomeScreen version="0.1.0"/>}</div>
     </div>
