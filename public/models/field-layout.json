@@ -1,0 +1,37 @@
+{
+  "asset": "/models/ftc-perimeter-revb.glb",
+  "source": {
+    "partNumber": "am-0481b",
+    "name": "FIRST Tech Challenge Perimeter Kit, Rev B"
+  },
+  "units": "metres",
+  "sourceBounds": {
+    "min": [-1.8225334985632138, -0.0059689999999997115, -1.822533498563214],
+    "max": [1.8225334985632142, 0.33655704890639315, 1.8225334985632142],
+    "size": [3.645066997126428, 0.3425260489063929, 3.6450669971264285]
+  },
+  "coordinateSystem": {
+    "axes": "+X and +Z lie on the field floor; +Y is vertical.",
+    "sourceOrigin": "The field is horizontally centred at the local origin; the lowest perimeter point is 0.005969 m below local Y=0."
+  },
+  "sceneFilter": {
+    "excludedNodeNameSubstrings": ["Strap"],
+    "reason": "The optional mid-field retention straps and clips are not field markings and are omitted from the simulator scene."
+  },
+  "materialProfile": {
+    "name": "ftc-perimeter",
+    "reason": "The source STEP has no colors; named parts are rendered as aluminum rails, clear polycarbonate panels, and steel fasteners."
+  },
+  "worldPlacement": {
+    "position": [0, 0.005969, 0],
+    "rotationEulerXYZRadians": [0, 0, 0],
+    "scale": [1, 1, 1],
+    "effect": "Places the lowest perimeter point on world Y=0 while retaining a field-centred X/Z origin."
+  },
+  "cornerAtWorldOriginPlacement": {
+    "position": [1.8225334985632138, 0.005969, 1.822533498563214],
+    "rotationEulerXYZRadians": [0, 0, 0],
+    "scale": [1, 1, 1],
+    "effect": "Optional placement for a coordinate system whose southwest field corner is world X=0, Z=0."
+  }
+}

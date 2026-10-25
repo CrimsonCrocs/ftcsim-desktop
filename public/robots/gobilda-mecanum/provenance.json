@@ -1,0 +1,318 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-25T00:41:12.909Z",
+  "ownership": {
+    "cadOwner": "goBILDA LLC (manufacturer and publisher of the linked CAD).",
+    "access": "Downloaded from the public STEP File link on the goBILDA product page.",
+    "license": "No license or broader redistribution permission is asserted by this provenance record."
+  },
+  "source": {
+    "product": "96mm Mecanum Wheel Set (70A Durometer Bearing Supported Rollers)",
+    "sku": "3213-3606-0002",
+    "productUrl": "https://www.gobilda.com/96mm-mecanum-wheel-set-70a-durometer-bearing-supported-rollers/",
+    "downloadUrl": "https://www.gobilda.com/content/step_files/3213-3606-0002.zip",
+    "archiveName": "3213-3606-0002.zip",
+    "archiveSha256": "a48e182d6c8c0811ef7036dbd84b6467fb99e2260116fef796190849bb26fb3e",
+    "assemblyVersion": "Official goBILDA product CAD ZIP; files dated 2021-01-12 in the ZIP directory listing.",
+    "sourceUnits": "millimetres (verified from STEP SI_UNIT declaration)",
+    "description": "Official 96 mm wheel STEP assemblies, including all side plates, core, 10 roller assemblies, and fasteners. The STEP has no color assignments."
+  },
+  "assetContract": {
+    "format": "glTF 2.0 binary (GLB)",
+    "outputUnits": "metres",
+    "origin": "center of the source full-assembly bounding box; post-simplification output center residual is recorded per asset",
+    "axleAxis": "+Z/-Z (unchanged from the official STEP; wheel face lies in XY)",
+    "orientation": "+X right, +Y up, +Z toward the viewed wheel face. Wheel rotation is about local Z.",
+    "positiveWheelSpeed": "Rotate about -Z for positive physical wheel speed, as expected by the robot assembly contract.",
+    "handedness": "At the ground-contact roller nearest -Y, project its axle direction into XZ and choose the equivalent axis vector with +X component. Measure theta from +X toward +Z; the simulator traction vector is (+cos(theta), 0, -sin(theta)), so its signed angle is atan2(-axisZ, axisX). Left 3606-0000-0096 measures about -46.53 degrees at -Y; right 3606-0100-0096 measures about +46.43 degrees. Therefore wheel-left matches negative tractionAngle and wheel-right matches positive tractionAngle. At the opposite +Y side the signs reverse. The assets retain source orientation without mirroring or rotation.",
+    "nominalDiameterMetres": 0.096,
+    "measuredDimensionsAndTriangles": "Recorded per output below; dimensions are post-optimization scene-space bounds."
+  },
+  "conversion": {
+    "converter": "tools/cad-convert/convert-step-to-glb.mjs (OpenCascade STEP tessellation and millimetre-to-metre conversion)",
+    "linearDeflectionMillimetres": 0.35,
+    "angularDeflectionRadians": 0.25,
+    "optimization": {
+      "tool": "gltfpack",
+      "targetTriangleRatio": 0.008,
+      "permissive": true,
+      "simplificationError": 0.005
+    },
+    "centering": "--center; source assembly already has its wheel axle along Z",
+    "materialPolicy": "Source STEP contains no colors. Part-name mapping assigns dark metallic steel to the side plates, black rubber to physical roller covers, dark polymer to the wheel/roller cores, and steel to fasteners, shims, and roller axles. STEP geometry is tessellated at the recorded deflection and simplified by gltfpack; roller barrels and plate apertures remain modeled.",
+    "materials": {
+      "steel": {
+        "name": "dark-steel-side-plates",
+        "hex": "#34383C",
+        "metallic": 0.82,
+        "roughness": 0.34
+      },
+      "rubber": {
+        "name": "70a-black-rubber-roller-covers",
+        "hex": "#171819",
+        "metallic": 0,
+        "roughness": 0.88
+      },
+      "polymer": {
+        "name": "black-polymer-wheel-core",
+        "hex": "#242628",
+        "metallic": 0,
+        "roughness": 0.68
+      },
+      "metal": {
+        "name": "steel-fasteners-and-roller-axles",
+        "hex": "#92989C",
+        "metallic": 0.86,
+        "roughness": 0.29
+      }
+    },
+    "transform": {
+      "linear": "0.001 metres per source millimetre",
+      "rotationDegrees": [
+        0,
+        0,
+        0
+      ],
+      "mirror": false,
+      "originPlacement": "subtract the source assembly bounding-box center"
+    }
+  },
+  "assets": [
+    {
+      "file": "wheel-left.glb",
+      "bytes": 769996,
+      "sha256": "0374b21dc9d5ec6a3e647e0838e3684381d77a3e3d961ada444488eda4b98d45",
+      "sourceFile": "3606-0000-0096 assembly.STEP",
+      "sourceSha256": "c4fc0969f6db67ca760b07eed74a4fe315e38ebf34bd1e2cbda32d8ec6b04bef",
+      "handedness": "left",
+      "rollerSlant": "left-slant",
+      "rollerAxisMeasurement": {
+        "plane": "XZ projection of the 3D roller axle direction",
+        "view": "wheel face from +Z",
+        "method": "Principal axis fitted to the official STEP roller-cover vertices; use the roller barrel centered nearest the indicated wheel pole, with its projected axis represented by the equivalent vector having +X component.",
+        "angleConvention": "theta = atan2(-axisZ, axisX), matching the simulator's (+cos(theta), 0, -sin(theta)) traction vector; the unoriented axle line is represented with +X component",
+        "atTopPositiveYDegrees": 46.53,
+        "atBottomGroundContactNegativeYDegrees": -46.53
+      },
+      "materialAssignments": {
+        "dark-steel-side-plates": 4,
+        "black-polymer-wheel-core": 22,
+        "70a-black-rubber-roller-covers": 20,
+        "steel-fasteners-and-roller-axles": 460
+      },
+      "statistics": {
+        "triangles": 40924,
+        "vertices": 43461,
+        "dimensionsMetres": [
+          0.09596122835702,
+          0.09629036590758,
+          0.0372042981258
+        ],
+        "boundsMetres": {
+          "min": [
+            -0.047981035,
+            -0.0481451824,
+            -0.0186027586
+          ],
+          "max": [
+            0.04798019335702001,
+            0.04814518350758,
+            0.018601539525799998
+          ]
+        },
+        "materials": [
+          {
+            "name": "dark-steel-side-plates",
+            "baseColorLinear": [
+              0.0343398079,
+              0.0395462364,
+              0.045186203,
+              1
+            ],
+            "metallic": 0.819999993,
+            "roughness": 0.340000004
+          },
+          {
+            "name": "black-polymer-wheel-core",
+            "baseColorLinear": [
+              0.0176419541,
+              0.0193823613,
+              0.0212190095,
+              1
+            ],
+            "metallic": 0,
+            "roughness": 0.680000007
+          },
+          {
+            "name": "70a-black-rubber-roller-covers",
+            "baseColorLinear": [
+              0.00856812578,
+              0.00913405884,
+              0.00972121768,
+              1
+            ],
+            "metallic": 0,
+            "roughness": 0.879999995
+          },
+          {
+            "name": "steel-fasteners-and-roller-axles",
+            "baseColorLinear": [
+              0.287440836,
+              0.313988715,
+              0.332451522,
+              1
+            ],
+            "metallic": 0.860000014,
+            "roughness": 0.289999992
+          }
+        ],
+        "meshes": 1,
+        "primitives": 4,
+        "drawCallsPerWheel": 4,
+        "boundsCenterOffsetMillimetres": [
+          -0.0004208214899950602,
+          5.537899999685791e-7,
+          -0.000609537100002
+        ]
+      },
+      "coordinateTransform": {
+        "scale": 0.001,
+        "rotationDegrees": [
+          0,
+          0,
+          0
+        ],
+        "mirrored": false,
+        "sourceBoundsCenterMetres": [
+          -0.04945409082949952,
+          0.015300436317374409,
+          0.0031965418520806454
+        ],
+        "translationMetres": [
+          0.04945409082949952,
+          -0.015300436317374409,
+          -0.0031965418520806454
+        ]
+      },
+      "geometryPolicy": "Official assembly geometry, tessellated at the recorded deflection and simplified by gltfpack; roller barrels and side-plate apertures remain modeled."
+    },
+    {
+      "file": "wheel-right.glb",
+      "bytes": 690740,
+      "sha256": "c0ef564dc2a489cb613d16d03a2e93a0fa8eda753f9bc30281630dc4fd6b6bc8",
+      "sourceFile": "3606-0100-0096 assembly.STEP",
+      "sourceSha256": "604a7505d6c8156b4f847d56cb4b983a3c7475ff89df2355dffbbcc0fc488535",
+      "handedness": "right",
+      "rollerSlant": "right-slant",
+      "rollerAxisMeasurement": {
+        "plane": "XZ projection of the 3D roller axle direction",
+        "view": "wheel face from +Z",
+        "method": "Principal axis fitted to the official STEP roller-cover vertices; use the roller barrel centered nearest the indicated wheel pole, with its projected axis represented by the equivalent vector having +X component.",
+        "angleConvention": "theta = atan2(-axisZ, axisX), matching the simulator's (+cos(theta), 0, -sin(theta)) traction vector; the unoriented axle line is represented with +X component",
+        "atTopPositiveYDegrees": -46.43,
+        "atBottomGroundContactNegativeYDegrees": 46.43
+      },
+      "materialAssignments": {
+        "dark-steel-side-plates": 4,
+        "black-polymer-wheel-core": 22,
+        "70a-black-rubber-roller-covers": 20,
+        "steel-fasteners-and-roller-axles": 460
+      },
+      "statistics": {
+        "triangles": 36622,
+        "vertices": 39008,
+        "dimensionsMetres": [
+          0.0957700721956,
+          0.0962223164958,
+          0.037195625365800004
+        ],
+        "boundsMetres": {
+          "min": [
+            -0.0478849821,
+            -0.0481111594,
+            -0.018594563
+          ],
+          "max": [
+            0.047885090095600005,
+            0.0481111570958,
+            0.018601062365800003
+          ]
+        },
+        "materials": [
+          {
+            "name": "dark-steel-side-plates",
+            "baseColorLinear": [
+              0.0343398079,
+              0.0395462364,
+              0.045186203,
+              1
+            ],
+            "metallic": 0.819999993,
+            "roughness": 0.340000004
+          },
+          {
+            "name": "black-polymer-wheel-core",
+            "baseColorLinear": [
+              0.0176419541,
+              0.0193823613,
+              0.0212190095,
+              1
+            ],
+            "metallic": 0,
+            "roughness": 0.680000007
+          },
+          {
+            "name": "70a-black-rubber-roller-covers",
+            "baseColorLinear": [
+              0.00856812578,
+              0.00913405884,
+              0.00972121768,
+              1
+            ],
+            "metallic": 0,
+            "roughness": 0.879999995
+          },
+          {
+            "name": "steel-fasteners-and-roller-axles",
+            "baseColorLinear": [
+              0.287440836,
+              0.313988715,
+              0.332451522,
+              1
+            ],
+            "metallic": 0.860000014,
+            "roughness": 0.289999992
+          }
+        ],
+        "meshes": 1,
+        "primitives": 4,
+        "drawCallsPerWheel": 4,
+        "boundsCenterOffsetMillimetres": [
+          0.000053997800002203444,
+          -0.0000011520999987357783,
+          0.0032496829000007443
+        ]
+      },
+      "coordinateTransform": {
+        "scale": 0.001,
+        "rotationDegrees": [
+          0,
+          0,
+          0
+        ],
+        "mirrored": false,
+        "sourceBoundsCenterMetres": [
+          -0.008956557759802346,
+          -0.004267468632917874,
+          0.00013037224650493985
+        ],
+        "translationMetres": [
+          0.008956557759802346,
+          0.004267468632917874,
+          -0.00013037224650493985
+        ]
+      },
+      "geometryPolicy": "Official assembly geometry, tessellated at the recorded deflection and simplified by gltfpack; roller barrels and side-plate apertures remain modeled."
+    }
+  ]
+}

@@ -1,0 +1,5115 @@
+{
+  "schemaVersion": 1,
+  "assetPack": "biobuzz-2026-2027@1",
+  "source": {
+    "url": "https://ftc-resources.firstinspires.org/ftc/field/field-cad-step?fileId=8b91cac3-833d-459a-9fa3-6dad3f56f642",
+    "sha256": "05b35961c7df847741031f00fda73ddd068537f809e92a11b1cd59a94bcc8331",
+    "bytes": 35206208,
+    "publisher": "FIRST Tech Challenge / FIRST Inspires",
+    "package": {
+      "version": "v26-27.2",
+      "updated": "2026-09-15",
+      "url": "https://ftc-resources.firstinspires.org/ftc/field/field-cad-step?fileId=8b91cac3-833d-459a-9fa3-6dad3f56f642",
+      "bytes": 6607131,
+      "sha256": "5e768b731f1ec8dcd14debba53225c43718877923c351ce08504305f68f7fe00",
+      "member": "field-cad-step.step"
+    }
+  },
+  "coordinateSystem": {
+    "units": "metres",
+    "upAxis": "Y",
+    "origin": "Official BIOBUZZ Onshape assembly origin",
+    "sourceToRenderer": "identity; source STEP is already Y-up",
+    "ftcFieldPlaneToPhysics": {
+      "ftcX": "physics +X",
+      "ftcY": "physics -Z"
+    },
+    "stepToMetres": 0.001
+  },
+  "field": {
+    "nominalSizeMeters": [
+      3.6576,
+      3.6576
+    ],
+    "nominalSizeSource": "BIOBUZZ Competition Manual V1 §9.2, p.64",
+    "originHeightMeters": 0,
+    "originHeightStatus": "CAD coordinate convention; tile-top plane is Y=0"
+  },
+  "assets": {
+    "staticVisual": "/models/biobuzz/field-static.glb",
+    "staticCollision": {
+      "shape": "trimesh",
+      "convexHull": false,
+      "nodeNaming": "<category>/<official assembly>/<official part>; node name is stable contact-rule ID prefix",
+      "groups": [
+        {
+          "id": "perimeter-walls",
+          "url": "/models/biobuzz/collision/field-perimeter-walls.glb",
+          "bytes": 65968,
+          "sha256": "90d90f112a2d9f4fe4af98cd0f6af8fdfd4b827348d139b624e9e517a701ffcc",
+          "triangles": 4592,
+          "sourceTriangles": 42680,
+          "nodeCount": 30,
+          "nodeNameFormat": "perimeter-walls/<official assembly>/<official part>",
+          "sourceParts": [
+            "FTC Field Side Glass 11in",
+            "Perimeter Mid-Section Strap",
+            "am-2580a: FIRST Tech Challenge Panel Link"
+          ],
+          "topologyFallbackToSource": false
+        },
+        {
+          "id": "frame",
+          "url": "/models/biobuzz/collision/field-frame.glb",
+          "bytes": 734440,
+          "sha256": "4aa6f28331406eed2a53303226b679122cb2c97da9787a1cc1451fecb99f323e",
+          "triangles": 48680,
+          "sourceTriangles": 987460,
+          "nodeCount": 21,
+          "nodeNameFormat": "frame/<official assembly>/<official part>",
+          "sourceParts": [
+            "am-5863: Axle Holder",
+            "am-5874: A-Frame Top Corner",
+            "am-5875: A-Frame Top Bar",
+            "am-5876: A-Frame Leg",
+            "am-5877: ACM Panel",
+            "am-5878: Sheet Metal Foot Bar",
+            "am-5879-A: Frame Foot A",
+            "am-5879-B: Frame Foot B",
+            "am-5880: 47.5in CC Under Tile Bar",
+            "am-5883: Panel Sticker"
+          ],
+          "topologyFallbackToSource": false,
+          "restoredSourceNodeNames": [
+            "frame/am-5854: Frame <1>/am-5875: A-Frame Top Bar#34",
+            "frame/am-5854: Frame <1>/am-5876: A-Frame Leg#31",
+            "frame/am-5854: Frame <1>/am-5876: A-Frame Leg#87",
+            "frame/am-5854: Frame <1>/am-5876: A-Frame Leg#93",
+            "frame/am-5854: Frame <1>/am-5876: A-Frame Leg#94",
+            "frame/am-5854: Frame <1>/am-5877: ACM Panel#101",
+            "frame/am-5854: Frame <1>/am-5877: ACM Panel#75",
+            "frame/am-5854: Frame <1>/am-5878: Sheet Metal Foot Bar#20",
+            "frame/am-5854: Frame <1>/am-5878: Sheet Metal Foot Bar#52",
+            "frame/am-5854: Frame <1>/am-5880: 47.5in CC Under Tile Bar#109",
+            "frame/am-5854: Frame <1>/am-5880: 47.5in CC Under Tile Bar#74",
+            "frame/am-5854: Frame <1>/am-5883: Panel Sticker#33"
+          ],
+          "maximumSampledSurfaceDeviationMeters": 0.0003757524187108965,
+          "validationSamples": 1344,
+          "sourceGeometryFallback": "No whole-group fallback; only named frame nodes that exceeded the sampled 0.5 mm distance budget were retained from the welded source."
+        },
+        {
+          "id": "flowers",
+          "url": "/models/biobuzz/collision/field-flowers.glb",
+          "bytes": 9537528,
+          "sha256": "95bf6e3b3483099c4c039be3950eca91e5a211cfb6cfb6ac93ead6992d0d0314",
+          "triangles": 528294,
+          "sourceTriangles": 3189864,
+          "nodeCount": 48,
+          "nodeNameFormat": "flowers/<official assembly>/<official part>",
+          "sourceParts": [
+            "am-5857: Flower Layer C",
+            "am-5858: Flower Layer B",
+            "am-5859: Flower Layer X",
+            "am-5860: Flower Field Bracket",
+            "am-5861: Flower Under Field Bracket",
+            "am-5862: Flower HIPS Pipe",
+            "am-5884: Flower Backstop",
+            "am-5892: Flower Peanut Support"
+          ],
+          "topologyFallbackToSource": false,
+          "restoredSourceNodeNames": [],
+          "maximumSampledSurfaceDeviationMeters": 0.00010793000441830903,
+          "validationSamples": 3072,
+          "sourceGeometryFallback": "The scoring cylinder is protected and validated; exterior triangles are simplified from the exact filtered source.",
+          "exactSourcePreserved": false,
+          "geometryPolicy": "protected-scoring-well-exterior-simplified",
+          "exactWholeMeshPreserved": false,
+          "functionalOpeningValidation": {
+            "method": "65 vertical rays through the 2.79-inch POLLEN disk at every Layer C/B/X instance, plus 16 scoring-radius occupancy rays",
+            "instances": 12,
+            "raysPerInstance": 65,
+            "blockedSourceRays": 0,
+            "blockedCandidateRays": 0,
+            "scoringRadiusOccupancyMismatches": 0,
+            "passed": true
+          },
+          "finiteBallContactValidation": {
+            "method": "Rapier finite-sphere intersectsShape grid around each source Layer C/B/X surface; centers constrained to fit within the official 4-inch scoring radius; 2.5 mm spatial steps and 16 angles",
+            "sampling": {
+              "stepMeters": 0.0025,
+              "angleCount": 16,
+              "layerMeshes": 12,
+              "pollenDiameterMeters": 0.07112,
+              "nectarDiameterMeters": 0.09144,
+              "scoringRadiusMeters": 0.0508
+            },
+            "source": {
+              "bytes": 57447928,
+              "sha256": "e5bb81af46bdf93bde335cd304dab0d98ea4284ba934da7154c212405e175bbb",
+              "triangles": 3189864,
+              "role": "exact post-filter source input"
+            },
+            "candidate": {
+              "bytes": 9537528,
+              "sha256": "95bf6e3b3483099c4c039be3950eca91e5a211cfb6cfb6ac93ead6992d0d0314",
+              "triangles": 528294,
+              "role": "protected-region candidate output"
+            },
+            "totals": {
+              "POLLEN": {
+                "testedCenters": 58688,
+                "contactMismatches": 0,
+                "sourceOnly": 0,
+                "candidateOnly": 0
+              },
+              "NECTAR": {
+                "testedCenters": 29760,
+                "contactMismatches": 0,
+                "sourceOnly": 0,
+                "candidateOnly": 0
+              }
+            },
+            "testedCenters": 88448,
+            "passed": true
+          },
+          "simplification": {
+            "tool": "tools/cad-convert/biobuzz-protect-openings.mjs via gltfpack 1.2.0",
+            "applied": true,
+            "method": "Preserve source triangles inside the 0.051 m vertical scoring cylinder per FLOWER instance; simplify only exterior triangles.",
+            "protectedRegion": "scoring-cylinder",
+            "protectedRadiusMeters": 0.051,
+            "exteriorRelativeError": 0.0001,
+            "borderVerticesLocked": true,
+            "positionsFloat32": true,
+            "draco": false,
+            "sourceTriangles": 3189864,
+            "outputTriangles": 528294,
+            "measuredSurfaceValidation": {
+              "method": "bidirectional deterministic source/candidate triangle-centroid samples, point-to-triangle distance",
+              "maximumSampledDistanceMeters": 0.00010793000441830903,
+              "samples": 3072,
+              "toleranceMeters": 0.0005
+            }
+          }
+        },
+        {
+          "id": "fixtures",
+          "url": "/models/biobuzz/collision/field-fixtures.glb",
+          "bytes": 2368,
+          "sha256": "22a364c9adecfec5a4c67df7b916e56e1e909903e51daf79d3087006729ce74c",
+          "triangles": 88,
+          "sourceTriangles": 568,
+          "nodeCount": 2,
+          "nodeNameFormat": "fixtures/<official assembly>/<official part>",
+          "sourceParts": [
+            "am-5706 Artifact Tray__Fillet1"
+          ],
+          "topologyFallbackToSource": false
+        }
+      ],
+      "floor": {
+        "runtime": "omitted",
+        "sourceParts": [
+          "am-2499-Center: FIRST Tech Challenge Field Soft Tiles",
+          "am-2499-Corner: FIRST Tech Challenge Field Soft Tiles",
+          "am-2499-Side: FIRST Tech Challenge Field Soft Tiles"
+        ],
+        "shape": "parent-owned CAD-plane",
+        "heightMeters": 0,
+        "source": "source STEP tile-top plane and published field dimensions; physics layout supplies the plane collider"
+      },
+      "optimizationValidation": {
+        "tool": "biobuzz-optimize-collisions.mjs --flowers-only --protect-flower-openings",
+        "toleranceMeters": 0.0005,
+        "staticTriangles": 581654,
+        "staticTriangleBudget": 200000,
+        "passed": true,
+        "flowers": {
+          "triangles": 528294,
+          "sourceTriangles": 3189864,
+          "exactSourcePreserved": false,
+          "maximumSampledSurfaceDeviationMeters": 0.00010793000441830903,
+          "samples": 3072,
+          "ballOpeningGauges": 12,
+          "totalOpeningRays": 780,
+          "finiteBallContacts": {
+            "POLLEN": {
+              "testedCenters": 58688,
+              "contactMismatches": 0,
+              "sourceOnly": 0,
+              "candidateOnly": 0
+            },
+            "NECTAR": {
+              "testedCenters": 29760,
+              "contactMismatches": 0,
+              "sourceOnly": 0,
+              "candidateOnly": 0
+            }
+          }
+        },
+        "frame": {
+          "triangles": 48680,
+          "sourceTriangles": 987460,
+          "maximumSampledSurfaceDeviationMeters": 0.0003757524187108965,
+          "samples": 1344,
+          "sourceNodesRetained": 12
+        },
+        "cells": [
+          {
+            "id": "hive-red-audience",
+            "bytes": 362632,
+            "sha256": "f9e5f24f928938d70ae120cafd72f5cd211a46548b17aef7fda9ffc801f4b9e6",
+            "triangles": 28759,
+            "sourceTriangles": 62806,
+            "maximumSampledSurfaceDeviationMeters": 0.00036107224774202176,
+            "samples": 3136,
+            "mouthRays": 6,
+            "innerWallContactChecks": 31,
+            "maximumWallContactDeltaMeters": 0.00006620989111503009
+          },
+          {
+            "id": "hive-red-scoring",
+            "bytes": 363468,
+            "sha256": "f3018055270ab781917aaf4201fbd27d8f420145b305ea31c0e853c39bf6e036",
+            "triangles": 28827,
+            "sourceTriangles": 63253,
+            "maximumSampledSurfaceDeviationMeters": 0.00016958188540019094,
+            "samples": 3136,
+            "mouthRays": 6,
+            "innerWallContactChecks": 31,
+            "maximumWallContactDeltaMeters": 0.00006847896897557715
+          },
+          {
+            "id": "hive-blue-audience",
+            "bytes": 378188,
+            "sha256": "6b2cdd1bf54c35e97a866dbf285c3f2521f52ce62536f15860a676c5bc39b353",
+            "triangles": 30042,
+            "sourceTriangles": 64020,
+            "maximumSampledSurfaceDeviationMeters": 0.00046876126493157396,
+            "samples": 3136,
+            "mouthRays": 6,
+            "innerWallContactChecks": 31,
+            "maximumWallContactDeltaMeters": 0.0000072514006448295976
+          },
+          {
+            "id": "hive-blue-scoring",
+            "bytes": 374724,
+            "sha256": "46be310b3a5a31464046ba16aff467e9d21100b782a6ee984628953e8dfc5e8f",
+            "triangles": 29764,
+            "sourceTriangles": 63718,
+            "maximumSampledSurfaceDeviationMeters": 0.00038872927673173105,
+            "samples": 3136,
+            "mouthRays": 6,
+            "innerWallContactChecks": 31,
+            "maximumWallContactDeltaMeters": 0.00006625410444047013
+          }
+        ],
+        "combinedNonFloorTriangles": 838610,
+        "combinedNonFloorBudget": 200000,
+        "combinedNonFloorBudgetMet": false,
+        "scoringRimDiagnostics": [
+          {
+            "node": "flowers/am-5855: Flower Assembly <1>/am-5857: Flower Layer C#35",
+            "scoringRadiusOccupancyMismatches": {
+              "count": 0,
+              "rays": 16
+            },
+            "nearbyOuterRimContactMaxYDeltaMeters": 0
+          },
+          {
+            "node": "flowers/am-5855: Flower Assembly <1>/am-5858: Flower Layer B#30",
+            "scoringRadiusOccupancyMismatches": {
+              "count": 0,
+              "rays": 16
+            },
+            "nearbyOuterRimContactMaxYDeltaMeters": 0
+          },
+          {
+            "node": "flowers/am-5855: Flower Assembly <1>/am-5859: Flower Layer X#26",
+            "scoringRadiusOccupancyMismatches": {
+              "count": 0,
+              "rays": 16
+            },
+            "nearbyOuterRimContactMaxYDeltaMeters": 0
+          },
+          {
+            "node": "flowers/am-5855: Flower Assembly <2>/am-5857: Flower Layer C#15",
+            "scoringRadiusOccupancyMismatches": {
+              "count": 0,
+              "rays": 16
+            },
+            "nearbyOuterRimContactMaxYDeltaMeters": 0
+          },
+          {
+            "node": "flowers/am-5855: Flower Assembly <2>/am-5858: Flower Layer B#18",
+            "scoringRadiusOccupancyMismatches": {
+              "count": 0,
+              "rays": 16
+            },
+            "nearbyOuterRimContactMaxYDeltaMeters": 0
+          },
+          {
+            "node": "flowers/am-5855: Flower Assembly <2>/am-5859: Flower Layer X#9",
+            "scoringRadiusOccupancyMismatches": {
+              "count": 0,
+              "rays": 16
+            },
+            "nearbyOuterRimContactMaxYDeltaMeters": 0
+          },
+          {
+            "node": "flowers/am-5855: Flower Assembly <3>/am-5857: Flower Layer C#4",
+            "scoringRadiusOccupancyMismatches": {
+              "count": 0,
+              "rays": 16
+            },
+            "nearbyOuterRimContactMaxYDeltaMeters": 0
+          },
+          {
+            "node": "flowers/am-5855: Flower Assembly <3>/am-5858: Flower Layer B#23",
+            "scoringRadiusOccupancyMismatches": {
+              "count": 0,
+              "rays": 16
+            },
+            "nearbyOuterRimContactMaxYDeltaMeters": 0
+          },
+          {
+            "node": "flowers/am-5855: Flower Assembly <3>/am-5859: Flower Layer X#33",
+            "scoringRadiusOccupancyMismatches": {
+              "count": 0,
+              "rays": 16
+            },
+            "nearbyOuterRimContactMaxYDeltaMeters": 0
+          },
+          {
+            "node": "flowers/am-5855: Flower Assembly <4>/am-5857: Flower Layer C#16",
+            "scoringRadiusOccupancyMismatches": {
+              "count": 0,
+              "rays": 16
+            },
+            "nearbyOuterRimContactMaxYDeltaMeters": 0
+          },
+          {
+            "node": "flowers/am-5855: Flower Assembly <4>/am-5858: Flower Layer B#17",
+            "scoringRadiusOccupancyMismatches": {
+              "count": 0,
+              "rays": 16
+            },
+            "nearbyOuterRimContactMaxYDeltaMeters": 0
+          },
+          {
+            "node": "flowers/am-5855: Flower Assembly <4>/am-5859: Flower Layer X#9",
+            "scoringRadiusOccupancyMismatches": {
+              "count": 0,
+              "rays": 16
+            },
+            "nearbyOuterRimContactMaxYDeltaMeters": 0
+          }
+        ],
+        "movingMechanismTriangles": 139564,
+        "staticTriangleBudgetMet": false,
+        "priorSimplifiedComparison": {
+          "candidate": {
+            "bytes": 820624,
+            "sha256": "6e38943fa697d42280ebd95b509c01a05c756b78ce2fb0417ad629c89efbecc1",
+            "triangles": 67008
+          },
+          "sampledSurfaceDistance": "skipped for this source-scale comparison; the source is retained byte-for-byte",
+          "openingAndRimRays": [
+            {
+              "node": "flowers/am-5855: Flower Assembly <1>/am-5857: Flower Layer C#35",
+              "scoringRadiusOccupancyMismatches": {
+                "count": 1,
+                "rays": 16
+              },
+              "nearbyOuterRimContactMaxYDeltaMeters": 0.006815056565534716,
+              "blockedBallOpeningRays": {
+                "source": 0,
+                "candidate": 0
+              }
+            },
+            {
+              "node": "flowers/am-5855: Flower Assembly <1>/am-5858: Flower Layer B#30",
+              "scoringRadiusOccupancyMismatches": {
+                "count": 0,
+                "rays": 16
+              },
+              "nearbyOuterRimContactMaxYDeltaMeters": 0.004150261445018899,
+              "blockedBallOpeningRays": {
+                "source": 0,
+                "candidate": 0
+              }
+            },
+            {
+              "node": "flowers/am-5855: Flower Assembly <1>/am-5859: Flower Layer X#26",
+              "scoringRadiusOccupancyMismatches": {
+                "count": 0,
+                "rays": 16
+              },
+              "nearbyOuterRimContactMaxYDeltaMeters": 0.00011461129535208364,
+              "blockedBallOpeningRays": {
+                "source": 0,
+                "candidate": 0
+              }
+            },
+            {
+              "node": "flowers/am-5855: Flower Assembly <2>/am-5857: Flower Layer C#15",
+              "scoringRadiusOccupancyMismatches": {
+                "count": 1,
+                "rays": 16
+              },
+              "nearbyOuterRimContactMaxYDeltaMeters": 0.005254313671676281,
+              "blockedBallOpeningRays": {
+                "source": 0,
+                "candidate": 0
+              }
+            },
+            {
+              "node": "flowers/am-5855: Flower Assembly <2>/am-5858: Flower Layer B#18",
+              "scoringRadiusOccupancyMismatches": {
+                "count": 0,
+                "rays": 16
+              },
+              "nearbyOuterRimContactMaxYDeltaMeters": 0.020427039154933796,
+              "blockedBallOpeningRays": {
+                "source": 0,
+                "candidate": 0
+              }
+            },
+            {
+              "node": "flowers/am-5855: Flower Assembly <2>/am-5859: Flower Layer X#9",
+              "scoringRadiusOccupancyMismatches": {
+                "count": 0,
+                "rays": 16
+              },
+              "nearbyOuterRimContactMaxYDeltaMeters": 0.00011497703356320305,
+              "blockedBallOpeningRays": {
+                "source": 0,
+                "candidate": 0
+              }
+            },
+            {
+              "node": "flowers/am-5855: Flower Assembly <3>/am-5857: Flower Layer C#4",
+              "scoringRadiusOccupancyMismatches": {
+                "count": 1,
+                "rays": 16
+              },
+              "nearbyOuterRimContactMaxYDeltaMeters": 0.007089554851496982,
+              "blockedBallOpeningRays": {
+                "source": 0,
+                "candidate": 0
+              }
+            },
+            {
+              "node": "flowers/am-5855: Flower Assembly <3>/am-5858: Flower Layer B#23",
+              "scoringRadiusOccupancyMismatches": {
+                "count": 0,
+                "rays": 16
+              },
+              "nearbyOuterRimContactMaxYDeltaMeters": 0.009452882497364826,
+              "blockedBallOpeningRays": {
+                "source": 0,
+                "candidate": 0
+              }
+            },
+            {
+              "node": "flowers/am-5855: Flower Assembly <3>/am-5859: Flower Layer X#33",
+              "scoringRadiusOccupancyMismatches": {
+                "count": 0,
+                "rays": 16
+              },
+              "nearbyOuterRimContactMaxYDeltaMeters": 0.00007672573070555654,
+              "blockedBallOpeningRays": {
+                "source": 0,
+                "candidate": 0
+              }
+            },
+            {
+              "node": "flowers/am-5855: Flower Assembly <4>/am-5857: Flower Layer C#16",
+              "scoringRadiusOccupancyMismatches": {
+                "count": 3,
+                "rays": 16
+              },
+              "nearbyOuterRimContactMaxYDeltaMeters": 0.006713265705414306,
+              "blockedBallOpeningRays": {
+                "source": 0,
+                "candidate": 0
+              }
+            },
+            {
+              "node": "flowers/am-5855: Flower Assembly <4>/am-5858: Flower Layer B#17",
+              "scoringRadiusOccupancyMismatches": {
+                "count": 0,
+                "rays": 16
+              },
+              "nearbyOuterRimContactMaxYDeltaMeters": 0.005891628274033972,
+              "blockedBallOpeningRays": {
+                "source": 0,
+                "candidate": 0
+              }
+            },
+            {
+              "node": "flowers/am-5855: Flower Assembly <4>/am-5859: Flower Layer X#9",
+              "scoringRadiusOccupancyMismatches": {
+                "count": 0,
+                "rays": 16
+              },
+              "nearbyOuterRimContactMaxYDeltaMeters": 0.0001334026946762587,
+              "blockedBallOpeningRays": {
+                "source": 0,
+                "candidate": 0
+              }
+            }
+          ],
+          "finiteBallContacts": {
+            "method": "Rapier finite-sphere intersectsShape grid around each source Layer C/B/X surface; centers constrained to fit within the official 4-inch scoring radius; 2.5 mm spatial steps and 16 angles",
+            "sampling": {
+              "stepMeters": 0.0025,
+              "angleCount": 16,
+              "layerMeshes": 12,
+              "pollenDiameterMeters": 0.07112,
+              "nectarDiameterMeters": 0.09144,
+              "scoringRadiusMeters": 0.0508
+            },
+            "source": {
+              "path": "public/models/biobuzz/collision/field-flowers.glb",
+              "bytes": 57447928,
+              "sha256": "e5bb81af46bdf93bde335cd304dab0d98ea4284ba934da7154c212405e175bbb"
+            },
+            "candidate": {
+              "path": "/tmp/biobuzz-field-flowers-optimized-prior.glb",
+              "bytes": 820624,
+              "sha256": "6e38943fa697d42280ebd95b509c01a05c756b78ce2fb0417ad629c89efbecc1"
+            },
+            "totals": {
+              "POLLEN": {
+                "testedCenters": 58688,
+                "contactMismatches": 136,
+                "sourceOnly": 21,
+                "candidateOnly": 115
+              },
+              "NECTAR": {
+                "testedCenters": 29760,
+                "contactMismatches": 165,
+                "sourceOnly": 50,
+                "candidateOnly": 115
+              }
+            },
+            "layers": [
+              {
+                "node": "flowers/am-5855: Flower Assembly <1>/am-5857: Flower Layer C#35",
+                "checks": {
+                  "POLLEN": {
+                    "testedCenters": 5040,
+                    "contactMismatches": 1,
+                    "sourceOnly": 0,
+                    "candidateOnly": 1
+                  },
+                  "NECTAR": {
+                    "testedCenters": 2544,
+                    "contactMismatches": 14,
+                    "sourceOnly": 7,
+                    "candidateOnly": 7
+                  }
+                }
+              },
+              {
+                "node": "flowers/am-5855: Flower Assembly <1>/am-5858: Flower Layer B#30",
+                "checks": {
+                  "POLLEN": {
+                    "testedCenters": 5264,
+                    "contactMismatches": 9,
+                    "sourceOnly": 5,
+                    "candidateOnly": 4
+                  },
+                  "NECTAR": {
+                    "testedCenters": 2640,
+                    "contactMismatches": 6,
+                    "sourceOnly": 4,
+                    "candidateOnly": 2
+                  }
+                }
+              },
+              {
+                "node": "flowers/am-5855: Flower Assembly <1>/am-5859: Flower Layer X#26",
+                "checks": {
+                  "POLLEN": {
+                    "testedCenters": 4368,
+                    "contactMismatches": 22,
+                    "sourceOnly": 0,
+                    "candidateOnly": 22
+                  },
+                  "NECTAR": {
+                    "testedCenters": 2256,
+                    "contactMismatches": 16,
+                    "sourceOnly": 0,
+                    "candidateOnly": 16
+                  }
+                }
+              },
+              {
+                "node": "flowers/am-5855: Flower Assembly <2>/am-5857: Flower Layer C#15",
+                "checks": {
+                  "POLLEN": {
+                    "testedCenters": 5040,
+                    "contactMismatches": 6,
+                    "sourceOnly": 0,
+                    "candidateOnly": 6
+                  },
+                  "NECTAR": {
+                    "testedCenters": 2544,
+                    "contactMismatches": 26,
+                    "sourceOnly": 11,
+                    "candidateOnly": 15
+                  }
+                }
+              },
+              {
+                "node": "flowers/am-5855: Flower Assembly <2>/am-5858: Flower Layer B#18",
+                "checks": {
+                  "POLLEN": {
+                    "testedCenters": 5264,
+                    "contactMismatches": 10,
+                    "sourceOnly": 6,
+                    "candidateOnly": 4
+                  },
+                  "NECTAR": {
+                    "testedCenters": 2640,
+                    "contactMismatches": 8,
+                    "sourceOnly": 4,
+                    "candidateOnly": 4
+                  }
+                }
+              },
+              {
+                "node": "flowers/am-5855: Flower Assembly <2>/am-5859: Flower Layer X#9",
+                "checks": {
+                  "POLLEN": {
+                    "testedCenters": 4368,
+                    "contactMismatches": 13,
+                    "sourceOnly": 0,
+                    "candidateOnly": 13
+                  },
+                  "NECTAR": {
+                    "testedCenters": 2256,
+                    "contactMismatches": 16,
+                    "sourceOnly": 0,
+                    "candidateOnly": 16
+                  }
+                }
+              },
+              {
+                "node": "flowers/am-5855: Flower Assembly <3>/am-5857: Flower Layer C#4",
+                "checks": {
+                  "POLLEN": {
+                    "testedCenters": 5040,
+                    "contactMismatches": 2,
+                    "sourceOnly": 0,
+                    "candidateOnly": 2
+                  },
+                  "NECTAR": {
+                    "testedCenters": 2544,
+                    "contactMismatches": 16,
+                    "sourceOnly": 8,
+                    "candidateOnly": 8
+                  }
+                }
+              },
+              {
+                "node": "flowers/am-5855: Flower Assembly <3>/am-5858: Flower Layer B#23",
+                "checks": {
+                  "POLLEN": {
+                    "testedCenters": 5264,
+                    "contactMismatches": 9,
+                    "sourceOnly": 6,
+                    "candidateOnly": 3
+                  },
+                  "NECTAR": {
+                    "testedCenters": 2640,
+                    "contactMismatches": 7,
+                    "sourceOnly": 3,
+                    "candidateOnly": 4
+                  }
+                }
+              },
+              {
+                "node": "flowers/am-5855: Flower Assembly <3>/am-5859: Flower Layer X#33",
+                "checks": {
+                  "POLLEN": {
+                    "testedCenters": 4368,
+                    "contactMismatches": 18,
+                    "sourceOnly": 0,
+                    "candidateOnly": 18
+                  },
+                  "NECTAR": {
+                    "testedCenters": 2256,
+                    "contactMismatches": 16,
+                    "sourceOnly": 0,
+                    "candidateOnly": 16
+                  }
+                }
+              },
+              {
+                "node": "flowers/am-5855: Flower Assembly <4>/am-5857: Flower Layer C#16",
+                "checks": {
+                  "POLLEN": {
+                    "testedCenters": 5040,
+                    "contactMismatches": 1,
+                    "sourceOnly": 0,
+                    "candidateOnly": 1
+                  },
+                  "NECTAR": {
+                    "testedCenters": 2544,
+                    "contactMismatches": 18,
+                    "sourceOnly": 10,
+                    "candidateOnly": 8
+                  }
+                }
+              },
+              {
+                "node": "flowers/am-5855: Flower Assembly <4>/am-5858: Flower Layer B#17",
+                "checks": {
+                  "POLLEN": {
+                    "testedCenters": 5264,
+                    "contactMismatches": 12,
+                    "sourceOnly": 4,
+                    "candidateOnly": 8
+                  },
+                  "NECTAR": {
+                    "testedCenters": 2640,
+                    "contactMismatches": 6,
+                    "sourceOnly": 3,
+                    "candidateOnly": 3
+                  }
+                }
+              },
+              {
+                "node": "flowers/am-5855: Flower Assembly <4>/am-5859: Flower Layer X#9",
+                "checks": {
+                  "POLLEN": {
+                    "testedCenters": 4368,
+                    "contactMismatches": 33,
+                    "sourceOnly": 0,
+                    "candidateOnly": 33
+                  },
+                  "NECTAR": {
+                    "testedCenters": 2256,
+                    "contactMismatches": 16,
+                    "sourceOnly": 0,
+                    "candidateOnly": 16
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "staticTriangleBudgetStatus": "unmet; protected FLOWER candidate retained for zero finite-ball contact mismatch"
+      }
+    },
+    "pollen": "/models/biobuzz/pollen.glb",
+    "nectarRed": "/models/biobuzz/nectar-red.glb",
+    "nectarBlue": "/models/biobuzz/nectar-blue.glb",
+    "flowerScoringVolume": {
+      "mesh": "/models/biobuzz/flower-scoring-volume.glb",
+      "metadata": "/models/biobuzz/flower-scoring-volume.glb.json",
+      "sourceStep": "/models/biobuzz/source/flower-scoring-volume.step",
+      "sourceSha256": "6bfb427b1f401d4d28a4aa13ee3321edde66dd7484512eb197bd1c09195ebba7",
+      "analyticSolid": {
+        "kind": "cylinder",
+        "radius": 0.0508,
+        "height": 0.42672,
+        "minimumSourceZ": 0,
+        "maximumSourceZ": 0.42672
+      },
+      "axisAfterPlacement": "renderer +Y",
+      "collision": false
+    },
+    "flowerScoringVolumeStatus": "Official Onshape STEP solid is available; use the analytic cylinder in the scoring metadata (the GLB is a preview mesh, not a collider)."
+  },
+  "movableBodies": [
+    {
+      "id": "hive-red",
+      "alliance": "red",
+      "mesh": "/models/biobuzz/hive-red.glb",
+      "geometryFrame": "hive-pivot-local",
+      "initialPose": {
+        "position": [
+          -0.323661681017093,
+          1.11632090761168,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "angleRadians": 0,
+        "source": "official STEP assembly pose"
+      },
+      "pivot": {
+        "position": [
+          -0.323661681017093,
+          1.11632090761168,
+          0
+        ],
+        "axis": [
+          1,
+          0,
+          0
+        ],
+        "axisFrame": "field",
+        "sourcePart": "am-5881 stepped axle/spacer center; source STEP"
+      },
+      "initialUpCell": "red-audience",
+      "initialAngleRadians": 0,
+      "hingeAxisSource": "source +X through the am-5881 stepped axle/spacer centre",
+      "cells": [
+        {
+          "id": "hive-red-audience",
+          "side": "audience",
+          "mesh": "/models/biobuzz/cell-red-audience.glb",
+          "localTransform": {
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "geometryFrame": "hive-pivot-local"
+          },
+          "apriltagIds": [
+            34,
+            35,
+            36,
+            37
+          ],
+          "broadPhaseBoundsLocalMeters": {
+            "min": [
+              -0.2674475948007781,
+              -0.028561532039475424,
+              0.028220368549227715
+            ],
+            "max": [
+              0.26749559839647225,
+              0.5605941419412375,
+              0.5096279978752136
+            ]
+          },
+          "physicsBroadPhase": {
+            "center": [
+              0.000024001797847061912,
+              0.266016304950881,
+              0.26892418321222067
+            ],
+            "halfExtents": [
+              0.2674715965986252,
+              0.29457783699035645,
+              0.24070381466299295
+            ],
+            "role": "bounds metadata only; use the hollow triangle mesh for collision"
+          },
+          "collider": {
+            "url": "/models/biobuzz/collision/cell-red-audience.glb",
+            "shape": "trimesh",
+            "convexHull": false,
+            "openBoundaryVerticesLocked": true,
+            "apertureProbeValidation": "Simplified hollow source mesh; validator preserves mouth-ray occupancy, samples each interior contact-plane face at five points, and compares source/output surface distances.",
+            "topologyValidation": {
+              "acceptanceGate": "Euler and boundary-count equality is diagnostic only; hollow mouth rays, inner-wall contacts, and sampled source-surface distance are the functional gates.",
+              "sourceCounts": {
+                "namedParts": 49,
+                "eulerCharacteristic": -236,
+                "boundaryComponents": 57,
+                "boundaryEdges": 114,
+                "nonManifoldEdges": 62,
+                "maximumSampledOpenBoundaryDeviationMeters": 0
+              }
+            },
+            "outerBoundsOnly": true,
+            "sourceTriangles": 62806,
+            "positionOnlyWelding": {
+              "toleranceMeters": 1e-7,
+              "sourceTriangles": 62806,
+              "retainedTriangles": 62806,
+              "sourceVertices": 31191,
+              "weldedVertices": 31191,
+              "degenerateTrianglesRemoved": 0,
+              "duplicateTrianglesRemoved": 0,
+              "renderNormalsAndUVs": "omitted; runtime physics recomputes contact normals"
+            },
+            "triangles": 28759,
+            "bytes": 362632,
+            "sha256": "f9e5f24f928938d70ae120cafd72f5cd211a46548b17aef7fda9ffc801f4b9e6",
+            "nodeCount": 49,
+            "nodeNameFormat": "cell-audience/<cell id>/<official part or stable generated segment>",
+            "sourcePartNamesAvailable": true,
+            "sourceParts": [
+              "position-welded-welded"
+            ],
+            "excludedParts": [],
+            "opening": {
+              "normalLocal": null,
+              "normalStatus": "unverified; preserve actual open-shell geometry; scoring volume unavailable"
+            },
+            "simplification": {
+              "tool": "gltfpack 1.2.0",
+              "targetRatio": 0.025,
+              "relativeErrorLimit": 0.0002,
+              "borderVerticesLocked": true,
+              "positionsFloat32": true,
+              "draco": false,
+              "sourceTriangles": 62806,
+              "outputTriangles": 28759,
+              "measuredSurfaceValidation": {
+                "method": "bidirectional 32-triangle-centroid samples per named node, point-to-triangle distance",
+                "maximumSampledDistanceMeters": 0.00036107224774202176,
+                "samples": 3136,
+                "toleranceMeters": 0.0005
+              },
+              "mouthRayValidation": {
+                "rays": 6,
+                "occupancyPreserved": true,
+                "maximumContactShiftMeters": 0
+              },
+              "innerWallContactValidation": {
+                "contactSamples": 31,
+                "maximumContactShiftMeters": 0.00006620989111503009,
+                "maximumNormalDifferenceDegrees": 0.04421931398484977
+              }
+            }
+          },
+          "visualSourceParts": [
+            "Hex lock nut with nylon insert #10-32",
+            "Socket head cap screw #10-32 x 1",
+            "Socket head cap screw #10-32 x 1.5",
+            "Socket head cap screw #10-32 x 2",
+            "am-1483: 10-32 Wing Nut",
+            "am-1523: #10 Fender Washer",
+            "am-1589 Basket End Skin Cable Tie_Red__Fillet1",
+            "am-1589 Basket End Skin Wing Cable Tie_Red__Fillet1",
+            "am-1589 Basket Joiner Cable Tie_Red__Fillet3",
+            "am-1589 Rib Top Back Cable Tie_Red__Fillet2",
+            "am-1589 Rib Top Front Cable Tie_Red__Fillet2",
+            "am-1696: Nylon Spacer, 0.194in ID, 0.375in OD, 1.000in Long",
+            "am-1767: 1x1 Square Press In Plug (Black)",
+            "am-5864: Pivot Damper Holder",
+            "am-5865: Blumotion 970A Damper",
+            "am-5866-red: Red Goal Rib",
+            "am-5867: 10.5in Churro Lite",
+            "am-5868: Basket Base Tube",
+            "am-5869: Hive Goal Top Skin",
+            "am-5871: Hive Goal Back Skin",
+            "am-5888-red1: Red Goal April Tag (Audience)",
+            "am-5888: Hive Goal Bottom Skin"
+          ]
+        },
+        {
+          "id": "hive-red-scoring",
+          "side": "scoring",
+          "mesh": "/models/biobuzz/cell-red-scoring.glb",
+          "localTransform": {
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "geometryFrame": "hive-pivot-local"
+          },
+          "apriltagIds": [
+            30,
+            31,
+            32,
+            33
+          ],
+          "broadPhaseBoundsLocalMeters": {
+            "min": [
+              -0.2674475948007781,
+              -0.33777165367109774,
+              -0.6382728219032288
+            ],
+            "max": [
+              0.26749559839647225,
+              0.1682254676629782,
+              -0.01800243929028511
+            ]
+          },
+          "physicsBroadPhase": {
+            "center": [
+              0.000024001797847061912,
+              -0.08477309300405977,
+              -0.32813763059675694
+            ],
+            "halfExtents": [
+              0.2674715965986252,
+              0.25299856066703796,
+              0.3101351913064718
+            ],
+            "role": "bounds metadata only; use the hollow triangle mesh for collision"
+          },
+          "collider": {
+            "url": "/models/biobuzz/collision/cell-red-scoring.glb",
+            "shape": "trimesh",
+            "convexHull": false,
+            "openBoundaryVerticesLocked": true,
+            "apertureProbeValidation": "Simplified hollow source mesh; validator preserves mouth-ray occupancy, samples each interior contact-plane face at five points, and compares source/output surface distances.",
+            "topologyValidation": {
+              "acceptanceGate": "Euler and boundary-count equality is diagnostic only; hollow mouth rays, inner-wall contacts, and sampled source-surface distance are the functional gates.",
+              "sourceCounts": {
+                "namedParts": 49,
+                "eulerCharacteristic": -234,
+                "boundaryComponents": 41,
+                "boundaryEdges": 88,
+                "nonManifoldEdges": 47,
+                "maximumSampledOpenBoundaryDeviationMeters": 0
+              }
+            },
+            "outerBoundsOnly": true,
+            "sourceTriangles": 63253,
+            "positionOnlyWelding": {
+              "toleranceMeters": 1e-7,
+              "sourceTriangles": 63253,
+              "retainedTriangles": 63253,
+              "sourceVertices": 31409,
+              "weldedVertices": 31409,
+              "degenerateTrianglesRemoved": 0,
+              "duplicateTrianglesRemoved": 0,
+              "renderNormalsAndUVs": "omitted; runtime physics recomputes contact normals"
+            },
+            "triangles": 28827,
+            "bytes": 363468,
+            "sha256": "f3018055270ab781917aaf4201fbd27d8f420145b305ea31c0e853c39bf6e036",
+            "nodeCount": 49,
+            "nodeNameFormat": "cell-scoring/<cell id>/<official part or stable generated segment>",
+            "sourcePartNamesAvailable": true,
+            "sourceParts": [
+              "position-welded-welded"
+            ],
+            "excludedParts": [],
+            "opening": {
+              "normalLocal": null,
+              "normalStatus": "unverified; preserve actual open-shell geometry; scoring volume unavailable"
+            },
+            "simplification": {
+              "tool": "gltfpack 1.2.0",
+              "targetRatio": 0.025,
+              "relativeErrorLimit": 0.0002,
+              "borderVerticesLocked": true,
+              "positionsFloat32": true,
+              "draco": false,
+              "sourceTriangles": 63253,
+              "outputTriangles": 28827,
+              "measuredSurfaceValidation": {
+                "method": "bidirectional 32-triangle-centroid samples per named node, point-to-triangle distance",
+                "maximumSampledDistanceMeters": 0.00016958188540019094,
+                "samples": 3136,
+                "toleranceMeters": 0.0005
+              },
+              "mouthRayValidation": {
+                "rays": 6,
+                "occupancyPreserved": true,
+                "maximumContactShiftMeters": 0
+              },
+              "innerWallContactValidation": {
+                "contactSamples": 31,
+                "maximumContactShiftMeters": 0.00006847896897557715,
+                "maximumNormalDifferenceDegrees": 0.028284225666501843
+              }
+            }
+          },
+          "visualSourceParts": [
+            "Hex lock nut with nylon insert #10-32",
+            "Socket head cap screw #10-32 x 1",
+            "Socket head cap screw #10-32 x 1.5",
+            "Socket head cap screw #10-32 x 2",
+            "am-1483: 10-32 Wing Nut",
+            "am-1523: #10 Fender Washer",
+            "am-1589 Basket End Skin Cable Tie_Red__Fillet1",
+            "am-1589 Basket End Skin Wing Cable Tie_Red__Fillet1",
+            "am-1589 Basket Joiner Cable Tie_Red__Fillet3",
+            "am-1589 Rib Top Back Cable Tie_Red__Fillet2",
+            "am-1589 Rib Top Front Cable Tie_Red__Fillet2",
+            "am-1696: Nylon Spacer, 0.194in ID, 0.375in OD, 1.000in Long",
+            "am-1767: 1x1 Square Press In Plug (Black)",
+            "am-5864: Pivot Damper Holder",
+            "am-5865: Blumotion 970A Damper",
+            "am-5866-red: Red Goal Rib",
+            "am-5867: 10.5in Churro Lite",
+            "am-5868: Basket Base Tube",
+            "am-5869: Hive Goal Top Skin",
+            "am-5871: Hive Goal Back Skin",
+            "am-5888-red2: Red Goal April Tag (Scoring)",
+            "am-5888: Hive Goal Bottom Skin"
+          ]
+        }
+      ],
+      "collider": {
+        "url": "/models/biobuzz/collision/hive-red-mechanism.glb",
+        "shape": "trimesh",
+        "convexHull": false,
+        "source": "official STEP mechanism parts with cell meshes separated",
+        "sourceParts": [
+          "am-4457 8 mm ID 22 mm OD Shielded Flanged Bearing F608ZZ_57155K629__CirPattern1[1]",
+          "am-4457 8 mm ID 22 mm OD Shielded Flanged Bearing F608ZZ_57155K629__CirPattern1[2]",
+          "am-4457 8 mm ID 22 mm OD Shielded Flanged Bearing F608ZZ_57155K629__CirPattern1[3]",
+          "am-4457 8 mm ID 22 mm OD Shielded Flanged Bearing F608ZZ_57155K629__CirPattern1[4]",
+          "am-4457 8 mm ID 22 mm OD Shielded Flanged Bearing F608ZZ_57155K629__CirPattern1[5]",
+          "am-4457 8 mm ID 22 mm OD Shielded Flanged Bearing F608ZZ_57155K629__CirPattern1[6]",
+          "am-4457 8 mm ID 22 mm OD Shielded Flanged Bearing F608ZZ_57155K629__CirPattern1[7]",
+          "am-4457 8 mm ID 22 mm OD Shielded Flanged Bearing F608ZZ_57155K629__CirPattern1[8]",
+          "am-4457 8 mm ID 22 mm OD Shielded Flanged Bearing F608ZZ_57155K629__CirPattern1[9]",
+          "am-4457 8 mm ID 22 mm OD Shielded Flanged Bearing F608ZZ_57155K629__Revolve3",
+          "am-4457 8 mm ID 22 mm OD Shielded Flanged Bearing F608ZZ_57155K629__Revolve4",
+          "am-4457 8 mm ID 22 mm OD Shielded Flanged Bearing F608ZZ_57155K629__Revolve5[1]",
+          "am-4457 8 mm ID 22 mm OD Shielded Flanged Bearing F608ZZ_57155K629__Revolve5[2]",
+          "am-4457 8 mm ID 22 mm OD Shielded Flanged Bearing F608ZZ_57155K629__Revolve6",
+          "am-5873: Goal Pivot Bracket",
+          "am-5881: 0.196 ID x 0.43 OD x 1.500 Long Aluminum Stepped Spacer"
+        ],
+        "triangles": 69782,
+        "sha256": "d1eff6b0bc974d283016a026c38ed9cf82d9243130fbcb20daba22fe6f6d3775"
+      },
+      "sourcePartition": {
+        "method": "source primitive bounds-centre Z; |Z| < 0.03 m is shared pivot mechanism; +Z audience cell; -Z scoring cell",
+        "counts": {
+          "core": 31,
+          "audience": 71,
+          "scoring": 71
+        }
+      },
+      "physicalProperties": {
+        "massKg": null,
+        "centerOfMassLocalMeters": null,
+        "status": "not published or derivable from STEP without material densities and measured part masses; parent must provide explicit assumption"
+      },
+      "damperMounts": {
+        "sourceParts": [
+          {
+            "name": "am-5865: Blumotion 970A Damper",
+            "boundsLocalMeters": {
+              "min": [
+                -0.005974535146542281,
+                -0.028561532039475424,
+                0.08190710097551346
+              ],
+              "max": [
+                0.006021674474887162,
+                0.03661078260438444,
+                0.09800766408443451
+              ]
+            }
+          },
+          {
+            "name": "am-5864: Pivot Damper Holder",
+            "boundsLocalMeters": {
+              "min": [
+                -0.014961991706677169,
+                -0.09434479429228304,
+                -0.08334595710039139
+              ],
+              "max": [
+                0.015009995302371293,
+                -0.049866020221543295,
+                -0.029511408880352974
+              ]
+            }
+          },
+          {
+            "name": "am-5865: Blumotion 970A Damper",
+            "boundsLocalMeters": {
+              "min": [
+                -0.005975637832470626,
+                -0.09204727365477083,
+                -0.07982954382896423
+              ],
+              "max": [
+                0.0060194691030304726,
+                -0.05821675016386507,
+                -0.01800243929028511
+              ]
+            }
+          },
+          {
+            "name": "am-5864: Pivot Damper Holder",
+            "boundsLocalMeters": {
+              "min": [
+                -0.014961991706677169,
+                -0.01429396821959017,
+                0.06696953624486923
+              ],
+              "max": [
+                0.015009995302371293,
+                0.03984576509492399,
+                0.11453751474618912
+              ]
+            }
+          }
+        ],
+        "localAnchorMeters": null,
+        "frameAnchorMeters": null,
+        "contactDistanceMeters": null,
+        "status": "damper bodies and holders are in CAD; endpoint/contact anchors are not independently defined in the STEP and are left for an explicit physics assumption"
+      }
+    },
+    {
+      "id": "hive-blue",
+      "alliance": "blue",
+      "mesh": "/models/biobuzz/hive-blue.glb",
+      "geometryFrame": "hive-pivot-local",
+      "initialPose": {
+        "position": [
+          0.324038318982907,
+          1.11632385238056,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "angleRadians": 0,
+        "source": "official STEP assembly pose"
+      },
+      "pivot": {
+        "position": [
+          0.324038318982907,
+          1.11632385238056,
+          0
+        ],
+        "axis": [
+          1,
+          0,
+          0
+        ],
+        "axisFrame": "field",
+        "sourcePart": "am-5881 stepped axle/spacer center; source STEP"
+      },
+      "initialUpCell": "blue-scoring",
+      "initialAngleRadians": 0,
+      "hingeAxisSource": "source +X through the am-5881 stepped axle/spacer centre",
+      "cells": [
+        {
+          "id": "hive-blue-audience",
+          "side": "audience",
+          "mesh": "/models/biobuzz/cell-blue-audience.glb",
+          "localTransform": {
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "geometryFrame": "hive-pivot-local"
+          },
+          "apriltagIds": [
+            38,
+            39,
+            40,
+            41
+          ],
+          "broadPhaseBoundsLocalMeters": {
+            "min": [
+              -0.26909859820324966,
+              -0.3377745984399778,
+              0.018003316596150398
+            ],
+            "max": [
+              0.2691465693799775,
+              0.16822252289409811,
+              0.6382728219032288
+            ]
+          },
+          "physicsBroadPhase": {
+            "center": [
+              0.000023985588363917287,
+              -0.08477603777293985,
+              0.3281380692496896
+            ],
+            "halfExtents": [
+              0.2691225837916136,
+              0.25299856066703796,
+              0.3101347526535392
+            ],
+            "role": "bounds metadata only; use the hollow triangle mesh for collision"
+          },
+          "collider": {
+            "url": "/models/biobuzz/collision/cell-blue-audience.glb",
+            "shape": "trimesh",
+            "convexHull": false,
+            "openBoundaryVerticesLocked": true,
+            "apertureProbeValidation": "Simplified hollow source mesh; validator preserves mouth-ray occupancy, samples each interior contact-plane face at five points, and compares source/output surface distances.",
+            "topologyValidation": {
+              "acceptanceGate": "Euler and boundary-count equality is diagnostic only; hollow mouth rays, inner-wall contacts, and sampled source-surface distance are the functional gates.",
+              "sourceCounts": {
+                "namedParts": 49,
+                "eulerCharacteristic": -237,
+                "boundaryComponents": 55,
+                "boundaryEdges": 116,
+                "nonManifoldEdges": 61,
+                "maximumSampledOpenBoundaryDeviationMeters": 0
+              }
+            },
+            "outerBoundsOnly": true,
+            "sourceTriangles": 64020,
+            "positionOnlyWelding": {
+              "toleranceMeters": 1e-7,
+              "sourceTriangles": 64020,
+              "retainedTriangles": 64020,
+              "sourceVertices": 31799,
+              "weldedVertices": 31799,
+              "degenerateTrianglesRemoved": 0,
+              "duplicateTrianglesRemoved": 0,
+              "renderNormalsAndUVs": "omitted; runtime physics recomputes contact normals"
+            },
+            "triangles": 30042,
+            "bytes": 378188,
+            "sha256": "6b2cdd1bf54c35e97a866dbf285c3f2521f52ce62536f15860a676c5bc39b353",
+            "nodeCount": 49,
+            "nodeNameFormat": "cell-audience/<cell id>/<official part or stable generated segment>",
+            "sourcePartNamesAvailable": true,
+            "sourceParts": [
+              "position-welded-welded"
+            ],
+            "excludedParts": [],
+            "opening": {
+              "normalLocal": null,
+              "normalStatus": "unverified; preserve actual open-shell geometry; scoring volume unavailable"
+            },
+            "simplification": {
+              "tool": "gltfpack 1.2.0",
+              "targetRatio": 0.025,
+              "relativeErrorLimit": 0.0002,
+              "borderVerticesLocked": true,
+              "positionsFloat32": true,
+              "draco": false,
+              "sourceTriangles": 64020,
+              "outputTriangles": 30042,
+              "measuredSurfaceValidation": {
+                "method": "bidirectional 32-triangle-centroid samples per named node, point-to-triangle distance",
+                "maximumSampledDistanceMeters": 0.00046876126493157396,
+                "samples": 3136,
+                "toleranceMeters": 0.0005
+              },
+              "mouthRayValidation": {
+                "rays": 6,
+                "occupancyPreserved": true,
+                "maximumContactShiftMeters": 0
+              },
+              "innerWallContactValidation": {
+                "contactSamples": 31,
+                "maximumContactShiftMeters": 0.0000072514006448295976,
+                "maximumNormalDifferenceDegrees": 0.004048391805533269
+              }
+            }
+          },
+          "visualSourceParts": [
+            "Hex lock nut with nylon insert #10-32",
+            "Socket head cap screw #10-32 x 1",
+            "Socket head cap screw #10-32 x 1.5",
+            "Socket head cap screw #10-32 x 2",
+            "am-1483: 10-32 Wing Nut",
+            "am-1523: #10 Fender Washer",
+            "am-1589 Basket End Skin Cable Tie_Blue__Fillet2",
+            "am-1589 Basket End Skin Wing Cable Tie_Blue__Fillet2",
+            "am-1589 Basket Joiner Cable Tie_Blue__Fillet4",
+            "am-1589 Rib Top Back Cable Tie_Blue__Fillet2",
+            "am-1589 Rib Top Front Cable Tie_Blue__Fillet2",
+            "am-1696: Nylon Spacer, 0.194in ID, 0.375in OD, 1.000in Long",
+            "am-1767: 1x1 Square Press In Plug (Black)",
+            "am-5864: Pivot Damper Holder",
+            "am-5865: Blumotion 970A Damper",
+            "am-5866-blue: Blue Goal Rib",
+            "am-5867: 10.5in Churro Lite",
+            "am-5868: Basket Base Tube",
+            "am-5869: Hive Goal Top Skin",
+            "am-5871: Hive Goal Back Skin",
+            "am-5888-blue1: Blue Goal April Tag (Audience)",
+            "am-5888: Hive Goal Bottom Skin"
+          ]
+        },
+        {
+          "id": "hive-blue-scoring",
+          "side": "scoring",
+          "mesh": "/models/biobuzz/cell-blue-scoring.glb",
+          "localTransform": {
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "geometryFrame": "hive-pivot-local"
+          },
+          "apriltagIds": [
+            42,
+            43,
+            44,
+            45
+          ],
+          "broadPhaseBoundsLocalMeters": {
+            "min": [
+              -0.26909859820324966,
+              -0.028563523134039093,
+              -0.5096279978752136
+            ],
+            "max": [
+              0.2691465693799775,
+              0.5605911971723574,
+              -0.028220368549227715
+            ]
+          },
+          "physicsBroadPhase": {
+            "center": [
+              0.000023985588363917287,
+              0.26601383701915915,
+              -0.26892418321222067
+            ],
+            "halfExtents": [
+              0.2691225837916136,
+              0.29457736015319824,
+              0.24070381466299295
+            ],
+            "role": "bounds metadata only; use the hollow triangle mesh for collision"
+          },
+          "collider": {
+            "url": "/models/biobuzz/collision/cell-blue-scoring.glb",
+            "shape": "trimesh",
+            "convexHull": false,
+            "openBoundaryVerticesLocked": true,
+            "apertureProbeValidation": "Simplified hollow source mesh; validator preserves mouth-ray occupancy, samples each interior contact-plane face at five points, and compares source/output surface distances.",
+            "topologyValidation": {
+              "acceptanceGate": "Euler and boundary-count equality is diagnostic only; hollow mouth rays, inner-wall contacts, and sampled source-surface distance are the functional gates.",
+              "sourceCounts": {
+                "namedParts": 49,
+                "eulerCharacteristic": -233,
+                "boundaryComponents": 46,
+                "boundaryEdges": 92,
+                "nonManifoldEdges": 53,
+                "maximumSampledOpenBoundaryDeviationMeters": 0
+              }
+            },
+            "outerBoundsOnly": true,
+            "sourceTriangles": 63718,
+            "positionOnlyWelding": {
+              "toleranceMeters": 1e-7,
+              "sourceTriangles": 63718,
+              "retainedTriangles": 63718,
+              "sourceVertices": 31642,
+              "weldedVertices": 31642,
+              "degenerateTrianglesRemoved": 0,
+              "duplicateTrianglesRemoved": 0,
+              "renderNormalsAndUVs": "omitted; runtime physics recomputes contact normals"
+            },
+            "triangles": 29764,
+            "bytes": 374724,
+            "sha256": "46be310b3a5a31464046ba16aff467e9d21100b782a6ee984628953e8dfc5e8f",
+            "nodeCount": 49,
+            "nodeNameFormat": "cell-scoring/<cell id>/<official part or stable generated segment>",
+            "sourcePartNamesAvailable": true,
+            "sourceParts": [
+              "position-welded-welded"
+            ],
+            "excludedParts": [],
+            "opening": {
+              "normalLocal": null,
+              "normalStatus": "unverified; preserve actual open-shell geometry; scoring volume unavailable"
+            },
+            "simplification": {
+              "tool": "gltfpack 1.2.0",
+              "targetRatio": 0.025,
+              "relativeErrorLimit": 0.0002,
+              "borderVerticesLocked": true,
+              "positionsFloat32": true,
+              "draco": false,
+              "sourceTriangles": 63718,
+              "outputTriangles": 29764,
+              "measuredSurfaceValidation": {
+                "method": "bidirectional 32-triangle-centroid samples per named node, point-to-triangle distance",
+                "maximumSampledDistanceMeters": 0.00038872927673173105,
+                "samples": 3136,
+                "toleranceMeters": 0.0005
+              },
+              "mouthRayValidation": {
+                "rays": 6,
+                "occupancyPreserved": true,
+                "maximumContactShiftMeters": 0
+              },
+              "innerWallContactValidation": {
+                "contactSamples": 31,
+                "maximumContactShiftMeters": 0.00006625410444047013,
+                "maximumNormalDifferenceDegrees": 0.028151619164927703
+              }
+            }
+          },
+          "visualSourceParts": [
+            "Hex lock nut with nylon insert #10-32",
+            "Socket head cap screw #10-32 x 1",
+            "Socket head cap screw #10-32 x 1.5",
+            "Socket head cap screw #10-32 x 2",
+            "am-1483: 10-32 Wing Nut",
+            "am-1523: #10 Fender Washer",
+            "am-1589 Basket End Skin Cable Tie_Blue__Fillet2",
+            "am-1589 Basket End Skin Wing Cable Tie_Blue__Fillet2",
+            "am-1589 Basket Joiner Cable Tie_Blue__Fillet4",
+            "am-1589 Rib Top Back Cable Tie_Blue__Fillet2",
+            "am-1589 Rib Top Front Cable Tie_Blue__Fillet2",
+            "am-1696: Nylon Spacer, 0.194in ID, 0.375in OD, 1.000in Long",
+            "am-1767: 1x1 Square Press In Plug (Black)",
+            "am-5864: Pivot Damper Holder",
+            "am-5865: Blumotion 970A Damper",
+            "am-5866-blue: Blue Goal Rib",
+            "am-5867: 10.5in Churro Lite",
+            "am-5868: Basket Base Tube",
+            "am-5869: Hive Goal Top Skin",
+            "am-5871: Hive Goal Back Skin",
+            "am-5888-blue2: Blue Goal April Tag (Scoring)",
+            "am-5888: Hive Goal Bottom Skin"
+          ]
+        }
+      ],
+      "collider": {
+        "url": "/models/biobuzz/collision/hive-blue-mechanism.glb",
+        "shape": "trimesh",
+        "convexHull": false,
+        "source": "official STEP mechanism parts with cell meshes separated",
+        "sourceParts": [
+          "am-4457 8 mm ID 22 mm OD Shielded Flanged Bearing F608ZZ_57155K629__CirPattern1[1]",
+          "am-4457 8 mm ID 22 mm OD Shielded Flanged Bearing F608ZZ_57155K629__CirPattern1[2]",
+          "am-4457 8 mm ID 22 mm OD Shielded Flanged Bearing F608ZZ_57155K629__CirPattern1[3]",
+          "am-4457 8 mm ID 22 mm OD Shielded Flanged Bearing F608ZZ_57155K629__CirPattern1[4]",
+          "am-4457 8 mm ID 22 mm OD Shielded Flanged Bearing F608ZZ_57155K629__CirPattern1[5]",
+          "am-4457 8 mm ID 22 mm OD Shielded Flanged Bearing F608ZZ_57155K629__CirPattern1[6]",
+          "am-4457 8 mm ID 22 mm OD Shielded Flanged Bearing F608ZZ_57155K629__CirPattern1[7]",
+          "am-4457 8 mm ID 22 mm OD Shielded Flanged Bearing F608ZZ_57155K629__CirPattern1[8]",
+          "am-4457 8 mm ID 22 mm OD Shielded Flanged Bearing F608ZZ_57155K629__CirPattern1[9]",
+          "am-4457 8 mm ID 22 mm OD Shielded Flanged Bearing F608ZZ_57155K629__Revolve3",
+          "am-4457 8 mm ID 22 mm OD Shielded Flanged Bearing F608ZZ_57155K629__Revolve4",
+          "am-4457 8 mm ID 22 mm OD Shielded Flanged Bearing F608ZZ_57155K629__Revolve5[1]",
+          "am-4457 8 mm ID 22 mm OD Shielded Flanged Bearing F608ZZ_57155K629__Revolve5[2]",
+          "am-4457 8 mm ID 22 mm OD Shielded Flanged Bearing F608ZZ_57155K629__Revolve6",
+          "am-5873: Goal Pivot Bracket",
+          "am-5881: 0.196 ID x 0.43 OD x 1.500 Long Aluminum Stepped Spacer"
+        ],
+        "triangles": 69782,
+        "sha256": "d5aa659acd1e18a410565a9237cbf773f370833affdc38614955a1796c1c6d9f"
+      },
+      "sourcePartition": {
+        "method": "source primitive bounds-centre Z; |Z| < 0.03 m is shared pivot mechanism; +Z audience cell; -Z scoring cell",
+        "counts": {
+          "core": 31,
+          "audience": 71,
+          "scoring": 71
+        }
+      },
+      "physicalProperties": {
+        "massKg": null,
+        "centerOfMassLocalMeters": null,
+        "status": "not published or derivable from STEP without material densities and measured part masses; parent must provide explicit assumption"
+      },
+      "damperMounts": {
+        "sourceParts": [
+          {
+            "name": "am-5865: Blumotion 970A Damper",
+            "boundsLocalMeters": {
+              "min": [
+                -0.005974553218670575,
+                -0.09204652293567483,
+                0.018003316596150398
+              ],
+              "max": [
+                0.006021686205081256,
+                -0.058224105676458526,
+                0.07983081042766571
+              ]
+            }
+          },
+          {
+            "name": "am-5864: Pivot Damper Holder",
+            "boundsLocalMeters": {
+              "min": [
+                -0.014962009778805463,
+                -0.014296912988470245,
+                -0.11453751474618912
+              ],
+              "max": [
+                0.015010007032565387,
+                0.039842820326043915,
+                -0.06696953624486923
+              ]
+            }
+          },
+          {
+            "name": "am-5865: Blumotion 970A Damper",
+            "boundsLocalMeters": {
+              "min": [
+                -0.005975626102276532,
+                -0.028563523134039093,
+                -0.09800457209348679
+              ],
+              "max": [
+                0.006019480833224566,
+                0.03660831467266257,
+                -0.08191093057394028
+              ]
+            }
+          },
+          {
+            "name": "am-5864: Pivot Damper Holder",
+            "boundsLocalMeters": {
+              "min": [
+                -0.014962009778805463,
+                -0.09434773906116312,
+                0.029511408880352974
+              ],
+              "max": [
+                0.015010007032565387,
+                -0.04986896499042337,
+                0.08334595710039139
+              ]
+            }
+          }
+        ],
+        "localAnchorMeters": null,
+        "frameAnchorMeters": null,
+        "contactDistanceMeters": null,
+        "status": "damper bodies and holders are in CAD; endpoint/contact anchors are not independently defined in the STEP and are left for an explicit physics assumption"
+      }
+    }
+  ],
+  "apriltags": {
+    "family": "36h11",
+    "targetSizeMeters": 0.08255,
+    "targetSizeSource": "BIOBUZZ Competition Manual V1 §9.9, p.74",
+    "orientationSource": "BIOBUZZ Competition Manual V1 §9.9, p.75 and official STEP",
+    "ids": [
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45
+    ]
+  },
+  "gamePieces": {
+    "pollen": {
+      "nominalDiameterMeters": 0.07112,
+      "nominalDiameterSource": "2.8 in; BIOBUZZ Competition Manual V1 §9.8, p.74",
+      "publishedMassPounds": 0.055,
+      "massKilograms": 0.02494758,
+      "massSource": "AndyMark BIOBUZZ Scoring Elements product specifications",
+      "collider": {
+        "shape": "sphere",
+        "radiusMeters": 0.03556,
+        "status": "nominal spherical approximation; official manual says pieces vary in size and are not perfectly spherical"
+      },
+      "mesh": "/models/biobuzz/pollen.glb",
+      "initialInstances": [
+        {
+          "id": "pollen-01",
+          "positionMeters": [
+            1.7282164692878723,
+            0.18237199634313583,
+            -0.5941704511642456
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-02",
+          "positionMeters": [
+            -0.5941704511642456,
+            0.255778007209301,
+            -1.7282164692878723
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-03",
+          "positionMeters": [
+            1.8554704785346985,
+            0.020852462388575077,
+            1.1686530113220215
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-04",
+          "positionMeters": [
+            1.8554704785346985,
+            0.020852462388575077,
+            0.9552930593490601
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-05",
+          "positionMeters": [
+            1.6127508282661438,
+            0.03558683318988187,
+            -1.7595598697662354
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-06",
+          "positionMeters": [
+            -1.6861568689346313,
+            0.03558683318988187,
+            1.7595598697662354
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-07",
+          "positionMeters": [
+            1.7282164692878723,
+            0.03555999924719799,
+            -0.5941704511642456
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-08",
+          "positionMeters": [
+            1.8554704785346985,
+            0.020852462388575077,
+            0.6708130538463593
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-09",
+          "positionMeters": [
+            1.8554704785346985,
+            0.020852462388575077,
+            1.026413083076477
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-10",
+          "positionMeters": [
+            0.5941704511642456,
+            0.03555999924719799,
+            1.7282164692878723
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-11",
+          "positionMeters": [
+            1.8554704785346985,
+            0.020852462388575077,
+            0.8130530416965485
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-12",
+          "positionMeters": [
+            1.8554704785346985,
+            0.020852462388575077,
+            0.8841730356216431
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-13",
+          "positionMeters": [
+            -1.8554704785346985,
+            0.020852462388575077,
+            -0.9552930593490601
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-14",
+          "positionMeters": [
+            -1.7282164692878723,
+            0.10896600037813187,
+            0.5941704511642456
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-15",
+          "positionMeters": [
+            1.7595628499984741,
+            0.03558683318988187,
+            -1.7595598697662354
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-16",
+          "positionMeters": [
+            1.7282164692878723,
+            0.255778007209301,
+            -0.5941704511642456
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-17",
+          "positionMeters": [
+            -1.7282164692878723,
+            0.18237199634313583,
+            0.5941704511642456
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-18",
+          "positionMeters": [
+            -1.8554704785346985,
+            0.020852462388575077,
+            -0.8841730356216431
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-19",
+          "positionMeters": [
+            -0.5941704511642456,
+            0.18237199634313583,
+            -1.7282164692878723
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-20",
+          "positionMeters": [
+            -1.8554704785346985,
+            0.020852462388575077,
+            -0.7419330477714539
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-21",
+          "positionMeters": [
+            0.5941704511642456,
+            0.18237199634313583,
+            1.7282164692878723
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-22",
+          "positionMeters": [
+            -0.5941704511642456,
+            0.03555999924719799,
+            -1.7282164692878723
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-23",
+          "positionMeters": [
+            1.6861568689346313,
+            0.03558683318988187,
+            -1.7595598697662354
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-24",
+          "positionMeters": [
+            -1.8554704785346985,
+            0.020852462388575077,
+            -1.026413083076477
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-25",
+          "positionMeters": [
+            -1.6127508282661438,
+            0.03558683318988187,
+            1.7595598697662354
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-26",
+          "positionMeters": [
+            -0.5941704511642456,
+            0.10896600037813187,
+            -1.7282164692878723
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-27",
+          "positionMeters": [
+            1.539344847202301,
+            0.03558683318988187,
+            -1.7595598697662354
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-28",
+          "positionMeters": [
+            -1.8554704785346985,
+            0.020852462388575077,
+            -0.8130530416965485
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-29",
+          "positionMeters": [
+            -1.7282164692878723,
+            0.255778007209301,
+            0.5941704511642456
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-30",
+          "positionMeters": [
+            -1.8554704785346985,
+            0.020852462388575077,
+            -1.1686530113220215
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-31",
+          "positionMeters": [
+            1.7282164692878723,
+            0.10896600037813187,
+            -0.5941704511642456
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-32",
+          "positionMeters": [
+            -1.7282164692878723,
+            0.03555999924719799,
+            0.5941704511642456
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-33",
+          "positionMeters": [
+            0.5941704511642456,
+            0.10896600037813187,
+            1.7282164692878723
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-34",
+          "positionMeters": [
+            0.5941704511642456,
+            0.255778007209301,
+            1.7282164692878723
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-35",
+          "positionMeters": [
+            1.8554704785346985,
+            0.020852462388575077,
+            1.0975330471992493
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-36",
+          "positionMeters": [
+            -1.7595628499984741,
+            0.03558683318988187,
+            1.7595598697662354
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-37",
+          "positionMeters": [
+            -1.539344847202301,
+            0.03558683318988187,
+            1.7595598697662354
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-38",
+          "positionMeters": [
+            -1.8554704785346985,
+            0.020852462388575077,
+            -1.0975330471992493
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-39",
+          "positionMeters": [
+            1.8554704785346985,
+            0.020852462388575077,
+            0.7419330477714539
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-40",
+          "positionMeters": [
+            -1.8554704785346985,
+            0.020852462388575077,
+            -0.6708130538463593
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        }
+      ],
+      "visualScale": 1
+    },
+    "nectar": {
+      "nominalDiameterMeters": 0.09144,
+      "nominalDiameterSource": "3.6 in; BIOBUZZ Competition Manual V1 §9.8, p.74",
+      "publishedMassPounds": 0.091,
+      "massKilograms": 0.04127690567,
+      "massSource": "AndyMark BIOBUZZ Scoring Elements product specifications",
+      "collider": {
+        "shape": "sphere",
+        "radiusMeters": 0.04572,
+        "status": "nominal spherical approximation; official manual says pieces vary in size and are not perfectly spherical"
+      },
+      "redMesh": "/models/biobuzz/nectar-red.glb",
+      "blueMesh": "/models/biobuzz/nectar-blue.glb",
+      "initialInstances": [
+        {
+          "id": "nectar-red-01",
+          "positionMeters": [
+            -1.8688049912452698,
+            0.03393346117809415,
+            0.091948002576828
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "nectar-red-02",
+          "positionMeters": [
+            -1.9484339952468872,
+            0.03393346117809415,
+            -0.0459740012884093
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "nectar-red-03",
+          "positionMeters": [
+            -0.5331876873970032,
+            1.2685023546218872,
+            0.24140241742134094
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "nectar-red-04",
+          "positionMeters": [
+            -1.8688049912452698,
+            0.03393346117809415,
+            -0.091948002576828
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "nectar-red-05",
+          "positionMeters": [
+            -1.9484339952468872,
+            0.03393346117809415,
+            0.045974001288418706
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "nectar-red-06",
+          "positionMeters": [
+            -0.441239669919014,
+            1.2685023546218872,
+            0.24140241742134094
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "nectar-red-07",
+          "positionMeters": [
+            -1.8688049912452698,
+            0.03393346117809415,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "nectar-red-08",
+          "positionMeters": [
+            -0.34929168224334717,
+            1.2685023546218872,
+            0.24140241742134094
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "nectar-blue-01",
+          "positionMeters": [
+            0.4416637420654297,
+            1.2684796452522278,
+            -0.24145827442407608
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "nectar-blue-02",
+          "positionMeters": [
+            1.8688044548034668,
+            0.03393346117809415,
+            0.0000012293457984924316
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "nectar-blue-03",
+          "positionMeters": [
+            1.8688044548034668,
+            0.03393346117809415,
+            0.09194923005998135
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "nectar-blue-04",
+          "positionMeters": [
+            1.8688044548034668,
+            0.03393346117809415,
+            -0.09194677323102951
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "nectar-blue-05",
+          "positionMeters": [
+            1.9484333992004395,
+            0.03393346117809415,
+            -0.04597277194261089
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "nectar-blue-06",
+          "positionMeters": [
+            0.5336117446422577,
+            1.2684796452522278,
+            -0.24145827442407608
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "nectar-blue-07",
+          "positionMeters": [
+            0.3497157394886017,
+            1.2684796452522278,
+            -0.24145827442407608
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "nectar-blue-08",
+          "positionMeters": [
+            1.9484333992004395,
+            0.03393346117809415,
+            0.04597522987137381
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        }
+      ],
+      "redVisualScale": 0.9944751381215468,
+      "blueVisualScale": 0.9944751381215468
+    }
+  },
+  "flowerScoringVolume": {
+    "sourceElement": "https://cad.onshape.com/documents/a355e772e3d24813de7852ee/w/f106353168f1f92100b81259/e/8f89b946e295be9c543faa08",
+    "metadata": "/models/biobuzz/flower-scoring-volume.glb.json",
+    "description": "Official BIOBUZZ FLOWER scoring cylinder. The archived STEP and analytic dimensions are canonical; the GLB is a 128-segment visual preview only.",
+    "source": {
+      "step": "/models/biobuzz/source/flower-scoring-volume.step",
+      "sha256": "6bfb427b1f401d4d28a4aa13ee3321edde66dd7484512eb197bd1c09195ebba7",
+      "bytes": 4541
+    },
+    "analyticSolid": {
+      "kind": "cylinder",
+      "radius": 0.0508,
+      "height": 0.42672,
+      "minimumSourceZ": 0,
+      "maximumSourceZ": 0.42672
+    },
+    "geometryAsset": {
+      "url": "/models/biobuzz/flower-scoring-volume.glb",
+      "sha256": "3125b2e67517ee9b0f6327137322ee7fef531ddbfcc268bac7e44fdb28ba02f3",
+      "bytes": 7072,
+      "segments": 128,
+      "maximumRadialPreviewErrorMeters": 0.000015300010232824102,
+      "collision": false
+    },
+    "placementEvidence": {
+      "method": "Match the scoring cylinder and Layer C circular edge in the official FLOWER assembly; map that edge into the full-field STEP. This places the lower plane at the HIPS pipe lower end.",
+      "observedOn": "2026-09-16",
+      "onshapeMeasurementMillimeters": {
+        "lowerScoringCircle": {
+          "radius": 50.8,
+          "center": [
+            -0.001465,
+            0.037043,
+            124.539
+          ]
+        },
+        "layerCCircle": {
+          "radius": 50.960277,
+          "center": [
+            -0.001465,
+            0.037043,
+            551.749271
+          ]
+        }
+      },
+      "fullFieldStepCircle": {
+        "entity": 204367,
+        "radius": 0.0509602768664944,
+        "localY": -0.00458972894432486
+      },
+      "supportPipeLengthMeters": 0.4318,
+      "coordinateTransform": "Source (x,y,z) becomes simulator (x,z,-y), then each instance translation is applied. The analytic solid is axially symmetric.",
+      "alignmentToleranceMeters": 0.0001,
+      "fieldSourceSha256": "05b35961c7df847741031f00fda73ddd068537f809e92a11b1cd59a94bcc8331"
+    },
+    "instances": [
+      {
+        "id": "flower-1",
+        "sourceAssembly": "am-5855: Flower Assembly <1>",
+        "position": [
+          -0.594164245226,
+          0.108053461539,
+          -1.728256957165
+        ],
+        "rotationFromStep": [
+          -0.7071067811865476,
+          0,
+          0,
+          0.7071067811865476
+        ],
+        "radius": 0.0508,
+        "bottom": 0.108053461539,
+        "top": 0.534773461539
+      },
+      {
+        "id": "flower-2",
+        "sourceAssembly": "am-5855: Flower Assembly <2>",
+        "position": [
+          0.594164245063,
+          0.10805346153799997,
+          1.728256957165
+        ],
+        "rotationFromStep": [
+          -0.7071067811865476,
+          0,
+          0,
+          0.7071067811865476
+        ],
+        "radius": 0.0508,
+        "bottom": 0.10805346153799997,
+        "top": 0.534773461538
+      },
+      {
+        "id": "flower-3",
+        "sourceAssembly": "am-5855: Flower Assembly <3>",
+        "position": [
+          -1.728256957246,
+          0.10805346153499998,
+          0.594164245145
+        ],
+        "rotationFromStep": [
+          -0.7071067811865476,
+          0,
+          0,
+          0.7071067811865476
+        ],
+        "radius": 0.0508,
+        "bottom": 0.10805346153499998,
+        "top": 0.5347734615349999
+      },
+      {
+        "id": "flower-4",
+        "sourceAssembly": "am-5855: Flower Assembly <4>",
+        "position": [
+          1.728256957084,
+          0.10805346153799997,
+          -0.594164245144
+        ],
+        "rotationFromStep": [
+          -0.7071067811865476,
+          0,
+          0,
+          0.7071067811865476
+        ],
+        "radius": 0.0508,
+        "bottom": 0.10805346153799997,
+        "top": 0.534773461538
+      }
+    ],
+    "ruleUse": "V1 section 10.5.2: analytic sphere/closed-cylinder intersection, including partial overlap. The solid defines membership only; it is never a physical collider or a capacity limit.",
+    "status": "Official scoring-volume STEP exported and hash-pinned; analytic cylinder used for scoring, never as a physical collider."
+  },
+  "assumptions": [
+    "The source STEP coordinate basis is preserved because inspection confirms it is already Y-up; the FTC field-plane mapping is X/-Z.",
+    "POLLEN and NECTAR collider spheres use nominal diameters; the official manual notes size and sphericity variation.",
+    "No Hive assembly mass, centre-of-mass model, damping coefficient, restitution, friction coefficient, or calibrated transition angle is asserted here; these remain physics-layer inputs or assumptions."
+  ],
+  "generated": {
+    "generatedAt": "2026-09-15T17:47:07.933Z",
+    "sourceSha256": "05b35961c7df847741031f00fda73ddd068537f809e92a11b1cd59a94bcc8331",
+    "sourceBytes": 35206208,
+    "outputs": {
+      "staticVisual": {
+        "url": "/models/biobuzz/field-static.glb",
+        "bytes": 24253260,
+        "sha256": "b8d8b7a3b28ba4fc69d26a0ada5556b6cc52a4db1a92ffae92f47419a47c9b64"
+      },
+      "staticCollision": {
+        "groups": [
+          {
+            "id": "perimeter-walls",
+            "url": "/models/biobuzz/collision/field-perimeter-walls.glb",
+            "bytes": 65968,
+            "sha256": "90d90f112a2d9f4fe4af98cd0f6af8fdfd4b827348d139b624e9e517a701ffcc",
+            "triangles": 4592,
+            "sourceTriangles": 42680,
+            "nodeCount": 30,
+            "nodeNameFormat": "perimeter-walls/<official assembly>/<official part>",
+            "sourceParts": [
+              "FTC Field Side Glass 11in",
+              "Perimeter Mid-Section Strap",
+              "am-2580a: FIRST Tech Challenge Panel Link"
+            ],
+            "topologyFallbackToSource": false
+          },
+          {
+            "id": "frame",
+            "url": "/models/biobuzz/collision/field-frame.glb",
+            "bytes": 734440,
+            "sha256": "4aa6f28331406eed2a53303226b679122cb2c97da9787a1cc1451fecb99f323e",
+            "triangles": 48680,
+            "sourceTriangles": 987460,
+            "nodeCount": 21,
+            "nodeNameFormat": "frame/<official assembly>/<official part>",
+            "sourceParts": [
+              "am-5863: Axle Holder",
+              "am-5874: A-Frame Top Corner",
+              "am-5875: A-Frame Top Bar",
+              "am-5876: A-Frame Leg",
+              "am-5877: ACM Panel",
+              "am-5878: Sheet Metal Foot Bar",
+              "am-5879-A: Frame Foot A",
+              "am-5879-B: Frame Foot B",
+              "am-5880: 47.5in CC Under Tile Bar",
+              "am-5883: Panel Sticker"
+            ],
+            "topologyFallbackToSource": false,
+            "restoredSourceNodeNames": [
+              "frame/am-5854: Frame <1>/am-5875: A-Frame Top Bar#34",
+              "frame/am-5854: Frame <1>/am-5876: A-Frame Leg#31",
+              "frame/am-5854: Frame <1>/am-5876: A-Frame Leg#87",
+              "frame/am-5854: Frame <1>/am-5876: A-Frame Leg#93",
+              "frame/am-5854: Frame <1>/am-5876: A-Frame Leg#94",
+              "frame/am-5854: Frame <1>/am-5877: ACM Panel#101",
+              "frame/am-5854: Frame <1>/am-5877: ACM Panel#75",
+              "frame/am-5854: Frame <1>/am-5878: Sheet Metal Foot Bar#20",
+              "frame/am-5854: Frame <1>/am-5878: Sheet Metal Foot Bar#52",
+              "frame/am-5854: Frame <1>/am-5880: 47.5in CC Under Tile Bar#109",
+              "frame/am-5854: Frame <1>/am-5880: 47.5in CC Under Tile Bar#74",
+              "frame/am-5854: Frame <1>/am-5883: Panel Sticker#33"
+            ],
+            "maximumSampledSurfaceDeviationMeters": 0.0003757524187108965,
+            "validationSamples": 1344,
+            "sourceGeometryFallback": "No whole-group fallback; only named frame nodes that exceeded the sampled 0.5 mm distance budget were retained from the welded source."
+          },
+          {
+            "id": "flowers",
+            "url": "/models/biobuzz/collision/field-flowers.glb",
+            "bytes": 9537528,
+            "sha256": "95bf6e3b3483099c4c039be3950eca91e5a211cfb6cfb6ac93ead6992d0d0314",
+            "triangles": 528294,
+            "sourceTriangles": 3189864,
+            "nodeCount": 48,
+            "nodeNameFormat": "flowers/<official assembly>/<official part>",
+            "sourceParts": [
+              "am-5857: Flower Layer C",
+              "am-5858: Flower Layer B",
+              "am-5859: Flower Layer X",
+              "am-5860: Flower Field Bracket",
+              "am-5861: Flower Under Field Bracket",
+              "am-5862: Flower HIPS Pipe",
+              "am-5884: Flower Backstop",
+              "am-5892: Flower Peanut Support"
+            ],
+            "topologyFallbackToSource": false,
+            "restoredSourceNodeNames": [],
+            "maximumSampledSurfaceDeviationMeters": 0.00010793000441830903,
+            "validationSamples": 3072,
+            "sourceGeometryFallback": "The scoring cylinder is protected and validated; exterior triangles are simplified from the exact filtered source.",
+            "exactSourcePreserved": false,
+            "geometryPolicy": "protected-scoring-well-exterior-simplified",
+            "exactWholeMeshPreserved": false,
+            "functionalOpeningValidation": {
+              "method": "65 vertical rays through the 2.79-inch POLLEN disk at every Layer C/B/X instance, plus 16 scoring-radius occupancy rays",
+              "instances": 12,
+              "raysPerInstance": 65,
+              "blockedSourceRays": 0,
+              "blockedCandidateRays": 0,
+              "scoringRadiusOccupancyMismatches": 0,
+              "passed": true
+            },
+            "finiteBallContactValidation": {
+              "method": "Rapier finite-sphere intersectsShape grid around each source Layer C/B/X surface; centers constrained to fit within the official 4-inch scoring radius; 2.5 mm spatial steps and 16 angles",
+              "sampling": {
+                "stepMeters": 0.0025,
+                "angleCount": 16,
+                "layerMeshes": 12,
+                "pollenDiameterMeters": 0.07112,
+                "nectarDiameterMeters": 0.09144,
+                "scoringRadiusMeters": 0.0508
+              },
+              "source": {
+                "bytes": 57447928,
+                "sha256": "e5bb81af46bdf93bde335cd304dab0d98ea4284ba934da7154c212405e175bbb",
+                "triangles": 3189864,
+                "role": "exact post-filter source input"
+              },
+              "candidate": {
+                "bytes": 9537528,
+                "sha256": "95bf6e3b3483099c4c039be3950eca91e5a211cfb6cfb6ac93ead6992d0d0314",
+                "triangles": 528294,
+                "role": "protected-region candidate output"
+              },
+              "totals": {
+                "POLLEN": {
+                  "testedCenters": 58688,
+                  "contactMismatches": 0,
+                  "sourceOnly": 0,
+                  "candidateOnly": 0
+                },
+                "NECTAR": {
+                  "testedCenters": 29760,
+                  "contactMismatches": 0,
+                  "sourceOnly": 0,
+                  "candidateOnly": 0
+                }
+              },
+              "testedCenters": 88448,
+              "passed": true
+            },
+            "simplification": {
+              "tool": "tools/cad-convert/biobuzz-protect-openings.mjs via gltfpack 1.2.0",
+              "applied": true,
+              "method": "Preserve source triangles inside the 0.051 m vertical scoring cylinder per FLOWER instance; simplify only exterior triangles.",
+              "protectedRegion": "scoring-cylinder",
+              "protectedRadiusMeters": 0.051,
+              "exteriorRelativeError": 0.0001,
+              "borderVerticesLocked": true,
+              "positionsFloat32": true,
+              "draco": false,
+              "sourceTriangles": 3189864,
+              "outputTriangles": 528294,
+              "measuredSurfaceValidation": {
+                "method": "bidirectional deterministic source/candidate triangle-centroid samples, point-to-triangle distance",
+                "maximumSampledDistanceMeters": 0.00010793000441830903,
+                "samples": 3072,
+                "toleranceMeters": 0.0005
+              }
+            }
+          },
+          {
+            "id": "fixtures",
+            "url": "/models/biobuzz/collision/field-fixtures.glb",
+            "bytes": 2368,
+            "sha256": "22a364c9adecfec5a4c67df7b916e56e1e909903e51daf79d3087006729ce74c",
+            "triangles": 88,
+            "sourceTriangles": 568,
+            "nodeCount": 2,
+            "nodeNameFormat": "fixtures/<official assembly>/<official part>",
+            "sourceParts": [
+              "am-5706 Artifact Tray__Fillet1"
+            ],
+            "topologyFallbackToSource": false
+          }
+        ],
+        "floor": {
+          "runtime": "omitted; parent uses CAD plane at Y=0"
+        },
+        "optimizationValidation": {
+          "tool": "biobuzz-optimize-collisions.mjs --flowers-only --protect-flower-openings",
+          "toleranceMeters": 0.0005,
+          "staticTriangles": 581654,
+          "staticTriangleBudget": 200000,
+          "passed": true,
+          "flowers": {
+            "triangles": 528294,
+            "sourceTriangles": 3189864,
+            "exactSourcePreserved": false,
+            "maximumSampledSurfaceDeviationMeters": 0.00010793000441830903,
+            "samples": 3072,
+            "ballOpeningGauges": 12,
+            "totalOpeningRays": 780,
+            "finiteBallContacts": {
+              "POLLEN": {
+                "testedCenters": 58688,
+                "contactMismatches": 0,
+                "sourceOnly": 0,
+                "candidateOnly": 0
+              },
+              "NECTAR": {
+                "testedCenters": 29760,
+                "contactMismatches": 0,
+                "sourceOnly": 0,
+                "candidateOnly": 0
+              }
+            }
+          },
+          "frame": {
+            "triangles": 48680,
+            "sourceTriangles": 987460,
+            "maximumSampledSurfaceDeviationMeters": 0.0003757524187108965,
+            "samples": 1344,
+            "sourceNodesRetained": 12
+          },
+          "cells": [
+            {
+              "id": "hive-red-audience",
+              "bytes": 362632,
+              "sha256": "f9e5f24f928938d70ae120cafd72f5cd211a46548b17aef7fda9ffc801f4b9e6",
+              "triangles": 28759,
+              "sourceTriangles": 62806,
+              "maximumSampledSurfaceDeviationMeters": 0.00036107224774202176,
+              "samples": 3136,
+              "mouthRays": 6,
+              "innerWallContactChecks": 31,
+              "maximumWallContactDeltaMeters": 0.00006620989111503009
+            },
+            {
+              "id": "hive-red-scoring",
+              "bytes": 363468,
+              "sha256": "f3018055270ab781917aaf4201fbd27d8f420145b305ea31c0e853c39bf6e036",
+              "triangles": 28827,
+              "sourceTriangles": 63253,
+              "maximumSampledSurfaceDeviationMeters": 0.00016958188540019094,
+              "samples": 3136,
+              "mouthRays": 6,
+              "innerWallContactChecks": 31,
+              "maximumWallContactDeltaMeters": 0.00006847896897557715
+            },
+            {
+              "id": "hive-blue-audience",
+              "bytes": 378188,
+              "sha256": "6b2cdd1bf54c35e97a866dbf285c3f2521f52ce62536f15860a676c5bc39b353",
+              "triangles": 30042,
+              "sourceTriangles": 64020,
+              "maximumSampledSurfaceDeviationMeters": 0.00046876126493157396,
+              "samples": 3136,
+              "mouthRays": 6,
+              "innerWallContactChecks": 31,
+              "maximumWallContactDeltaMeters": 0.0000072514006448295976
+            },
+            {
+              "id": "hive-blue-scoring",
+              "bytes": 374724,
+              "sha256": "46be310b3a5a31464046ba16aff467e9d21100b782a6ee984628953e8dfc5e8f",
+              "triangles": 29764,
+              "sourceTriangles": 63718,
+              "maximumSampledSurfaceDeviationMeters": 0.00038872927673173105,
+              "samples": 3136,
+              "mouthRays": 6,
+              "innerWallContactChecks": 31,
+              "maximumWallContactDeltaMeters": 0.00006625410444047013
+            }
+          ],
+          "combinedNonFloorTriangles": 838610,
+          "combinedNonFloorBudget": 200000,
+          "combinedNonFloorBudgetMet": false,
+          "scoringRimDiagnostics": [
+            {
+              "node": "flowers/am-5855: Flower Assembly <1>/am-5857: Flower Layer C#35",
+              "scoringRadiusOccupancyMismatches": {
+                "count": 0,
+                "rays": 16
+              },
+              "nearbyOuterRimContactMaxYDeltaMeters": 0
+            },
+            {
+              "node": "flowers/am-5855: Flower Assembly <1>/am-5858: Flower Layer B#30",
+              "scoringRadiusOccupancyMismatches": {
+                "count": 0,
+                "rays": 16
+              },
+              "nearbyOuterRimContactMaxYDeltaMeters": 0
+            },
+            {
+              "node": "flowers/am-5855: Flower Assembly <1>/am-5859: Flower Layer X#26",
+              "scoringRadiusOccupancyMismatches": {
+                "count": 0,
+                "rays": 16
+              },
+              "nearbyOuterRimContactMaxYDeltaMeters": 0
+            },
+            {
+              "node": "flowers/am-5855: Flower Assembly <2>/am-5857: Flower Layer C#15",
+              "scoringRadiusOccupancyMismatches": {
+                "count": 0,
+                "rays": 16
+              },
+              "nearbyOuterRimContactMaxYDeltaMeters": 0
+            },
+            {
+              "node": "flowers/am-5855: Flower Assembly <2>/am-5858: Flower Layer B#18",
+              "scoringRadiusOccupancyMismatches": {
+                "count": 0,
+                "rays": 16
+              },
+              "nearbyOuterRimContactMaxYDeltaMeters": 0
+            },
+            {
+              "node": "flowers/am-5855: Flower Assembly <2>/am-5859: Flower Layer X#9",
+              "scoringRadiusOccupancyMismatches": {
+                "count": 0,
+                "rays": 16
+              },
+              "nearbyOuterRimContactMaxYDeltaMeters": 0
+            },
+            {
+              "node": "flowers/am-5855: Flower Assembly <3>/am-5857: Flower Layer C#4",
+              "scoringRadiusOccupancyMismatches": {
+                "count": 0,
+                "rays": 16
+              },
+              "nearbyOuterRimContactMaxYDeltaMeters": 0
+            },
+            {
+              "node": "flowers/am-5855: Flower Assembly <3>/am-5858: Flower Layer B#23",
+              "scoringRadiusOccupancyMismatches": {
+                "count": 0,
+                "rays": 16
+              },
+              "nearbyOuterRimContactMaxYDeltaMeters": 0
+            },
+            {
+              "node": "flowers/am-5855: Flower Assembly <3>/am-5859: Flower Layer X#33",
+              "scoringRadiusOccupancyMismatches": {
+                "count": 0,
+                "rays": 16
+              },
+              "nearbyOuterRimContactMaxYDeltaMeters": 0
+            },
+            {
+              "node": "flowers/am-5855: Flower Assembly <4>/am-5857: Flower Layer C#16",
+              "scoringRadiusOccupancyMismatches": {
+                "count": 0,
+                "rays": 16
+              },
+              "nearbyOuterRimContactMaxYDeltaMeters": 0
+            },
+            {
+              "node": "flowers/am-5855: Flower Assembly <4>/am-5858: Flower Layer B#17",
+              "scoringRadiusOccupancyMismatches": {
+                "count": 0,
+                "rays": 16
+              },
+              "nearbyOuterRimContactMaxYDeltaMeters": 0
+            },
+            {
+              "node": "flowers/am-5855: Flower Assembly <4>/am-5859: Flower Layer X#9",
+              "scoringRadiusOccupancyMismatches": {
+                "count": 0,
+                "rays": 16
+              },
+              "nearbyOuterRimContactMaxYDeltaMeters": 0
+            }
+          ],
+          "movingMechanismTriangles": 139564,
+          "staticTriangleBudgetMet": false,
+          "priorSimplifiedComparison": {
+            "candidate": {
+              "bytes": 820624,
+              "sha256": "6e38943fa697d42280ebd95b509c01a05c756b78ce2fb0417ad629c89efbecc1",
+              "triangles": 67008
+            },
+            "sampledSurfaceDistance": "skipped for this source-scale comparison; the source is retained byte-for-byte",
+            "openingAndRimRays": [
+              {
+                "node": "flowers/am-5855: Flower Assembly <1>/am-5857: Flower Layer C#35",
+                "scoringRadiusOccupancyMismatches": {
+                  "count": 1,
+                  "rays": 16
+                },
+                "nearbyOuterRimContactMaxYDeltaMeters": 0.006815056565534716,
+                "blockedBallOpeningRays": {
+                  "source": 0,
+                  "candidate": 0
+                }
+              },
+              {
+                "node": "flowers/am-5855: Flower Assembly <1>/am-5858: Flower Layer B#30",
+                "scoringRadiusOccupancyMismatches": {
+                  "count": 0,
+                  "rays": 16
+                },
+                "nearbyOuterRimContactMaxYDeltaMeters": 0.004150261445018899,
+                "blockedBallOpeningRays": {
+                  "source": 0,
+                  "candidate": 0
+                }
+              },
+              {
+                "node": "flowers/am-5855: Flower Assembly <1>/am-5859: Flower Layer X#26",
+                "scoringRadiusOccupancyMismatches": {
+                  "count": 0,
+                  "rays": 16
+                },
+                "nearbyOuterRimContactMaxYDeltaMeters": 0.00011461129535208364,
+                "blockedBallOpeningRays": {
+                  "source": 0,
+                  "candidate": 0
+                }
+              },
+              {
+                "node": "flowers/am-5855: Flower Assembly <2>/am-5857: Flower Layer C#15",
+                "scoringRadiusOccupancyMismatches": {
+                  "count": 1,
+                  "rays": 16
+                },
+                "nearbyOuterRimContactMaxYDeltaMeters": 0.005254313671676281,
+                "blockedBallOpeningRays": {
+                  "source": 0,
+                  "candidate": 0
+                }
+              },
+              {
+                "node": "flowers/am-5855: Flower Assembly <2>/am-5858: Flower Layer B#18",
+                "scoringRadiusOccupancyMismatches": {
+                  "count": 0,
+                  "rays": 16
+                },
+                "nearbyOuterRimContactMaxYDeltaMeters": 0.020427039154933796,
+                "blockedBallOpeningRays": {
+                  "source": 0,
+                  "candidate": 0
+                }
+              },
+              {
+                "node": "flowers/am-5855: Flower Assembly <2>/am-5859: Flower Layer X#9",
+                "scoringRadiusOccupancyMismatches": {
+                  "count": 0,
+                  "rays": 16
+                },
+                "nearbyOuterRimContactMaxYDeltaMeters": 0.00011497703356320305,
+                "blockedBallOpeningRays": {
+                  "source": 0,
+                  "candidate": 0
+                }
+              },
+              {
+                "node": "flowers/am-5855: Flower Assembly <3>/am-5857: Flower Layer C#4",
+                "scoringRadiusOccupancyMismatches": {
+                  "count": 1,
+                  "rays": 16
+                },
+                "nearbyOuterRimContactMaxYDeltaMeters": 0.007089554851496982,
+                "blockedBallOpeningRays": {
+                  "source": 0,
+                  "candidate": 0
+                }
+              },
+              {
+                "node": "flowers/am-5855: Flower Assembly <3>/am-5858: Flower Layer B#23",
+                "scoringRadiusOccupancyMismatches": {
+                  "count": 0,
+                  "rays": 16
+                },
+                "nearbyOuterRimContactMaxYDeltaMeters": 0.009452882497364826,
+                "blockedBallOpeningRays": {
+                  "source": 0,
+                  "candidate": 0
+                }
+              },
+              {
+                "node": "flowers/am-5855: Flower Assembly <3>/am-5859: Flower Layer X#33",
+                "scoringRadiusOccupancyMismatches": {
+                  "count": 0,
+                  "rays": 16
+                },
+                "nearbyOuterRimContactMaxYDeltaMeters": 0.00007672573070555654,
+                "blockedBallOpeningRays": {
+                  "source": 0,
+                  "candidate": 0
+                }
+              },
+              {
+                "node": "flowers/am-5855: Flower Assembly <4>/am-5857: Flower Layer C#16",
+                "scoringRadiusOccupancyMismatches": {
+                  "count": 3,
+                  "rays": 16
+                },
+                "nearbyOuterRimContactMaxYDeltaMeters": 0.006713265705414306,
+                "blockedBallOpeningRays": {
+                  "source": 0,
+                  "candidate": 0
+                }
+              },
+              {
+                "node": "flowers/am-5855: Flower Assembly <4>/am-5858: Flower Layer B#17",
+                "scoringRadiusOccupancyMismatches": {
+                  "count": 0,
+                  "rays": 16
+                },
+                "nearbyOuterRimContactMaxYDeltaMeters": 0.005891628274033972,
+                "blockedBallOpeningRays": {
+                  "source": 0,
+                  "candidate": 0
+                }
+              },
+              {
+                "node": "flowers/am-5855: Flower Assembly <4>/am-5859: Flower Layer X#9",
+                "scoringRadiusOccupancyMismatches": {
+                  "count": 0,
+                  "rays": 16
+                },
+                "nearbyOuterRimContactMaxYDeltaMeters": 0.0001334026946762587,
+                "blockedBallOpeningRays": {
+                  "source": 0,
+                  "candidate": 0
+                }
+              }
+            ],
+            "finiteBallContacts": {
+              "method": "Rapier finite-sphere intersectsShape grid around each source Layer C/B/X surface; centers constrained to fit within the official 4-inch scoring radius; 2.5 mm spatial steps and 16 angles",
+              "sampling": {
+                "stepMeters": 0.0025,
+                "angleCount": 16,
+                "layerMeshes": 12,
+                "pollenDiameterMeters": 0.07112,
+                "nectarDiameterMeters": 0.09144,
+                "scoringRadiusMeters": 0.0508
+              },
+              "source": {
+                "path": "public/models/biobuzz/collision/field-flowers.glb",
+                "bytes": 57447928,
+                "sha256": "e5bb81af46bdf93bde335cd304dab0d98ea4284ba934da7154c212405e175bbb"
+              },
+              "candidate": {
+                "path": "/tmp/biobuzz-field-flowers-optimized-prior.glb",
+                "bytes": 820624,
+                "sha256": "6e38943fa697d42280ebd95b509c01a05c756b78ce2fb0417ad629c89efbecc1"
+              },
+              "totals": {
+                "POLLEN": {
+                  "testedCenters": 58688,
+                  "contactMismatches": 136,
+                  "sourceOnly": 21,
+                  "candidateOnly": 115
+                },
+                "NECTAR": {
+                  "testedCenters": 29760,
+                  "contactMismatches": 165,
+                  "sourceOnly": 50,
+                  "candidateOnly": 115
+                }
+              },
+              "layers": [
+                {
+                  "node": "flowers/am-5855: Flower Assembly <1>/am-5857: Flower Layer C#35",
+                  "checks": {
+                    "POLLEN": {
+                      "testedCenters": 5040,
+                      "contactMismatches": 1,
+                      "sourceOnly": 0,
+                      "candidateOnly": 1
+                    },
+                    "NECTAR": {
+                      "testedCenters": 2544,
+                      "contactMismatches": 14,
+                      "sourceOnly": 7,
+                      "candidateOnly": 7
+                    }
+                  }
+                },
+                {
+                  "node": "flowers/am-5855: Flower Assembly <1>/am-5858: Flower Layer B#30",
+                  "checks": {
+                    "POLLEN": {
+                      "testedCenters": 5264,
+                      "contactMismatches": 9,
+                      "sourceOnly": 5,
+                      "candidateOnly": 4
+                    },
+                    "NECTAR": {
+                      "testedCenters": 2640,
+                      "contactMismatches": 6,
+                      "sourceOnly": 4,
+                      "candidateOnly": 2
+                    }
+                  }
+                },
+                {
+                  "node": "flowers/am-5855: Flower Assembly <1>/am-5859: Flower Layer X#26",
+                  "checks": {
+                    "POLLEN": {
+                      "testedCenters": 4368,
+                      "contactMismatches": 22,
+                      "sourceOnly": 0,
+                      "candidateOnly": 22
+                    },
+                    "NECTAR": {
+                      "testedCenters": 2256,
+                      "contactMismatches": 16,
+                      "sourceOnly": 0,
+                      "candidateOnly": 16
+                    }
+                  }
+                },
+                {
+                  "node": "flowers/am-5855: Flower Assembly <2>/am-5857: Flower Layer C#15",
+                  "checks": {
+                    "POLLEN": {
+                      "testedCenters": 5040,
+                      "contactMismatches": 6,
+                      "sourceOnly": 0,
+                      "candidateOnly": 6
+                    },
+                    "NECTAR": {
+                      "testedCenters": 2544,
+                      "contactMismatches": 26,
+                      "sourceOnly": 11,
+                      "candidateOnly": 15
+                    }
+                  }
+                },
+                {
+                  "node": "flowers/am-5855: Flower Assembly <2>/am-5858: Flower Layer B#18",
+                  "checks": {
+                    "POLLEN": {
+                      "testedCenters": 5264,
+                      "contactMismatches": 10,
+                      "sourceOnly": 6,
+                      "candidateOnly": 4
+                    },
+                    "NECTAR": {
+                      "testedCenters": 2640,
+                      "contactMismatches": 8,
+                      "sourceOnly": 4,
+                      "candidateOnly": 4
+                    }
+                  }
+                },
+                {
+                  "node": "flowers/am-5855: Flower Assembly <2>/am-5859: Flower Layer X#9",
+                  "checks": {
+                    "POLLEN": {
+                      "testedCenters": 4368,
+                      "contactMismatches": 13,
+                      "sourceOnly": 0,
+                      "candidateOnly": 13
+                    },
+                    "NECTAR": {
+                      "testedCenters": 2256,
+                      "contactMismatches": 16,
+                      "sourceOnly": 0,
+                      "candidateOnly": 16
+                    }
+                  }
+                },
+                {
+                  "node": "flowers/am-5855: Flower Assembly <3>/am-5857: Flower Layer C#4",
+                  "checks": {
+                    "POLLEN": {
+                      "testedCenters": 5040,
+                      "contactMismatches": 2,
+                      "sourceOnly": 0,
+                      "candidateOnly": 2
+                    },
+                    "NECTAR": {
+                      "testedCenters": 2544,
+                      "contactMismatches": 16,
+                      "sourceOnly": 8,
+                      "candidateOnly": 8
+                    }
+                  }
+                },
+                {
+                  "node": "flowers/am-5855: Flower Assembly <3>/am-5858: Flower Layer B#23",
+                  "checks": {
+                    "POLLEN": {
+                      "testedCenters": 5264,
+                      "contactMismatches": 9,
+                      "sourceOnly": 6,
+                      "candidateOnly": 3
+                    },
+                    "NECTAR": {
+                      "testedCenters": 2640,
+                      "contactMismatches": 7,
+                      "sourceOnly": 3,
+                      "candidateOnly": 4
+                    }
+                  }
+                },
+                {
+                  "node": "flowers/am-5855: Flower Assembly <3>/am-5859: Flower Layer X#33",
+                  "checks": {
+                    "POLLEN": {
+                      "testedCenters": 4368,
+                      "contactMismatches": 18,
+                      "sourceOnly": 0,
+                      "candidateOnly": 18
+                    },
+                    "NECTAR": {
+                      "testedCenters": 2256,
+                      "contactMismatches": 16,
+                      "sourceOnly": 0,
+                      "candidateOnly": 16
+                    }
+                  }
+                },
+                {
+                  "node": "flowers/am-5855: Flower Assembly <4>/am-5857: Flower Layer C#16",
+                  "checks": {
+                    "POLLEN": {
+                      "testedCenters": 5040,
+                      "contactMismatches": 1,
+                      "sourceOnly": 0,
+                      "candidateOnly": 1
+                    },
+                    "NECTAR": {
+                      "testedCenters": 2544,
+                      "contactMismatches": 18,
+                      "sourceOnly": 10,
+                      "candidateOnly": 8
+                    }
+                  }
+                },
+                {
+                  "node": "flowers/am-5855: Flower Assembly <4>/am-5858: Flower Layer B#17",
+                  "checks": {
+                    "POLLEN": {
+                      "testedCenters": 5264,
+                      "contactMismatches": 12,
+                      "sourceOnly": 4,
+                      "candidateOnly": 8
+                    },
+                    "NECTAR": {
+                      "testedCenters": 2640,
+                      "contactMismatches": 6,
+                      "sourceOnly": 3,
+                      "candidateOnly": 3
+                    }
+                  }
+                },
+                {
+                  "node": "flowers/am-5855: Flower Assembly <4>/am-5859: Flower Layer X#9",
+                  "checks": {
+                    "POLLEN": {
+                      "testedCenters": 4368,
+                      "contactMismatches": 33,
+                      "sourceOnly": 0,
+                      "candidateOnly": 33
+                    },
+                    "NECTAR": {
+                      "testedCenters": 2256,
+                      "contactMismatches": 16,
+                      "sourceOnly": 0,
+                      "candidateOnly": 16
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "staticTriangleBudgetStatus": "unmet; protected FLOWER candidate retained for zero finite-ball contact mismatch"
+        }
+      }
+    },
+    "sourcePrimitiveDeflectionMillimetres": 0.2,
+    "collisionOptimization": {
+      "tool": "biobuzz-collisions.mjs plus gltfpack 1.2.0 for simplifiable groups",
+      "algorithm": "1e-7 m position-only seam welding; omit sub-ball hardware and render-only normals; protect each FLOWER scoring cylinder and simplify only its exterior; simplify other collision groups only when their functional geometry checks pass; Float32 positions; no Draco",
+      "targetRatio": 0.08,
+      "relativeErrorLimitsByKind": {
+        "static": "per-group min(0.5% relative, 0.5 mm / largest source primitive AABB diagonal)",
+        "hiveCell": "per-body min(0.5% relative, 0.5 mm / largest source primitive AABB diagonal)"
+      },
+      "absoluteErrorBudgetMeters": 0.0005,
+      "sourceTrianglesOmittedAsSubBallScaleDetail": {
+        "fixtures": {
+          "instanceCount": 52,
+          "sourceParts": [
+            "Gaffer Tape, Blue, 1in Wide, 11in Long",
+            "Gaffer Tape, Blue, 1in Wide, 20.69in Long",
+            "Gaffer Tape, Blue, 1in Wide, 22.69in Long",
+            "Gaffer Tape, Blue, 1in Wide, 54in Long",
+            "Gaffer Tape, Blue, 1in Wide, 94.82in Long",
+            "Gaffer Tape, Red, 1in Wide, 11in Long",
+            "Gaffer Tape, Red, 1in Wide, 20.69in Long",
+            "Gaffer Tape, Red, 1in Wide, 22.69in Long",
+            "Gaffer Tape, Red, 1in Wide, 54in Long",
+            "Gaffer Tape, Red, 1in Wide, 94.82in Long",
+            "am-2579-Body: FIRST Tech Challenge Field Panel Fastener 1-5/16 in. Quick Release Pin",
+            "am-2579-Detent: FIRST Tech Challenge Field Panel Fastener 1-5/16 in. Quick Release Pin",
+            "am-2579-Ring: FIRST Tech Challenge Field Panel Fastener 1-5/16 in. Quick Release Pin"
+          ]
+        },
+        "flowers": {
+          "instanceCount": 92,
+          "sourceParts": [
+            "Hex lock nut with nylon insert #10-32",
+            "Pan head machine screw #10-32 x 1.75",
+            "Socket head cap screw #10-32 x 0.75",
+            "am-1310: FHTS, 1/4-20 x 3/4in",
+            "am-1454: 10-32 Rivnut",
+            "am-1696: Nylon Spacer, 0.194in ID, 0.375in OD, 1.000in Long",
+            "am-1775: #6 x 1/2in Sheet Metal Screw",
+            "am-1xxx: Under Tile Washer"
+          ]
+        },
+        "frame": {
+          "instanceCount": 94,
+          "sourceParts": [
+            "Hex lock nut with nylon insert #10-32",
+            "Socket head cap screw #10-32 x 0.875",
+            "Socket head cap screw #10-32 x 1.5",
+            "Socket head cap screw #10-32 x 1.75",
+            "Socket head cap screw #10-32 x 2",
+            "Type A flat washer #10 Narrow",
+            "am-1483: 10-32 Wing Nut",
+            "am-1523: #10 Fender Washer",
+            "am-1629: Elevator Bolt, 1/4-20 x 1.25in",
+            "am-1705: 1/4-20 Wing Nut"
+          ]
+        },
+        "perimeter-walls": {
+          "instanceCount": 216,
+          "sourceParts": [
+            "187 pop rivet",
+            "Corner Hinge Rivet Field",
+            "Corner Hinge Rivet Field FLAT",
+            "NewStrapClip",
+            "am-2556a: FTC Rail with Rivet Holes",
+            "am-2579-Body: FIRST Tech Challenge Field Panel Fastener 1-5/16 in. Quick Release Pin",
+            "am-2579-Detent: FIRST Tech Challenge Field Panel Fastener 1-5/16 in. Quick Release Pin",
+            "am-2579-Ring: FIRST Tech Challenge Field Panel Fastener 1-5/16 in. Quick Release Pin"
+          ]
+        }
+      },
+      "staticGroups": [
+        {
+          "id": "perimeter-walls",
+          "url": "/models/biobuzz/collision/field-perimeter-walls.glb",
+          "bytes": 65968,
+          "sha256": "90d90f112a2d9f4fe4af98cd0f6af8fdfd4b827348d139b624e9e517a701ffcc",
+          "triangles": 4592,
+          "sourceTriangles": 42680,
+          "nodeCount": 30,
+          "nodeNameFormat": "perimeter-walls/<official assembly>/<official part>",
+          "sourceParts": [
+            "FTC Field Side Glass 11in",
+            "Perimeter Mid-Section Strap",
+            "am-2580a: FIRST Tech Challenge Panel Link"
+          ],
+          "topologyFallbackToSource": false
+        },
+        {
+          "id": "frame",
+          "url": "/models/biobuzz/collision/field-frame.glb",
+          "bytes": 734440,
+          "sha256": "4aa6f28331406eed2a53303226b679122cb2c97da9787a1cc1451fecb99f323e",
+          "triangles": 48680,
+          "sourceTriangles": 987460,
+          "nodeCount": 21,
+          "nodeNameFormat": "frame/<official assembly>/<official part>",
+          "sourceParts": [
+            "am-5863: Axle Holder",
+            "am-5874: A-Frame Top Corner",
+            "am-5875: A-Frame Top Bar",
+            "am-5876: A-Frame Leg",
+            "am-5877: ACM Panel",
+            "am-5878: Sheet Metal Foot Bar",
+            "am-5879-A: Frame Foot A",
+            "am-5879-B: Frame Foot B",
+            "am-5880: 47.5in CC Under Tile Bar",
+            "am-5883: Panel Sticker"
+          ],
+          "topologyFallbackToSource": false,
+          "restoredSourceNodeNames": [
+            "frame/am-5854: Frame <1>/am-5875: A-Frame Top Bar#34",
+            "frame/am-5854: Frame <1>/am-5876: A-Frame Leg#31",
+            "frame/am-5854: Frame <1>/am-5876: A-Frame Leg#87",
+            "frame/am-5854: Frame <1>/am-5876: A-Frame Leg#93",
+            "frame/am-5854: Frame <1>/am-5876: A-Frame Leg#94",
+            "frame/am-5854: Frame <1>/am-5877: ACM Panel#101",
+            "frame/am-5854: Frame <1>/am-5877: ACM Panel#75",
+            "frame/am-5854: Frame <1>/am-5878: Sheet Metal Foot Bar#20",
+            "frame/am-5854: Frame <1>/am-5878: Sheet Metal Foot Bar#52",
+            "frame/am-5854: Frame <1>/am-5880: 47.5in CC Under Tile Bar#109",
+            "frame/am-5854: Frame <1>/am-5880: 47.5in CC Under Tile Bar#74",
+            "frame/am-5854: Frame <1>/am-5883: Panel Sticker#33"
+          ],
+          "maximumSampledSurfaceDeviationMeters": 0.0003757524187108965,
+          "validationSamples": 1344,
+          "sourceGeometryFallback": "No whole-group fallback; only named frame nodes that exceeded the sampled 0.5 mm distance budget were retained from the welded source."
+        },
+        {
+          "id": "flowers",
+          "url": "/models/biobuzz/collision/field-flowers.glb",
+          "bytes": 9537528,
+          "sha256": "95bf6e3b3483099c4c039be3950eca91e5a211cfb6cfb6ac93ead6992d0d0314",
+          "triangles": 528294,
+          "sourceTriangles": 3189864,
+          "nodeCount": 48,
+          "nodeNameFormat": "flowers/<official assembly>/<official part>",
+          "sourceParts": [
+            "am-5857: Flower Layer C",
+            "am-5858: Flower Layer B",
+            "am-5859: Flower Layer X",
+            "am-5860: Flower Field Bracket",
+            "am-5861: Flower Under Field Bracket",
+            "am-5862: Flower HIPS Pipe",
+            "am-5884: Flower Backstop",
+            "am-5892: Flower Peanut Support"
+          ],
+          "topologyFallbackToSource": false,
+          "restoredSourceNodeNames": [],
+          "maximumSampledSurfaceDeviationMeters": 0.00010793000441830903,
+          "validationSamples": 3072,
+          "sourceGeometryFallback": "The scoring cylinder is protected and validated; exterior triangles are simplified from the exact filtered source.",
+          "exactSourcePreserved": false,
+          "geometryPolicy": "protected-scoring-well-exterior-simplified",
+          "exactWholeMeshPreserved": false,
+          "functionalOpeningValidation": {
+            "method": "65 vertical rays through the 2.79-inch POLLEN disk at every Layer C/B/X instance, plus 16 scoring-radius occupancy rays",
+            "instances": 12,
+            "raysPerInstance": 65,
+            "blockedSourceRays": 0,
+            "blockedCandidateRays": 0,
+            "scoringRadiusOccupancyMismatches": 0,
+            "passed": true
+          },
+          "finiteBallContactValidation": {
+            "method": "Rapier finite-sphere intersectsShape grid around each source Layer C/B/X surface; centers constrained to fit within the official 4-inch scoring radius; 2.5 mm spatial steps and 16 angles",
+            "sampling": {
+              "stepMeters": 0.0025,
+              "angleCount": 16,
+              "layerMeshes": 12,
+              "pollenDiameterMeters": 0.07112,
+              "nectarDiameterMeters": 0.09144,
+              "scoringRadiusMeters": 0.0508
+            },
+            "source": {
+              "bytes": 57447928,
+              "sha256": "e5bb81af46bdf93bde335cd304dab0d98ea4284ba934da7154c212405e175bbb",
+              "triangles": 3189864,
+              "role": "exact post-filter source input"
+            },
+            "candidate": {
+              "bytes": 9537528,
+              "sha256": "95bf6e3b3483099c4c039be3950eca91e5a211cfb6cfb6ac93ead6992d0d0314",
+              "triangles": 528294,
+              "role": "protected-region candidate output"
+            },
+            "totals": {
+              "POLLEN": {
+                "testedCenters": 58688,
+                "contactMismatches": 0,
+                "sourceOnly": 0,
+                "candidateOnly": 0
+              },
+              "NECTAR": {
+                "testedCenters": 29760,
+                "contactMismatches": 0,
+                "sourceOnly": 0,
+                "candidateOnly": 0
+              }
+            },
+            "testedCenters": 88448,
+            "passed": true
+          },
+          "simplification": {
+            "tool": "tools/cad-convert/biobuzz-protect-openings.mjs via gltfpack 1.2.0",
+            "applied": true,
+            "method": "Preserve source triangles inside the 0.051 m vertical scoring cylinder per FLOWER instance; simplify only exterior triangles.",
+            "protectedRegion": "scoring-cylinder",
+            "protectedRadiusMeters": 0.051,
+            "exteriorRelativeError": 0.0001,
+            "borderVerticesLocked": true,
+            "positionsFloat32": true,
+            "draco": false,
+            "sourceTriangles": 3189864,
+            "outputTriangles": 528294,
+            "measuredSurfaceValidation": {
+              "method": "bidirectional deterministic source/candidate triangle-centroid samples, point-to-triangle distance",
+              "maximumSampledDistanceMeters": 0.00010793000441830903,
+              "samples": 3072,
+              "toleranceMeters": 0.0005
+            }
+          }
+        },
+        {
+          "id": "fixtures",
+          "url": "/models/biobuzz/collision/field-fixtures.glb",
+          "bytes": 2368,
+          "sha256": "22a364c9adecfec5a4c67df7b916e56e1e909903e51daf79d3087006729ce74c",
+          "triangles": 88,
+          "sourceTriangles": 568,
+          "nodeCount": 2,
+          "nodeNameFormat": "fixtures/<official assembly>/<official part>",
+          "sourceParts": [
+            "am-5706 Artifact Tray__Fillet1"
+          ],
+          "topologyFallbackToSource": false
+        }
+      ],
+      "hiveCells": [
+        {
+          "id": "hive-red-audience",
+          "url": "/models/biobuzz/collision/cell-red-audience.glb",
+          "shape": "trimesh",
+          "convexHull": false,
+          "openBoundaryVerticesLocked": true,
+          "apertureProbeValidation": "boundary topology and sampled boundary deviation compared against source; explicit opening ray occupancy grid not run",
+          "topologyValidation": {
+            "comparison": "per named part",
+            "source": {
+              "namedParts": 49,
+              "eulerCharacteristic": -236,
+              "boundaryComponents": 57,
+              "boundaryEdges": 114,
+              "nonManifoldEdges": 62,
+              "maximumSampledOpenBoundaryDeviationMeters": 0
+            },
+            "output": {
+              "namedParts": 49,
+              "eulerCharacteristic": -236,
+              "boundaryComponents": 57,
+              "boundaryEdges": 114,
+              "nonManifoldEdges": 62,
+              "maximumSampledOpenBoundaryDeviationMeters": 0
+            },
+            "eulerBoundaryComponentsAndNonManifoldCountsMatch": true,
+            "boundaryProbeMethod": "directed source/output boundary segment endpoints and midpoints to opposite boundary segments",
+            "explicitRayOccupancyGrid": "not run",
+            "fallbackDiagnostic": "hive-red-audience/cell-audience/hive-red-audience/position-welded-welded#11: boundaryComponents changed (26 -> 31)."
+          },
+          "outerBoundsOnly": true,
+          "sourceTriangles": 62806,
+          "positionOnlyWelding": {
+            "toleranceMeters": 1e-7,
+            "sourceTriangles": 62806,
+            "retainedTriangles": 62806,
+            "sourceVertices": 31191,
+            "weldedVertices": 31191,
+            "degenerateTrianglesRemoved": 0,
+            "duplicateTrianglesRemoved": 0,
+            "renderNormalsAndUVs": "omitted; runtime physics recomputes contact normals"
+          },
+          "triangles": 62806,
+          "bytes": 1160584,
+          "sha256": "b88732d269f52eaea919634a2ed757fa821d67f1aed86d886510f363241aba36",
+          "nodeCount": 49,
+          "nodeNameFormat": "cell-audience/<cell id>/<official part or stable generated segment>",
+          "sourcePartNamesAvailable": true,
+          "sourceParts": [
+            "position-welded-welded"
+          ],
+          "excludedParts": [],
+          "opening": {
+            "normalLocal": null,
+            "normalStatus": "unverified; preserve actual open-shell geometry; scoring volume unavailable"
+          },
+          "simplification": {
+            "tool": "gltfpack 1.2.0",
+            "targetRatio": 0.08,
+            "requestedRelativeErrorLimit": 0.0007117560027747761,
+            "effectiveRelativeErrorLimit": 0,
+            "absoluteErrorBudgetMeters": 0.0005,
+            "borderVerticesLocked": true,
+            "positionsFloat32": true,
+            "draco": false,
+            "topologyRetries": 6,
+            "fallbackToSourceGeometry": true,
+            "maximumSourcePrimitiveBoundsDiagonalMeters": 0.7024879285186965,
+            "configuredConservativeErrorBoundMeters": 0,
+            "errorBoundBasis": "relative limit multiplied by largest source primitive AABB diagonal; checked against sampled open boundaries"
+          }
+        },
+        {
+          "id": "hive-red-scoring",
+          "url": "/models/biobuzz/collision/cell-red-scoring.glb",
+          "shape": "trimesh",
+          "convexHull": false,
+          "openBoundaryVerticesLocked": true,
+          "apertureProbeValidation": "boundary topology and sampled boundary deviation compared against source; explicit opening ray occupancy grid not run",
+          "topologyValidation": {
+            "comparison": "per named part",
+            "source": {
+              "namedParts": 49,
+              "eulerCharacteristic": -234,
+              "boundaryComponents": 41,
+              "boundaryEdges": 88,
+              "nonManifoldEdges": 47,
+              "maximumSampledOpenBoundaryDeviationMeters": 0
+            },
+            "output": {
+              "namedParts": 49,
+              "eulerCharacteristic": -234,
+              "boundaryComponents": 41,
+              "boundaryEdges": 88,
+              "nonManifoldEdges": 47,
+              "maximumSampledOpenBoundaryDeviationMeters": 0
+            },
+            "eulerBoundaryComponentsAndNonManifoldCountsMatch": true,
+            "boundaryProbeMethod": "directed source/output boundary segment endpoints and midpoints to opposite boundary segments",
+            "explicitRayOccupancyGrid": "not run",
+            "fallbackDiagnostic": "hive-red-scoring/cell-scoring/hive-red-scoring/position-welded-welded#28: eulerCharacteristic changed (-64 -> -63)."
+          },
+          "outerBoundsOnly": true,
+          "sourceTriangles": 63253,
+          "positionOnlyWelding": {
+            "toleranceMeters": 1e-7,
+            "sourceTriangles": 63253,
+            "retainedTriangles": 63253,
+            "sourceVertices": 31409,
+            "weldedVertices": 31409,
+            "degenerateTrianglesRemoved": 0,
+            "duplicateTrianglesRemoved": 0,
+            "renderNormalsAndUVs": "omitted; runtime physics recomputes contact normals"
+          },
+          "triangles": 63253,
+          "bytes": 1168560,
+          "sha256": "71d41371684e843f87c355e938798bc988e0d6fcad6c675a85df146eafb2310e",
+          "nodeCount": 49,
+          "nodeNameFormat": "cell-scoring/<cell id>/<official part or stable generated segment>",
+          "sourcePartNamesAvailable": true,
+          "sourceParts": [
+            "position-welded-welded"
+          ],
+          "excludedParts": [],
+          "opening": {
+            "normalLocal": null,
+            "normalStatus": "unverified; preserve actual open-shell geometry; scoring volume unavailable"
+          },
+          "simplification": {
+            "tool": "gltfpack 1.2.0",
+            "targetRatio": 0.08,
+            "requestedRelativeErrorLimit": 0.0007117053047577058,
+            "effectiveRelativeErrorLimit": 0,
+            "absoluteErrorBudgetMeters": 0.0005,
+            "borderVerticesLocked": true,
+            "positionsFloat32": true,
+            "draco": false,
+            "topologyRetries": 6,
+            "fallbackToSourceGeometry": true,
+            "maximumSourcePrimitiveBoundsDiagonalMeters": 0.7025379699399893,
+            "configuredConservativeErrorBoundMeters": 0,
+            "errorBoundBasis": "relative limit multiplied by largest source primitive AABB diagonal; checked against sampled open boundaries"
+          }
+        },
+        {
+          "id": "hive-blue-audience",
+          "url": "/models/biobuzz/collision/cell-blue-audience.glb",
+          "shape": "trimesh",
+          "convexHull": false,
+          "openBoundaryVerticesLocked": true,
+          "apertureProbeValidation": "boundary topology and sampled boundary deviation compared against source; explicit opening ray occupancy grid not run",
+          "topologyValidation": {
+            "comparison": "per named part",
+            "source": {
+              "namedParts": 49,
+              "eulerCharacteristic": -237,
+              "boundaryComponents": 55,
+              "boundaryEdges": 116,
+              "nonManifoldEdges": 61,
+              "maximumSampledOpenBoundaryDeviationMeters": 0
+            },
+            "output": {
+              "namedParts": 49,
+              "eulerCharacteristic": -237,
+              "boundaryComponents": 55,
+              "boundaryEdges": 116,
+              "nonManifoldEdges": 61,
+              "maximumSampledOpenBoundaryDeviationMeters": 0
+            },
+            "eulerBoundaryComponentsAndNonManifoldCountsMatch": true,
+            "boundaryProbeMethod": "directed source/output boundary segment endpoints and midpoints to opposite boundary segments",
+            "explicitRayOccupancyGrid": "not run",
+            "fallbackDiagnostic": "hive-blue-audience/cell-audience/hive-blue-audience/position-welded-welded#11: boundaryComponents changed (24 -> 29)."
+          },
+          "outerBoundsOnly": true,
+          "sourceTriangles": 64020,
+          "positionOnlyWelding": {
+            "toleranceMeters": 1e-7,
+            "sourceTriangles": 64020,
+            "retainedTriangles": 64020,
+            "sourceVertices": 31799,
+            "weldedVertices": 31799,
+            "degenerateTrianglesRemoved": 0,
+            "duplicateTrianglesRemoved": 0,
+            "renderNormalsAndUVs": "omitted; runtime physics recomputes contact normals"
+          },
+          "triangles": 64020,
+          "bytes": 1182624,
+          "sha256": "11d94b29d6f9c55818881fb75c52aaecfc5e39d68545244f1560f81ec6c776c9",
+          "nodeCount": 49,
+          "nodeNameFormat": "cell-audience/<cell id>/<official part or stable generated segment>",
+          "sourcePartNamesAvailable": true,
+          "sourceParts": [
+            "position-welded-welded"
+          ],
+          "excludedParts": [],
+          "opening": {
+            "normalLocal": null,
+            "normalStatus": "unverified; preserve actual open-shell geometry; scoring volume unavailable"
+          },
+          "simplification": {
+            "tool": "gltfpack 1.2.0",
+            "targetRatio": 0.08,
+            "requestedRelativeErrorLimit": 0.0007117699604853113,
+            "effectiveRelativeErrorLimit": 0,
+            "absoluteErrorBudgetMeters": 0.0005,
+            "borderVerticesLocked": true,
+            "positionsFloat32": true,
+            "draco": false,
+            "topologyRetries": 6,
+            "fallbackToSourceGeometry": true,
+            "maximumSourcePrimitiveBoundsDiagonalMeters": 0.702474152827525,
+            "configuredConservativeErrorBoundMeters": 0,
+            "errorBoundBasis": "relative limit multiplied by largest source primitive AABB diagonal; checked against sampled open boundaries"
+          }
+        },
+        {
+          "id": "hive-blue-scoring",
+          "url": "/models/biobuzz/collision/cell-blue-scoring.glb",
+          "shape": "trimesh",
+          "convexHull": false,
+          "openBoundaryVerticesLocked": true,
+          "apertureProbeValidation": "boundary topology and sampled boundary deviation compared against source; explicit opening ray occupancy grid not run",
+          "topologyValidation": {
+            "comparison": "per named part",
+            "source": {
+              "namedParts": 49,
+              "eulerCharacteristic": -233,
+              "boundaryComponents": 46,
+              "boundaryEdges": 92,
+              "nonManifoldEdges": 53,
+              "maximumSampledOpenBoundaryDeviationMeters": 0
+            },
+            "output": {
+              "namedParts": 49,
+              "eulerCharacteristic": -233,
+              "boundaryComponents": 46,
+              "boundaryEdges": 92,
+              "nonManifoldEdges": 53,
+              "maximumSampledOpenBoundaryDeviationMeters": 0
+            },
+            "eulerBoundaryComponentsAndNonManifoldCountsMatch": true,
+            "boundaryProbeMethod": "directed source/output boundary segment endpoints and midpoints to opposite boundary segments",
+            "explicitRayOccupancyGrid": "not run",
+            "fallbackDiagnostic": "hive-blue-scoring/cell-scoring/hive-blue-scoring/position-welded-welded#14: eulerCharacteristic changed (-64 -> -63)."
+          },
+          "outerBoundsOnly": true,
+          "sourceTriangles": 63718,
+          "positionOnlyWelding": {
+            "toleranceMeters": 1e-7,
+            "sourceTriangles": 63718,
+            "retainedTriangles": 63718,
+            "sourceVertices": 31642,
+            "weldedVertices": 31642,
+            "degenerateTrianglesRemoved": 0,
+            "duplicateTrianglesRemoved": 0,
+            "renderNormalsAndUVs": "omitted; runtime physics recomputes contact normals"
+          },
+          "triangles": 63718,
+          "bytes": 1176968,
+          "sha256": "c2091e805519d9cda1c45fcac8bd73cf7a92d799c85286a5a95dd8cd21ee2fd5",
+          "nodeCount": 49,
+          "nodeNameFormat": "cell-scoring/<cell id>/<official part or stable generated segment>",
+          "sourcePartNamesAvailable": true,
+          "sourceParts": [
+            "position-welded-welded"
+          ],
+          "excludedParts": [],
+          "opening": {
+            "normalLocal": null,
+            "normalStatus": "unverified; preserve actual open-shell geometry; scoring volume unavailable"
+          },
+          "simplification": {
+            "tool": "gltfpack 1.2.0",
+            "targetRatio": 0.08,
+            "requestedRelativeErrorLimit": 0.00071186514423399,
+            "effectiveRelativeErrorLimit": 0,
+            "absoluteErrorBudgetMeters": 0.0005,
+            "borderVerticesLocked": true,
+            "positionsFloat32": true,
+            "draco": false,
+            "topologyRetries": 6,
+            "fallbackToSourceGeometry": true,
+            "maximumSourcePrimitiveBoundsDiagonalMeters": 0.7023802247517404,
+            "configuredConservativeErrorBoundMeters": 0,
+            "errorBoundBasis": "relative limit multiplied by largest source primitive AABB diagonal; checked against sampled open boundaries"
+          }
+        }
+      ],
+      "floor": {
+        "runtime": "omitted; parent uses CAD plane at Y=0",
+        "sourceParts": [
+          "am-2499-Center: FIRST Tech Challenge Field Soft Tiles",
+          "am-2499-Corner: FIRST Tech Challenge Field Soft Tiles",
+          "am-2499-Side: FIRST Tech Challenge Field Soft Tiles"
+        ]
+      },
+      "protectedRegionSourceGroups": [
+        "flowers"
+      ],
+      "sourceHistoryGroups": [
+        "flowers"
+      ],
+      "staticTriangleBudget": 200000,
+      "staticTriangleBudgetMet": false,
+      "staticTriangleBudgetStatus": "unmet; protected FLOWER candidate retained for zero finite-ball contact mismatch",
+      "activeFlowerDescriptorCount": 3
+    },
+    "cellVisuals": [
+      {
+        "id": "hive-red-audience",
+        "bytes": 1347936,
+        "triangles": 91642,
+        "sha256": "9d9d1fcb694c15af3844c5c423f140155a46c0eec1dc672ba91d27dffe23b8a5",
+        "sourceBytes": 32856200,
+        "configuredTotalDeviationMeters": 0.000499
+      },
+      {
+        "id": "hive-red-scoring",
+        "bytes": 1377240,
+        "triangles": 93940,
+        "sha256": "edb41c7ef2069f9290ee36e61cc17dad5a5bffd3858d4f8401d3cde91a1e6e91",
+        "sourceBytes": 32856444,
+        "configuredTotalDeviationMeters": 0.000499
+      },
+      {
+        "id": "hive-blue-audience",
+        "bytes": 1403536,
+        "triangles": 95406,
+        "sha256": "5cf3a80eeda363363de4664806ed77ce939c924fa4dbfa817a3ffdf56c95634f",
+        "sourceBytes": 33056260,
+        "configuredTotalDeviationMeters": 0.000499
+      },
+      {
+        "id": "hive-blue-scoring",
+        "bytes": 1385256,
+        "triangles": 93940,
+        "sha256": "7b387aeded125a90168e21f136c11b06e9f069f0cf6ca9a69a28aaa01e692aff",
+        "sourceBytes": 33056264,
+        "configuredTotalDeviationMeters": 0.000499
+      }
+    ],
+    "visualMaterials": {
+      "revision": "biobuzz-appearance-v2",
+      "source": "User-supplied BIOBUZZ season-animation reference, 2026-09-17",
+      "profile": "tools/cad-convert/biobuzz-material-profile.mjs",
+      "status": "Visual approximation; optical properties are not physically calibrated",
+      "clearPanels": "FTC Field Side Glass; Hive Goal Top, Back and Bottom Skin",
+      "floor": "Neutral grey foam tiles, matte roughness 1; original tile geometry retained"
+    },
+    "gamePieceVisuals": [
+      {
+        "kind": "pollen",
+        "path": "/models/biobuzz/pollen.glb",
+        "bytes": 123444,
+        "sha256": "3fbbc7578847e7c1e95357fcf58688985729edd6d64eb8d64f75ab7b347006cf",
+        "triangles": 8232,
+        "source": {
+          "filename": "am-5851_yellow Pollen.STEP",
+          "sha256": "3876dea7b683c2085286da2899504555aab1a13720ab8c02c1d0107e1095f445",
+          "units": "inches",
+          "provenance": "User-supplied CAD, 2026-09-17"
+        },
+        "cadDiameterMeters": 0.07111999999999999,
+        "nominalDiameterMeters": 0.07111999999999999,
+        "renderScaleToNominal": 1
+      },
+      {
+        "kind": "nectar-red",
+        "path": "/models/biobuzz/nectar-red.glb",
+        "bytes": 136488,
+        "sha256": "2753a3466c661593e71c97524446acf0975d4f48edda6330690377689cfa4085",
+        "triangles": 9250,
+        "source": {
+          "filename": "am-5852_red Red Alliance Nectar.STEP",
+          "sha256": "d25b13b0bcf422196f68afb374a823209ace6f3609b9b4c99b55b8617cb04610",
+          "units": "millimetres",
+          "provenance": "User-supplied CAD, 2026-09-17"
+        },
+        "cadDiameterMeters": 0.09194800000000002,
+        "nominalDiameterMeters": 0.09144,
+        "renderScaleToNominal": 0.9944751381215468
+      },
+      {
+        "kind": "nectar-blue",
+        "path": "/models/biobuzz/nectar-blue.glb",
+        "bytes": 136908,
+        "sha256": "aa3ee94614c3ab62366d27ae2998fbb987ff5b6dadd3ebacfb00b1a1c74cb509",
+        "triangles": 9270,
+        "source": {
+          "filename": "am-5852_blue Blue Alliance Nectar.STEP",
+          "sha256": "d085dfaa85e816f8f80b1e667b3d94f4c10d7fff3e2194cf48bec6ab628e9c15",
+          "units": "millimetres",
+          "provenance": "User-supplied CAD, 2026-09-17"
+        },
+        "cadDiameterMeters": 0.09194800000000002,
+        "nominalDiameterMeters": 0.09144,
+        "renderScaleToNominal": 0.9944751381215468
+      }
+    ]
+  },
+  "initialGamePieces": [
+    {
+      "kind": "pollen",
+      "alliance": null,
+      "model": "/models/biobuzz/pollen.glb",
+      "nominalRadiusMeters": 0.03556,
+      "publishedMassPounds": 0.055,
+      "publishedMassKilograms": 0.02494758035,
+      "sourcePart": "am-5851: Pollen",
+      "modelSha256": "3fbbc7578847e7c1e95357fcf58688985729edd6d64eb8d64f75ab7b347006cf",
+      "instances": [
+        {
+          "id": "pollen-01",
+          "positionMeters": [
+            1.7282164692878723,
+            0.18237199634313583,
+            -0.5941704511642456
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-02",
+          "positionMeters": [
+            -0.5941704511642456,
+            0.255778007209301,
+            -1.7282164692878723
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-03",
+          "positionMeters": [
+            1.8554704785346985,
+            0.020852462388575077,
+            1.1686530113220215
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-04",
+          "positionMeters": [
+            1.8554704785346985,
+            0.020852462388575077,
+            0.9552930593490601
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-05",
+          "positionMeters": [
+            1.6127508282661438,
+            0.03558683318988187,
+            -1.7595598697662354
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-06",
+          "positionMeters": [
+            -1.6861568689346313,
+            0.03558683318988187,
+            1.7595598697662354
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-07",
+          "positionMeters": [
+            1.7282164692878723,
+            0.03555999924719799,
+            -0.5941704511642456
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-08",
+          "positionMeters": [
+            1.8554704785346985,
+            0.020852462388575077,
+            0.6708130538463593
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-09",
+          "positionMeters": [
+            1.8554704785346985,
+            0.020852462388575077,
+            1.026413083076477
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-10",
+          "positionMeters": [
+            0.5941704511642456,
+            0.03555999924719799,
+            1.7282164692878723
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-11",
+          "positionMeters": [
+            1.8554704785346985,
+            0.020852462388575077,
+            0.8130530416965485
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-12",
+          "positionMeters": [
+            1.8554704785346985,
+            0.020852462388575077,
+            0.8841730356216431
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-13",
+          "positionMeters": [
+            -1.8554704785346985,
+            0.020852462388575077,
+            -0.9552930593490601
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-14",
+          "positionMeters": [
+            -1.7282164692878723,
+            0.10896600037813187,
+            0.5941704511642456
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-15",
+          "positionMeters": [
+            1.7595628499984741,
+            0.03558683318988187,
+            -1.7595598697662354
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-16",
+          "positionMeters": [
+            1.7282164692878723,
+            0.255778007209301,
+            -0.5941704511642456
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-17",
+          "positionMeters": [
+            -1.7282164692878723,
+            0.18237199634313583,
+            0.5941704511642456
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-18",
+          "positionMeters": [
+            -1.8554704785346985,
+            0.020852462388575077,
+            -0.8841730356216431
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-19",
+          "positionMeters": [
+            -0.5941704511642456,
+            0.18237199634313583,
+            -1.7282164692878723
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-20",
+          "positionMeters": [
+            -1.8554704785346985,
+            0.020852462388575077,
+            -0.7419330477714539
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-21",
+          "positionMeters": [
+            0.5941704511642456,
+            0.18237199634313583,
+            1.7282164692878723
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-22",
+          "positionMeters": [
+            -0.5941704511642456,
+            0.03555999924719799,
+            -1.7282164692878723
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-23",
+          "positionMeters": [
+            1.6861568689346313,
+            0.03558683318988187,
+            -1.7595598697662354
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-24",
+          "positionMeters": [
+            -1.8554704785346985,
+            0.020852462388575077,
+            -1.026413083076477
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-25",
+          "positionMeters": [
+            -1.6127508282661438,
+            0.03558683318988187,
+            1.7595598697662354
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-26",
+          "positionMeters": [
+            -0.5941704511642456,
+            0.10896600037813187,
+            -1.7282164692878723
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-27",
+          "positionMeters": [
+            1.539344847202301,
+            0.03558683318988187,
+            -1.7595598697662354
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-28",
+          "positionMeters": [
+            -1.8554704785346985,
+            0.020852462388575077,
+            -0.8130530416965485
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-29",
+          "positionMeters": [
+            -1.7282164692878723,
+            0.255778007209301,
+            0.5941704511642456
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-30",
+          "positionMeters": [
+            -1.8554704785346985,
+            0.020852462388575077,
+            -1.1686530113220215
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-31",
+          "positionMeters": [
+            1.7282164692878723,
+            0.10896600037813187,
+            -0.5941704511642456
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-32",
+          "positionMeters": [
+            -1.7282164692878723,
+            0.03555999924719799,
+            0.5941704511642456
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-33",
+          "positionMeters": [
+            0.5941704511642456,
+            0.10896600037813187,
+            1.7282164692878723
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-34",
+          "positionMeters": [
+            0.5941704511642456,
+            0.255778007209301,
+            1.7282164692878723
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-35",
+          "positionMeters": [
+            1.8554704785346985,
+            0.020852462388575077,
+            1.0975330471992493
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-36",
+          "positionMeters": [
+            -1.7595628499984741,
+            0.03558683318988187,
+            1.7595598697662354
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-37",
+          "positionMeters": [
+            -1.539344847202301,
+            0.03558683318988187,
+            1.7595598697662354
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-38",
+          "positionMeters": [
+            -1.8554704785346985,
+            0.020852462388575077,
+            -1.0975330471992493
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-39",
+          "positionMeters": [
+            1.8554704785346985,
+            0.020852462388575077,
+            0.7419330477714539
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "pollen-40",
+          "positionMeters": [
+            -1.8554704785346985,
+            0.020852462388575077,
+            -0.6708130538463593
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        }
+      ]
+    },
+    {
+      "kind": "nectar",
+      "alliance": "red",
+      "model": "/models/biobuzz/nectar-red.glb",
+      "nominalRadiusMeters": 0.04572,
+      "publishedMassPounds": 0.091,
+      "publishedMassKilograms": 0.04127690567,
+      "sourcePart": "am-5852: Red Nectar",
+      "modelSha256": "2753a3466c661593e71c97524446acf0975d4f48edda6330690377689cfa4085",
+      "instances": [
+        {
+          "id": "nectar-red-01",
+          "positionMeters": [
+            -1.8688049912452698,
+            0.03393346117809415,
+            0.091948002576828
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "nectar-red-02",
+          "positionMeters": [
+            -1.9484339952468872,
+            0.03393346117809415,
+            -0.0459740012884093
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "nectar-red-03",
+          "positionMeters": [
+            -0.5331876873970032,
+            1.2685023546218872,
+            0.24140241742134094
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "nectar-red-04",
+          "positionMeters": [
+            -1.8688049912452698,
+            0.03393346117809415,
+            -0.091948002576828
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "nectar-red-05",
+          "positionMeters": [
+            -1.9484339952468872,
+            0.03393346117809415,
+            0.045974001288418706
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "nectar-red-06",
+          "positionMeters": [
+            -0.441239669919014,
+            1.2685023546218872,
+            0.24140241742134094
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "nectar-red-07",
+          "positionMeters": [
+            -1.8688049912452698,
+            0.03393346117809415,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "nectar-red-08",
+          "positionMeters": [
+            -0.34929168224334717,
+            1.2685023546218872,
+            0.24140241742134094
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        }
+      ]
+    },
+    {
+      "kind": "nectar",
+      "alliance": "blue",
+      "model": "/models/biobuzz/nectar-blue.glb",
+      "nominalRadiusMeters": 0.04572,
+      "publishedMassPounds": 0.091,
+      "publishedMassKilograms": 0.04127690567,
+      "sourcePart": "am-5852: Blue Nectar",
+      "modelSha256": "aa3ee94614c3ab62366d27ae2998fbb987ff5b6dadd3ebacfb00b1a1c74cb509",
+      "instances": [
+        {
+          "id": "nectar-blue-01",
+          "positionMeters": [
+            0.4416637420654297,
+            1.2684796452522278,
+            -0.24145827442407608
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "nectar-blue-02",
+          "positionMeters": [
+            1.8688044548034668,
+            0.03393346117809415,
+            0.0000012293457984924316
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "nectar-blue-03",
+          "positionMeters": [
+            1.8688044548034668,
+            0.03393346117809415,
+            0.09194923005998135
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "nectar-blue-04",
+          "positionMeters": [
+            1.8688044548034668,
+            0.03393346117809415,
+            -0.09194677323102951
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "nectar-blue-05",
+          "positionMeters": [
+            1.9484333992004395,
+            0.03393346117809415,
+            -0.04597277194261089
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "nectar-blue-06",
+          "positionMeters": [
+            0.5336117446422577,
+            1.2684796452522278,
+            -0.24145827442407608
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "nectar-blue-07",
+          "positionMeters": [
+            0.3497157394886017,
+            1.2684796452522278,
+            -0.24145827442407608
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        },
+        {
+          "id": "nectar-blue-08",
+          "positionMeters": [
+            1.9484333992004395,
+            0.03393346117809415,
+            0.04597522987137381
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "transformStatus": "position measured from official STEP mesh bounds; source start rotations are not gameplay-specified"
+        }
+      ]
+    }
+  ],
+  "flowers": [
+    {
+      "id": "flower-1",
+      "sourceAssembly": "am-5855: Flower Assembly <1>",
+      "positionMeters": [
+        -0.594164245226,
+        0,
+        -1.728256957165
+      ],
+      "supportPipeCenterlineY": 0.323953461539,
+      "assemblyBoundsMeters": {
+        "min": [
+          -0.678860472132,
+          -0.016485538461,
+          -1.823561929237
+        ],
+        "max": [
+          -0.509481148844,
+          0.578725306993,
+          -1.635891548349
+        ]
+      }
+    },
+    {
+      "id": "flower-2",
+      "sourceAssembly": "am-5855: Flower Assembly <2>",
+      "positionMeters": [
+        0.594164245063,
+        0,
+        1.728256957165
+      ],
+      "supportPipeCenterlineY": 0.323953461538,
+      "assemblyBoundsMeters": {
+        "min": [
+          0.509481148681,
+          -0.016485538462,
+          1.635891548349
+        ],
+        "max": [
+          0.678860471969,
+          0.578725306993,
+          1.823561929237
+        ]
+      }
+    },
+    {
+      "id": "flower-3",
+      "sourceAssembly": "am-5855: Flower Assembly <3>",
+      "positionMeters": [
+        -1.728256957246,
+        0,
+        0.594164245145
+      ],
+      "supportPipeCenterlineY": 0.323953461535,
+      "assemblyBoundsMeters": {
+        "min": [
+          -1.823561929318,
+          -0.016485538465,
+          0.509481148763
+        ],
+        "max": [
+          -1.63589154843,
+          0.57872530699,
+          0.678860472051
+        ]
+      }
+    },
+    {
+      "id": "flower-4",
+      "sourceAssembly": "am-5855: Flower Assembly <4>",
+      "positionMeters": [
+        1.728256957084,
+        0,
+        -0.594164245144
+      ],
+      "supportPipeCenterlineY": 0.323953461538,
+      "assemblyBoundsMeters": {
+        "min": [
+          1.635891548268,
+          -0.016485538462,
+          -0.67886047205
+        ],
+        "max": [
+          1.823561929156,
+          0.578725306993,
+          -0.509481148762
+        ]
+      }
+    }
+  ]
+}

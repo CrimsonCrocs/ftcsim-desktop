@@ -1,0 +1,90 @@
+{
+  "assetPack": "biobuzz-2026-2027@1",
+  "source": {
+    "url": "https://ftc-resources.firstinspires.org/ftc/field/field-cad-step?fileId=8b91cac3-833d-459a-9fa3-6dad3f56f642",
+    "sha256": "05b35961c7df847741031f00fda73ddd068537f809e92a11b1cd59a94bcc8331",
+    "bytes": 35206208,
+    "publisher": "FIRST Tech Challenge / FIRST Inspires",
+    "package": {
+      "version": "v26-27.2",
+      "updated": "2026-09-15",
+      "url": "https://ftc-resources.firstinspires.org/ftc/field/field-cad-step?fileId=8b91cac3-833d-459a-9fa3-6dad3f56f642",
+      "bytes": 6607131,
+      "sha256": "5e768b731f1ec8dcd14debba53225c43718877923c351ce08504305f68f7fe00",
+      "member": "field-cad-step.step"
+    }
+  },
+  "url": "/models/biobuzz/collision/cell-red-audience.glb",
+  "shape": "trimesh",
+  "convexHull": false,
+  "openBoundaryVerticesLocked": true,
+  "apertureProbeValidation": "Simplified hollow source mesh; validator preserves mouth-ray occupancy, samples each interior contact-plane face at five points, and compares source/output surface distances.",
+  "topologyValidation": {
+    "acceptanceGate": "Euler and boundary-count equality is diagnostic only; hollow mouth rays, inner-wall contacts, and sampled source-surface distance are the functional gates.",
+    "sourceCounts": {
+      "namedParts": 49,
+      "eulerCharacteristic": -236,
+      "boundaryComponents": 57,
+      "boundaryEdges": 114,
+      "nonManifoldEdges": 62,
+      "maximumSampledOpenBoundaryDeviationMeters": 0
+    }
+  },
+  "outerBoundsOnly": true,
+  "sourceTriangles": 62806,
+  "positionOnlyWelding": {
+    "toleranceMeters": 1e-7,
+    "sourceTriangles": 62806,
+    "retainedTriangles": 62806,
+    "sourceVertices": 31191,
+    "weldedVertices": 31191,
+    "degenerateTrianglesRemoved": 0,
+    "duplicateTrianglesRemoved": 0,
+    "renderNormalsAndUVs": "omitted; runtime physics recomputes contact normals"
+  },
+  "triangles": 28759,
+  "bytes": 362632,
+  "sha256": "f9e5f24f928938d70ae120cafd72f5cd211a46548b17aef7fda9ffc801f4b9e6",
+  "nodeCount": 49,
+  "nodeNameFormat": "cell-audience/<cell id>/<official part or stable generated segment>",
+  "sourcePartNamesAvailable": true,
+  "sourceParts": [
+    "position-welded-welded"
+  ],
+  "excludedParts": [],
+  "opening": {
+    "normalLocal": null,
+    "normalStatus": "unverified; preserve actual open-shell geometry; scoring volume unavailable"
+  },
+  "simplification": {
+    "tool": "gltfpack 1.2.0",
+    "targetRatio": 0.025,
+    "relativeErrorLimit": 0.0002,
+    "borderVerticesLocked": true,
+    "positionsFloat32": true,
+    "draco": false,
+    "sourceTriangles": 62806,
+    "outputTriangles": 28759,
+    "measuredSurfaceValidation": {
+      "method": "bidirectional 32-triangle-centroid samples per named node, point-to-triangle distance",
+      "maximumSampledDistanceMeters": 0.00036107224774202176,
+      "samples": 3136,
+      "toleranceMeters": 0.0005
+    },
+    "mouthRayValidation": {
+      "rays": 6,
+      "occupancyPreserved": true,
+      "maximumContactShiftMeters": 0
+    },
+    "innerWallContactValidation": {
+      "contactSamples": 31,
+      "maximumContactShiftMeters": 0.00006620989111503009,
+      "maximumNormalDifferenceDegrees": 0.04421931398484977
+    }
+  },
+  "input": {
+    "bytes": 1160584,
+    "sha256": "b88732d269f52eaea919634a2ed757fa821d67f1aed86d886510f363241aba36",
+    "triangles": 62806
+  }
+}

@@ -1,0 +1,136 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "url": "https://cad.onshape.com/documents/a355e772e3d24813de7852ee/w/f106353168f1f92100b81259/e/8f89b946e295be9c543faa08",
+    "partStudioElement": "d42af5c8b58dcdd39c137805",
+    "partId": "JFv",
+    "exportedAt": "2026-09-15T23:48:04Z",
+    "stepUrl": "/models/biobuzz/source/flower-scoring-volume.step",
+    "sha256": "6bfb427b1f401d4d28a4aa13ee3321edde66dd7484512eb197bd1c09195ebba7",
+    "bytes": 4541,
+    "units": "metres",
+    "axis": "local +Z",
+    "owner": "FIRST / AndyMark official BIOBUZZ field CAD; original ownership retained"
+  },
+  "analyticSolid": {
+    "kind": "cylinder",
+    "radius": 0.0508,
+    "height": 0.42672,
+    "minimumSourceZ": 0,
+    "maximumSourceZ": 0.42672
+  },
+  "geometryAsset": {
+    "url": "/models/biobuzz/flower-scoring-volume.glb",
+    "sha256": "3125b2e67517ee9b0f6327137322ee7fef531ddbfcc268bac7e44fdb28ba02f3",
+    "bytes": 7072,
+    "segments": 128,
+    "maximumRadialPreviewErrorMeters": 0.000015300010232824102,
+    "collision": false
+  },
+  "placementEvidence": {
+    "method": "Match the scoring cylinder and Layer C circular edge in the official FLOWER assembly; map that edge into the full-field STEP. This places the lower plane at the HIPS pipe lower end.",
+    "observedOn": "2026-09-16",
+    "onshapeMeasurementMillimeters": {
+      "lowerScoringCircle": {
+        "radius": 50.8,
+        "center": [
+          -0.001465,
+          0.037043,
+          124.539
+        ]
+      },
+      "layerCCircle": {
+        "radius": 50.960277,
+        "center": [
+          -0.001465,
+          0.037043,
+          551.749271
+        ]
+      }
+    },
+    "fullFieldStepCircle": {
+      "entity": 204367,
+      "radius": 0.0509602768664944,
+      "localY": -0.00458972894432486
+    },
+    "supportPipeLengthMeters": 0.4318,
+    "coordinateTransform": "Source (x,y,z) becomes simulator (x,z,-y), then each instance translation is applied. The analytic solid is axially symmetric.",
+    "alignmentToleranceMeters": 0.0001,
+    "fieldSourceSha256": "05b35961c7df847741031f00fda73ddd068537f809e92a11b1cd59a94bcc8331"
+  },
+  "instances": [
+    {
+      "id": "flower-1",
+      "sourceAssembly": "am-5855: Flower Assembly <1>",
+      "position": [
+        -0.594164245226,
+        0.108053461539,
+        -1.728256957165
+      ],
+      "rotationFromStep": [
+        -0.7071067811865476,
+        0,
+        0,
+        0.7071067811865476
+      ],
+      "radius": 0.0508,
+      "bottom": 0.108053461539,
+      "top": 0.534773461539
+    },
+    {
+      "id": "flower-2",
+      "sourceAssembly": "am-5855: Flower Assembly <2>",
+      "position": [
+        0.594164245063,
+        0.10805346153799997,
+        1.728256957165
+      ],
+      "rotationFromStep": [
+        -0.7071067811865476,
+        0,
+        0,
+        0.7071067811865476
+      ],
+      "radius": 0.0508,
+      "bottom": 0.10805346153799997,
+      "top": 0.534773461538
+    },
+    {
+      "id": "flower-3",
+      "sourceAssembly": "am-5855: Flower Assembly <3>",
+      "position": [
+        -1.728256957246,
+        0.10805346153499998,
+        0.594164245145
+      ],
+      "rotationFromStep": [
+        -0.7071067811865476,
+        0,
+        0,
+        0.7071067811865476
+      ],
+      "radius": 0.0508,
+      "bottom": 0.10805346153499998,
+      "top": 0.5347734615349999
+    },
+    {
+      "id": "flower-4",
+      "sourceAssembly": "am-5855: Flower Assembly <4>",
+      "position": [
+        1.728256957084,
+        0.10805346153799997,
+        -0.594164245144
+      ],
+      "rotationFromStep": [
+        -0.7071067811865476,
+        0,
+        0,
+        0.7071067811865476
+      ],
+      "radius": 0.0508,
+      "bottom": 0.10805346153799997,
+      "top": 0.534773461538
+    }
+  ],
+  "ruleUse": "V1 section 10.5.2: analytic sphere/closed-cylinder intersection, including partial overlap. The solid defines membership only; it is never a physical collider or a capacity limit."
+}

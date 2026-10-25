@@ -1,0 +1,58 @@
+{
+  "input": "am-3376a_green.STEP",
+  "inputSha256": "c8aa2bf58481720dd5820ede70e6c15ffd55901e46b3f4637cbc160920023011",
+  "output": "decode-artifact-green.glb",
+  "outputBytes": 133060,
+  "sourceUnits": "inches",
+  "tessellationUnits": "millimetres",
+  "outputUnits": "metres",
+  "triangulation": {
+    "linearDeflectionMillimetres": 0.15,
+    "angularDeflectionRadians": 0.18
+  },
+  "optimization": {
+    "tool": "gltfpack",
+    "simplifyRatio": 0.04,
+    "simplificationError": 0.003,
+    "permissive": true
+  },
+  "material": {
+    "source": "STEP"
+  },
+  "assetPack": "decode-2025-2026@1",
+  "coordinateTransform": {
+    "centered": true,
+    "rotateXDegrees": -90
+  },
+  "sceneFilter": null,
+  "statistics": {
+    "triangulated": {
+      "meshes": 2,
+      "vertices": 88990,
+      "triangles": 157016
+    },
+    "output": {
+      "meshes": 1,
+      "primitives": 1,
+      "vertices": 6791,
+      "triangles": 8396
+    }
+  },
+  "bounds": {
+    "min": [
+      -0.13310358678117018,
+      -0.06602905480134412,
+      -0.045539734184752434
+    ],
+    "max": [
+      -0.006103586781170179,
+      0.0587382293232244,
+      0.08146026581524757
+    ],
+    "size": [
+      0.127,
+      0.12476728412456853,
+      0.127
+    ]
+  }
+}

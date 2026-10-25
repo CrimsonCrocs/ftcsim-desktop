@@ -1,0 +1,23 @@
+{
+  "name": "ftc-simulator-desktop",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "FTC Simulator Desktop — local, persistent compile and autonomous evaluation",
+  "scripts": {
+    "build": "bun scripts/build.ts",
+    "start": "open build/FTC Simulator Desktop.app",
+    "evaluate": "bun scripts/evaluate.ts",
+    "typecheck": "node ../node_modules/typescript/bin/tsc --project tsconfig.json --noEmit",
+    "test": "bun test src/*.test.ts && bun scripts/verify-runtime.ts",
+    "install:app": "bun scripts/install.ts"
+  },
+  "devDependencies": {
+    "@types/bun": "1.3.14",
+    "vite": "8.0.0"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.32.2",
+    "zod": "4.6.7"
+  }
+}

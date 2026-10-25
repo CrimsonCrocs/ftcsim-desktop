@@ -1,0 +1,114 @@
+{
+  "assetPack": "biobuzz-2026-2027@1",
+  "source": {
+    "sha256": "05b35961c7df847741031f00fda73ddd068537f809e92a11b1cd59a94bcc8331",
+    "bytes": 35206208
+  },
+  "category": "frame",
+  "role": "static trimesh collision; node names retain source part and interaction group",
+  "units": "metres",
+  "axes": "Y-up; source STEP frame",
+  "input": {
+    "bytes": 17786216,
+    "sha256": "b43af12ffa4620f989fb61d00dbfe03bd624bd97aae7fbc4e466fd528257ce6f",
+    "triangles": 987460
+  },
+  "positionOnlyWelding": {
+    "toleranceMeters": 1e-7,
+    "sourceTriangles": 987870,
+    "retainedTriangles": 987460,
+    "sourceVertices": 637748,
+    "weldedVertices": 493526,
+    "degenerateTrianglesRemoved": 410,
+    "duplicateTrianglesRemoved": 0,
+    "renderNormalsAndUVs": "omitted; runtime physics recomputes contact normals"
+  },
+  "output": {
+    "url": "/models/biobuzz/collision/field-frame.glb",
+    "bytes": 734440,
+    "sha256": "4aa6f28331406eed2a53303226b679122cb2c97da9787a1cc1451fecb99f323e",
+    "triangles": 48680
+  },
+  "nodeNames": [
+    "frame/am-5854: Frame <1>/am-5863: Axle Holder#63",
+    "frame/am-5854: Frame <1>/am-5863: Axle Holder#89",
+    "frame/am-5854: Frame <1>/am-5874: A-Frame Top Corner#104",
+    "frame/am-5854: Frame <1>/am-5874: A-Frame Top Corner#12",
+    "frame/am-5854: Frame <1>/am-5875: A-Frame Top Bar#34",
+    "frame/am-5854: Frame <1>/am-5876: A-Frame Leg#31",
+    "frame/am-5854: Frame <1>/am-5876: A-Frame Leg#87",
+    "frame/am-5854: Frame <1>/am-5876: A-Frame Leg#93",
+    "frame/am-5854: Frame <1>/am-5876: A-Frame Leg#94",
+    "frame/am-5854: Frame <1>/am-5877: ACM Panel#101",
+    "frame/am-5854: Frame <1>/am-5877: ACM Panel#75",
+    "frame/am-5854: Frame <1>/am-5878: Sheet Metal Foot Bar#20",
+    "frame/am-5854: Frame <1>/am-5878: Sheet Metal Foot Bar#52",
+    "frame/am-5854: Frame <1>/am-5879-A: Frame Foot A#43",
+    "frame/am-5854: Frame <1>/am-5879-A: Frame Foot A#53",
+    "frame/am-5854: Frame <1>/am-5879-B: Frame Foot B#35",
+    "frame/am-5854: Frame <1>/am-5879-B: Frame Foot B#91",
+    "frame/am-5854: Frame <1>/am-5880: 47.5in CC Under Tile Bar#109",
+    "frame/am-5854: Frame <1>/am-5880: 47.5in CC Under Tile Bar#74",
+    "frame/am-5854: Frame <1>/am-5883: Panel Sticker#33",
+    "frame/am-5854: Frame <1>/am-5883: Panel Sticker#48"
+  ],
+  "topologyValidation": {
+    "acceptanceGate": "named-part Euler/boundary-count equality is not used; validate geometric distance and functional openings instead",
+    "sourceToOutputTopologyCounts": "reported for diagnostics only",
+    "openingProbeResults": null
+  },
+  "sourceParts": [
+    "am-5863: Axle Holder",
+    "am-5874: A-Frame Top Corner",
+    "am-5875: A-Frame Top Bar",
+    "am-5876: A-Frame Leg",
+    "am-5877: ACM Panel",
+    "am-5878: Sheet Metal Foot Bar",
+    "am-5879-A: Frame Foot A",
+    "am-5879-B: Frame Foot B",
+    "am-5880: 47.5in CC Under Tile Bar",
+    "am-5883: Panel Sticker"
+  ],
+  "omissions": [
+    "Hex lock nut with nylon insert #10-32",
+    "Socket head cap screw #10-32 x 0.875",
+    "Socket head cap screw #10-32 x 1.5",
+    "Socket head cap screw #10-32 x 1.75",
+    "Socket head cap screw #10-32 x 2",
+    "Type A flat washer #10 Narrow",
+    "am-1483: 10-32 Wing Nut",
+    "am-1523: #10 Fender Washer",
+    "am-1629: Elevator Bolt, 1/4-20 x 1.25in",
+    "am-1705: 1/4-20 Wing Nut"
+  ],
+  "simplification": {
+    "tool": "gltfpack 1.2.0",
+    "simplifyRatio": 0.025,
+    "settings": {
+      "relativeErrorLimit": 0.0002
+    },
+    "borderVerticesLocked": true,
+    "positionsFloat32": true,
+    "draco": false,
+    "restoredSourceNodes": [
+      "frame/am-5854: Frame <1>/am-5875: A-Frame Top Bar#34",
+      "frame/am-5854: Frame <1>/am-5876: A-Frame Leg#31",
+      "frame/am-5854: Frame <1>/am-5876: A-Frame Leg#87",
+      "frame/am-5854: Frame <1>/am-5876: A-Frame Leg#93",
+      "frame/am-5854: Frame <1>/am-5876: A-Frame Leg#94",
+      "frame/am-5854: Frame <1>/am-5877: ACM Panel#101",
+      "frame/am-5854: Frame <1>/am-5877: ACM Panel#75",
+      "frame/am-5854: Frame <1>/am-5878: Sheet Metal Foot Bar#20",
+      "frame/am-5854: Frame <1>/am-5878: Sheet Metal Foot Bar#52",
+      "frame/am-5854: Frame <1>/am-5880: 47.5in CC Under Tile Bar#109",
+      "frame/am-5854: Frame <1>/am-5880: 47.5in CC Under Tile Bar#74",
+      "frame/am-5854: Frame <1>/am-5883: Panel Sticker#33"
+    ],
+    "measuredSurfaceValidation": {
+      "method": "bidirectional 32-triangle-centroid samples per named node, point-to-triangle distance",
+      "maximumSampledDistanceMeters": 0.0003757524187108965,
+      "samples": 1344,
+      "toleranceMeters": 0.0005
+    }
+  }
+}

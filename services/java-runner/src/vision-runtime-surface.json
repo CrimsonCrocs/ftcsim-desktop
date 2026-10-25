@@ -1,0 +1,3475 @@
+[
+  {
+    "name": "android.graphics.Bitmap",
+    "parents": [],
+    "members": [
+      {
+        "name": "createBitmap",
+        "descriptor": "(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;",
+        "kind": "method"
+      },
+      {
+        "name": "createBitmap",
+        "descriptor": "([IIILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;",
+        "kind": "method"
+      },
+      {
+        "name": "createBitmap",
+        "descriptor": "(Landroid/graphics/Bitmap;)Landroid/graphics/Bitmap;",
+        "kind": "method"
+      },
+      {
+        "name": "copy",
+        "descriptor": "(Landroid/graphics/Bitmap$Config;Z)Landroid/graphics/Bitmap;",
+        "kind": "method"
+      },
+      {
+        "name": "getWidth",
+        "descriptor": "()I",
+        "kind": "method"
+      },
+      {
+        "name": "getHeight",
+        "descriptor": "()I",
+        "kind": "method"
+      },
+      {
+        "name": "getConfig",
+        "descriptor": "()Landroid/graphics/Bitmap$Config;",
+        "kind": "method"
+      },
+      {
+        "name": "isMutable",
+        "descriptor": "()Z",
+        "kind": "method"
+      },
+      {
+        "name": "isRecycled",
+        "descriptor": "()Z",
+        "kind": "method"
+      },
+      {
+        "name": "getByteCount",
+        "descriptor": "()I",
+        "kind": "method"
+      },
+      {
+        "name": "getPixel",
+        "descriptor": "(II)I",
+        "kind": "method"
+      },
+      {
+        "name": "setPixel",
+        "descriptor": "(III)V",
+        "kind": "method"
+      },
+      {
+        "name": "getPixels",
+        "descriptor": "([IIIIIII)V",
+        "kind": "method"
+      },
+      {
+        "name": "setPixels",
+        "descriptor": "([IIIIIII)V",
+        "kind": "method"
+      },
+      {
+        "name": "eraseColor",
+        "descriptor": "(I)V",
+        "kind": "method"
+      },
+      {
+        "name": "recycle",
+        "descriptor": "()V",
+        "kind": "method"
+      }
+    ]
+  },
+  {
+    "name": "android.graphics.Bitmap$Config",
+    "parents": [
+      "java.lang.Enum"
+    ],
+    "members": [
+      {
+        "name": "ALPHA_8",
+        "descriptor": "Landroid/graphics/Bitmap$Config;",
+        "kind": "field"
+      },
+      {
+        "name": "RGB_565",
+        "descriptor": "Landroid/graphics/Bitmap$Config;",
+        "kind": "field"
+      },
+      {
+        "name": "ARGB_4444",
+        "descriptor": "Landroid/graphics/Bitmap$Config;",
+        "kind": "field"
+      },
+      {
+        "name": "ARGB_8888",
+        "descriptor": "Landroid/graphics/Bitmap$Config;",
+        "kind": "field"
+      },
+      {
+        "name": "RGBA_F16",
+        "descriptor": "Landroid/graphics/Bitmap$Config;",
+        "kind": "field"
+      },
+      {
+        "name": "HARDWARE",
+        "descriptor": "Landroid/graphics/Bitmap$Config;",
+        "kind": "field"
+      },
+      {
+        "name": "values",
+        "descriptor": "()[Landroid/graphics/Bitmap$Config;",
+        "kind": "method"
+      },
+      {
+        "name": "valueOf",
+        "descriptor": "(Ljava/lang/String;)Landroid/graphics/Bitmap$Config;",
+        "kind": "method"
+      }
+    ]
+  },
+  {
+    "name": "android.graphics.Canvas",
+    "parents": [],
+    "members": [
+      {
+        "name": "<init>",
+        "descriptor": "()V",
+        "kind": "constructor"
+      },
+      {
+        "name": "<init>",
+        "descriptor": "(Landroid/graphics/Bitmap;)V",
+        "kind": "constructor"
+      },
+      {
+        "name": "setBitmap",
+        "descriptor": "(Landroid/graphics/Bitmap;)V",
+        "kind": "method"
+      },
+      {
+        "name": "getWidth",
+        "descriptor": "()I",
+        "kind": "method"
+      },
+      {
+        "name": "getHeight",
+        "descriptor": "()I",
+        "kind": "method"
+      },
+      {
+        "name": "drawRect",
+        "descriptor": "(FFFFLandroid/graphics/Paint;)V",
+        "kind": "method"
+      },
+      {
+        "name": "drawRect",
+        "descriptor": "(Landroid/graphics/Rect;Landroid/graphics/Paint;)V",
+        "kind": "method"
+      },
+      {
+        "name": "drawRect",
+        "descriptor": "(Landroid/graphics/RectF;Landroid/graphics/Paint;)V",
+        "kind": "method"
+      },
+      {
+        "name": "drawCircle",
+        "descriptor": "(FFFLandroid/graphics/Paint;)V",
+        "kind": "method"
+      },
+      {
+        "name": "drawOval",
+        "descriptor": "(Landroid/graphics/RectF;Landroid/graphics/Paint;)V",
+        "kind": "method"
+      },
+      {
+        "name": "drawLine",
+        "descriptor": "(FFFFLandroid/graphics/Paint;)V",
+        "kind": "method"
+      },
+      {
+        "name": "drawPoint",
+        "descriptor": "(FFLandroid/graphics/Paint;)V",
+        "kind": "method"
+      },
+      {
+        "name": "drawPath",
+        "descriptor": "(Landroid/graphics/Path;Landroid/graphics/Paint;)V",
+        "kind": "method"
+      },
+      {
+        "name": "drawText",
+        "descriptor": "(Ljava/lang/String;FFLandroid/graphics/Paint;)V",
+        "kind": "method"
+      },
+      {
+        "name": "drawColor",
+        "descriptor": "(I)V",
+        "kind": "method"
+      },
+      {
+        "name": "save",
+        "descriptor": "()I",
+        "kind": "method"
+      },
+      {
+        "name": "restore",
+        "descriptor": "()V",
+        "kind": "method"
+      },
+      {
+        "name": "restoreToCount",
+        "descriptor": "(I)V",
+        "kind": "method"
+      },
+      {
+        "name": "translate",
+        "descriptor": "(FF)V",
+        "kind": "method"
+      },
+      {
+        "name": "scale",
+        "descriptor": "(FF)V",
+        "kind": "method"
+      },
+      {
+        "name": "rotate",
+        "descriptor": "(F)V",
+        "kind": "method"
+      },
+      {
+        "name": "rotate",
+        "descriptor": "(FFF)V",
+        "kind": "method"
+      }
+    ]
+  },
+  {
+    "name": "android.graphics.Color",
+    "parents": [],
+    "members": [
+      {
+        "name": "BLACK",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "DKGRAY",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "GRAY",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "LTGRAY",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "WHITE",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "RED",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "GREEN",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "BLUE",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "YELLOW",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "CYAN",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "MAGENTA",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "TRANSPARENT",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "argb",
+        "descriptor": "(IIII)I",
+        "kind": "method"
+      },
+      {
+        "name": "rgb",
+        "descriptor": "(III)I",
+        "kind": "method"
+      },
+      {
+        "name": "alpha",
+        "descriptor": "(I)I",
+        "kind": "method"
+      },
+      {
+        "name": "red",
+        "descriptor": "(I)I",
+        "kind": "method"
+      },
+      {
+        "name": "green",
+        "descriptor": "(I)I",
+        "kind": "method"
+      },
+      {
+        "name": "blue",
+        "descriptor": "(I)I",
+        "kind": "method"
+      },
+      {
+        "name": "colorToHSV",
+        "descriptor": "(I[F)V",
+        "kind": "method"
+      },
+      {
+        "name": "RGBToHSV",
+        "descriptor": "(III[F)V",
+        "kind": "method"
+      },
+      {
+        "name": "HSVToColor",
+        "descriptor": "([F)I",
+        "kind": "method"
+      },
+      {
+        "name": "HSVToColor",
+        "descriptor": "(I[F)I",
+        "kind": "method"
+      }
+    ]
+  },
+  {
+    "name": "android.graphics.Paint",
+    "parents": [],
+    "members": [
+      {
+        "name": "ANTI_ALIAS_FLAG",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "<init>",
+        "descriptor": "()V",
+        "kind": "constructor"
+      },
+      {
+        "name": "<init>",
+        "descriptor": "(I)V",
+        "kind": "constructor"
+      },
+      {
+        "name": "setColor",
+        "descriptor": "(I)V",
+        "kind": "method"
+      },
+      {
+        "name": "getColor",
+        "descriptor": "()I",
+        "kind": "method"
+      },
+      {
+        "name": "setAlpha",
+        "descriptor": "(I)V",
+        "kind": "method"
+      },
+      {
+        "name": "getAlpha",
+        "descriptor": "()I",
+        "kind": "method"
+      },
+      {
+        "name": "setStrokeWidth",
+        "descriptor": "(F)V",
+        "kind": "method"
+      },
+      {
+        "name": "getStrokeWidth",
+        "descriptor": "()F",
+        "kind": "method"
+      },
+      {
+        "name": "setStyle",
+        "descriptor": "(Landroid/graphics/Paint$Style;)V",
+        "kind": "method"
+      },
+      {
+        "name": "getStyle",
+        "descriptor": "()Landroid/graphics/Paint$Style;",
+        "kind": "method"
+      },
+      {
+        "name": "setAntiAlias",
+        "descriptor": "(Z)V",
+        "kind": "method"
+      },
+      {
+        "name": "isAntiAlias",
+        "descriptor": "()Z",
+        "kind": "method"
+      },
+      {
+        "name": "setStrokeCap",
+        "descriptor": "(Landroid/graphics/Paint$Cap;)V",
+        "kind": "method"
+      },
+      {
+        "name": "getStrokeCap",
+        "descriptor": "()Landroid/graphics/Paint$Cap;",
+        "kind": "method"
+      },
+      {
+        "name": "setStrokeJoin",
+        "descriptor": "(Landroid/graphics/Paint$Join;)V",
+        "kind": "method"
+      },
+      {
+        "name": "getStrokeJoin",
+        "descriptor": "()Landroid/graphics/Paint$Join;",
+        "kind": "method"
+      },
+      {
+        "name": "setTextSize",
+        "descriptor": "(F)V",
+        "kind": "method"
+      },
+      {
+        "name": "getTextSize",
+        "descriptor": "()F",
+        "kind": "method"
+      },
+      {
+        "name": "setTextAlign",
+        "descriptor": "(Landroid/graphics/Paint$Align;)V",
+        "kind": "method"
+      },
+      {
+        "name": "getTextAlign",
+        "descriptor": "()Landroid/graphics/Paint$Align;",
+        "kind": "method"
+      }
+    ]
+  },
+  {
+    "name": "android.graphics.Paint$Align",
+    "parents": [
+      "java.lang.Enum"
+    ],
+    "members": [
+      {
+        "name": "LEFT",
+        "descriptor": "Landroid/graphics/Paint$Align;",
+        "kind": "field"
+      },
+      {
+        "name": "CENTER",
+        "descriptor": "Landroid/graphics/Paint$Align;",
+        "kind": "field"
+      },
+      {
+        "name": "RIGHT",
+        "descriptor": "Landroid/graphics/Paint$Align;",
+        "kind": "field"
+      },
+      {
+        "name": "values",
+        "descriptor": "()[Landroid/graphics/Paint$Align;",
+        "kind": "method"
+      },
+      {
+        "name": "valueOf",
+        "descriptor": "(Ljava/lang/String;)Landroid/graphics/Paint$Align;",
+        "kind": "method"
+      }
+    ]
+  },
+  {
+    "name": "android.graphics.Paint$Cap",
+    "parents": [
+      "java.lang.Enum"
+    ],
+    "members": [
+      {
+        "name": "BUTT",
+        "descriptor": "Landroid/graphics/Paint$Cap;",
+        "kind": "field"
+      },
+      {
+        "name": "ROUND",
+        "descriptor": "Landroid/graphics/Paint$Cap;",
+        "kind": "field"
+      },
+      {
+        "name": "SQUARE",
+        "descriptor": "Landroid/graphics/Paint$Cap;",
+        "kind": "field"
+      },
+      {
+        "name": "values",
+        "descriptor": "()[Landroid/graphics/Paint$Cap;",
+        "kind": "method"
+      },
+      {
+        "name": "valueOf",
+        "descriptor": "(Ljava/lang/String;)Landroid/graphics/Paint$Cap;",
+        "kind": "method"
+      }
+    ]
+  },
+  {
+    "name": "android.graphics.Paint$Join",
+    "parents": [
+      "java.lang.Enum"
+    ],
+    "members": [
+      {
+        "name": "MITER",
+        "descriptor": "Landroid/graphics/Paint$Join;",
+        "kind": "field"
+      },
+      {
+        "name": "ROUND",
+        "descriptor": "Landroid/graphics/Paint$Join;",
+        "kind": "field"
+      },
+      {
+        "name": "BEVEL",
+        "descriptor": "Landroid/graphics/Paint$Join;",
+        "kind": "field"
+      },
+      {
+        "name": "values",
+        "descriptor": "()[Landroid/graphics/Paint$Join;",
+        "kind": "method"
+      },
+      {
+        "name": "valueOf",
+        "descriptor": "(Ljava/lang/String;)Landroid/graphics/Paint$Join;",
+        "kind": "method"
+      }
+    ]
+  },
+  {
+    "name": "android.graphics.Paint$Style",
+    "parents": [
+      "java.lang.Enum"
+    ],
+    "members": [
+      {
+        "name": "FILL",
+        "descriptor": "Landroid/graphics/Paint$Style;",
+        "kind": "field"
+      },
+      {
+        "name": "STROKE",
+        "descriptor": "Landroid/graphics/Paint$Style;",
+        "kind": "field"
+      },
+      {
+        "name": "FILL_AND_STROKE",
+        "descriptor": "Landroid/graphics/Paint$Style;",
+        "kind": "field"
+      },
+      {
+        "name": "values",
+        "descriptor": "()[Landroid/graphics/Paint$Style;",
+        "kind": "method"
+      },
+      {
+        "name": "valueOf",
+        "descriptor": "(Ljava/lang/String;)Landroid/graphics/Paint$Style;",
+        "kind": "method"
+      }
+    ]
+  },
+  {
+    "name": "android.graphics.Path",
+    "parents": [],
+    "members": [
+      {
+        "name": "<init>",
+        "descriptor": "()V",
+        "kind": "constructor"
+      },
+      {
+        "name": "moveTo",
+        "descriptor": "(FF)V",
+        "kind": "method"
+      },
+      {
+        "name": "lineTo",
+        "descriptor": "(FF)V",
+        "kind": "method"
+      },
+      {
+        "name": "close",
+        "descriptor": "()V",
+        "kind": "method"
+      },
+      {
+        "name": "reset",
+        "descriptor": "()V",
+        "kind": "method"
+      }
+    ]
+  },
+  {
+    "name": "android.graphics.Rect",
+    "parents": [],
+    "members": [
+      {
+        "name": "left",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "top",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "right",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "bottom",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "<init>",
+        "descriptor": "()V",
+        "kind": "constructor"
+      },
+      {
+        "name": "<init>",
+        "descriptor": "(IIII)V",
+        "kind": "constructor"
+      },
+      {
+        "name": "set",
+        "descriptor": "(IIII)V",
+        "kind": "method"
+      },
+      {
+        "name": "width",
+        "descriptor": "()I",
+        "kind": "method"
+      },
+      {
+        "name": "height",
+        "descriptor": "()I",
+        "kind": "method"
+      },
+      {
+        "name": "centerX",
+        "descriptor": "()I",
+        "kind": "method"
+      },
+      {
+        "name": "centerY",
+        "descriptor": "()I",
+        "kind": "method"
+      },
+      {
+        "name": "contains",
+        "descriptor": "(II)Z",
+        "kind": "method"
+      }
+    ]
+  },
+  {
+    "name": "android.graphics.RectF",
+    "parents": [],
+    "members": [
+      {
+        "name": "left",
+        "descriptor": "F",
+        "kind": "field"
+      },
+      {
+        "name": "top",
+        "descriptor": "F",
+        "kind": "field"
+      },
+      {
+        "name": "right",
+        "descriptor": "F",
+        "kind": "field"
+      },
+      {
+        "name": "bottom",
+        "descriptor": "F",
+        "kind": "field"
+      },
+      {
+        "name": "<init>",
+        "descriptor": "()V",
+        "kind": "constructor"
+      },
+      {
+        "name": "<init>",
+        "descriptor": "(FFFF)V",
+        "kind": "constructor"
+      },
+      {
+        "name": "width",
+        "descriptor": "()F",
+        "kind": "method"
+      },
+      {
+        "name": "height",
+        "descriptor": "()F",
+        "kind": "method"
+      },
+      {
+        "name": "centerX",
+        "descriptor": "()F",
+        "kind": "method"
+      },
+      {
+        "name": "centerY",
+        "descriptor": "()F",
+        "kind": "method"
+      }
+    ]
+  },
+  {
+    "name": "android.util.Size",
+    "parents": [],
+    "members": [
+      {
+        "name": "<init>",
+        "descriptor": "(II)V",
+        "kind": "constructor"
+      },
+      {
+        "name": "getWidth",
+        "descriptor": "()I",
+        "kind": "method"
+      },
+      {
+        "name": "getHeight",
+        "descriptor": "()I",
+        "kind": "method"
+      }
+    ]
+  },
+  {
+    "name": "com.qualcomm.robotcore.util.SortOrder",
+    "parents": [
+      "java.lang.Enum"
+    ],
+    "members": [
+      {
+        "name": "ASCENDING",
+        "descriptor": "Lcom/qualcomm/robotcore/util/SortOrder;",
+        "kind": "field"
+      },
+      {
+        "name": "DESCENDING",
+        "descriptor": "Lcom/qualcomm/robotcore/util/SortOrder;",
+        "kind": "field"
+      },
+      {
+        "name": "values",
+        "descriptor": "()[Lcom/qualcomm/robotcore/util/SortOrder;",
+        "kind": "method"
+      },
+      {
+        "name": "valueOf",
+        "descriptor": "(Ljava/lang/String;)Lcom/qualcomm/robotcore/util/SortOrder;",
+        "kind": "method"
+      }
+    ]
+  },
+  {
+    "name": "org.firstinspires.ftc.robotcore.external.android.util.Size",
+    "parents": [],
+    "members": [
+      {
+        "name": "<init>",
+        "descriptor": "(II)V",
+        "kind": "constructor"
+      },
+      {
+        "name": "getWidth",
+        "descriptor": "()I",
+        "kind": "method"
+      },
+      {
+        "name": "getHeight",
+        "descriptor": "()I",
+        "kind": "method"
+      },
+      {
+        "name": "equals",
+        "descriptor": "(Ljava/lang/Object;)Z",
+        "kind": "method"
+      },
+      {
+        "name": "hashCode",
+        "descriptor": "()I",
+        "kind": "method"
+      },
+      {
+        "name": "toString",
+        "descriptor": "()Ljava/lang/String;",
+        "kind": "method"
+      }
+    ]
+  },
+  {
+    "name": "org.firstinspires.ftc.robotcore.external.function.Consumer",
+    "parents": [],
+    "members": [
+      {
+        "name": "accept",
+        "descriptor": "(Ljava/lang/Object;)V",
+        "kind": "method"
+      }
+    ]
+  },
+  {
+    "name": "org.firstinspires.ftc.robotcore.external.function.Continuation",
+    "parents": [],
+    "members": [
+      {
+        "name": "createTrivial",
+        "descriptor": "(Ljava/lang/Object;)Lorg/firstinspires/ftc/robotcore/external/function/Continuation;",
+        "kind": "method"
+      },
+      {
+        "name": "create",
+        "descriptor": "(Ljava/util/concurrent/Executor;Ljava/lang/Object;)Lorg/firstinspires/ftc/robotcore/external/function/Continuation;",
+        "kind": "method"
+      },
+      {
+        "name": "createForNewTarget",
+        "descriptor": "(Ljava/lang/Object;)Lorg/firstinspires/ftc/robotcore/external/function/Continuation;",
+        "kind": "method"
+      },
+      {
+        "name": "getTarget",
+        "descriptor": "()Ljava/lang/Object;",
+        "kind": "method"
+      },
+      {
+        "name": "dispatch",
+        "descriptor": "(Lorg/firstinspires/ftc/robotcore/external/function/ContinuationResult;)V",
+        "kind": "method"
+      },
+      {
+        "name": "dispatchHere",
+        "descriptor": "(Lorg/firstinspires/ftc/robotcore/external/function/ContinuationResult;)V",
+        "kind": "method"
+      },
+      {
+        "name": "isTrivial",
+        "descriptor": "()Z",
+        "kind": "method"
+      },
+      {
+        "name": "isHandler",
+        "descriptor": "()Z",
+        "kind": "method"
+      },
+      {
+        "name": "isDispatchSynchronous",
+        "descriptor": "()Z",
+        "kind": "method"
+      },
+      {
+        "name": "canBorrowThread",
+        "descriptor": "(Ljava/lang/Thread;)Z",
+        "kind": "method"
+      }
+    ]
+  },
+  {
+    "name": "org.firstinspires.ftc.robotcore.external.function.ContinuationResult",
+    "parents": [],
+    "members": [
+      {
+        "name": "handle",
+        "descriptor": "(Ljava/lang/Object;)V",
+        "kind": "method"
+      }
+    ]
+  },
+  {
+    "name": "org.firstinspires.ftc.robotcore.external.stream.CameraStreamSource",
+    "parents": [],
+    "members": [
+      {
+        "name": "getFrameBitmap",
+        "descriptor": "(Lorg/firstinspires/ftc/robotcore/external/function/Continuation;)V",
+        "kind": "method"
+      }
+    ]
+  },
+  {
+    "name": "org.firstinspires.ftc.robotcore.internal.camera.calibration.CameraCalibration",
+    "parents": [
+      "org.firstinspires.ftc.robotcore.internal.camera.calibration.CameraIntrinsics",
+      "java.lang.Cloneable"
+    ],
+    "members": [
+      {
+        "name": "resolutionScaledFrom",
+        "descriptor": "Lorg/firstinspires/ftc/robotcore/external/android/util/Size;",
+        "kind": "field"
+      },
+      {
+        "name": "<init>",
+        "descriptor": "(Lorg/firstinspires/ftc/robotcore/internal/camera/calibration/CameraCalibrationIdentity;Lorg/firstinspires/ftc/robotcore/external/android/util/Size;FFFF[FZZ)V",
+        "kind": "constructor"
+      },
+      {
+        "name": "<init>",
+        "descriptor": "(Lorg/firstinspires/ftc/robotcore/internal/camera/calibration/CameraCalibrationIdentity;[I[F[F[FZZ)V",
+        "kind": "constructor"
+      },
+      {
+        "name": "forUnavailable",
+        "descriptor": "(Lorg/firstinspires/ftc/robotcore/internal/camera/calibration/CameraCalibrationIdentity;Lorg/firstinspires/ftc/robotcore/external/android/util/Size;)Lorg/firstinspires/ftc/robotcore/internal/camera/calibration/CameraCalibration;",
+        "kind": "method"
+      },
+      {
+        "name": "getIdentity",
+        "descriptor": "()Lorg/firstinspires/ftc/robotcore/internal/camera/calibration/CameraCalibrationIdentity;",
+        "kind": "method"
+      },
+      {
+        "name": "getSize",
+        "descriptor": "()Lorg/firstinspires/ftc/robotcore/external/android/util/Size;",
+        "kind": "method"
+      },
+      {
+        "name": "getRemove",
+        "descriptor": "()Z",
+        "kind": "method"
+      },
+      {
+        "name": "isFake",
+        "descriptor": "()Z",
+        "kind": "method"
+      },
+      {
+        "name": "scaledTo",
+        "descriptor": "(Lorg/firstinspires/ftc/robotcore/external/android/util/Size;)Lorg/firstinspires/ftc/robotcore/internal/camera/calibration/CameraCalibration;",
+        "kind": "method"
+      },
+      {
+        "name": "getAspectRatio",
+        "descriptor": "()D",
+        "kind": "method"
+      },
+      {
+        "name": "getDiagonal",
+        "descriptor": "()D",
+        "kind": "method"
+      },
+      {
+        "name": "getDiagonal",
+        "descriptor": "(Lorg/firstinspires/ftc/robotcore/external/android/util/Size;)D",
+        "kind": "method"
+      },
+      {
+        "name": "toString",
+        "descriptor": "()Ljava/lang/String;",
+        "kind": "method"
+      }
+    ]
+  },
+  {
+    "name": "org.firstinspires.ftc.robotcore.internal.camera.calibration.CameraCalibrationIdentity",
+    "parents": [],
+    "members": [
+      {
+        "name": "isDegenerate",
+        "descriptor": "()Z",
+        "kind": "method"
+      }
+    ]
+  },
+  {
+    "name": "org.firstinspires.ftc.robotcore.internal.camera.calibration.CameraIntrinsics",
+    "parents": [],
+    "members": [
+      {
+        "name": "focalLengthX",
+        "descriptor": "F",
+        "kind": "field"
+      },
+      {
+        "name": "focalLengthY",
+        "descriptor": "F",
+        "kind": "field"
+      },
+      {
+        "name": "principalPointX",
+        "descriptor": "F",
+        "kind": "field"
+      },
+      {
+        "name": "principalPointY",
+        "descriptor": "F",
+        "kind": "field"
+      },
+      {
+        "name": "distortionCoefficients",
+        "descriptor": "[F",
+        "kind": "field"
+      },
+      {
+        "name": "<init>",
+        "descriptor": "(FFFF[F)V",
+        "kind": "constructor"
+      },
+      {
+        "name": "toArray",
+        "descriptor": "()[F",
+        "kind": "method"
+      },
+      {
+        "name": "isDegenerate",
+        "descriptor": "()Z",
+        "kind": "method"
+      }
+    ]
+  },
+  {
+    "name": "org.firstinspires.ftc.vision.VisionPortal",
+    "parents": [
+      "org.firstinspires.ftc.robotcore.external.stream.CameraStreamSource"
+    ],
+    "members": [
+      {
+        "name": "DEFAULT_VIEW_CONTAINER_ID",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "easyCreateWithDefaults",
+        "descriptor": "(Lorg/firstinspires/ftc/robotcore/external/hardware/camera/CameraName;[Lorg/firstinspires/ftc/vision/VisionProcessor;)Lorg/firstinspires/ftc/vision/VisionPortal;",
+        "kind": "method"
+      },
+      {
+        "name": "setProcessorEnabled",
+        "descriptor": "(Lorg/firstinspires/ftc/vision/VisionProcessor;Z)V",
+        "kind": "method"
+      },
+      {
+        "name": "getProcessorEnabled",
+        "descriptor": "(Lorg/firstinspires/ftc/vision/VisionProcessor;)Z",
+        "kind": "method"
+      },
+      {
+        "name": "getCameraState",
+        "descriptor": "()Lorg/firstinspires/ftc/vision/VisionPortal$CameraState;",
+        "kind": "method"
+      },
+      {
+        "name": "stopStreaming",
+        "descriptor": "()V",
+        "kind": "method"
+      },
+      {
+        "name": "resumeStreaming",
+        "descriptor": "()V",
+        "kind": "method"
+      },
+      {
+        "name": "getFps",
+        "descriptor": "()F",
+        "kind": "method"
+      },
+      {
+        "name": "setActiveCamera",
+        "descriptor": "(Lorg/firstinspires/ftc/robotcore/external/hardware/camera/WebcamName;)V",
+        "kind": "method"
+      },
+      {
+        "name": "getActiveCamera",
+        "descriptor": "()Lorg/firstinspires/ftc/robotcore/external/hardware/camera/WebcamName;",
+        "kind": "method"
+      },
+      {
+        "name": "close",
+        "descriptor": "()V",
+        "kind": "method"
+      },
+      {
+        "name": "getFrameBitmap",
+        "descriptor": "(Lorg/firstinspires/ftc/robotcore/external/function/Continuation;)V",
+        "kind": "method"
+      }
+    ]
+  },
+  {
+    "name": "org.firstinspires.ftc.vision.VisionPortal$Builder",
+    "parents": [],
+    "members": [
+      {
+        "name": "<init>",
+        "descriptor": "()V",
+        "kind": "constructor"
+      },
+      {
+        "name": "setCamera",
+        "descriptor": "(Lorg/firstinspires/ftc/robotcore/external/hardware/camera/CameraName;)Lorg/firstinspires/ftc/vision/VisionPortal$Builder;",
+        "kind": "method"
+      },
+      {
+        "name": "setStreamFormat",
+        "descriptor": "(Lorg/firstinspires/ftc/vision/VisionPortal$StreamFormat;)Lorg/firstinspires/ftc/vision/VisionPortal$Builder;",
+        "kind": "method"
+      },
+      {
+        "name": "enableLiveView",
+        "descriptor": "(Z)Lorg/firstinspires/ftc/vision/VisionPortal$Builder;",
+        "kind": "method"
+      },
+      {
+        "name": "setCameraResolution",
+        "descriptor": "(Landroid/util/Size;)Lorg/firstinspires/ftc/vision/VisionPortal$Builder;",
+        "kind": "method"
+      },
+      {
+        "name": "addProcessor",
+        "descriptor": "(Lorg/firstinspires/ftc/vision/VisionProcessor;)Lorg/firstinspires/ftc/vision/VisionPortal$Builder;",
+        "kind": "method"
+      },
+      {
+        "name": "addProcessors",
+        "descriptor": "([Lorg/firstinspires/ftc/vision/VisionProcessor;)Lorg/firstinspires/ftc/vision/VisionPortal$Builder;",
+        "kind": "method"
+      },
+      {
+        "name": "setAutoStartStreamOnBuild",
+        "descriptor": "(Z)Lorg/firstinspires/ftc/vision/VisionPortal$Builder;",
+        "kind": "method"
+      },
+      {
+        "name": "build",
+        "descriptor": "()Lorg/firstinspires/ftc/vision/VisionPortal;",
+        "kind": "method"
+      }
+    ]
+  },
+  {
+    "name": "org.firstinspires.ftc.vision.VisionPortal$CameraState",
+    "parents": [
+      "java.lang.Enum"
+    ],
+    "members": [
+      {
+        "name": "OPENING_CAMERA_DEVICE",
+        "descriptor": "Lorg/firstinspires/ftc/vision/VisionPortal$CameraState;",
+        "kind": "field"
+      },
+      {
+        "name": "CAMERA_DEVICE_READY",
+        "descriptor": "Lorg/firstinspires/ftc/vision/VisionPortal$CameraState;",
+        "kind": "field"
+      },
+      {
+        "name": "STARTING_STREAM",
+        "descriptor": "Lorg/firstinspires/ftc/vision/VisionPortal$CameraState;",
+        "kind": "field"
+      },
+      {
+        "name": "STREAMING",
+        "descriptor": "Lorg/firstinspires/ftc/vision/VisionPortal$CameraState;",
+        "kind": "field"
+      },
+      {
+        "name": "STOPPING_STREAM",
+        "descriptor": "Lorg/firstinspires/ftc/vision/VisionPortal$CameraState;",
+        "kind": "field"
+      },
+      {
+        "name": "CLOSING_CAMERA_DEVICE",
+        "descriptor": "Lorg/firstinspires/ftc/vision/VisionPortal$CameraState;",
+        "kind": "field"
+      },
+      {
+        "name": "CAMERA_DEVICE_CLOSED",
+        "descriptor": "Lorg/firstinspires/ftc/vision/VisionPortal$CameraState;",
+        "kind": "field"
+      },
+      {
+        "name": "ERROR",
+        "descriptor": "Lorg/firstinspires/ftc/vision/VisionPortal$CameraState;",
+        "kind": "field"
+      },
+      {
+        "name": "values",
+        "descriptor": "()[Lorg/firstinspires/ftc/vision/VisionPortal$CameraState;",
+        "kind": "method"
+      },
+      {
+        "name": "valueOf",
+        "descriptor": "(Ljava/lang/String;)Lorg/firstinspires/ftc/vision/VisionPortal$CameraState;",
+        "kind": "method"
+      }
+    ]
+  },
+  {
+    "name": "org.firstinspires.ftc.vision.VisionPortal$MultiPortalLayout",
+    "parents": [
+      "java.lang.Enum"
+    ],
+    "members": [
+      {
+        "name": "VERTICAL",
+        "descriptor": "Lorg/firstinspires/ftc/vision/VisionPortal$MultiPortalLayout;",
+        "kind": "field"
+      },
+      {
+        "name": "HORIZONTAL",
+        "descriptor": "Lorg/firstinspires/ftc/vision/VisionPortal$MultiPortalLayout;",
+        "kind": "field"
+      },
+      {
+        "name": "values",
+        "descriptor": "()[Lorg/firstinspires/ftc/vision/VisionPortal$MultiPortalLayout;",
+        "kind": "method"
+      },
+      {
+        "name": "valueOf",
+        "descriptor": "(Ljava/lang/String;)Lorg/firstinspires/ftc/vision/VisionPortal$MultiPortalLayout;",
+        "kind": "method"
+      }
+    ]
+  },
+  {
+    "name": "org.firstinspires.ftc.vision.VisionPortal$StreamFormat",
+    "parents": [
+      "java.lang.Enum"
+    ],
+    "members": [
+      {
+        "name": "YUY2",
+        "descriptor": "Lorg/firstinspires/ftc/vision/VisionPortal$StreamFormat;",
+        "kind": "field"
+      },
+      {
+        "name": "MJPEG",
+        "descriptor": "Lorg/firstinspires/ftc/vision/VisionPortal$StreamFormat;",
+        "kind": "field"
+      },
+      {
+        "name": "values",
+        "descriptor": "()[Lorg/firstinspires/ftc/vision/VisionPortal$StreamFormat;",
+        "kind": "method"
+      },
+      {
+        "name": "valueOf",
+        "descriptor": "(Ljava/lang/String;)Lorg/firstinspires/ftc/vision/VisionPortal$StreamFormat;",
+        "kind": "method"
+      }
+    ]
+  },
+  {
+    "name": "org.firstinspires.ftc.vision.VisionProcessor",
+    "parents": [
+      "org.firstinspires.ftc.vision.VisionProcessorInternal"
+    ],
+    "members": []
+  },
+  {
+    "name": "org.firstinspires.ftc.vision.VisionProcessorInternal",
+    "parents": [],
+    "members": [
+      {
+        "name": "init",
+        "descriptor": "(IILorg/firstinspires/ftc/robotcore/internal/camera/calibration/CameraCalibration;)V",
+        "kind": "method"
+      },
+      {
+        "name": "processFrame",
+        "descriptor": "(Lorg/opencv/core/Mat;J)Ljava/lang/Object;",
+        "kind": "method"
+      },
+      {
+        "name": "onDrawFrame",
+        "descriptor": "(Landroid/graphics/Canvas;IIFFLjava/lang/Object;)V",
+        "kind": "method"
+      }
+    ]
+  },
+  {
+    "name": "org.firstinspires.ftc.vision.opencv.Circle",
+    "parents": [],
+    "members": [
+      {
+        "name": "<init>",
+        "descriptor": "(Lorg/opencv/core/Point;F)V",
+        "kind": "constructor"
+      },
+      {
+        "name": "<init>",
+        "descriptor": "(FFF)V",
+        "kind": "constructor"
+      },
+      {
+        "name": "getCenter",
+        "descriptor": "()Lorg/opencv/core/Point;",
+        "kind": "method"
+      },
+      {
+        "name": "getRadius",
+        "descriptor": "()F",
+        "kind": "method"
+      },
+      {
+        "name": "getX",
+        "descriptor": "()F",
+        "kind": "method"
+      },
+      {
+        "name": "getY",
+        "descriptor": "()F",
+        "kind": "method"
+      }
+    ]
+  },
+  {
+    "name": "org.firstinspires.ftc.vision.opencv.ColorBlobLocatorProcessor",
+    "parents": [
+      "org.firstinspires.ftc.vision.VisionProcessor"
+    ],
+    "members": [
+      {
+        "name": "<init>",
+        "descriptor": "()V",
+        "kind": "constructor"
+      },
+      {
+        "name": "addFilter",
+        "descriptor": "(Lorg/firstinspires/ftc/vision/opencv/ColorBlobLocatorProcessor$BlobFilter;)V",
+        "kind": "method"
+      },
+      {
+        "name": "removeFilter",
+        "descriptor": "(Lorg/firstinspires/ftc/vision/opencv/ColorBlobLocatorProcessor$BlobFilter;)V",
+        "kind": "method"
+      },
+      {
+        "name": "removeAllFilters",
+        "descriptor": "()V",
+        "kind": "method"
+      },
+      {
+        "name": "setSort",
+        "descriptor": "(Lorg/firstinspires/ftc/vision/opencv/ColorBlobLocatorProcessor$BlobSort;)V",
+        "kind": "method"
+      },
+      {
+        "name": "getBlobs",
+        "descriptor": "()Ljava/util/List;",
+        "kind": "method"
+      }
+    ]
+  },
+  {
+    "name": "org.firstinspires.ftc.vision.opencv.ColorBlobLocatorProcessor$Blob",
+    "parents": [],
+    "members": [
+      {
+        "name": "<init>",
+        "descriptor": "()V",
+        "kind": "constructor"
+      },
+      {
+        "name": "getContour",
+        "descriptor": "()Lorg/opencv/core/MatOfPoint;",
+        "kind": "method"
+      },
+      {
+        "name": "getContourPoints",
+        "descriptor": "()[Lorg/opencv/core/Point;",
+        "kind": "method"
+      },
+      {
+        "name": "getContourAsFloat",
+        "descriptor": "()Lorg/opencv/core/MatOfPoint2f;",
+        "kind": "method"
+      },
+      {
+        "name": "getContourArea",
+        "descriptor": "()I",
+        "kind": "method"
+      },
+      {
+        "name": "getDensity",
+        "descriptor": "()D",
+        "kind": "method"
+      },
+      {
+        "name": "getAspectRatio",
+        "descriptor": "()D",
+        "kind": "method"
+      },
+      {
+        "name": "getBoxFit",
+        "descriptor": "()Lorg/opencv/core/RotatedRect;",
+        "kind": "method"
+      },
+      {
+        "name": "getArcLength",
+        "descriptor": "()D",
+        "kind": "method"
+      },
+      {
+        "name": "getCircularity",
+        "descriptor": "()D",
+        "kind": "method"
+      },
+      {
+        "name": "getCircle",
+        "descriptor": "()Lorg/firstinspires/ftc/vision/opencv/Circle;",
+        "kind": "method"
+      }
+    ]
+  },
+  {
+    "name": "org.firstinspires.ftc.vision.opencv.ColorBlobLocatorProcessor$BlobCriteria",
+    "parents": [
+      "java.lang.Enum"
+    ],
+    "members": [
+      {
+        "name": "BY_CONTOUR_AREA",
+        "descriptor": "Lorg/firstinspires/ftc/vision/opencv/ColorBlobLocatorProcessor$BlobCriteria;",
+        "kind": "field"
+      },
+      {
+        "name": "BY_DENSITY",
+        "descriptor": "Lorg/firstinspires/ftc/vision/opencv/ColorBlobLocatorProcessor$BlobCriteria;",
+        "kind": "field"
+      },
+      {
+        "name": "BY_ASPECT_RATIO",
+        "descriptor": "Lorg/firstinspires/ftc/vision/opencv/ColorBlobLocatorProcessor$BlobCriteria;",
+        "kind": "field"
+      },
+      {
+        "name": "BY_ARC_LENGTH",
+        "descriptor": "Lorg/firstinspires/ftc/vision/opencv/ColorBlobLocatorProcessor$BlobCriteria;",
+        "kind": "field"
+      },
+      {
+        "name": "BY_CIRCULARITY",
+        "descriptor": "Lorg/firstinspires/ftc/vision/opencv/ColorBlobLocatorProcessor$BlobCriteria;",
+        "kind": "field"
+      },
+      {
+        "name": "values",
+        "descriptor": "()[Lorg/firstinspires/ftc/vision/opencv/ColorBlobLocatorProcessor$BlobCriteria;",
+        "kind": "method"
+      },
+      {
+        "name": "valueOf",
+        "descriptor": "(Ljava/lang/String;)Lorg/firstinspires/ftc/vision/opencv/ColorBlobLocatorProcessor$BlobCriteria;",
+        "kind": "method"
+      }
+    ]
+  },
+  {
+    "name": "org.firstinspires.ftc.vision.opencv.ColorBlobLocatorProcessor$BlobFilter",
+    "parents": [],
+    "members": [
+      {
+        "name": "criteria",
+        "descriptor": "Lorg/firstinspires/ftc/vision/opencv/ColorBlobLocatorProcessor$BlobCriteria;",
+        "kind": "field"
+      },
+      {
+        "name": "minValue",
+        "descriptor": "D",
+        "kind": "field"
+      },
+      {
+        "name": "maxValue",
+        "descriptor": "D",
+        "kind": "field"
+      },
+      {
+        "name": "<init>",
+        "descriptor": "(Lorg/firstinspires/ftc/vision/opencv/ColorBlobLocatorProcessor$BlobCriteria;DD)V",
+        "kind": "constructor"
+      }
+    ]
+  },
+  {
+    "name": "org.firstinspires.ftc.vision.opencv.ColorBlobLocatorProcessor$BlobSort",
+    "parents": [],
+    "members": [
+      {
+        "name": "criteria",
+        "descriptor": "Lorg/firstinspires/ftc/vision/opencv/ColorBlobLocatorProcessor$BlobCriteria;",
+        "kind": "field"
+      },
+      {
+        "name": "sortOrder",
+        "descriptor": "Lcom/qualcomm/robotcore/util/SortOrder;",
+        "kind": "field"
+      },
+      {
+        "name": "<init>",
+        "descriptor": "(Lorg/firstinspires/ftc/vision/opencv/ColorBlobLocatorProcessor$BlobCriteria;Lcom/qualcomm/robotcore/util/SortOrder;)V",
+        "kind": "constructor"
+      }
+    ]
+  },
+  {
+    "name": "org.firstinspires.ftc.vision.opencv.ColorBlobLocatorProcessor$Builder",
+    "parents": [],
+    "members": [
+      {
+        "name": "<init>",
+        "descriptor": "()V",
+        "kind": "constructor"
+      },
+      {
+        "name": "setDrawContours",
+        "descriptor": "(Z)Lorg/firstinspires/ftc/vision/opencv/ColorBlobLocatorProcessor$Builder;",
+        "kind": "method"
+      },
+      {
+        "name": "setBoxFitColor",
+        "descriptor": "(I)Lorg/firstinspires/ftc/vision/opencv/ColorBlobLocatorProcessor$Builder;",
+        "kind": "method"
+      },
+      {
+        "name": "setCircleFitColor",
+        "descriptor": "(I)Lorg/firstinspires/ftc/vision/opencv/ColorBlobLocatorProcessor$Builder;",
+        "kind": "method"
+      },
+      {
+        "name": "setRoiColor",
+        "descriptor": "(I)Lorg/firstinspires/ftc/vision/opencv/ColorBlobLocatorProcessor$Builder;",
+        "kind": "method"
+      },
+      {
+        "name": "setContourColor",
+        "descriptor": "(I)Lorg/firstinspires/ftc/vision/opencv/ColorBlobLocatorProcessor$Builder;",
+        "kind": "method"
+      },
+      {
+        "name": "setTargetColorRange",
+        "descriptor": "(Lorg/firstinspires/ftc/vision/opencv/ColorRange;)Lorg/firstinspires/ftc/vision/opencv/ColorBlobLocatorProcessor$Builder;",
+        "kind": "method"
+      },
+      {
+        "name": "setContourMode",
+        "descriptor": "(Lorg/firstinspires/ftc/vision/opencv/ColorBlobLocatorProcessor$ContourMode;)Lorg/firstinspires/ftc/vision/opencv/ColorBlobLocatorProcessor$Builder;",
+        "kind": "method"
+      },
+      {
+        "name": "setRoi",
+        "descriptor": "(Lorg/firstinspires/ftc/vision/opencv/ImageRegion;)Lorg/firstinspires/ftc/vision/opencv/ColorBlobLocatorProcessor$Builder;",
+        "kind": "method"
+      },
+      {
+        "name": "setBlurSize",
+        "descriptor": "(I)Lorg/firstinspires/ftc/vision/opencv/ColorBlobLocatorProcessor$Builder;",
+        "kind": "method"
+      },
+      {
+        "name": "setMorphOperationType",
+        "descriptor": "(Lorg/firstinspires/ftc/vision/opencv/ColorBlobLocatorProcessor$MorphOperationType;)Lorg/firstinspires/ftc/vision/opencv/ColorBlobLocatorProcessor$Builder;",
+        "kind": "method"
+      },
+      {
+        "name": "setErodeSize",
+        "descriptor": "(I)Lorg/firstinspires/ftc/vision/opencv/ColorBlobLocatorProcessor$Builder;",
+        "kind": "method"
+      },
+      {
+        "name": "setDilateSize",
+        "descriptor": "(I)Lorg/firstinspires/ftc/vision/opencv/ColorBlobLocatorProcessor$Builder;",
+        "kind": "method"
+      },
+      {
+        "name": "build",
+        "descriptor": "()Lorg/firstinspires/ftc/vision/opencv/ColorBlobLocatorProcessor;",
+        "kind": "method"
+      }
+    ]
+  },
+  {
+    "name": "org.firstinspires.ftc.vision.opencv.ColorBlobLocatorProcessor$ContourMode",
+    "parents": [
+      "java.lang.Enum"
+    ],
+    "members": [
+      {
+        "name": "EXTERNAL_ONLY",
+        "descriptor": "Lorg/firstinspires/ftc/vision/opencv/ColorBlobLocatorProcessor$ContourMode;",
+        "kind": "field"
+      },
+      {
+        "name": "ALL_FLATTENED_HIERARCHY",
+        "descriptor": "Lorg/firstinspires/ftc/vision/opencv/ColorBlobLocatorProcessor$ContourMode;",
+        "kind": "field"
+      },
+      {
+        "name": "values",
+        "descriptor": "()[Lorg/firstinspires/ftc/vision/opencv/ColorBlobLocatorProcessor$ContourMode;",
+        "kind": "method"
+      },
+      {
+        "name": "valueOf",
+        "descriptor": "(Ljava/lang/String;)Lorg/firstinspires/ftc/vision/opencv/ColorBlobLocatorProcessor$ContourMode;",
+        "kind": "method"
+      }
+    ]
+  },
+  {
+    "name": "org.firstinspires.ftc.vision.opencv.ColorBlobLocatorProcessor$MorphOperationType",
+    "parents": [
+      "java.lang.Enum"
+    ],
+    "members": [
+      {
+        "name": "OPENING",
+        "descriptor": "Lorg/firstinspires/ftc/vision/opencv/ColorBlobLocatorProcessor$MorphOperationType;",
+        "kind": "field"
+      },
+      {
+        "name": "CLOSING",
+        "descriptor": "Lorg/firstinspires/ftc/vision/opencv/ColorBlobLocatorProcessor$MorphOperationType;",
+        "kind": "field"
+      },
+      {
+        "name": "values",
+        "descriptor": "()[Lorg/firstinspires/ftc/vision/opencv/ColorBlobLocatorProcessor$MorphOperationType;",
+        "kind": "method"
+      },
+      {
+        "name": "valueOf",
+        "descriptor": "(Ljava/lang/String;)Lorg/firstinspires/ftc/vision/opencv/ColorBlobLocatorProcessor$MorphOperationType;",
+        "kind": "method"
+      }
+    ]
+  },
+  {
+    "name": "org.firstinspires.ftc.vision.opencv.ColorBlobLocatorProcessor$Util",
+    "parents": [],
+    "members": [
+      {
+        "name": "<init>",
+        "descriptor": "()V",
+        "kind": "constructor"
+      },
+      {
+        "name": "filterByCriteria",
+        "descriptor": "(Lorg/firstinspires/ftc/vision/opencv/ColorBlobLocatorProcessor$BlobCriteria;DDLjava/util/List;)V",
+        "kind": "method"
+      },
+      {
+        "name": "sortByCriteria",
+        "descriptor": "(Lorg/firstinspires/ftc/vision/opencv/ColorBlobLocatorProcessor$BlobCriteria;Lcom/qualcomm/robotcore/util/SortOrder;Ljava/util/List;)V",
+        "kind": "method"
+      },
+      {
+        "name": "filterByArea",
+        "descriptor": "(DDLjava/util/List;)V",
+        "kind": "method"
+      },
+      {
+        "name": "sortByArea",
+        "descriptor": "(Lcom/qualcomm/robotcore/util/SortOrder;Ljava/util/List;)V",
+        "kind": "method"
+      },
+      {
+        "name": "filterByDensity",
+        "descriptor": "(DDLjava/util/List;)V",
+        "kind": "method"
+      },
+      {
+        "name": "sortByDensity",
+        "descriptor": "(Lcom/qualcomm/robotcore/util/SortOrder;Ljava/util/List;)V",
+        "kind": "method"
+      },
+      {
+        "name": "filterByAspectRatio",
+        "descriptor": "(DDLjava/util/List;)V",
+        "kind": "method"
+      },
+      {
+        "name": "sortByAspectRatio",
+        "descriptor": "(Lcom/qualcomm/robotcore/util/SortOrder;Ljava/util/List;)V",
+        "kind": "method"
+      }
+    ]
+  },
+  {
+    "name": "org.firstinspires.ftc.vision.opencv.ColorRange",
+    "parents": [],
+    "members": [
+      {
+        "name": "BLUE",
+        "descriptor": "Lorg/firstinspires/ftc/vision/opencv/ColorRange;",
+        "kind": "field"
+      },
+      {
+        "name": "RED",
+        "descriptor": "Lorg/firstinspires/ftc/vision/opencv/ColorRange;",
+        "kind": "field"
+      },
+      {
+        "name": "YELLOW",
+        "descriptor": "Lorg/firstinspires/ftc/vision/opencv/ColorRange;",
+        "kind": "field"
+      },
+      {
+        "name": "GREEN",
+        "descriptor": "Lorg/firstinspires/ftc/vision/opencv/ColorRange;",
+        "kind": "field"
+      },
+      {
+        "name": "ARTIFACT_GREEN",
+        "descriptor": "Lorg/firstinspires/ftc/vision/opencv/ColorRange;",
+        "kind": "field"
+      },
+      {
+        "name": "ARTIFACT_PURPLE",
+        "descriptor": "Lorg/firstinspires/ftc/vision/opencv/ColorRange;",
+        "kind": "field"
+      },
+      {
+        "name": "<init>",
+        "descriptor": "(Lorg/firstinspires/ftc/vision/opencv/ColorSpace;Lorg/opencv/core/Scalar;Lorg/opencv/core/Scalar;)V",
+        "kind": "constructor"
+      }
+    ]
+  },
+  {
+    "name": "org.firstinspires.ftc.vision.opencv.ColorSpace",
+    "parents": [
+      "java.lang.Enum"
+    ],
+    "members": [
+      {
+        "name": "YCrCb",
+        "descriptor": "Lorg/firstinspires/ftc/vision/opencv/ColorSpace;",
+        "kind": "field"
+      },
+      {
+        "name": "HSV",
+        "descriptor": "Lorg/firstinspires/ftc/vision/opencv/ColorSpace;",
+        "kind": "field"
+      },
+      {
+        "name": "RGB",
+        "descriptor": "Lorg/firstinspires/ftc/vision/opencv/ColorSpace;",
+        "kind": "field"
+      },
+      {
+        "name": "values",
+        "descriptor": "()[Lorg/firstinspires/ftc/vision/opencv/ColorSpace;",
+        "kind": "method"
+      },
+      {
+        "name": "valueOf",
+        "descriptor": "(Ljava/lang/String;)Lorg/firstinspires/ftc/vision/opencv/ColorSpace;",
+        "kind": "method"
+      }
+    ]
+  },
+  {
+    "name": "org.firstinspires.ftc.vision.opencv.ImageRegion",
+    "parents": [],
+    "members": [
+      {
+        "name": "asImageCoordinates",
+        "descriptor": "(IIII)Lorg/firstinspires/ftc/vision/opencv/ImageRegion;",
+        "kind": "method"
+      },
+      {
+        "name": "asUnityCenterCoordinates",
+        "descriptor": "(DDDD)Lorg/firstinspires/ftc/vision/opencv/ImageRegion;",
+        "kind": "method"
+      },
+      {
+        "name": "entireFrame",
+        "descriptor": "()Lorg/firstinspires/ftc/vision/opencv/ImageRegion;",
+        "kind": "method"
+      }
+    ]
+  },
+  {
+    "name": "org.firstinspires.ftc.vision.opencv.PredominantColorProcessor",
+    "parents": [
+      "org.firstinspires.ftc.vision.VisionProcessor"
+    ],
+    "members": [
+      {
+        "name": "<init>",
+        "descriptor": "()V",
+        "kind": "constructor"
+      },
+      {
+        "name": "getAnalysis",
+        "descriptor": "()Lorg/firstinspires/ftc/vision/opencv/PredominantColorProcessor$Result;",
+        "kind": "method"
+      }
+    ]
+  },
+  {
+    "name": "org.firstinspires.ftc.vision.opencv.PredominantColorProcessor$Builder",
+    "parents": [],
+    "members": [
+      {
+        "name": "<init>",
+        "descriptor": "()V",
+        "kind": "constructor"
+      },
+      {
+        "name": "setRoi",
+        "descriptor": "(Lorg/firstinspires/ftc/vision/opencv/ImageRegion;)Lorg/firstinspires/ftc/vision/opencv/PredominantColorProcessor$Builder;",
+        "kind": "method"
+      },
+      {
+        "name": "setSwatches",
+        "descriptor": "([Lorg/firstinspires/ftc/vision/opencv/PredominantColorProcessor$Swatch;)Lorg/firstinspires/ftc/vision/opencv/PredominantColorProcessor$Builder;",
+        "kind": "method"
+      },
+      {
+        "name": "build",
+        "descriptor": "()Lorg/firstinspires/ftc/vision/opencv/PredominantColorProcessor;",
+        "kind": "method"
+      }
+    ]
+  },
+  {
+    "name": "org.firstinspires.ftc.vision.opencv.PredominantColorProcessor$Result",
+    "parents": [],
+    "members": [
+      {
+        "name": "closestSwatch",
+        "descriptor": "Lorg/firstinspires/ftc/vision/opencv/PredominantColorProcessor$Swatch;",
+        "kind": "field"
+      },
+      {
+        "name": "rgb",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "RGB",
+        "descriptor": "[I",
+        "kind": "field"
+      },
+      {
+        "name": "HSV",
+        "descriptor": "[I",
+        "kind": "field"
+      },
+      {
+        "name": "YCrCb",
+        "descriptor": "[I",
+        "kind": "field"
+      },
+      {
+        "name": "<init>",
+        "descriptor": "()V",
+        "kind": "constructor"
+      },
+      {
+        "name": "<init>",
+        "descriptor": "(Lorg/firstinspires/ftc/vision/opencv/PredominantColorProcessor$Swatch;I)V",
+        "kind": "constructor"
+      },
+      {
+        "name": "<init>",
+        "descriptor": "(Lorg/firstinspires/ftc/vision/opencv/PredominantColorProcessor$Swatch;I[I[I[I)V",
+        "kind": "constructor"
+      }
+    ]
+  },
+  {
+    "name": "org.firstinspires.ftc.vision.opencv.PredominantColorProcessor$Swatch",
+    "parents": [
+      "java.lang.Enum"
+    ],
+    "members": [
+      {
+        "name": "RED",
+        "descriptor": "Lorg/firstinspires/ftc/vision/opencv/PredominantColorProcessor$Swatch;",
+        "kind": "field"
+      },
+      {
+        "name": "ORANGE",
+        "descriptor": "Lorg/firstinspires/ftc/vision/opencv/PredominantColorProcessor$Swatch;",
+        "kind": "field"
+      },
+      {
+        "name": "YELLOW",
+        "descriptor": "Lorg/firstinspires/ftc/vision/opencv/PredominantColorProcessor$Swatch;",
+        "kind": "field"
+      },
+      {
+        "name": "GREEN",
+        "descriptor": "Lorg/firstinspires/ftc/vision/opencv/PredominantColorProcessor$Swatch;",
+        "kind": "field"
+      },
+      {
+        "name": "ARTIFACT_GREEN",
+        "descriptor": "Lorg/firstinspires/ftc/vision/opencv/PredominantColorProcessor$Swatch;",
+        "kind": "field"
+      },
+      {
+        "name": "CYAN",
+        "descriptor": "Lorg/firstinspires/ftc/vision/opencv/PredominantColorProcessor$Swatch;",
+        "kind": "field"
+      },
+      {
+        "name": "BLUE",
+        "descriptor": "Lorg/firstinspires/ftc/vision/opencv/PredominantColorProcessor$Swatch;",
+        "kind": "field"
+      },
+      {
+        "name": "ARTIFACT_PURPLE",
+        "descriptor": "Lorg/firstinspires/ftc/vision/opencv/PredominantColorProcessor$Swatch;",
+        "kind": "field"
+      },
+      {
+        "name": "PURPLE",
+        "descriptor": "Lorg/firstinspires/ftc/vision/opencv/PredominantColorProcessor$Swatch;",
+        "kind": "field"
+      },
+      {
+        "name": "MAGENTA",
+        "descriptor": "Lorg/firstinspires/ftc/vision/opencv/PredominantColorProcessor$Swatch;",
+        "kind": "field"
+      },
+      {
+        "name": "BLACK",
+        "descriptor": "Lorg/firstinspires/ftc/vision/opencv/PredominantColorProcessor$Swatch;",
+        "kind": "field"
+      },
+      {
+        "name": "WHITE",
+        "descriptor": "Lorg/firstinspires/ftc/vision/opencv/PredominantColorProcessor$Swatch;",
+        "kind": "field"
+      },
+      {
+        "name": "values",
+        "descriptor": "()[Lorg/firstinspires/ftc/vision/opencv/PredominantColorProcessor$Swatch;",
+        "kind": "method"
+      },
+      {
+        "name": "valueOf",
+        "descriptor": "(Ljava/lang/String;)Lorg/firstinspires/ftc/vision/opencv/PredominantColorProcessor$Swatch;",
+        "kind": "method"
+      },
+      {
+        "name": "valueOf",
+        "descriptor": "(I)Lorg/firstinspires/ftc/vision/opencv/PredominantColorProcessor$Swatch;",
+        "kind": "method"
+      }
+    ]
+  },
+  {
+    "name": "org.opencv.core.Core",
+    "parents": [],
+    "members": [
+      {
+        "name": "ROTATE_90_CLOCKWISE",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "ROTATE_180",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "ROTATE_90_COUNTERCLOCKWISE",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "KMEANS_RANDOM_CENTERS",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "KMEANS_USE_INITIAL_LABELS",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "KMEANS_PP_CENTERS",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "add",
+        "descriptor": "(Lorg/opencv/core/Mat;Lorg/opencv/core/Scalar;Lorg/opencv/core/Mat;)V",
+        "kind": "method"
+      },
+      {
+        "name": "kmeans",
+        "descriptor": "(Lorg/opencv/core/Mat;ILorg/opencv/core/Mat;Lorg/opencv/core/TermCriteria;IILorg/opencv/core/Mat;)D",
+        "kind": "method"
+      },
+      {
+        "name": "mean",
+        "descriptor": "(Lorg/opencv/core/Mat;)Lorg/opencv/core/Scalar;",
+        "kind": "method"
+      },
+      {
+        "name": "sumElems",
+        "descriptor": "(Lorg/opencv/core/Mat;)Lorg/opencv/core/Scalar;",
+        "kind": "method"
+      },
+      {
+        "name": "extractChannel",
+        "descriptor": "(Lorg/opencv/core/Mat;Lorg/opencv/core/Mat;I)V",
+        "kind": "method"
+      },
+      {
+        "name": "split",
+        "descriptor": "(Lorg/opencv/core/Mat;Ljava/util/List;)V",
+        "kind": "method"
+      },
+      {
+        "name": "inRange",
+        "descriptor": "(Lorg/opencv/core/Mat;Lorg/opencv/core/Scalar;Lorg/opencv/core/Scalar;Lorg/opencv/core/Mat;)V",
+        "kind": "method"
+      },
+      {
+        "name": "countNonZero",
+        "descriptor": "(Lorg/opencv/core/Mat;)I",
+        "kind": "method"
+      },
+      {
+        "name": "bitwise_and",
+        "descriptor": "(Lorg/opencv/core/Mat;Lorg/opencv/core/Mat;Lorg/opencv/core/Mat;)V",
+        "kind": "method"
+      },
+      {
+        "name": "bitwise_or",
+        "descriptor": "(Lorg/opencv/core/Mat;Lorg/opencv/core/Mat;Lorg/opencv/core/Mat;)V",
+        "kind": "method"
+      },
+      {
+        "name": "rotate",
+        "descriptor": "(Lorg/opencv/core/Mat;Lorg/opencv/core/Mat;I)V",
+        "kind": "method"
+      }
+    ]
+  },
+  {
+    "name": "org.opencv.core.CvType",
+    "parents": [],
+    "members": [
+      {
+        "name": "CV_8U",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "CV_32S",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "CV_32F",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "CV_64F",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "CV_32SC1",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "CV_32SC2",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "CV_32SC3",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "CV_32SC4",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "CV_8UC1",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "CV_8UC2",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "CV_8UC3",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "CV_8UC4",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "CV_32FC1",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "CV_32FC2",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "CV_32FC3",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "CV_32FC4",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "CV_64FC1",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "CV_64FC2",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "CV_64FC3",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "CV_64FC4",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "CV_8UC",
+        "descriptor": "(I)I",
+        "kind": "method"
+      },
+      {
+        "name": "CV_32FC",
+        "descriptor": "(I)I",
+        "kind": "method"
+      },
+      {
+        "name": "CV_64FC",
+        "descriptor": "(I)I",
+        "kind": "method"
+      },
+      {
+        "name": "makeType",
+        "descriptor": "(II)I",
+        "kind": "method"
+      },
+      {
+        "name": "channels",
+        "descriptor": "(I)I",
+        "kind": "method"
+      },
+      {
+        "name": "depth",
+        "descriptor": "(I)I",
+        "kind": "method"
+      }
+    ]
+  },
+  {
+    "name": "org.opencv.core.Mat",
+    "parents": [],
+    "members": [
+      {
+        "name": "<init>",
+        "descriptor": "()V",
+        "kind": "constructor"
+      },
+      {
+        "name": "<init>",
+        "descriptor": "(III)V",
+        "kind": "constructor"
+      },
+      {
+        "name": "<init>",
+        "descriptor": "(IIILorg/opencv/core/Scalar;)V",
+        "kind": "constructor"
+      },
+      {
+        "name": "<init>",
+        "descriptor": "(Lorg/opencv/core/Size;I)V",
+        "kind": "constructor"
+      },
+      {
+        "name": "<init>",
+        "descriptor": "(Lorg/opencv/core/Size;ILorg/opencv/core/Scalar;)V",
+        "kind": "constructor"
+      },
+      {
+        "name": "<init>",
+        "descriptor": "(Lorg/opencv/core/Mat;Lorg/opencv/core/Rect;)V",
+        "kind": "constructor"
+      },
+      {
+        "name": "create",
+        "descriptor": "(III)V",
+        "kind": "method"
+      },
+      {
+        "name": "create",
+        "descriptor": "(Lorg/opencv/core/Size;I)V",
+        "kind": "method"
+      },
+      {
+        "name": "rows",
+        "descriptor": "()I",
+        "kind": "method"
+      },
+      {
+        "name": "cols",
+        "descriptor": "()I",
+        "kind": "method"
+      },
+      {
+        "name": "width",
+        "descriptor": "()I",
+        "kind": "method"
+      },
+      {
+        "name": "height",
+        "descriptor": "()I",
+        "kind": "method"
+      },
+      {
+        "name": "channels",
+        "descriptor": "()I",
+        "kind": "method"
+      },
+      {
+        "name": "type",
+        "descriptor": "()I",
+        "kind": "method"
+      },
+      {
+        "name": "depth",
+        "descriptor": "()I",
+        "kind": "method"
+      },
+      {
+        "name": "total",
+        "descriptor": "()J",
+        "kind": "method"
+      },
+      {
+        "name": "size",
+        "descriptor": "()Lorg/opencv/core/Size;",
+        "kind": "method"
+      },
+      {
+        "name": "empty",
+        "descriptor": "()Z",
+        "kind": "method"
+      },
+      {
+        "name": "isContinuous",
+        "descriptor": "()Z",
+        "kind": "method"
+      },
+      {
+        "name": "submat",
+        "descriptor": "(Lorg/opencv/core/Rect;)Lorg/opencv/core/Mat;",
+        "kind": "method"
+      },
+      {
+        "name": "submat",
+        "descriptor": "(IIII)Lorg/opencv/core/Mat;",
+        "kind": "method"
+      },
+      {
+        "name": "row",
+        "descriptor": "(I)Lorg/opencv/core/Mat;",
+        "kind": "method"
+      },
+      {
+        "name": "col",
+        "descriptor": "(I)Lorg/opencv/core/Mat;",
+        "kind": "method"
+      },
+      {
+        "name": "clone",
+        "descriptor": "()Lorg/opencv/core/Mat;",
+        "kind": "method"
+      },
+      {
+        "name": "copyTo",
+        "descriptor": "(Lorg/opencv/core/Mat;)V",
+        "kind": "method"
+      },
+      {
+        "name": "setTo",
+        "descriptor": "(Lorg/opencv/core/Scalar;)Lorg/opencv/core/Mat;",
+        "kind": "method"
+      },
+      {
+        "name": "release",
+        "descriptor": "()V",
+        "kind": "method"
+      },
+      {
+        "name": "get",
+        "descriptor": "(II)[D",
+        "kind": "method"
+      },
+      {
+        "name": "get",
+        "descriptor": "(II[B)I",
+        "kind": "method"
+      },
+      {
+        "name": "get",
+        "descriptor": "(II[F)I",
+        "kind": "method"
+      },
+      {
+        "name": "get",
+        "descriptor": "(II[I)I",
+        "kind": "method"
+      },
+      {
+        "name": "get",
+        "descriptor": "(II[D)I",
+        "kind": "method"
+      },
+      {
+        "name": "put",
+        "descriptor": "(II[F)I",
+        "kind": "method"
+      },
+      {
+        "name": "put",
+        "descriptor": "(II[I)I",
+        "kind": "method"
+      },
+      {
+        "name": "put",
+        "descriptor": "(II[B)I",
+        "kind": "method"
+      },
+      {
+        "name": "put",
+        "descriptor": "(II[D)I",
+        "kind": "method"
+      },
+      {
+        "name": "convertTo",
+        "descriptor": "(Lorg/opencv/core/Mat;I)V",
+        "kind": "method"
+      },
+      {
+        "name": "convertTo",
+        "descriptor": "(Lorg/opencv/core/Mat;ID)V",
+        "kind": "method"
+      },
+      {
+        "name": "convertTo",
+        "descriptor": "(Lorg/opencv/core/Mat;IDD)V",
+        "kind": "method"
+      },
+      {
+        "name": "zeros",
+        "descriptor": "(III)Lorg/opencv/core/Mat;",
+        "kind": "method"
+      },
+      {
+        "name": "ones",
+        "descriptor": "(III)Lorg/opencv/core/Mat;",
+        "kind": "method"
+      },
+      {
+        "name": "clone",
+        "descriptor": "()Ljava/lang/Object;",
+        "kind": "method"
+      }
+    ]
+  },
+  {
+    "name": "org.opencv.core.MatOfInt",
+    "parents": [
+      "org.opencv.core.Mat"
+    ],
+    "members": [
+      {
+        "name": "<init>",
+        "descriptor": "()V",
+        "kind": "constructor"
+      },
+      {
+        "name": "<init>",
+        "descriptor": "([I)V",
+        "kind": "constructor"
+      },
+      {
+        "name": "<init>",
+        "descriptor": "(Lorg/opencv/core/Mat;)V",
+        "kind": "constructor"
+      },
+      {
+        "name": "alloc",
+        "descriptor": "(I)V",
+        "kind": "method"
+      },
+      {
+        "name": "fromArray",
+        "descriptor": "([I)V",
+        "kind": "method"
+      },
+      {
+        "name": "toArray",
+        "descriptor": "()[I",
+        "kind": "method"
+      },
+      {
+        "name": "fromList",
+        "descriptor": "(Ljava/util/List;)V",
+        "kind": "method"
+      },
+      {
+        "name": "toList",
+        "descriptor": "()Ljava/util/List;",
+        "kind": "method"
+      }
+    ]
+  },
+  {
+    "name": "org.opencv.core.MatOfPoint",
+    "parents": [
+      "org.opencv.core.Mat"
+    ],
+    "members": [
+      {
+        "name": "<init>",
+        "descriptor": "()V",
+        "kind": "constructor"
+      },
+      {
+        "name": "<init>",
+        "descriptor": "([Lorg/opencv/core/Point;)V",
+        "kind": "constructor"
+      },
+      {
+        "name": "fromArray",
+        "descriptor": "([Lorg/opencv/core/Point;)V",
+        "kind": "method"
+      },
+      {
+        "name": "fromList",
+        "descriptor": "(Ljava/util/List;)V",
+        "kind": "method"
+      },
+      {
+        "name": "toArray",
+        "descriptor": "()[Lorg/opencv/core/Point;",
+        "kind": "method"
+      },
+      {
+        "name": "toList",
+        "descriptor": "()Ljava/util/List;",
+        "kind": "method"
+      }
+    ]
+  },
+  {
+    "name": "org.opencv.core.MatOfPoint2f",
+    "parents": [
+      "org.opencv.core.Mat"
+    ],
+    "members": [
+      {
+        "name": "<init>",
+        "descriptor": "()V",
+        "kind": "constructor"
+      },
+      {
+        "name": "<init>",
+        "descriptor": "([Lorg/opencv/core/Point;)V",
+        "kind": "constructor"
+      },
+      {
+        "name": "<init>",
+        "descriptor": "(Lorg/opencv/core/Mat;)V",
+        "kind": "constructor"
+      },
+      {
+        "name": "alloc",
+        "descriptor": "(I)V",
+        "kind": "method"
+      },
+      {
+        "name": "fromArray",
+        "descriptor": "([Lorg/opencv/core/Point;)V",
+        "kind": "method"
+      },
+      {
+        "name": "toArray",
+        "descriptor": "()[Lorg/opencv/core/Point;",
+        "kind": "method"
+      },
+      {
+        "name": "fromList",
+        "descriptor": "(Ljava/util/List;)V",
+        "kind": "method"
+      },
+      {
+        "name": "toList",
+        "descriptor": "()Ljava/util/List;",
+        "kind": "method"
+      }
+    ]
+  },
+  {
+    "name": "org.opencv.core.Point",
+    "parents": [],
+    "members": [
+      {
+        "name": "x",
+        "descriptor": "D",
+        "kind": "field"
+      },
+      {
+        "name": "y",
+        "descriptor": "D",
+        "kind": "field"
+      },
+      {
+        "name": "<init>",
+        "descriptor": "()V",
+        "kind": "constructor"
+      },
+      {
+        "name": "<init>",
+        "descriptor": "(DD)V",
+        "kind": "constructor"
+      },
+      {
+        "name": "<init>",
+        "descriptor": "([D)V",
+        "kind": "constructor"
+      }
+    ]
+  },
+  {
+    "name": "org.opencv.core.Rect",
+    "parents": [],
+    "members": [
+      {
+        "name": "x",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "y",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "width",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "height",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "<init>",
+        "descriptor": "()V",
+        "kind": "constructor"
+      },
+      {
+        "name": "<init>",
+        "descriptor": "(IIII)V",
+        "kind": "constructor"
+      },
+      {
+        "name": "<init>",
+        "descriptor": "(Lorg/opencv/core/Point;Lorg/opencv/core/Point;)V",
+        "kind": "constructor"
+      },
+      {
+        "name": "<init>",
+        "descriptor": "(Lorg/opencv/core/Point;Lorg/opencv/core/Size;)V",
+        "kind": "constructor"
+      },
+      {
+        "name": "tl",
+        "descriptor": "()Lorg/opencv/core/Point;",
+        "kind": "method"
+      },
+      {
+        "name": "br",
+        "descriptor": "()Lorg/opencv/core/Point;",
+        "kind": "method"
+      },
+      {
+        "name": "size",
+        "descriptor": "()Lorg/opencv/core/Size;",
+        "kind": "method"
+      },
+      {
+        "name": "area",
+        "descriptor": "()D",
+        "kind": "method"
+      }
+    ]
+  },
+  {
+    "name": "org.opencv.core.RotatedRect",
+    "parents": [],
+    "members": [
+      {
+        "name": "center",
+        "descriptor": "Lorg/opencv/core/Point;",
+        "kind": "field"
+      },
+      {
+        "name": "size",
+        "descriptor": "Lorg/opencv/core/Size;",
+        "kind": "field"
+      },
+      {
+        "name": "angle",
+        "descriptor": "D",
+        "kind": "field"
+      },
+      {
+        "name": "<init>",
+        "descriptor": "()V",
+        "kind": "constructor"
+      },
+      {
+        "name": "<init>",
+        "descriptor": "(Lorg/opencv/core/Point;Lorg/opencv/core/Size;D)V",
+        "kind": "constructor"
+      },
+      {
+        "name": "<init>",
+        "descriptor": "([D)V",
+        "kind": "constructor"
+      },
+      {
+        "name": "set",
+        "descriptor": "([D)V",
+        "kind": "method"
+      },
+      {
+        "name": "points",
+        "descriptor": "([Lorg/opencv/core/Point;)V",
+        "kind": "method"
+      },
+      {
+        "name": "boundingRect",
+        "descriptor": "()Lorg/opencv/core/Rect;",
+        "kind": "method"
+      },
+      {
+        "name": "clone",
+        "descriptor": "()Lorg/opencv/core/RotatedRect;",
+        "kind": "method"
+      },
+      {
+        "name": "clone",
+        "descriptor": "()Ljava/lang/Object;",
+        "kind": "method"
+      }
+    ]
+  },
+  {
+    "name": "org.opencv.core.Scalar",
+    "parents": [],
+    "members": [
+      {
+        "name": "val",
+        "descriptor": "[D",
+        "kind": "field"
+      },
+      {
+        "name": "<init>",
+        "descriptor": "(D)V",
+        "kind": "constructor"
+      },
+      {
+        "name": "<init>",
+        "descriptor": "(DD)V",
+        "kind": "constructor"
+      },
+      {
+        "name": "<init>",
+        "descriptor": "(DDD)V",
+        "kind": "constructor"
+      },
+      {
+        "name": "<init>",
+        "descriptor": "(DDDD)V",
+        "kind": "constructor"
+      },
+      {
+        "name": "all",
+        "descriptor": "(D)Lorg/opencv/core/Scalar;",
+        "kind": "method"
+      }
+    ]
+  },
+  {
+    "name": "org.opencv.core.Size",
+    "parents": [],
+    "members": [
+      {
+        "name": "width",
+        "descriptor": "D",
+        "kind": "field"
+      },
+      {
+        "name": "height",
+        "descriptor": "D",
+        "kind": "field"
+      },
+      {
+        "name": "<init>",
+        "descriptor": "()V",
+        "kind": "constructor"
+      },
+      {
+        "name": "<init>",
+        "descriptor": "(DD)V",
+        "kind": "constructor"
+      },
+      {
+        "name": "area",
+        "descriptor": "()D",
+        "kind": "method"
+      }
+    ]
+  },
+  {
+    "name": "org.opencv.core.TermCriteria",
+    "parents": [],
+    "members": [
+      {
+        "name": "COUNT",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "MAX_ITER",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "EPS",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "type",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "maxCount",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "epsilon",
+        "descriptor": "D",
+        "kind": "field"
+      },
+      {
+        "name": "<init>",
+        "descriptor": "()V",
+        "kind": "constructor"
+      },
+      {
+        "name": "<init>",
+        "descriptor": "(IID)V",
+        "kind": "constructor"
+      },
+      {
+        "name": "<init>",
+        "descriptor": "([D)V",
+        "kind": "constructor"
+      },
+      {
+        "name": "set",
+        "descriptor": "([D)V",
+        "kind": "method"
+      },
+      {
+        "name": "clone",
+        "descriptor": "()Lorg/opencv/core/TermCriteria;",
+        "kind": "method"
+      },
+      {
+        "name": "clone",
+        "descriptor": "()Ljava/lang/Object;",
+        "kind": "method"
+      }
+    ]
+  },
+  {
+    "name": "org.opencv.imgproc.Imgproc",
+    "parents": [],
+    "members": [
+      {
+        "name": "COLOR_RGB2RGBA",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "COLOR_RGBA2RGB",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "COLOR_BGR2RGB",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "COLOR_RGB2BGR",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "COLOR_BGR2GRAY",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "COLOR_RGB2GRAY",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "COLOR_GRAY2RGB",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "COLOR_GRAY2RGBA",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "COLOR_RGBA2GRAY",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "COLOR_RGB2YCrCb",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "COLOR_BGR2YCrCb",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "COLOR_BGR2HSV",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "COLOR_RGB2HSV",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "THRESH_BINARY",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "THRESH_BINARY_INV",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "INTER_NEAREST",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "INTER_LINEAR",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "RETR_EXTERNAL",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "RETR_LIST",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "CHAIN_APPROX_NONE",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "CHAIN_APPROX_SIMPLE",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "COLOR_YCrCb2RGB",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "MORPH_RECT",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "MORPH_CROSS",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "MORPH_ELLIPSE",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "MORPH_OPEN",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "MORPH_CLOSE",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "cvtColor",
+        "descriptor": "(Lorg/opencv/core/Mat;Lorg/opencv/core/Mat;I)V",
+        "kind": "method"
+      },
+      {
+        "name": "cvtColor",
+        "descriptor": "(Lorg/opencv/core/Mat;Lorg/opencv/core/Mat;II)V",
+        "kind": "method"
+      },
+      {
+        "name": "resize",
+        "descriptor": "(Lorg/opencv/core/Mat;Lorg/opencv/core/Mat;Lorg/opencv/core/Size;)V",
+        "kind": "method"
+      },
+      {
+        "name": "resize",
+        "descriptor": "(Lorg/opencv/core/Mat;Lorg/opencv/core/Mat;Lorg/opencv/core/Size;DD)V",
+        "kind": "method"
+      },
+      {
+        "name": "resize",
+        "descriptor": "(Lorg/opencv/core/Mat;Lorg/opencv/core/Mat;Lorg/opencv/core/Size;DDI)V",
+        "kind": "method"
+      },
+      {
+        "name": "threshold",
+        "descriptor": "(Lorg/opencv/core/Mat;Lorg/opencv/core/Mat;DDI)D",
+        "kind": "method"
+      },
+      {
+        "name": "rectangle",
+        "descriptor": "(Lorg/opencv/core/Mat;Lorg/opencv/core/Point;Lorg/opencv/core/Point;Lorg/opencv/core/Scalar;)V",
+        "kind": "method"
+      },
+      {
+        "name": "rectangle",
+        "descriptor": "(Lorg/opencv/core/Mat;Lorg/opencv/core/Rect;Lorg/opencv/core/Scalar;I)V",
+        "kind": "method"
+      },
+      {
+        "name": "rectangle",
+        "descriptor": "(Lorg/opencv/core/Mat;Lorg/opencv/core/Point;Lorg/opencv/core/Point;Lorg/opencv/core/Scalar;I)V",
+        "kind": "method"
+      },
+      {
+        "name": "getStructuringElement",
+        "descriptor": "(ILorg/opencv/core/Size;)Lorg/opencv/core/Mat;",
+        "kind": "method"
+      },
+      {
+        "name": "erode",
+        "descriptor": "(Lorg/opencv/core/Mat;Lorg/opencv/core/Mat;Lorg/opencv/core/Mat;)V",
+        "kind": "method"
+      },
+      {
+        "name": "dilate",
+        "descriptor": "(Lorg/opencv/core/Mat;Lorg/opencv/core/Mat;Lorg/opencv/core/Mat;)V",
+        "kind": "method"
+      },
+      {
+        "name": "morphologyEx",
+        "descriptor": "(Lorg/opencv/core/Mat;Lorg/opencv/core/Mat;ILorg/opencv/core/Mat;)V",
+        "kind": "method"
+      },
+      {
+        "name": "GaussianBlur",
+        "descriptor": "(Lorg/opencv/core/Mat;Lorg/opencv/core/Mat;Lorg/opencv/core/Size;D)V",
+        "kind": "method"
+      },
+      {
+        "name": "boundingRect",
+        "descriptor": "(Lorg/opencv/core/Mat;)Lorg/opencv/core/Rect;",
+        "kind": "method"
+      },
+      {
+        "name": "contourArea",
+        "descriptor": "(Lorg/opencv/core/Mat;)D",
+        "kind": "method"
+      },
+      {
+        "name": "convexHull",
+        "descriptor": "(Lorg/opencv/core/MatOfPoint;Lorg/opencv/core/MatOfInt;)V",
+        "kind": "method"
+      },
+      {
+        "name": "convexHull",
+        "descriptor": "(Lorg/opencv/core/MatOfPoint;Lorg/opencv/core/MatOfInt;Z)V",
+        "kind": "method"
+      },
+      {
+        "name": "minAreaRect",
+        "descriptor": "(Lorg/opencv/core/MatOfPoint2f;)Lorg/opencv/core/RotatedRect;",
+        "kind": "method"
+      },
+      {
+        "name": "arcLength",
+        "descriptor": "(Lorg/opencv/core/MatOfPoint2f;Z)D",
+        "kind": "method"
+      },
+      {
+        "name": "minEnclosingCircle",
+        "descriptor": "(Lorg/opencv/core/MatOfPoint2f;Lorg/opencv/core/Point;[F)V",
+        "kind": "method"
+      },
+      {
+        "name": "contourArea",
+        "descriptor": "(Lorg/opencv/core/Mat;Z)D",
+        "kind": "method"
+      },
+      {
+        "name": "moments",
+        "descriptor": "(Lorg/opencv/core/Mat;)Lorg/opencv/imgproc/Moments;",
+        "kind": "method"
+      },
+      {
+        "name": "moments",
+        "descriptor": "(Lorg/opencv/core/Mat;Z)Lorg/opencv/imgproc/Moments;",
+        "kind": "method"
+      },
+      {
+        "name": "findContours",
+        "descriptor": "(Lorg/opencv/core/Mat;Ljava/util/List;Lorg/opencv/core/Mat;II)V",
+        "kind": "method"
+      }
+    ]
+  },
+  {
+    "name": "org.opencv.imgproc.Moments",
+    "parents": [],
+    "members": [
+      {
+        "name": "m00",
+        "descriptor": "D",
+        "kind": "field"
+      },
+      {
+        "name": "m10",
+        "descriptor": "D",
+        "kind": "field"
+      },
+      {
+        "name": "m01",
+        "descriptor": "D",
+        "kind": "field"
+      },
+      {
+        "name": "<init>",
+        "descriptor": "()V",
+        "kind": "constructor"
+      },
+      {
+        "name": "get_m00",
+        "descriptor": "()D",
+        "kind": "method"
+      },
+      {
+        "name": "get_m10",
+        "descriptor": "()D",
+        "kind": "method"
+      },
+      {
+        "name": "get_m01",
+        "descriptor": "()D",
+        "kind": "method"
+      }
+    ]
+  },
+  {
+    "name": "org.openftc.easyopencv.OpenCvCamera",
+    "parents": [
+      "org.firstinspires.ftc.robotcore.external.stream.CameraStreamSource"
+    ],
+    "members": [
+      {
+        "name": "CAMERA_OPEN_ERROR_FAILURE_TO_OPEN_CAMERA_DEVICE",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "CAMERA_OPEN_ERROR_POSTMORTEM_OPMODE",
+        "descriptor": "I",
+        "kind": "field"
+      },
+      {
+        "name": "openCameraDevice",
+        "descriptor": "()I",
+        "kind": "method"
+      },
+      {
+        "name": "openCameraDeviceAsync",
+        "descriptor": "(Lorg/openftc/easyopencv/OpenCvCamera$AsyncCameraOpenListener;)V",
+        "kind": "method"
+      },
+      {
+        "name": "closeCameraDevice",
+        "descriptor": "()V",
+        "kind": "method"
+      },
+      {
+        "name": "closeCameraDeviceAsync",
+        "descriptor": "(Lorg/openftc/easyopencv/OpenCvCamera$AsyncCameraCloseListener;)V",
+        "kind": "method"
+      },
+      {
+        "name": "startStreaming",
+        "descriptor": "(II)V",
+        "kind": "method"
+      },
+      {
+        "name": "startStreaming",
+        "descriptor": "(IILorg/openftc/easyopencv/OpenCvCameraRotation;)V",
+        "kind": "method"
+      },
+      {
+        "name": "stopStreaming",
+        "descriptor": "()V",
+        "kind": "method"
+      },
+      {
+        "name": "setPipeline",
+        "descriptor": "(Lorg/openftc/easyopencv/OpenCvPipeline;)V",
+        "kind": "method"
+      },
+      {
+        "name": "getFrameCount",
+        "descriptor": "()I",
+        "kind": "method"
+      },
+      {
+        "name": "getFps",
+        "descriptor": "()F",
+        "kind": "method"
+      },
+      {
+        "name": "getPipelineTimeMs",
+        "descriptor": "()I",
+        "kind": "method"
+      },
+      {
+        "name": "getOverheadTimeMs",
+        "descriptor": "()I",
+        "kind": "method"
+      },
+      {
+        "name": "getTotalFrameTimeMs",
+        "descriptor": "()I",
+        "kind": "method"
+      },
+      {
+        "name": "getCurrentPipelineMaxFps",
+        "descriptor": "()I",
+        "kind": "method"
+      }
+    ]
+  },
+  {
+    "name": "org.openftc.easyopencv.OpenCvCamera$AsyncCameraCloseListener",
+    "parents": [],
+    "members": [
+      {
+        "name": "onClose",
+        "descriptor": "()V",
+        "kind": "method"
+      }
+    ]
+  },
+  {
+    "name": "org.openftc.easyopencv.OpenCvCamera$AsyncCameraOpenListener",
+    "parents": [],
+    "members": [
+      {
+        "name": "onOpened",
+        "descriptor": "()V",
+        "kind": "method"
+      },
+      {
+        "name": "onError",
+        "descriptor": "(I)V",
+        "kind": "method"
+      }
+    ]
+  },
+  {
+    "name": "org.openftc.easyopencv.OpenCvCameraFactory",
+    "parents": [],
+    "members": [
+      {
+        "name": "<init>",
+        "descriptor": "()V",
+        "kind": "constructor"
+      },
+      {
+        "name": "getInstance",
+        "descriptor": "()Lorg/openftc/easyopencv/OpenCvCameraFactory;",
+        "kind": "method"
+      },
+      {
+        "name": "createWebcam",
+        "descriptor": "(Lorg/firstinspires/ftc/robotcore/external/hardware/camera/WebcamName;)Lorg/openftc/easyopencv/OpenCvWebcam;",
+        "kind": "method"
+      },
+      {
+        "name": "createWebcam",
+        "descriptor": "(Lorg/firstinspires/ftc/robotcore/external/hardware/camera/WebcamName;I)Lorg/openftc/easyopencv/OpenCvWebcam;",
+        "kind": "method"
+      }
+    ]
+  },
+  {
+    "name": "org.openftc.easyopencv.OpenCvCameraRotation",
+    "parents": [
+      "java.lang.Enum"
+    ],
+    "members": [
+      {
+        "name": "UPRIGHT",
+        "descriptor": "Lorg/openftc/easyopencv/OpenCvCameraRotation;",
+        "kind": "field"
+      },
+      {
+        "name": "UPSIDE_DOWN",
+        "descriptor": "Lorg/openftc/easyopencv/OpenCvCameraRotation;",
+        "kind": "field"
+      },
+      {
+        "name": "SIDEWAYS_LEFT",
+        "descriptor": "Lorg/openftc/easyopencv/OpenCvCameraRotation;",
+        "kind": "field"
+      },
+      {
+        "name": "SIDEWAYS_RIGHT",
+        "descriptor": "Lorg/openftc/easyopencv/OpenCvCameraRotation;",
+        "kind": "field"
+      },
+      {
+        "name": "SENSOR_NATIVE",
+        "descriptor": "Lorg/openftc/easyopencv/OpenCvCameraRotation;",
+        "kind": "field"
+      },
+      {
+        "name": "values",
+        "descriptor": "()[Lorg/openftc/easyopencv/OpenCvCameraRotation;",
+        "kind": "method"
+      },
+      {
+        "name": "valueOf",
+        "descriptor": "(Ljava/lang/String;)Lorg/openftc/easyopencv/OpenCvCameraRotation;",
+        "kind": "method"
+      }
+    ]
+  },
+  {
+    "name": "org.openftc.easyopencv.OpenCvPipeline",
+    "parents": [],
+    "members": [
+      {
+        "name": "<init>",
+        "descriptor": "()V",
+        "kind": "constructor"
+      },
+      {
+        "name": "processFrame",
+        "descriptor": "(Lorg/opencv/core/Mat;)Lorg/opencv/core/Mat;",
+        "kind": "method"
+      },
+      {
+        "name": "init",
+        "descriptor": "(Lorg/opencv/core/Mat;)V",
+        "kind": "method"
+      },
+      {
+        "name": "onViewportTapped",
+        "descriptor": "()V",
+        "kind": "method"
+      },
+      {
+        "name": "requestViewportDrawHook",
+        "descriptor": "(Ljava/lang/Object;)V",
+        "kind": "method"
+      },
+      {
+        "name": "getUserContextForDrawHook",
+        "descriptor": "()Ljava/lang/Object;",
+        "kind": "method"
+      },
+      {
+        "name": "onDrawFrame",
+        "descriptor": "(Landroid/graphics/Canvas;IIFFLjava/lang/Object;)V",
+        "kind": "method"
+      }
+    ]
+  },
+  {
+    "name": "org.openftc.easyopencv.OpenCvWebcam",
+    "parents": [
+      "org.openftc.easyopencv.OpenCvCamera"
+    ],
+    "members": [
+      {
+        "name": "setMillisecondsPermissionTimeout",
+        "descriptor": "(I)V",
+        "kind": "method"
+      },
+      {
+        "name": "startStreaming",
+        "descriptor": "(IILorg/openftc/easyopencv/OpenCvCameraRotation;Lorg/openftc/easyopencv/OpenCvWebcam$StreamFormat;)V",
+        "kind": "method"
+      }
+    ]
+  },
+  {
+    "name": "org.openftc.easyopencv.OpenCvWebcam$StreamFormat",
+    "parents": [
+      "java.lang.Enum"
+    ],
+    "members": [
+      {
+        "name": "YUY2",
+        "descriptor": "Lorg/openftc/easyopencv/OpenCvWebcam$StreamFormat;",
+        "kind": "field"
+      },
+      {
+        "name": "MJPEG",
+        "descriptor": "Lorg/openftc/easyopencv/OpenCvWebcam$StreamFormat;",
+        "kind": "field"
+      },
+      {
+        "name": "values",
+        "descriptor": "()[Lorg/openftc/easyopencv/OpenCvWebcam$StreamFormat;",
+        "kind": "method"
+      },
+      {
+        "name": "valueOf",
+        "descriptor": "(Ljava/lang/String;)Lorg/openftc/easyopencv/OpenCvWebcam$StreamFormat;",
+        "kind": "method"
+      }
+    ]
+  },
+  {
+    "name": "org.openftc.easyopencv.TimestampedOpenCvPipeline",
+    "parents": [
+      "org.openftc.easyopencv.OpenCvPipeline"
+    ],
+    "members": [
+      {
+        "name": "<init>",
+        "descriptor": "()V",
+        "kind": "constructor"
+      },
+      {
+        "name": "processFrame",
+        "descriptor": "(Lorg/opencv/core/Mat;)Lorg/opencv/core/Mat;",
+        "kind": "method"
+      },
+      {
+        "name": "processFrame",
+        "descriptor": "(Lorg/opencv/core/Mat;J)Lorg/opencv/core/Mat;",
+        "kind": "method"
+      }
+    ]
+  }
+]

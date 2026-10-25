@@ -1,0 +1,125 @@
+/* The phone workspace shares the project, editor and runtime with desktop. */
+.studio-shell.is-mobile {
+  --tool-header-height: 44px;
+  min-height: 0;
+  height: 100dvh;
+  grid-template-rows: auto minmax(0, 1fr) auto auto;
+}
+.is-mobile .app-header {
+  height: auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) repeat(4, 44px);
+  gap: 0;
+  padding: env(safe-area-inset-top, 0px) max(4px, env(safe-area-inset-right)) 0 max(4px, env(safe-area-inset-left));
+  background: var(--chrome);
+}
+.is-mobile .header-menu-anchor--project { grid-column: 1; grid-row: 1; min-width: 0; }
+.is-mobile .header-menu-anchor--git { grid-column: 2; grid-row: 1; }
+.is-mobile .project-widget { max-width: 100%; min-width: 0; width: 100%; gap: 6px; }
+.is-mobile .project-widget__name { flex: 1; }
+.is-mobile .branch-widget { display: flex; width: 44px; padding: 0; justify-content: center; }
+.is-mobile .branch-widget > :not(svg) { display: none; }
+.is-mobile .branch-widget > svg:last-child { display: none; }
+.is-mobile .app-header > .header-action { grid-row: 1; }
+.is-mobile .app-header > .header-action[aria-label="Search everywhere"] { grid-column: 3; }
+.is-mobile .app-header > .header-action[aria-label="Project Settings"] { grid-column: 4; }
+.is-mobile .app-header > div:last-child { grid-column: 5; grid-row: 1; }
+.is-mobile .app-header > div:last-child > button { width: 44px; height: 44px; }
+.is-mobile .header-spacer { display: none; }
+.is-mobile .gamepad-toolbar-host { position: absolute; right: 8px; top: 96px; z-index: 5; }
+.is-mobile .gamepad-toolbar-host > div > button { display: none; }
+.is-mobile .execution-tools { grid-column: 1 / -1; grid-row: 2; display: flex; min-width: 0; margin: 0; gap: 0; padding: 2px 0 4px; }
+.is-mobile .run-controls { flex: 1; min-width: 0; gap: 0; margin: 0; }
+.is-mobile .run-config { min-width: 0; max-width: none; width: 100%; flex: 1; padding-inline: 6px; }
+.is-mobile .run-config .header-select__value { max-width: none; min-width: 0; text-overflow: ellipsis; }
+.is-mobile .run-config > svg { flex: 0 0 14px; }
+.is-mobile .run-action { flex-shrink: 0; gap: 0; }
+.is-mobile .game-controls { margin: 0 0 0 4px; gap: 0; }
+.is-mobile .header-action, .is-mobile .project-widget, .is-mobile .branch-widget, .is-mobile .run-config { height: 44px; }
+.is-mobile .header-action { min-width: 44px; flex-basis: 44px; }
+.is-mobile .run-action__options { width: 24px; height: 44px; }
+.mobile-toolbar-actions { position: relative; flex: 0 0 44px; }
+.mobile-toolbar-actions__panel { position: absolute; z-index: 50; right: 0; top: calc(100% + 4px); width: 220px; padding: 6px; border-radius: 8px; background: var(--chrome-raised); box-shadow: 0 8px 24px #0008; }
+.mobile-toolbar-actions__panel .header-action { display: flex; width: 100%; justify-content: flex-start; gap: 12px; padding: 0 10px; }
+.mobile-toolbar-actions__panel .header-action[aria-pressed="true"] { background: var(--surface-selected); }
+.mobile-toolbar-actions__panel .header-action[aria-pressed="true"]::after { content: "On"; margin-left: auto; font-size: 12px; }
+.is-mobile .header-menu { position: fixed; top: calc(48px + env(safe-area-inset-top)); left: max(8px, env(safe-area-inset-left)); right: max(8px, env(safe-area-inset-right)); width: auto; max-height: calc(100dvh - 64px - env(safe-area-inset-top)); }
+.is-mobile .header-menu button { min-height: 44px; }
+.is-mobile .header-menu input { min-height: 44px; font-size: 16px; min-width: 0; }
+.is-mobile .workbench { display: grid; grid-template-columns: minmax(0, 1fr); }
+.is-mobile .tool-rail, .is-mobile .resize-handle { display: none; }
+.is-mobile .project-pane, .is-mobile .workspace-stack { grid-area: 1 / 1; width: 100%; min-width: 0; }
+.is-mobile .workspace-stack, .is-mobile .workspace-stack.has-bottom-window { grid-template-rows: minmax(0, 1fr); }
+.is-mobile .editor-and-simulator, .is-mobile .editor-and-simulator.has-simulator { grid-template-columns: minmax(0, 1fr); grid-template-rows: minmax(0, 1fr); }
+.is-mobile .editor-pane, .is-mobile .simulator-host { grid-area: 1 / 1; }
+.is-mobile .editor-pane, .is-mobile .project-pane { --tool-header-height: 44px; }
+.is-mobile .editor-tabs { height: 44px; }
+.is-mobile .editor-tab__select, .is-mobile .editor-tab__close { min-height: 44px; }
+.is-mobile .editor-tab__close { min-width: 36px; }
+.is-mobile .project-pane button { min-height: 44px; }
+.is-mobile .blocks-create-menu > summary { width: 44px; height: 44px; }
+.is-mobile:not([data-mobile-view="files"]) .project-pane,
+.is-mobile[data-mobile-view="files"] .workspace-stack,
+.is-mobile:not([data-mobile-view="code"]) .editor-pane,
+.is-mobile:not([data-mobile-view="code"]) .blocks-editor-pane,
+.is-mobile:not([data-mobile-view="output"]) .bottom-window,
+.is-mobile[data-mobile-view="output"] .editor-and-simulator,
+.is-mobile:not([data-mobile-view="simulation"]) .simulator-host { display: none; }
+.is-mobile .simulator-host.is-hidden { position: static; width: auto; height: auto; }
+.is-mobile .bottom-window { min-height: 0; grid-area: 1 / 1; }
+.is-mobile .bottom-window__tabs { min-height: 44px; }
+.is-mobile .bottom-window__tablist { min-width: 0; flex: 1; }
+.is-mobile .bottom-window__tablist button { flex: 1; min-width: 0; padding: 0 8px; min-height: 44px; }
+.is-mobile .bottom-window__close { width: 44px; height: 44px; flex-shrink: 0; }
+.is-mobile .bottom-window__content { overflow: auto; min-width: 0; }
+.is-mobile .bottom-window__content pre { white-space: pre-wrap; overflow-wrap: anywhere; }
+.is-mobile .status-bar { height: auto; min-height: 24px; grid-row: 3; gap: 8px; padding-inline: 10px; font-size: 10px; }
+.is-mobile .status-bar .breadcrumbs, .is-mobile .status-bar > span:nth-last-child(-n+5) { display: none; }
+.is-mobile .status-bar__spacer { display: none; }
+.is-mobile .status-bar__retry { min-height: 32px; min-width: 0; overflow-wrap: anywhere; }
+.mobile-workspace-nav { grid-row: 4; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); padding: 2px env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left); background: var(--chrome); }
+.mobile-workspace-nav button { position: relative; display: grid; justify-items: center; align-content: center; gap: 3px; min-width: 0; min-height: 56px; padding: 5px 2px; border: 0; background: transparent; color: var(--ink-muted); font: inherit; font-size: 11px; cursor: pointer; }
+.mobile-workspace-nav svg { width: 21px; height: 21px; }
+.mobile-workspace-nav button[aria-current] { color: var(--ink); background: var(--surface-selected); }
+.mobile-workspace-nav button[aria-current]::before { content: ""; position: absolute; top: 0; width: 22px; height: 2px; background: var(--accent-strong); }
+.mobile-workspace-nav__alert { margin-left: 4px; color: var(--danger); font-weight: 700; }
+.is-mobile .simulator { grid-template-rows: minmax(80px, 1fr) auto; }
+.is-mobile .simulator.has-touch-controls { grid-template-rows: minmax(80px, 1fr) auto; }
+.is-mobile .simulator__camera-controls { min-height: 44px; gap: 2px; padding-inline: 6px; }
+.is-mobile .simulator__camera-controls button { min-width: 40px; height: 44px; }
+.is-mobile .simulator__camera-controls .simulator__view-height { min-width: 0; }
+.is-mobile .simulator__fullscreen-toggle, .is-mobile .simulator__camera-toggle { width: 44px; height: 44px; }
+.is-mobile .simulator__fullscreen-toggle { top: 8px; left: 8px; }
+.is-mobile .simulator__camera-views { top: 8px; right: 8px; gap: 4px; }
+.is-mobile .simulator.is-fullscreen .simulator__run-controls { top: calc(60px + env(safe-area-inset-top)); left: 8px; right: 8px; max-width: none; transform: none; }
+.is-mobile .simulator.is-fullscreen .simulator__run-controls .run-config { max-width: none; }
+.is-mobile .simulator.is-fullscreen .simulator__run-controls .header-select__value { max-width: none; }
+.is-mobile .command-backdrop { padding: max(8px, env(safe-area-inset-top)) 8px; }
+.is-mobile .command-palette { width: 100%; max-width: 100%; }
+.is-mobile .command-palette__input input { min-width: 0; font-size: 16px; }
+.is-mobile .command-palette__results small { overflow-wrap: anywhere; }
+.is-mobile .command-palette__results button { min-height: 48px; }
+@media (max-height: 500px) and (min-width: 640px) {
+  .is-mobile .app-header { grid-template-columns: 100px 44px minmax(0, 1fr) 44px 44px 44px; }
+  .is-mobile .execution-tools { grid-row: 1; grid-column: 3; padding: 0; }
+  .is-mobile .app-header > .header-action[aria-label="Search everywhere"] { grid-column: 4; }
+  .is-mobile .app-header > .header-action[aria-label="Project Settings"] { grid-column: 5; }
+  .is-mobile .app-header > div:last-child { grid-column: 6; }
+  .mobile-workspace-nav button { min-height: 44px; display: flex; align-items: center; justify-content: center; gap: 5px; }
+  .mobile-workspace-nav svg { width: 18px; height: 18px; }
+}
+.simulator.is-fullscreen {
+  position: fixed;
+  z-index: 150;
+  inset: 0;
+  width: 100%;
+  height: 100dvh;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  background: var(--canvas);
+}
+.simulator__touch-controls { padding: 6px 12px 8px; min-width: 0; background: var(--canvas); }
+@media (max-width: 767px), (max-width: 1023px) and (pointer: coarse) {
+  [role="dialog"] input:not([type="checkbox"]):not([type="radio"]),
+  [role="dialog"] select,
+  [role="dialog"] textarea { font-size: 16px; }
+}

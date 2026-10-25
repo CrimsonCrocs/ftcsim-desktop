@@ -1,0 +1,14 @@
+def ftcSdkVersion = providers.gradleProperty('ftcSdkVersion').get()
+def appCompatVersion = providers.gradleProperty('androidxAppCompatVersion').get()
+
+dependencies {
+    implementation "org.firstinspires.ftc:Inspection:${ftcSdkVersion}"
+    implementation "org.firstinspires.ftc:Blocks:${ftcSdkVersion}"
+    implementation "org.firstinspires.ftc:RobotCore:${ftcSdkVersion}"
+    implementation "org.firstinspires.ftc:RobotServer:${ftcSdkVersion}"
+    implementation "org.firstinspires.ftc:OnBotJava:${ftcSdkVersion}"
+    implementation "org.firstinspires.ftc:Hardware:${ftcSdkVersion}"
+    implementation "org.firstinspires.ftc:FtcCommon:${ftcSdkVersion}"
+    implementation "org.firstinspires.ftc:Vision:${ftcSdkVersion}"
+    implementation "androidx.appcompat:appcompat:${appCompatVersion}"
+}

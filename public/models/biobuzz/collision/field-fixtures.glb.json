@@ -1,0 +1,91 @@
+{
+  "assetPack": "biobuzz-2026-2027@1",
+  "source": {
+    "sha256": "05b35961c7df847741031f00fda73ddd068537f809e92a11b1cd59a94bcc8331",
+    "bytes": 35206208
+  },
+  "category": "fixtures",
+  "role": "static trimesh collision; node names retain source part and interaction group",
+  "units": "metres",
+  "axes": "Y-up; source STEP frame",
+  "input": {
+    "bytes": 11992,
+    "sha256": "85a7090dc101bbeef35858e1d63cc5c118f9db52b72204255ce64877295194b6",
+    "triangles": 568
+  },
+  "positionOnlyWelding": {
+    "toleranceMeters": 1e-7,
+    "sourceTriangles": 568,
+    "retainedTriangles": 568,
+    "sourceVertices": 624,
+    "weldedVertices": 288,
+    "degenerateTrianglesRemoved": 0,
+    "duplicateTrianglesRemoved": 0,
+    "renderNormalsAndUVs": "omitted; runtime physics recomputes contact normals"
+  },
+  "output": {
+    "url": "/models/biobuzz/collision/field-fixtures.glb",
+    "bytes": 2368,
+    "sha256": "22a364c9adecfec5a4c67df7b916e56e1e909903e51daf79d3087006729ce74c",
+    "triangles": 88
+  },
+  "nodeNames": [
+    "fixtures/am-5706 Artifact Tray__Fillet1/am-5706 Artifact Tray__Fillet1",
+    "fixtures/am-5706 Artifact Tray__Fillet1/am-5706 Artifact Tray__Fillet1#copy-2"
+  ],
+  "topologyValidation": {
+    "comparison": "per named part",
+    "source": {
+      "namedParts": 2,
+      "eulerCharacteristic": 4,
+      "boundaryComponents": 0,
+      "boundaryEdges": 0,
+      "nonManifoldEdges": 0,
+      "maximumSampledOpenBoundaryDeviationMeters": 0
+    },
+    "output": {
+      "namedParts": 2,
+      "eulerCharacteristic": 4,
+      "boundaryComponents": 0,
+      "boundaryEdges": 0,
+      "nonManifoldEdges": 0,
+      "maximumSampledOpenBoundaryDeviationMeters": 0
+    },
+    "eulerBoundaryComponentsAndNonManifoldCountsMatch": true,
+    "boundaryProbeMethod": "directed source/output boundary segment endpoints and midpoints to opposite boundary segments",
+    "explicitRayOccupancyGrid": "not run",
+    "fallbackDiagnostic": null
+  },
+  "sourceParts": [
+    "am-5706 Artifact Tray__Fillet1"
+  ],
+  "omissions": [
+    "Gaffer Tape, Blue, 1in Wide, 11in Long",
+    "Gaffer Tape, Blue, 1in Wide, 20.69in Long",
+    "Gaffer Tape, Blue, 1in Wide, 22.69in Long",
+    "Gaffer Tape, Blue, 1in Wide, 54in Long",
+    "Gaffer Tape, Blue, 1in Wide, 94.82in Long",
+    "Gaffer Tape, Red, 1in Wide, 11in Long",
+    "Gaffer Tape, Red, 1in Wide, 20.69in Long",
+    "Gaffer Tape, Red, 1in Wide, 22.69in Long",
+    "Gaffer Tape, Red, 1in Wide, 54in Long",
+    "Gaffer Tape, Red, 1in Wide, 94.82in Long",
+    "am-2579-Body: FIRST Tech Challenge Field Panel Fastener 1-5/16 in. Quick Release Pin",
+    "am-2579-Detent: FIRST Tech Challenge Field Panel Fastener 1-5/16 in. Quick Release Pin",
+    "am-2579-Ring: FIRST Tech Challenge Field Panel Fastener 1-5/16 in. Quick Release Pin"
+  ],
+  "simplification": {
+    "tool": "gltfpack 1.2.0",
+    "targetRatio": 0.08,
+    "requestedRelativeErrorLimit": 0.001034444103714002,
+    "effectiveRelativeErrorLimit": 0.001034444103714002,
+    "maximumSourcePrimitiveBoundsDiagonalMeters": 0.4833513944396144,
+    "configuredConservativeErrorBoundMeters": 0.0005,
+    "errorBoundBasis": "relative limit multiplied by largest source primitive AABB diagonal; checked against sampled open boundaries",
+    "borderVerticesLocked": true,
+    "positionsFloat32": true,
+    "draco": false,
+    "topologyRetries": 1,
+    "fallbackToSourceGeometry": false
+  }
+}

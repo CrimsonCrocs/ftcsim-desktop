@@ -1,0 +1,15 @@
+node_modules/
+.env*
+.DS_Store
+*.log
+*.tsbuildinfo
+coverage/
+desktop/build/
+desktop/dist/
+desktop/.cache/
+services/java-runner/.runtime/
+public/vendor/monaco/
+public/vendor/occt-import-js/
+public/cad-import-worker.js
+.gradle/
+local.properties

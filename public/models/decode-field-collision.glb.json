@@ -1,0 +1,79 @@
+{
+  "input": "DECODE™ presented by RTX Full Field - am-5700_Full.step",
+  "inputSha256": "63e8cd502a177743382a4fcaef80b504faf2ab476c73e47aafc09e13ada75d58",
+  "output": "decode-field-collision.glb",
+  "outputBytes": 172020,
+  "sourceUnits": "metres",
+  "tessellationUnits": "millimetres",
+  "outputUnits": "metres",
+  "triangulation": {
+    "linearDeflectionMillimetres": 2.5,
+    "angularDeflectionRadians": 0.45
+  },
+  "optimization": {
+    "tool": "gltfpack",
+    "simplifyRatio": 0.008,
+    "simplificationError": 0.012,
+    "permissive": true
+  },
+  "material": {
+    "source": "STEP"
+  },
+  "assetPack": "decode-2025-2026@1",
+  "coordinateTransform": {
+    "centered": false,
+    "rotateXDegrees": -90
+  },
+  "sceneFilter": {
+    "includedNodeNameSubstrings": [
+      "Ramp Assembly Red",
+      "Ramp Assembly Blue",
+      "OBELISK"
+    ],
+    "excludedNodeNameSubstrings": [],
+    "excludedMeshNameSubstrings": [],
+    "excludedNodes": [],
+    "omittedNodes": [
+      "Artifact Triple <8>",
+      "Artifact Triple <7>",
+      "Artifact Triple <6>",
+      "Artifact Triple <2>",
+      "Artifact Triple <3>",
+      "Artifact Triple <5>",
+      "Artifact Triple <1>",
+      "Artifact Triple <4>",
+      "Taped Field <1>"
+    ],
+    "excludedMeshes": []
+  },
+  "statistics": {
+    "triangulated": {
+      "meshes": 373,
+      "vertices": 776624,
+      "triangles": 759052
+    },
+    "output": {
+      "meshes": 1,
+      "primitives": 12,
+      "vertices": 9227,
+      "triangles": 9030
+    }
+  },
+  "bounds": {
+    "min": [
+      -1.82714939844056,
+      -0.09266888639543844,
+      -0.018723859254345002
+    ],
+    "max": [
+      1.8271493984405303,
+      2.0775503733168255,
+      1.3652499940606448
+    ],
+    "size": [
+      3.6542987968810903,
+      2.170219259712264,
+      1.38397385331499
+    ]
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "family": "tag36h11",
+  "blackTagWidthMeters": 0.08255,
+  "image": {
+    "width": 512,
+    "height": 512,
+    "format": "PNG grayscale; exact 8x8 printed tag raster, no external white quiet-zone module; bit value 1 is white and bit value 0 plus tag border are black"
+  },
+  "source": {
+    "url": "https://github.com/AprilRobotics/apriltag/blob/master/tag36h11.c",
+    "sha256": "38ff6e308067eb32ccf624e9cc5e7a75b45ad82b3cf9f80980cb86ebaa88512b",
+    "pixelPolaritySource": "https://github.com/AprilRobotics/apriltag/blob/master/apriltag.c#L1359-L1381",
+    "license": "BSD-2-Clause; source attribution and disclaimer recorded in docs/BIOBUZZ_SOURCES.md"
+  },
+  "tags": [
+    {
+      "id": 30,
+      "file": "/textures/biobuzz/tag36h11-030.png",
+      "bytes": 1078,
+      "sha256": "902e36789f6523870cbdd2faa27d423437e59ff8168dd0516916931b8b956dba",
+      "codewordHex": "0x0e2cfda160"
+    },
+    {
+      "id": 31,
+      "file": "/textures/biobuzz/tag36h11-031.png",
+      "bytes": 1161,
+      "sha256": "a61fc84d0cf91d2e4adf0269a07f88a57b9becefca2c1ee4a28cf149b6c8e719",
+      "codewordHex": "0x02ff497c63"
+    },
+    {
+      "id": 32,
+      "file": "/textures/biobuzz/tag36h11-032.png",
+      "bytes": 1003,
+      "sha256": "b0ea03a12b4cf01d1f56fb9b3bcb6bc3b4bdc24583f9d8bc41b9e1212188abde",
+      "codewordHex": "0x047240671b"
+    },
+    {
+      "id": 33,
+      "file": "/textures/biobuzz/tag36h11-033.png",
+      "bytes": 1150,
+      "sha256": "197d59a5403116498a2ac6187777e30cc3c975db4b885f742ca5826715778c43",
+      "codewordHex": "0x05047a2e55"
+    },
+    {
+      "id": 34,
+      "file": "/textures/biobuzz/tag36h11-034.png",
+      "bytes": 1125,
+      "sha256": "2456bc3de4fa1df4cc5a1bb84af851c0e4a4c4dcc56942e5a02b5d3dec58b124",
+      "codewordHex": "0x0635ca87c7"
+    },
+    {
+      "id": 35,
+      "file": "/textures/biobuzz/tag36h11-035.png",
+      "bytes": 1004,
+      "sha256": "08cb7412c95371b86d727099c10a334ed8698a9c42925837bb812fbfdd3b5ef6",
+      "codewordHex": "0x0691254166"
+    },
+    {
+      "id": 36,
+      "file": "/textures/biobuzz/tag36h11-036.png",
+      "bytes": 1074,
+      "sha256": "1401b048c7cad275fa27003e8468a5136b60896629dd2cc1a88eae9b15cd5d5b",
+      "codewordHex": "0x068f43d94a"
+    },
+    {
+      "id": 37,
+      "file": "/textures/biobuzz/tag36h11-037.png",
+      "bytes": 1111,
+      "sha256": "5208b87c3d2a4d3ba620747aa055098180ca2f5663d81feeb6255c7792055f29",
+      "codewordHex": "0x06ef24bdb6"
+    },
+    {
+      "id": 38,
+      "file": "/textures/biobuzz/tag36h11-038.png",
+      "bytes": 1078,
+      "sha256": "b7d457c54d3cf3ae7f75f030df3f7794d3896809befe7a1e9cec5cc698d30efa",
+      "codewordHex": "0x08cdd8f886"
+    },
+    {
+      "id": 39,
+      "file": "/textures/biobuzz/tag36h11-039.png",
+      "bytes": 1136,
+      "sha256": "4bf0d7a1cb4d59e04f8c904d4f5d1042e72213fae1d1315bfcbe071434bba09f",
+      "codewordHex": "0x09de96b718"
+    },
+    {
+      "id": 40,
+      "file": "/textures/biobuzz/tag36h11-040.png",
+      "bytes": 1122,
+      "sha256": "d563be7768c107c7a5053520c522437e1d0663d98bc2cd0222a202d65bbe1664",
+      "codewordHex": "0x0aff6e5a8a"
+    },
+    {
+      "id": 41,
+      "file": "/textures/biobuzz/tag36h11-041.png",
+      "bytes": 1105,
+      "sha256": "36ccc6f2543096cba05ce89a596e00091eaca5af0f144b7b8d00ae3df8569c01",
+      "codewordHex": "0x0bae46f029"
+    },
+    {
+      "id": 42,
+      "file": "/textures/biobuzz/tag36h11-042.png",
+      "bytes": 1115,
+      "sha256": "b0f0c5a22504acb15da0d92a82a6cdd7d5df3a7c08d30b1ab2da338b74dd498b",
+      "codewordHex": "0x0d225b6d59"
+    },
+    {
+      "id": 43,
+      "file": "/textures/biobuzz/tag36h11-043.png",
+      "bytes": 1114,
+      "sha256": "3e42afd105159118af27e6563c161695338b4e6fc1122a7646882f408b3dfcd7",
+      "codewordHex": "0x0df8ba8c01"
+    },
+    {
+      "id": 44,
+      "file": "/textures/biobuzz/tag36h11-044.png",
+      "bytes": 1122,
+      "sha256": "6ba3326c81c22c8d8b680f3d01da2f17cc6a26abfe7618013ed55e31a7bc074d",
+      "codewordHex": "0x0e3744a22f"
+    },
+    {
+      "id": 45,
+      "file": "/textures/biobuzz/tag36h11-045.png",
+      "bytes": 1135,
+      "sha256": "87446adab237759722b21134b57f4737c3b8c284f5ca9ff89efdb05af8a5238d",
+      "codewordHex": "0x0fbb59375d"
+    }
+  ]
+}

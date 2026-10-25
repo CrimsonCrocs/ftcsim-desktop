@@ -1,0 +1,30 @@
+import java.text.SimpleDateFormat
+
+apply plugin: 'com.android.library'
+
+def androidCompileSdk = providers.gradleProperty('androidCompileSdk').get().toInteger()
+def androidMinSdk = providers.gradleProperty('androidMinSdk').get().toInteger()
+def androidTargetSdk = providers.gradleProperty('androidTargetSdk').get().toInteger()
+
+android {
+    namespace = 'com.qualcomm.ftcrobotcontroller'
+    compileSdkVersion androidCompileSdk
+
+    defaultConfig {
+        minSdkVersion androidMinSdk
+        targetSdkVersion androidTargetSdk
+        buildConfigField 'String', 'APP_BUILD_TIME', '"' +
+            new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ", Locale.ROOT).format(new Date()) + '"'
+    }
+
+    buildFeatures {
+        buildConfig = true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+apply from: '../build.dependencies.gradle'

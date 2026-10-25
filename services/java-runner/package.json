@@ -1,0 +1,20 @@
+{
+  "name": "@ftc-studio/java-runner",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@ftc-studio/opmode-protocol": "workspace:*",
+    "fflate": "0.8.3"
+  },
+  "scripts": {
+    "dev": "bun --watch src/index.ts",
+    "start": "bun src/index.ts",
+    "android:install": "bun scripts/install-android-platform.ts",
+    "ftc-sdk:install": "bun scripts/install-ftc-sdk.ts",
+    "kotlin:install": "bun scripts/install-kotlin.ts",
+    "toolchains:install": "bun run android:install && bun run ftc-sdk:install && bun run kotlin:install",
+    "test": "bun test",
+    "check": "bun run toolchains:install && bun test && bun build src/index.ts --target=bun --outdir=dist"
+  }
+}

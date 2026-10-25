@@ -1,0 +1,143 @@
+{
+  "input": "biobuzz-field.step",
+  "inputSha256": "05b35961c7df847741031f00fda73ddd068537f809e92a11b1cd59a94bcc8331",
+  "output": {
+    "path": "/models/biobuzz/field-static.glb",
+    "bytes": 24253260,
+    "sha256": "b8d8b7a3b28ba4fc69d26a0ada5556b6cc52a4db1a92ffae92f47419a47c9b64"
+  },
+  "outputBytes": 193436984,
+  "sourceUnits": "metres",
+  "tessellationUnits": "millimetres",
+  "outputUnits": "metres",
+  "triangulation": {
+    "linearDeflectionMillimetres": 0.2,
+    "angularDeflectionRadians": 0.2
+  },
+  "optimization": {
+    "tool": "gltfpack",
+    "simplifyRatio": 0.15,
+    "simplificationError": 0.005
+  },
+  "material": {
+    "source": "named-profile",
+    "profile": "biobuzz"
+  },
+  "assetPack": null,
+  "coordinateTransform": {
+    "centered": false,
+    "rotateXDegrees": 0
+  },
+  "sceneFilter": {
+    "includedNodeNameSubstrings": [],
+    "excludedNodeNameSubstrings": [
+      "am-5853-Red",
+      "am-5853-Blue",
+      "am-5851: Pollen",
+      "am-5852: Red Nectar",
+      "am-5852: Blue Nectar"
+    ],
+    "excludedMeshNameSubstrings": [],
+    "excludedNodes": [
+      "am-5851: Pollen",
+      "am-5851: Pollen",
+      "am-5851: Pollen",
+      "am-5851: Pollen",
+      "am-5852: Blue Nectar",
+      "am-5852: Blue Nectar",
+      "am-5851: Pollen",
+      "am-5852: Red Nectar",
+      "am-5851: Pollen",
+      "am-5852: Red Nectar",
+      "am-5851: Pollen",
+      "am-5852: Blue Nectar",
+      "am-5851: Pollen",
+      "am-5851: Pollen",
+      "am-5852: Red Nectar",
+      "am-5852: Blue Nectar",
+      "am-5851: Pollen",
+      "am-5851: Pollen",
+      "am-5851: Pollen",
+      "am-5851: Pollen",
+      "am-5851: Pollen",
+      "am-5851: Pollen",
+      "am-5852: Red Nectar",
+      "am-5851: Pollen",
+      "am-5851: Pollen",
+      "am-5851: Pollen",
+      "am-5851: Pollen",
+      "am-5851: Pollen",
+      "am-5851: Pollen",
+      "am-5851: Pollen",
+      "am-5851: Pollen",
+      "am-5852: Red Nectar",
+      "am-5851: Pollen",
+      "am-5851: Pollen",
+      "am-5852: Red Nectar",
+      "am-5851: Pollen",
+      "am-5852: Blue Nectar",
+      "am-5851: Pollen",
+      "am-5852: Blue Nectar",
+      "am-5851: Pollen",
+      "am-5851: Pollen",
+      "am-5851: Pollen",
+      "am-5851: Pollen",
+      "am-5851: Pollen",
+      "am-5851: Pollen",
+      "am-5852: Blue Nectar",
+      "am-5851: Pollen",
+      "am-5851: Pollen",
+      "am-5851: Pollen",
+      "am-5851: Pollen",
+      "am-5852: Red Nectar",
+      "am-5852: Red Nectar",
+      "am-5851: Pollen",
+      "am-5852: Blue Nectar",
+      "am-5851: Pollen",
+      "am-5851: Pollen",
+      "am-5853-Blue Hive <1>",
+      "am-5853-Red Hive <1>"
+    ],
+    "omittedNodes": [],
+    "excludedMeshes": []
+  },
+  "statistics": {
+    "triangulated": {
+      "meshes": 591,
+      "vertices": 5166184,
+      "triangles": 7858386
+    },
+    "output": {
+      "meshes": 628,
+      "primitives": 1182,
+      "vertices": 10332368,
+      "triangles": 15716772
+    }
+  },
+  "bounds": {
+    "min": [
+      -3.191510000081141,
+      -0.043048287368362,
+      -1.823561929237417
+    ],
+    "max": [
+      3.1915099999188605,
+      1.1254729150531877,
+      1.8235619292374567
+    ],
+    "size": [
+      6.383020000000002,
+      1.1685212024215497,
+      3.647123858474874
+    ]
+  },
+  "visualMaterials": {
+    "revision": "biobuzz-appearance-v2",
+    "source": "User-supplied BIOBUZZ season-animation reference, 2026-09-17",
+    "profile": "tools/cad-convert/biobuzz-material-profile.mjs",
+    "status": "Visual approximation; optical properties are not physically calibrated",
+    "clearPanels": "FTC Field Side Glass; Hive Goal Top, Back and Bottom Skin",
+    "floor": "Neutral grey foam tiles, matte roughness 1; original tile geometry retained"
+  },
+  "role": "visual only; collision assets are independently preserved"
+}

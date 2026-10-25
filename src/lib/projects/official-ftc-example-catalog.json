@@ -1,0 +1,1020 @@
+[
+  {
+    "id": "official-blocks:BasicOmniOpMode",
+    "name": "BasicOmniOpMode",
+    "language": "blocks",
+    "kind": "teleop",
+    "changes": [],
+    "configurable": true
+  },
+  {
+    "id": "official-blocks:BasicPOVDrive",
+    "name": "BasicPOVDrive",
+    "language": "blocks",
+    "kind": "teleop",
+    "changes": [],
+    "configurable": true
+  },
+  {
+    "id": "official-blocks:BasicTankDrive",
+    "name": "BasicTankDrive",
+    "language": "blocks",
+    "kind": "teleop",
+    "changes": [],
+    "configurable": true
+  },
+  {
+    "id": "official-blocks:ConceptAprilTag",
+    "name": "ConceptAprilTag",
+    "language": "blocks",
+    "kind": "teleop",
+    "changes": [],
+    "configurable": true
+  },
+  {
+    "id": "official-blocks:ConceptAprilTagEasy",
+    "name": "ConceptAprilTagEasy",
+    "language": "blocks",
+    "kind": "teleop",
+    "changes": [],
+    "configurable": true
+  },
+  {
+    "id": "official-blocks:ConceptAprilTagLocalization",
+    "name": "ConceptAprilTagLocalization",
+    "language": "blocks",
+    "kind": "teleop",
+    "changes": [],
+    "configurable": true
+  },
+  {
+    "id": "official-blocks:ConceptAprilTagOptimizeExposure",
+    "name": "ConceptAprilTagOptimizeExposure",
+    "language": "blocks",
+    "kind": "teleop",
+    "changes": [],
+    "configurable": true
+  },
+  {
+    "id": "official-blocks:ConceptAprilTagSwitchableCameras",
+    "name": "ConceptAprilTagSwitchableCameras",
+    "language": "blocks",
+    "kind": "teleop",
+    "changes": [
+      "Add second webcam."
+    ],
+    "configurable": true
+  },
+  {
+    "id": "official-blocks:ConceptBlackboard",
+    "name": "ConceptBlackboard",
+    "language": "blocks",
+    "kind": "teleop",
+    "changes": [],
+    "configurable": true
+  },
+  {
+    "id": "official-blocks:ConceptDeviceInteraction",
+    "name": "ConceptDeviceInteraction",
+    "language": "blocks",
+    "kind": "teleop",
+    "changes": [
+      "Add REV Color/Range Sensor to Robot Settings \u2192 Hub Configuration."
+    ],
+    "configurable": false
+  },
+  {
+    "id": "official-blocks:ConceptGamepadEdgeDetection",
+    "name": "ConceptGamepadEdgeDetection",
+    "language": "blocks",
+    "kind": "teleop",
+    "changes": [],
+    "configurable": true
+  },
+  {
+    "id": "official-blocks:ConceptGamepadLed",
+    "name": "ConceptGamepadLed",
+    "language": "blocks",
+    "kind": "teleop",
+    "changes": [
+      "This SDK feature needs Android or gamepad capabilities beyond the simulated robot."
+    ],
+    "configurable": false
+  },
+  {
+    "id": "official-blocks:ConceptGamepadRumble",
+    "name": "ConceptGamepadRumble",
+    "language": "blocks",
+    "kind": "teleop",
+    "changes": [
+      "This SDK feature needs Android or gamepad capabilities beyond the simulated robot."
+    ],
+    "configurable": false
+  },
+  {
+    "id": "official-blocks:ConceptGamepadTouchpad",
+    "name": "ConceptGamepadTouchpad",
+    "language": "blocks",
+    "kind": "teleop",
+    "changes": [
+      "This SDK feature needs Android or gamepad capabilities beyond the simulated robot."
+    ],
+    "configurable": false
+  },
+  {
+    "id": "official-blocks:ConceptLEDStick",
+    "name": "ConceptLEDStick",
+    "language": "blocks",
+    "kind": "teleop",
+    "changes": [
+      "Add SparkFun LED Stick to Robot Settings \u2192 Hub Configuration."
+    ],
+    "configurable": false
+  },
+  {
+    "id": "official-blocks:ConceptRevLED",
+    "name": "ConceptRevLED",
+    "language": "blocks",
+    "kind": "teleop",
+    "changes": [
+      "Add green LED to Robot Settings \u2192 Hub Configuration.",
+      "Add red LED to Robot Settings \u2192 Hub Configuration."
+    ],
+    "configurable": false
+  },
+  {
+    "id": "official-blocks:ConceptRevSPARKMini",
+    "name": "ConceptRevSPARKMini",
+    "language": "blocks",
+    "kind": "teleop",
+    "changes": [
+      "REV SPARK Mini controller behavior is not modeled in the simulator."
+    ],
+    "configurable": false
+  },
+  {
+    "id": "official-blocks:ConceptSmoothServo",
+    "name": "ConceptSmoothServo",
+    "language": "blocks",
+    "kind": "teleop",
+    "changes": [],
+    "configurable": true
+  },
+  {
+    "id": "official-blocks:ConceptTextToSpeech",
+    "name": "ConceptTextToSpeech",
+    "language": "blocks",
+    "kind": "teleop",
+    "changes": [
+      "This SDK feature needs Android or gamepad capabilities beyond the simulated robot."
+    ],
+    "configurable": false
+  },
+  {
+    "id": "official-blocks:ConceptVisionColorLocator_Circle",
+    "name": "ConceptVisionColorLocator_Circle",
+    "language": "blocks",
+    "kind": "teleop",
+    "changes": [
+      "FTC SDK color blob vision processing is not modeled by the FTCSim camera."
+    ],
+    "configurable": false
+  },
+  {
+    "id": "official-blocks:ConceptVisionColorLocator_Rectangle",
+    "name": "ConceptVisionColorLocator_Rectangle",
+    "language": "blocks",
+    "kind": "teleop",
+    "changes": [
+      "FTC SDK color blob vision processing is not modeled by the FTCSim camera."
+    ],
+    "configurable": false
+  },
+  {
+    "id": "official-blocks:ConceptVisionColorSensor",
+    "name": "ConceptVisionColorSensor",
+    "language": "blocks",
+    "kind": "teleop",
+    "changes": [
+      "FTC SDK color vision processing is not modeled by the FTCSim camera."
+    ],
+    "configurable": false
+  },
+  {
+    "id": "official-blocks:RevBlinkinLed",
+    "name": "RevBlinkinLed",
+    "language": "blocks",
+    "kind": "teleop",
+    "changes": [
+      "Add REV Blinkin LED driver to Robot Settings \u2192 Hub Configuration."
+    ],
+    "configurable": false
+  },
+  {
+    "id": "official-blocks:RobotAutoDriveByEncoder",
+    "name": "RobotAutoDriveByEncoder",
+    "language": "blocks",
+    "kind": "autonomous",
+    "changes": [],
+    "configurable": true
+  },
+  {
+    "id": "official-blocks:RobotAutoDriveByGyro",
+    "name": "RobotAutoDriveByGyro",
+    "language": "blocks",
+    "kind": "autonomous",
+    "changes": [],
+    "configurable": true
+  },
+  {
+    "id": "official-blocks:RobotAutoDriveByTime",
+    "name": "RobotAutoDriveByTime",
+    "language": "blocks",
+    "kind": "autonomous",
+    "changes": [],
+    "configurable": true
+  },
+  {
+    "id": "official-blocks:RobotAutoDriveToAprilTagOmni",
+    "name": "RobotAutoDriveToAprilTagOmni",
+    "language": "blocks",
+    "kind": "teleop",
+    "changes": [],
+    "configurable": true
+  },
+  {
+    "id": "official-blocks:RobotAutoDriveToAprilTagTank",
+    "name": "RobotAutoDriveToAprilTagTank",
+    "language": "blocks",
+    "kind": "teleop",
+    "changes": [],
+    "configurable": true
+  },
+  {
+    "id": "official-blocks:RobotAutoDriveToLine",
+    "name": "RobotAutoDriveToLine",
+    "language": "blocks",
+    "kind": "autonomous",
+    "changes": [],
+    "configurable": true
+  },
+  {
+    "id": "official-blocks:RobotTeleopMecanumFieldRelativeDrive",
+    "name": "RobotTeleopMecanumFieldRelativeDrive",
+    "language": "blocks",
+    "kind": "teleop",
+    "changes": [],
+    "configurable": true
+  },
+  {
+    "id": "official-blocks:SensorAndyMarkIMUNonOrthogonal",
+    "name": "SensorAndyMarkIMUNonOrthogonal",
+    "language": "blocks",
+    "kind": "teleop",
+    "changes": [
+      "Replace the default virtual IMU with the sensor model used by this sample."
+    ],
+    "configurable": false
+  },
+  {
+    "id": "official-blocks:SensorAndyMarkIMUOrthogonal",
+    "name": "SensorAndyMarkIMUOrthogonal",
+    "language": "blocks",
+    "kind": "teleop",
+    "changes": [
+      "Replace the default virtual IMU with the sensor model used by this sample."
+    ],
+    "configurable": false
+  },
+  {
+    "id": "official-blocks:SensorColor",
+    "name": "SensorColor",
+    "language": "blocks",
+    "kind": "teleop",
+    "changes": [],
+    "configurable": true
+  },
+  {
+    "id": "official-blocks:SensorDigitalTouch",
+    "name": "SensorDigitalTouch",
+    "language": "blocks",
+    "kind": "teleop",
+    "changes": [],
+    "configurable": true
+  },
+  {
+    "id": "official-blocks:SensorDistanceSensor",
+    "name": "SensorDistanceSensor",
+    "language": "blocks",
+    "kind": "teleop",
+    "changes": [],
+    "configurable": true
+  },
+  {
+    "id": "official-blocks:SensorGoBildaPinpoint",
+    "name": "SensorGoBildaPinpoint",
+    "language": "blocks",
+    "kind": "teleop",
+    "changes": [],
+    "configurable": true
+  },
+  {
+    "id": "official-blocks:SensorHubIMUNonOrthogonal",
+    "name": "SensorHubIMUNonOrthogonal",
+    "language": "blocks",
+    "kind": "teleop",
+    "changes": [],
+    "configurable": true
+  },
+  {
+    "id": "official-blocks:SensorHubIMUOrthogonal",
+    "name": "SensorHubIMUOrthogonal",
+    "language": "blocks",
+    "kind": "teleop",
+    "changes": [],
+    "configurable": true
+  },
+  {
+    "id": "official-blocks:SensorHuskyLens",
+    "name": "SensorHuskyLens",
+    "language": "blocks",
+    "kind": "teleop",
+    "changes": [
+      "Add HuskyLens camera to Robot Settings \u2192 Hub Configuration."
+    ],
+    "configurable": false
+  },
+  {
+    "id": "official-blocks:SensorLimelight3A",
+    "name": "SensorLimelight3A",
+    "language": "blocks",
+    "kind": "teleop",
+    "changes": [
+      "Add Limelight 3A to Robot Settings \u2192 Hub Configuration."
+    ],
+    "configurable": false
+  },
+  {
+    "id": "official-blocks:SensorOctoQuad",
+    "name": "SensorOctoQuad",
+    "language": "blocks",
+    "kind": "teleop",
+    "changes": [
+      "Add OctoQuad to Robot Settings \u2192 Hub Configuration."
+    ],
+    "configurable": false
+  },
+  {
+    "id": "official-blocks:SensorOctoQuadLocalization",
+    "name": "SensorOctoQuadLocalization",
+    "language": "blocks",
+    "kind": "teleop",
+    "changes": [
+      "Add OctoQuad to Robot Settings \u2192 Hub Configuration."
+    ],
+    "configurable": false
+  },
+  {
+    "id": "official-blocks:SensorREVColorDistance",
+    "name": "SensorREVColorDistance",
+    "language": "blocks",
+    "kind": "teleop",
+    "changes": [
+      "Add REV Color/Range Sensor to Robot Settings \u2192 Hub Configuration."
+    ],
+    "configurable": false
+  },
+  {
+    "id": "official-blocks:SensorRev9AxisIMUNonOrthogonal",
+    "name": "SensorRev9AxisIMUNonOrthogonal",
+    "language": "blocks",
+    "kind": "teleop",
+    "changes": [
+      "Replace the default virtual IMU with the sensor model used by this sample."
+    ],
+    "configurable": false
+  },
+  {
+    "id": "official-blocks:SensorRev9AxisIMUOrthogonal",
+    "name": "SensorRev9AxisIMUOrthogonal",
+    "language": "blocks",
+    "kind": "teleop",
+    "changes": [
+      "Replace the default virtual IMU with the sensor model used by this sample."
+    ],
+    "configurable": false
+  },
+  {
+    "id": "official-blocks:SensorSparkFunOTOS",
+    "name": "SensorSparkFunOTOS",
+    "language": "blocks",
+    "kind": "teleop",
+    "changes": [
+      "Add SparkFun OTOS to Robot Settings \u2192 Hub Configuration."
+    ],
+    "configurable": false
+  },
+  {
+    "id": "official-blocks:SensorTouch",
+    "name": "SensorTouch",
+    "language": "blocks",
+    "kind": "teleop",
+    "changes": [
+      "Add REV touch sensor to Robot Settings \u2192 Hub Configuration."
+    ],
+    "configurable": false
+  },
+  {
+    "id": "official-blocks:UtilityCameraFrameCapture",
+    "name": "UtilityCameraFrameCapture",
+    "language": "blocks",
+    "kind": "teleop",
+    "changes": [
+      "This SDK feature needs Android or gamepad capabilities beyond the simulated robot."
+    ],
+    "configurable": false
+  },
+  {
+    "id": "official-java:BasicOmniOpMode_Linear",
+    "name": "BasicOmniOpMode_Linear",
+    "language": "java",
+    "kind": "teleop",
+    "changes": [],
+    "configurable": true
+  },
+  {
+    "id": "official-java:BasicOpMode_Iterative",
+    "name": "BasicOpMode_Iterative",
+    "language": "java",
+    "kind": "teleop",
+    "changes": [],
+    "configurable": true
+  },
+  {
+    "id": "official-java:BasicOpMode_Linear",
+    "name": "BasicOpMode_Linear",
+    "language": "java",
+    "kind": "teleop",
+    "changes": [],
+    "configurable": true
+  },
+  {
+    "id": "official-java:ConceptAprilTag",
+    "name": "ConceptAprilTag",
+    "language": "java",
+    "kind": "teleop",
+    "changes": [],
+    "configurable": true
+  },
+  {
+    "id": "official-java:ConceptAprilTagEasy",
+    "name": "ConceptAprilTagEasy",
+    "language": "java",
+    "kind": "teleop",
+    "changes": [],
+    "configurable": true
+  },
+  {
+    "id": "official-java:ConceptAprilTagLocalization",
+    "name": "ConceptAprilTagLocalization",
+    "language": "java",
+    "kind": "teleop",
+    "changes": [],
+    "configurable": true
+  },
+  {
+    "id": "official-java:ConceptAprilTagMultiPortal",
+    "name": "ConceptAprilTagMultiPortal",
+    "language": "java",
+    "kind": "teleop",
+    "changes": [
+      "Add second webcam."
+    ],
+    "configurable": true
+  },
+  {
+    "id": "official-java:ConceptAprilTagOptimizeExposure",
+    "name": "ConceptAprilTagOptimizeExposure",
+    "language": "java",
+    "kind": "teleop",
+    "changes": [],
+    "configurable": true
+  },
+  {
+    "id": "official-java:ConceptAprilTagSwitchableCameras",
+    "name": "ConceptAprilTagSwitchableCameras",
+    "language": "java",
+    "kind": "teleop",
+    "changes": [
+      "Add second webcam."
+    ],
+    "configurable": true
+  },
+  {
+    "id": "official-java:ConceptBlackboard",
+    "name": "ConceptBlackboard",
+    "language": "java",
+    "kind": "teleop",
+    "changes": [],
+    "configurable": true
+  },
+  {
+    "id": "official-java:ConceptExploringIMUOrientation",
+    "name": "ConceptExploringIMUOrientation",
+    "language": "java",
+    "kind": "teleop",
+    "changes": [],
+    "configurable": true
+  },
+  {
+    "id": "official-java:ConceptExternalHardwareClass",
+    "name": "ConceptExternalHardwareClass",
+    "language": "java",
+    "kind": "teleop",
+    "changes": [],
+    "configurable": true
+  },
+  {
+    "id": "official-java:ConceptGamepadEdgeDetection",
+    "name": "ConceptGamepadEdgeDetection",
+    "language": "java",
+    "kind": "teleop",
+    "changes": [],
+    "configurable": true
+  },
+  {
+    "id": "official-java:ConceptGamepadRumble",
+    "name": "ConceptGamepadRumble",
+    "language": "java",
+    "kind": "teleop",
+    "changes": [
+      "This SDK feature needs Android or gamepad capabilities beyond the simulated robot."
+    ],
+    "configurable": false
+  },
+  {
+    "id": "official-java:ConceptGamepadTouchpad",
+    "name": "ConceptGamepadTouchpad",
+    "language": "java",
+    "kind": "teleop",
+    "changes": [
+      "This SDK feature needs Android or gamepad capabilities beyond the simulated robot."
+    ],
+    "configurable": false
+  },
+  {
+    "id": "official-java:ConceptLEDStick",
+    "name": "ConceptLEDStick",
+    "language": "java",
+    "kind": "teleop",
+    "changes": [
+      "Add SparkFun LED Stick to Robot Settings \u2192 Hub Configuration."
+    ],
+    "configurable": false
+  },
+  {
+    "id": "official-java:ConceptMotorBulkRead",
+    "name": "ConceptMotorBulkRead",
+    "language": "java",
+    "kind": "teleop",
+    "changes": [
+      "Hub bulk-read behavior is not modeled in the simulator."
+    ],
+    "configurable": false
+  },
+  {
+    "id": "official-java:ConceptNullOp",
+    "name": "ConceptNullOp",
+    "language": "java",
+    "kind": "teleop",
+    "changes": [],
+    "configurable": true
+  },
+  {
+    "id": "official-java:ConceptRampMotorSpeed",
+    "name": "ConceptRampMotorSpeed",
+    "language": "java",
+    "kind": "teleop",
+    "changes": [],
+    "configurable": true
+  },
+  {
+    "id": "official-java:ConceptRevLED",
+    "name": "ConceptRevLED",
+    "language": "java",
+    "kind": "teleop",
+    "changes": [
+      "Add green LED to Robot Settings \u2192 Hub Configuration.",
+      "Add red LED to Robot Settings \u2192 Hub Configuration."
+    ],
+    "configurable": false
+  },
+  {
+    "id": "official-java:ConceptRevSPARKMini",
+    "name": "ConceptRevSPARKMini",
+    "language": "java",
+    "kind": "teleop",
+    "changes": [
+      "REV SPARK Mini controller behavior is not modeled in the simulator."
+    ],
+    "configurable": false
+  },
+  {
+    "id": "official-java:ConceptScanServo",
+    "name": "ConceptScanServo",
+    "language": "java",
+    "kind": "teleop",
+    "changes": [],
+    "configurable": true
+  },
+  {
+    "id": "official-java:ConceptSoundsASJava",
+    "name": "ConceptSoundsASJava",
+    "language": "java",
+    "kind": "teleop",
+    "changes": [
+      "This SDK feature needs Android or gamepad capabilities beyond the simulated robot."
+    ],
+    "configurable": false
+  },
+  {
+    "id": "official-java:ConceptSoundsOnBotJava",
+    "name": "ConceptSoundsOnBotJava",
+    "language": "java",
+    "kind": "teleop",
+    "changes": [
+      "This SDK feature needs Android or gamepad capabilities beyond the simulated robot."
+    ],
+    "configurable": false
+  },
+  {
+    "id": "official-java:ConceptSoundsSKYSTONE",
+    "name": "ConceptSoundsSKYSTONE",
+    "language": "java",
+    "kind": "teleop",
+    "changes": [
+      "This SDK feature needs Android or gamepad capabilities beyond the simulated robot."
+    ],
+    "configurable": false
+  },
+  {
+    "id": "official-java:ConceptTelemetry",
+    "name": "ConceptTelemetry",
+    "language": "java",
+    "kind": "teleop",
+    "changes": [],
+    "configurable": true
+  },
+  {
+    "id": "official-java:ConceptVisionColorLocator_Circle",
+    "name": "ConceptVisionColorLocator_Circle",
+    "language": "java",
+    "kind": "teleop",
+    "changes": [
+      "FTC SDK color blob vision processing is not modeled by the FTCSim camera."
+    ],
+    "configurable": false
+  },
+  {
+    "id": "official-java:ConceptVisionColorLocator_Rectangle",
+    "name": "ConceptVisionColorLocator_Rectangle",
+    "language": "java",
+    "kind": "teleop",
+    "changes": [
+      "FTC SDK color blob vision processing is not modeled by the FTCSim camera."
+    ],
+    "configurable": false
+  },
+  {
+    "id": "official-java:ConceptVisionColorSensor",
+    "name": "ConceptVisionColorSensor",
+    "language": "java",
+    "kind": "teleop",
+    "changes": [
+      "FTC SDK color vision processing is not modeled by the FTCSim camera."
+    ],
+    "configurable": false
+  },
+  {
+    "id": "official-java:RobotAutoDriveByEncoder_Linear",
+    "name": "RobotAutoDriveByEncoder_Linear",
+    "language": "java",
+    "kind": "autonomous",
+    "changes": [],
+    "configurable": true
+  },
+  {
+    "id": "official-java:RobotAutoDriveByGyro_Linear",
+    "name": "RobotAutoDriveByGyro_Linear",
+    "language": "java",
+    "kind": "autonomous",
+    "changes": [],
+    "configurable": true
+  },
+  {
+    "id": "official-java:RobotAutoDriveByTime_Linear",
+    "name": "RobotAutoDriveByTime_Linear",
+    "language": "java",
+    "kind": "autonomous",
+    "changes": [],
+    "configurable": true
+  },
+  {
+    "id": "official-java:RobotAutoDriveToAprilTagOmni",
+    "name": "RobotAutoDriveToAprilTagOmni",
+    "language": "java",
+    "kind": "teleop",
+    "changes": [],
+    "configurable": true
+  },
+  {
+    "id": "official-java:RobotAutoDriveToAprilTagTank",
+    "name": "RobotAutoDriveToAprilTagTank",
+    "language": "java",
+    "kind": "teleop",
+    "changes": [],
+    "configurable": true
+  },
+  {
+    "id": "official-java:RobotAutoDriveToLine_Linear",
+    "name": "RobotAutoDriveToLine_Linear",
+    "language": "java",
+    "kind": "autonomous",
+    "changes": [],
+    "configurable": true
+  },
+  {
+    "id": "official-java:RobotTeleopMecanumFieldRelativeDrive",
+    "name": "RobotTeleopMecanumFieldRelativeDrive",
+    "language": "java",
+    "kind": "teleop",
+    "changes": [],
+    "configurable": true
+  },
+  {
+    "id": "official-java:RobotTeleopPOV_Linear",
+    "name": "RobotTeleopPOV_Linear",
+    "language": "java",
+    "kind": "teleop",
+    "changes": [],
+    "configurable": true
+  },
+  {
+    "id": "official-java:RobotTeleopTank_Iterative",
+    "name": "RobotTeleopTank_Iterative",
+    "language": "java",
+    "kind": "teleop",
+    "changes": [],
+    "configurable": true
+  },
+  {
+    "id": "official-java:SampleRevBlinkinLedDriver",
+    "name": "SampleRevBlinkinLedDriver",
+    "language": "java",
+    "kind": "teleop",
+    "changes": [
+      "Add REV Blinkin LED driver to Robot Settings \u2192 Hub Configuration."
+    ],
+    "configurable": false
+  },
+  {
+    "id": "official-java:SensorAndyMarkIMUNonOrthogonal",
+    "name": "SensorAndyMarkIMUNonOrthogonal",
+    "language": "java",
+    "kind": "teleop",
+    "changes": [
+      "Replace the default virtual IMU with the sensor model used by this sample."
+    ],
+    "configurable": false
+  },
+  {
+    "id": "official-java:SensorAndyMarkIMUOrthogonal",
+    "name": "SensorAndyMarkIMUOrthogonal",
+    "language": "java",
+    "kind": "teleop",
+    "changes": [
+      "Replace the default virtual IMU with the sensor model used by this sample."
+    ],
+    "configurable": false
+  },
+  {
+    "id": "official-java:SensorAndyMarkTOF",
+    "name": "SensorAndyMarkTOF",
+    "language": "java",
+    "kind": "teleop",
+    "changes": [
+      "The simulator does not model the AndyMark ToF driver."
+    ],
+    "configurable": false
+  },
+  {
+    "id": "official-java:SensorBNO055IMU",
+    "name": "SensorBNO055IMU",
+    "language": "java",
+    "kind": "teleop",
+    "changes": [
+      "Replace the default virtual IMU with the sensor model used by this sample."
+    ],
+    "configurable": false
+  },
+  {
+    "id": "official-java:SensorBNO055IMUCalibration",
+    "name": "SensorBNO055IMUCalibration",
+    "language": "java",
+    "kind": "teleop",
+    "changes": [
+      "Replace the default virtual IMU with the sensor model used by this sample."
+    ],
+    "configurable": false
+  },
+  {
+    "id": "official-java:SensorColor",
+    "name": "SensorColor",
+    "language": "java",
+    "kind": "teleop",
+    "changes": [],
+    "configurable": true
+  },
+  {
+    "id": "official-java:SensorDigitalTouch",
+    "name": "SensorDigitalTouch",
+    "language": "java",
+    "kind": "teleop",
+    "changes": [],
+    "configurable": true
+  },
+  {
+    "id": "official-java:SensorGoBildaPinpoint",
+    "name": "SensorGoBildaPinpoint",
+    "language": "java",
+    "kind": "teleop",
+    "changes": [],
+    "configurable": true
+  },
+  {
+    "id": "official-java:SensorHuskyLens",
+    "name": "SensorHuskyLens",
+    "language": "java",
+    "kind": "teleop",
+    "changes": [
+      "Add HuskyLens camera to Robot Settings \u2192 Hub Configuration."
+    ],
+    "configurable": false
+  },
+  {
+    "id": "official-java:SensorIMUNonOrthogonal",
+    "name": "SensorIMUNonOrthogonal",
+    "language": "java",
+    "kind": "teleop",
+    "changes": [],
+    "configurable": true
+  },
+  {
+    "id": "official-java:SensorIMUOrthogonal",
+    "name": "SensorIMUOrthogonal",
+    "language": "java",
+    "kind": "teleop",
+    "changes": [],
+    "configurable": true
+  },
+  {
+    "id": "official-java:SensorKLNavxMicro",
+    "name": "SensorKLNavxMicro",
+    "language": "java",
+    "kind": "teleop",
+    "changes": [
+      "Add navX Micro to Robot Settings \u2192 Hub Configuration."
+    ],
+    "configurable": false
+  },
+  {
+    "id": "official-java:SensorLimelight3A",
+    "name": "SensorLimelight3A",
+    "language": "java",
+    "kind": "teleop",
+    "changes": [
+      "Add Limelight 3A to Robot Settings \u2192 Hub Configuration."
+    ],
+    "configurable": false
+  },
+  {
+    "id": "official-java:SensorMRColor",
+    "name": "SensorMRColor",
+    "language": "java",
+    "kind": "teleop",
+    "changes": [
+      "The simulator models a generic color sensor, not a Modern Robotics color sensor."
+    ],
+    "configurable": false
+  },
+  {
+    "id": "official-java:SensorMRGyro",
+    "name": "SensorMRGyro",
+    "language": "java",
+    "kind": "teleop",
+    "changes": [
+      "Add Modern Robotics gyro to Robot Settings \u2192 Hub Configuration."
+    ],
+    "configurable": false
+  },
+  {
+    "id": "official-java:SensorMROpticalDistance",
+    "name": "SensorMROpticalDistance",
+    "language": "java",
+    "kind": "teleop",
+    "changes": [
+      "Add optical distance sensor to Robot Settings \u2192 Hub Configuration."
+    ],
+    "configurable": false
+  },
+  {
+    "id": "official-java:SensorMRRangeSensor",
+    "name": "SensorMRRangeSensor",
+    "language": "java",
+    "kind": "teleop",
+    "changes": [
+      "Add Modern Robotics range sensor to Robot Settings \u2192 Hub Configuration."
+    ],
+    "configurable": false
+  },
+  {
+    "id": "official-java:SensorOctoQuad",
+    "name": "SensorOctoQuad",
+    "language": "java",
+    "kind": "teleop",
+    "changes": [
+      "Add OctoQuad to Robot Settings \u2192 Hub Configuration."
+    ],
+    "configurable": false
+  },
+  {
+    "id": "official-java:SensorOctoQuadAdv",
+    "name": "SensorOctoQuadAdv",
+    "language": "java",
+    "kind": "teleop",
+    "changes": [
+      "Add OctoQuad to Robot Settings \u2192 Hub Configuration."
+    ],
+    "configurable": false
+  },
+  {
+    "id": "official-java:SensorOctoQuadLocalization",
+    "name": "SensorOctoQuadLocalization",
+    "language": "java",
+    "kind": "teleop",
+    "changes": [
+      "Add OctoQuad to Robot Settings \u2192 Hub Configuration."
+    ],
+    "configurable": false
+  },
+  {
+    "id": "official-java:SensorREV2mDistance",
+    "name": "SensorREV2mDistance",
+    "language": "java",
+    "kind": "teleop",
+    "changes": [
+      "Replace the default distance sensor with a REV 2m Distance Sensor; FTCSim models only the generic distance interface."
+    ],
+    "configurable": false
+  },
+  {
+    "id": "official-java:SensorSparkFunOTOS",
+    "name": "SensorSparkFunOTOS",
+    "language": "java",
+    "kind": "teleop",
+    "changes": [
+      "Add SparkFun OTOS to Robot Settings \u2192 Hub Configuration."
+    ],
+    "configurable": false
+  },
+  {
+    "id": "official-java:SensorTouch",
+    "name": "SensorTouch",
+    "language": "java",
+    "kind": "teleop",
+    "changes": [
+      "Add REV touch sensor to Robot Settings \u2192 Hub Configuration."
+    ],
+    "configurable": false
+  },
+  {
+    "id": "official-java:UtilityCameraFrameCapture",
+    "name": "UtilityCameraFrameCapture",
+    "language": "java",
+    "kind": "teleop",
+    "changes": [
+      "This SDK feature needs Android or gamepad capabilities beyond the simulated robot."
+    ],
+    "configurable": false
+  },
+  {
+    "id": "official-java:UtilityOctoQuadConfigMenu",
+    "name": "UtilityOctoQuadConfigMenu",
+    "language": "java",
+    "kind": "teleop",
+    "changes": [
+      "Add OctoQuad to Robot Settings \u2192 Hub Configuration; FTCSim does not model its configuration menu."
+    ],
+    "configurable": false
+  }
+]

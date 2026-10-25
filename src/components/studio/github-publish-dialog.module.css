@@ -1,0 +1,49 @@
+.dialog {
+  width: min(440px, calc(100vw - 32px));
+  max-height: calc(100dvh - 32px);
+  margin: auto;
+  padding: 24px;
+  overflow: auto;
+  border: 1px solid var(--border, #43454a);
+  border-radius: 10px;
+  color: var(--text-primary, #dfe1e5);
+  background: var(--chrome, #2b2d30);
+}
+.dialog::backdrop { background: rgb(0 0 0 / 55%); }
+.dialog form, .dialog fieldset { display: grid; gap: 16px; }
+.dialog fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
+.dialog h2 { font-size: 18px; margin: 0; }
+.dialog label { display: grid; gap: 8px; font-size: 13px; }
+.dialog input, .dialog select { width: 100%; min-width: 0; padding: 8px 12px; border: 1px solid #5a5d63; border-radius: 6px; background: #1e1f22; color: inherit; font: inherit; }
+.dialog button { min-height: 36px; padding: 8px 12px; border: 1px solid #5a5d63; border-radius: 6px; background: transparent; color: inherit; font: inherit; cursor: pointer; }
+.dialog :focus-visible { outline: 2px solid #6b9bfa; outline-offset: 2px; }
+.dialog :disabled { opacity: .55; cursor: default; }
+.dialog footer { display: flex; justify-content: flex-end; gap: 8px; }
+.dialog .primary { background: #365daf; border-color: #5c85d6; }
+.hint { margin: 0; color: #b4b8c1; font-size: 12px; }
+.error { margin: 0; color: #ff9999; font-size: 13px; overflow-wrap: anywhere; }
+
+@media (max-width: 720px) {
+  .dialog {
+    width: calc(100vw - max(16px, env(safe-area-inset-left) + env(safe-area-inset-right)));
+    max-height: calc(100dvh - max(16px, env(safe-area-inset-top) + env(safe-area-inset-bottom)));
+    padding: 18px;
+    scroll-padding-block: 16px;
+  }
+
+  .dialog input,
+  .dialog select { min-height: 44px; }
+  .dialog button { min-height: 44px; }
+  .dialog footer { flex-wrap: wrap; }
+  .dialog footer button { flex: 1 1 120px; }
+}
+
+@media (max-height: 500px) and (orientation: landscape) {
+  .dialog {
+    max-height: calc(100dvh - max(16px, env(safe-area-inset-top) + env(safe-area-inset-bottom)));
+    padding: 16px;
+  }
+  .dialog input,
+  .dialog select,
+  .dialog button { min-height: 44px; }
+}

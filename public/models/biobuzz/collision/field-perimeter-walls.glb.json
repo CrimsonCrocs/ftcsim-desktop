@@ -1,0 +1,116 @@
+{
+  "assetPack": "biobuzz-2026-2027@1",
+  "source": {
+    "sha256": "05b35961c7df847741031f00fda73ddd068537f809e92a11b1cd59a94bcc8331",
+    "bytes": 35206208
+  },
+  "category": "perimeter-walls",
+  "role": "static trimesh collision; node names retain source part and interaction group",
+  "units": "metres",
+  "axes": "Y-up; source STEP frame",
+  "input": {
+    "bytes": 788972,
+    "sha256": "1bed51f0468a229dddf73eba61e3e754febf07996af11da08bcf011dfe89ea0c",
+    "triangles": 42680
+  },
+  "positionOnlyWelding": {
+    "toleranceMeters": 1e-7,
+    "sourceTriangles": 42680,
+    "retainedTriangles": 42680,
+    "sourceVertices": 43208,
+    "weldedVertices": 21096,
+    "degenerateTrianglesRemoved": 0,
+    "duplicateTrianglesRemoved": 0,
+    "renderNormalsAndUVs": "omitted; runtime physics recomputes contact normals"
+  },
+  "output": {
+    "url": "/models/biobuzz/collision/field-perimeter-walls.glb",
+    "bytes": 65968,
+    "sha256": "90d90f112a2d9f4fe4af98cd0f6af8fdfd4b827348d139b624e9e517a701ffcc",
+    "triangles": 4592
+  },
+  "nodeNames": [
+    "perimeter-walls/am-0481b FTC Perimeter RevB_BIOBUZZ Field Pins <1>/Perimeter Mid-Section Strap",
+    "perimeter-walls/am-0481b FTC Perimeter RevB_BIOBUZZ Field Pins <1>/Perimeter Mid-Section Strap#5",
+    "perimeter-walls/am-0481b FTC Perimeter RevB_BIOBUZZ Field Pins <1>/am-2580a: FIRST Tech Challenge Panel Link#9",
+    "perimeter-walls/am-0481b FTC Perimeter RevB_BIOBUZZ Field Pins <1>/am-2580a: FIRST Tech Challenge Panel Link#16",
+    "perimeter-walls/am-0481b FTC Perimeter RevB_BIOBUZZ Field Pins <1>/am-2580a: FIRST Tech Challenge Panel Link#17",
+    "perimeter-walls/am-0481b FTC Perimeter RevB_BIOBUZZ Field Pins <1>/am-2580a: FIRST Tech Challenge Panel Link#24",
+    "perimeter-walls/am-0481b FTC Perimeter RevB_BIOBUZZ Field Pins <1>/FTC Field Side Glass 11in#25",
+    "perimeter-walls/am-0481b FTC Perimeter RevB_BIOBUZZ Field Pins <1>/am-2580a: FIRST Tech Challenge Panel Link#34",
+    "perimeter-walls/am-0481b FTC Perimeter RevB_BIOBUZZ Field Pins <1>/am-2580a: FIRST Tech Challenge Panel Link#35",
+    "perimeter-walls/am-0481b FTC Perimeter RevB_BIOBUZZ Field Pins <1>/am-2580a: FIRST Tech Challenge Panel Link#36",
+    "perimeter-walls/am-0481b FTC Perimeter RevB_BIOBUZZ Field Pins <1>/FTC Field Side Glass 11in#48",
+    "perimeter-walls/am-0481b FTC Perimeter RevB_BIOBUZZ Field Pins <1>/am-2580a: FIRST Tech Challenge Panel Link#61",
+    "perimeter-walls/am-0481b FTC Perimeter RevB_BIOBUZZ Field Pins <1>/am-2580a: FIRST Tech Challenge Panel Link#63",
+    "perimeter-walls/am-0481b FTC Perimeter RevB_BIOBUZZ Field Pins <1>/FTC Field Side Glass 11in#80",
+    "perimeter-walls/am-0481b FTC Perimeter RevB_BIOBUZZ Field Pins <1>/am-2580a: FIRST Tech Challenge Panel Link#85",
+    "perimeter-walls/am-0481b FTC Perimeter RevB_BIOBUZZ Field Pins <1>/am-2580a: FIRST Tech Challenge Panel Link#86",
+    "perimeter-walls/am-0481b FTC Perimeter RevB_BIOBUZZ Field Pins <1>/am-2580a: FIRST Tech Challenge Panel Link#87",
+    "perimeter-walls/am-0481b FTC Perimeter RevB_BIOBUZZ Field Pins <1>/FTC Field Side Glass 11in#93",
+    "perimeter-walls/am-0481b FTC Perimeter RevB_BIOBUZZ Field Pins <1>/FTC Field Side Glass 11in#114",
+    "perimeter-walls/am-0481b FTC Perimeter RevB_BIOBUZZ Field Pins <1>/am-2580a: FIRST Tech Challenge Panel Link#123",
+    "perimeter-walls/am-0481b FTC Perimeter RevB_BIOBUZZ Field Pins <1>/am-2580a: FIRST Tech Challenge Panel Link#124",
+    "perimeter-walls/am-0481b FTC Perimeter RevB_BIOBUZZ Field Pins <1>/am-2580a: FIRST Tech Challenge Panel Link#128",
+    "perimeter-walls/am-0481b FTC Perimeter RevB_BIOBUZZ Field Pins <1>/FTC Field Side Glass 11in#135",
+    "perimeter-walls/am-0481b FTC Perimeter RevB_BIOBUZZ Field Pins <1>/am-2580a: FIRST Tech Challenge Panel Link#147",
+    "perimeter-walls/am-0481b FTC Perimeter RevB_BIOBUZZ Field Pins <1>/FTC Field Side Glass 11in#153",
+    "perimeter-walls/am-0481b FTC Perimeter RevB_BIOBUZZ Field Pins <1>/FTC Field Side Glass 11in#167",
+    "perimeter-walls/am-0481b FTC Perimeter RevB_BIOBUZZ Field Pins <1>/FTC Field Side Glass 11in#199",
+    "perimeter-walls/am-0481b FTC Perimeter RevB_BIOBUZZ Field Pins <1>/FTC Field Side Glass 11in#208",
+    "perimeter-walls/am-0481b FTC Perimeter RevB_BIOBUZZ Field Pins <1>/FTC Field Side Glass 11in#233",
+    "perimeter-walls/am-0481b FTC Perimeter RevB_BIOBUZZ Field Pins <1>/FTC Field Side Glass 11in#240"
+  ],
+  "topologyValidation": {
+    "comparison": "per named part",
+    "source": {
+      "namedParts": 30,
+      "eulerCharacteristic": -244,
+      "boundaryComponents": 0,
+      "boundaryEdges": 0,
+      "nonManifoldEdges": 0,
+      "maximumSampledOpenBoundaryDeviationMeters": 0
+    },
+    "output": {
+      "namedParts": 30,
+      "eulerCharacteristic": -244,
+      "boundaryComponents": 0,
+      "boundaryEdges": 0,
+      "nonManifoldEdges": 0,
+      "maximumSampledOpenBoundaryDeviationMeters": 0
+    },
+    "eulerBoundaryComponentsAndNonManifoldCountsMatch": true,
+    "boundaryProbeMethod": "directed source/output boundary segment endpoints and midpoints to opposite boundary segments",
+    "explicitRayOccupancyGrid": "not run",
+    "fallbackDiagnostic": null
+  },
+  "sourceParts": [
+    "FTC Field Side Glass 11in",
+    "Perimeter Mid-Section Strap",
+    "am-2580a: FIRST Tech Challenge Panel Link"
+  ],
+  "omissions": [
+    "187 pop rivet",
+    "Corner Hinge Rivet Field",
+    "Corner Hinge Rivet Field FLAT",
+    "NewStrapClip",
+    "am-2556a: FTC Rail with Rivet Holes",
+    "am-2579-Body: FIRST Tech Challenge Field Panel Fastener 1-5/16 in. Quick Release Pin",
+    "am-2579-Detent: FIRST Tech Challenge Field Panel Fastener 1-5/16 in. Quick Release Pin",
+    "am-2579-Ring: FIRST Tech Challenge Field Panel Fastener 1-5/16 in. Quick Release Pin"
+  ],
+  "simplification": {
+    "tool": "gltfpack 1.2.0",
+    "targetRatio": 0.08,
+    "requestedRelativeErrorLimit": 0.00014063840921643117,
+    "effectiveRelativeErrorLimit": 0.00007031920460821559,
+    "maximumSourcePrimitiveBoundsDiagonalMeters": 3.5552165499151824,
+    "configuredConservativeErrorBoundMeters": 0.00025,
+    "errorBoundBasis": "relative limit multiplied by largest source primitive AABB diagonal; checked against sampled open boundaries",
+    "borderVerticesLocked": true,
+    "positionsFloat32": true,
+    "draco": false,
+    "topologyRetries": 2,
+    "fallbackToSourceGeometry": false
+  }
+}

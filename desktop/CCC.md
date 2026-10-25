@@ -1,0 +1,24 @@
+# Desktop iteration design
+
+Primary task: edit actual FTC Java/Kotlin, see the changed behavior quickly, and repeat deterministic 30-second red-pollen trials. Preserve the existing IDE, robot configuration, SDK semantics, game rules, fixed physics step, and scoring authority.
+
+References inspected:
+
+- Apple WKWebView and reply-capable native bridge: https://developer.apple.com/documentation/webkit/wkwebview and https://developer.apple.com/documentation/webkit/wkscriptmessagehandlerwithreply . Reuse the full React/Three/Monaco interface inside system WebKit, with an AppKit window and menus. The native bridge forwards validated operations to a private loopback backend; its connection key stays out of renderer JavaScript. Remote navigation opens outside the app.
+- Electron's process model and security guidance were inspected: https://www.electronjs.org/docs/latest/tutorial/process-model and https://www.electronjs.org/docs/latest/tutorial/security . The transferable mechanism is renderer/service separation. The selected native shell avoids bundling another Chromium runtime. Objective-C keeps native builds independent of Swift's large module cache on this disk-constrained Mac.
+- JavaCompiler standard file manager: https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/tools/JavaCompiler.html . Keep the compiler JVM and file manager alive across sequential compilations, retaining JAR lookup caches. Do not spawn javac per edit.
+- Spring Boot restart architecture: https://docs.spring.io/spring-boot/reference/using/devtools.html#using.devtools.restart . Use a fresh isolated classloader inside a warm runtime host so static state and added/deleted classes reset without starting a JVM.
+- JVM Instrumentation: https://docs.oracle.com/en/java/javase/17/docs/api/java.instrument/java/lang/instrument/Instrumentation.html . Standard redefinition restricts structural changes, so a classloader restart is the general code-edit path. Numeric tuning can reuse already-compiled code when exposed through explicit runtime variables; arbitrary bytecode edits still pass the real compiler.
+- FTCSim source/workflow: https://github.com/WheatleyFromPortal2/FTCSim . Observed its watched TeamCode / Reload code / Driver Station loop. Keep code changes attached to real physics and actual OpModes rather than a separate path preview.
+
+The desktop frontend uses the existing StudioShell and visual assets, with Vite replacing the web server's Next route build. The desktop transport uses local sessions and reuses the actual loaded build instead of uploading/unpacking a dependency bundle between build and run. Dependencies still resolve through real Gradle on the initial build or build-configuration changes. Accelerated evaluation advances the same 5 ms physics step; it changes wall time, not game time or scoring.
+
+Verification scope: the installed macOS arm64 window; actual editor Run/Stop, Hot Reload, compile-error recovery, and native snapshots through MCP; local persistence; compiler/runtime fresh-state regression; measured warm edit latency; deterministic full autonomous trials. Mobile and other operating systems are not claimed.
+
+MCP uses the official TypeScript SDK's local stdio transport (https://ts.sdk.modelcontextprotocol.io/server). The local service keeps its bearer key outside model-visible tool arguments. An app-owned command queue invokes existing editor actions and a native WebKit snapshot; long actions do not block status or cancellation. Autonomous evaluation runs in a separate Bun worker so physics and checkpoint compression do not block live control deadlines.
+
+Accelerated trials compare the new JVM's complete motor/servo outputs against recorded outputs. While they match, recorded sensors are valid for the same initial world and seed. On divergence the evaluator restores a prior checkpoint, reconstructs the feedback exactly, and continues real physics; a mismatch causes a fresh trial. Checkpoints compress the complete Rapier snapshot without changing its bytes. Whole-game snapshots retain rules, RNG state, pending commands, and runtime mechanism state. `full:true` through MCP disables replay for a reference check.
+
+Implementation is original project code adapting these mechanisms; no third-party application source was copied. Existing project dependencies retain their licenses. Java, Gradle, Kotlin, and Android resources are reused from the installed toolchains; packaging does not accept new SDK licenses. This is a trusted local development tool: Gradle build scripts and TeamCode execute locally with the user's account permissions.
+
+Subprocess verification runs as a standalone Bun program. A reduced macOS `bun test` pipe-loss reproduction is saved in the work evidence; the upstream report is https://github.com/oven-sh/bun/issues/46326 . This prevents an empty child-process result from masquerading as a successful Java test.

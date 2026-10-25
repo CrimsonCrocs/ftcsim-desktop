@@ -1,0 +1,53 @@
+{
+  "input": "am-5851 Pollen.STEP",
+  "inputSha256": "cedc2ce5f1e22c9c755f372f1e170dea74deb6b0bfe9a7f98eb8b0f359cdf04c",
+  "output": "am-5851-pollen.glb",
+  "outputBytes": 37668,
+  "sourceUnits": "inches",
+  "tessellationUnits": "millimetres",
+  "outputUnits": "metres",
+  "triangulation": {
+    "linearDeflectionMillimetres": 0.1,
+    "angularDeflectionRadians": 0.15
+  },
+  "optimization": {
+    "tool": "gltfpack",
+    "simplifyRatio": 0.02,
+    "simplificationError": 0.005,
+    "permissive": true
+  },
+  "material": {
+    "source": "override",
+    "srgbHex": "#FFD400"
+  },
+  "statistics": {
+    "triangulated": {
+      "meshes": 2,
+      "vertices": 12542,
+      "triangles": 15268
+    },
+    "output": {
+      "meshes": 1,
+      "primitives": 1,
+      "vertices": 1881,
+      "triangles": 2312
+    }
+  },
+  "bounds": {
+    "min": [
+      -0.035559999999999994,
+      -0.035118198359255275,
+      -0.035559999999999994
+    ],
+    "max": [
+      0.035559999999999994,
+      0.035118198359255275,
+      0.035559999999999994
+    ],
+    "size": [
+      0.07111999999999999,
+      0.07023639671851055,
+      0.07111999999999999
+    ]
+  }
+}

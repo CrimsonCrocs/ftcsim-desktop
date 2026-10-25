@@ -1,0 +1,91 @@
+{
+  "input": "DECODE™ presented by RTX Full Field - am-5700_Full.step",
+  "inputSha256": "63e8cd502a177743382a4fcaef80b504faf2ab476c73e47aafc09e13ada75d58",
+  "output": "decode-field-visual.glb",
+  "outputBytes": 1202736,
+  "sourceUnits": "metres",
+  "tessellationUnits": "millimetres",
+  "outputUnits": "metres",
+  "triangulation": {
+    "linearDeflectionMillimetres": 1.2,
+    "angularDeflectionRadians": 0.3
+  },
+  "optimization": {
+    "tool": "gltfpack",
+    "simplifyRatio": 0.025,
+    "simplificationError": 0.004,
+    "permissive": true
+  },
+  "material": {
+    "source": "STEP"
+  },
+  "assetPack": "decode-2025-2026@1",
+  "coordinateTransform": {
+    "centered": false,
+    "rotateXDegrees": -90
+  },
+  "sceneFilter": {
+    "includedNodeNameSubstrings": [
+      "Taped Field",
+      "Ramp Assembly Red",
+      "Ramp Assembly Blue",
+      "OBELISK"
+    ],
+    "excludedNodeNameSubstrings": [
+      "Artifact Triple"
+    ],
+    "excludedMeshNameSubstrings": [
+      "Strap",
+      "NewStrapClip"
+    ],
+    "excludedNodes": [
+      "Artifact Triple <8>",
+      "Artifact Triple <7>",
+      "Artifact Triple <6>",
+      "Artifact Triple <2>",
+      "Artifact Triple <3>",
+      "Artifact Triple <5>",
+      "Artifact Triple <1>",
+      "Artifact Triple <4>"
+    ],
+    "omittedNodes": [],
+    "excludedMeshes": [
+      "NewStrapClip",
+      "NewStrapClip",
+      "NewStrapClip",
+      "Perimeter Mid-Section Strap",
+      "NewStrapClip",
+      "Perimeter Mid-Section Strap"
+    ]
+  },
+  "statistics": {
+    "triangulated": {
+      "meshes": 657,
+      "vertices": 2133814,
+      "triangles": 2504996
+    },
+    "output": {
+      "meshes": 1,
+      "primitives": 16,
+      "vertices": 65504,
+      "triangles": 67884
+    }
+  },
+  "bounds": {
+    "min": [
+      -1.82714939844056,
+      -1.82070414688527,
+      -0.018723859254345002
+    ],
+    "max": [
+      1.8271493984405303,
+      2.07755414955717,
+      1.3652499940606448
+    ],
+    "size": [
+      3.6542987968810903,
+      3.8982582964424397,
+      1.38397385331499
+    ]
+  }
+}

@@ -1,0 +1,179 @@
+{
+  "purpose": "Reference transforms for the converted source CAD assets. Position expressions are symbolic and must be resolved using the selected chassis dimensions.",
+  "coordinateSystem": {
+    "world": "+X is forward, +Y is up, +Z is robot-left.",
+    "position": "[x, y, z] in metres",
+    "rotation": "[x, y, z] Euler radians, applied with Three.js rotation.set(x, y, z, 'XYZ').",
+    "symbols": {
+      "wheelbase": "longitudinal distance between front and rear wheel axle centres",
+      "trackwidth": "lateral distance between left and right wheel axle centres",
+      "wheelRadius": "the radius on the selected asset entry"
+    }
+  },
+  "assets": {
+    "revOmni90": {
+      "file": "/models/rev-41-1190-90mm-omni.glb",
+      "radius": 0.0447,
+      "width": 0.015,
+      "sourceHubAxis": [0, 0, 1],
+      "notes": "The source CAD is already upright for this coordinate system: its axle is local +Z."
+    },
+    "goBildaLeftMecanum104": {
+      "file": "/models/gobilda-3625-0100-0104-left-mecanum.glb",
+      "sku": "3625-0100-0104",
+      "radius": 0.05199,
+      "width": 0.03779,
+      "sourceHubAxis": [0, 1, 0],
+      "notes": "Left-slant wheel. Its CAD hub axis is local +Y, so it requires an X rotation to stand upright."
+    },
+    "goBildaRightMecanum104": {
+      "file": "/models/gobilda-3625-0001-0104-right-mecanum.glb",
+      "sku": "3625-0001-0104",
+      "radius": 0.05199,
+      "width": 0.03779,
+      "sourceHubAxis": [0, 1, 0],
+      "notes": "Right-slant wheel. Its CAD hub axis is local +Y, so it requires an X rotation to stand upright."
+    }
+  },
+  "layouts": {
+    "mecanum": {
+      "rule": "Use the two slants in an X: front-left/rear-right use left-slant; front-right/rear-left use right-slant. This follows goBILDA's rollers-outward configuration.",
+      "wheels": [
+        {
+          "id": "frontLeft",
+          "asset": "goBildaLeftMecanum104",
+          "position": ["+wheelbase / 2", "wheelRadius", "+trackwidth / 2"],
+          "rotationEulerXYZRadians": [1.5707963267948966, 0, 0],
+          "worldSpinAxis": [0, 0, 1]
+        },
+        {
+          "id": "frontRight",
+          "asset": "goBildaRightMecanum104",
+          "position": ["+wheelbase / 2", "wheelRadius", "-trackwidth / 2"],
+          "rotationEulerXYZRadians": [-1.5707963267948966, 0, 0],
+          "worldSpinAxis": [0, 0, -1]
+        },
+        {
+          "id": "rearLeft",
+          "asset": "goBildaRightMecanum104",
+          "position": ["-wheelbase / 2", "wheelRadius", "+trackwidth / 2"],
+          "rotationEulerXYZRadians": [1.5707963267948966, 0, 0],
+          "worldSpinAxis": [0, 0, 1]
+        },
+        {
+          "id": "rearRight",
+          "asset": "goBildaLeftMecanum104",
+          "position": ["-wheelbase / 2", "wheelRadius", "-trackwidth / 2"],
+          "rotationEulerXYZRadians": [-1.5707963267948966, 0, 0],
+          "worldSpinAxis": [0, 0, -1]
+        }
+      ]
+    },
+    "tank": {
+      "rule": "The supplied REV Omni asset is a visual stand-in. Use a traction-wheel asset for a physically faithful tank drivetrain when one is added.",
+      "wheels": [
+        {
+          "id": "frontLeft",
+          "asset": "revOmni90",
+          "position": ["+wheelbase / 2", "wheelRadius", "+trackwidth / 2"],
+          "rotationEulerXYZRadians": [0, 0, 0],
+          "worldSpinAxis": [0, 0, 1]
+        },
+        {
+          "id": "frontRight",
+          "asset": "revOmni90",
+          "position": ["+wheelbase / 2", "wheelRadius", "-trackwidth / 2"],
+          "rotationEulerXYZRadians": [0, 3.141592653589793, 0],
+          "worldSpinAxis": [0, 0, -1]
+        },
+        {
+          "id": "rearLeft",
+          "asset": "revOmni90",
+          "position": ["-wheelbase / 2", "wheelRadius", "+trackwidth / 2"],
+          "rotationEulerXYZRadians": [0, 0, 0],
+          "worldSpinAxis": [0, 0, 1]
+        },
+        {
+          "id": "rearRight",
+          "asset": "revOmni90",
+          "position": ["-wheelbase / 2", "wheelRadius", "-trackwidth / 2"],
+          "rotationEulerXYZRadians": [0, 3.141592653589793, 0],
+          "worldSpinAxis": [0, 0, -1]
+        }
+      ]
+    },
+    "xDrive": {
+      "rule": "The omni-wheel axle lines form an X in top view. The four rotations point each wheel's positive local axle outward, while the physical axle lines remain the usual two diagonal pairs.",
+      "wheels": [
+        {
+          "id": "frontLeft",
+          "asset": "revOmni90",
+          "position": ["+wheelbase / 2", "wheelRadius", "+trackwidth / 2"],
+          "rotationEulerXYZRadians": [0, 0.7853981633974483, 0],
+          "worldSpinAxis": [0.7071067811865475, 0, 0.7071067811865476]
+        },
+        {
+          "id": "frontRight",
+          "asset": "revOmni90",
+          "position": ["+wheelbase / 2", "wheelRadius", "-trackwidth / 2"],
+          "rotationEulerXYZRadians": [0, 2.356194490192345, 0],
+          "worldSpinAxis": [0.7071067811865476, 0, -0.7071067811865475]
+        },
+        {
+          "id": "rearLeft",
+          "asset": "revOmni90",
+          "position": ["-wheelbase / 2", "wheelRadius", "+trackwidth / 2"],
+          "rotationEulerXYZRadians": [0, -0.7853981633974483, 0],
+          "worldSpinAxis": [-0.7071067811865475, 0, 0.7071067811865476]
+        },
+        {
+          "id": "rearRight",
+          "asset": "revOmni90",
+          "position": ["-wheelbase / 2", "wheelRadius", "-trackwidth / 2"],
+          "rotationEulerXYZRadians": [0, -2.356194490192345, 0],
+          "worldSpinAxis": [-0.7071067811865476, 0, -0.7071067811865475]
+        }
+      ]
+    },
+    "hDrive": {
+      "rule": "Use the tank corner transforms, then add a central strafe wheel with its axle along +X. For a two-strafe-wheel H-drive, duplicate centerStrafe and offset its X position symmetrically.",
+      "wheels": [
+        {
+          "id": "frontLeft",
+          "asset": "revOmni90",
+          "position": ["+wheelbase / 2", "wheelRadius", "+trackwidth / 2"],
+          "rotationEulerXYZRadians": [0, 0, 0],
+          "worldSpinAxis": [0, 0, 1]
+        },
+        {
+          "id": "frontRight",
+          "asset": "revOmni90",
+          "position": ["+wheelbase / 2", "wheelRadius", "-trackwidth / 2"],
+          "rotationEulerXYZRadians": [0, 3.141592653589793, 0],
+          "worldSpinAxis": [0, 0, -1]
+        },
+        {
+          "id": "rearLeft",
+          "asset": "revOmni90",
+          "position": ["-wheelbase / 2", "wheelRadius", "+trackwidth / 2"],
+          "rotationEulerXYZRadians": [0, 0, 0],
+          "worldSpinAxis": [0, 0, 1]
+        },
+        {
+          "id": "rearRight",
+          "asset": "revOmni90",
+          "position": ["-wheelbase / 2", "wheelRadius", "-trackwidth / 2"],
+          "rotationEulerXYZRadians": [0, 3.141592653589793, 0],
+          "worldSpinAxis": [0, 0, -1]
+        },
+        {
+          "id": "centerStrafe",
+          "asset": "revOmni90",
+          "position": [0, "wheelRadius", 0],
+          "rotationEulerXYZRadians": [0, 1.5707963267948966, 0],
+          "worldSpinAxis": [1, 0, 0]
+        }
+      ]
+    }
+  }
+}

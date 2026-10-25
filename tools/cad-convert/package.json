@@ -1,0 +1,16 @@
+{
+  "name": "ftc-emulator-cad-convert",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "convert": "node convert-step-to-glb.mjs"
+  },
+  "dependencies": {
+    "@gltf-transform/core": "4.4.1",
+    "@gltf-transform/extensions": "4.4.1",
+    "gltfpack": "1.2.0",
+    "occt-import-js": "0.0.23",
+    "three": "0.185.1"
+  }
+}

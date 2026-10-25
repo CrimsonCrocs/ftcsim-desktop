@@ -1,0 +1,302 @@
+.workspace {
+  display: flex;
+  min-width: 0;
+  min-height: 0;
+  flex-direction: column;
+  background: var(--surface);
+}
+
+.tabs {
+  display: flex;
+  flex: 0 0 auto;
+  gap: var(--space-1);
+  overflow-x: auto;
+  padding: var(--space-2) var(--space-3) 0;
+  border-bottom: 1px solid var(--rule-soft);
+}
+
+.tabs button {
+  display: inline-flex;
+  min-height: 38px;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0 var(--space-3);
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: transparent;
+  color: var(--ink-muted);
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.tabs button:hover {
+  background: var(--surface-hover);
+  color: var(--ink);
+}
+
+.tabs button[aria-selected="true"] {
+  border-bottom-color: var(--accent);
+  color: var(--ink);
+}
+
+.tabs button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -3px;
+  box-shadow: none;
+}
+
+.tabs svg {
+  width: 15px;
+  height: 15px;
+}
+
+.panel {
+  min-width: 0;
+  min-height: 0;
+  flex: 1 1 auto;
+}
+
+.panel[hidden] {
+  display: none;
+}
+
+.connections {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  overflow: auto;
+}
+
+.physical {
+  padding: var(--space-4);
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+
+.toolbar,
+.toolbar label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.toolbar {
+  flex: 0 0 auto;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  color: var(--ink-muted);
+  font-size: 12px;
+}
+
+.toolbar button {
+  display: inline-flex;
+  min-height: 30px;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0 var(--space-2);
+  border: 1px solid var(--rule-soft);
+  border-radius: var(--radius-control);
+  background: var(--chrome);
+  color: var(--ink);
+  font: inherit;
+  cursor: pointer;
+}
+
+.toolbar button:hover:not(:disabled) {
+  background: var(--surface-hover);
+}
+
+.toolbar svg {
+  width: 14px;
+  height: 14px;
+}
+
+.manifestButton {
+  white-space: nowrap;
+}
+
+@media (max-width: 720px) {
+  .tabs button {
+    min-height: 40px;
+    padding-inline: var(--space-2);
+  }
+
+  .connections,
+  .physical {
+    padding: var(--space-2);
+  }
+}
+
+@media (max-width: 520px) {
+  .manifestButton span {
+    display: none;
+  }
+}
+
+.advanced { border-top: 1px solid var(--rule-soft); padding-top: 12px; }
+.advanced > summary { cursor: pointer; font-size: 12px; color: var(--ink-muted); margin-bottom: 12px; }
+.advanced > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.categoryHeading { display: flex; align-items: center; gap: var(--space-2); padding: var(--space-2); color: var(--ink); font-size: 12px; font-weight: 600; }
+.tabs .robotCategory { padding-left: 24px; }
+.tabs .topLevelCategory { margin-top: var(--space-3); }
+.workspace { grid-template-columns: 190px minmax(0, 1fr); }
+.playSettings h3 { margin: 0; font-size: 13px; color: var(--ink); }
+.keyHint { margin: var(--space-2) 0 var(--space-4); font-size: 12px; color: var(--ink-muted); }
+.keyBindings { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--space-4); }
+.keyBinding { display: flex; align-items: center; justify-content: space-between; gap: var(--space-2); min-height: 44px; border-bottom: 1px solid var(--rule-soft); font-size: 12px; }
+.keyBinding small { display: block; color: var(--ink-muted); font-size: 10px; }
+.keyBinding button { min-width: 72px; min-height: 28px; padding: 0 var(--space-2); border: 1px solid var(--rule); border-radius: var(--radius-control); background: var(--chrome); color: var(--ink); font: inherit; cursor: pointer; }
+.keyBinding button[aria-pressed="true"] { border-color: var(--accent); background: var(--surface-selected); }
+.keyBinding button:disabled { opacity: 0.5; cursor: default; }
+.controlsGuide { margin-top: var(--space-5, 24px); }
+.controlsGuide h3 { margin-bottom: var(--space-2); }
+@media (max-width: 720px) { .workspace { grid-template-columns: 170px minmax(0, 1fr); } .keyBindings { grid-template-columns: 1fr; } }
+
+.fieldSettings h3 { margin: 0; font-size: 13px; color: var(--ink); }
+.fieldPreset { display: flex; align-items: center; gap: var(--space-4); margin-bottom: var(--space-4); font-size: 12px; }
+.fieldPreset select, .fieldParameter input { min-width: 0; height: 30px; padding: 0 var(--space-2); border: 1px solid var(--rule); border-radius: var(--radius-control); background: var(--surface); color: var(--ink); font: inherit; }
+.fieldPreset select { flex: 1; }
+.fieldParameters { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3) var(--space-4); }
+.fieldParameter { display: grid; gap: var(--space-1); min-width: 0; font-size: 12px; }
+.fieldParameter > span { display: flex; justify-content: space-between; gap: var(--space-1); }
+.fieldParameter small { color: var(--ink-muted); }
+.fieldParameter input { width: 100%; }
+.fieldParameter input:invalid { border-color: #d26a6a; }
+@media (max-width: 720px) { .fieldParameters { grid-template-columns: 1fr; } }
+
+/* Compact desktop settings, with a stable category rail. */
+.overlay:global(.robot-configuration-dialog) { display: grid; place-items: center; padding: 24px; }
+.dialog:global(.robot-configuration-pane--dialog) { width: min(860px, 100%); height: min(580px, calc(100dvh - 48px)); }
+.workspace { display: grid; grid-template-columns: 170px minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr); }
+.tabs { grid-column: 1; grid-row: 1 / -1; flex-direction: column; gap: 2px; overflow-x: hidden; padding: 12px 6px; border-right: 1px solid var(--rule-soft); border-bottom: 0; background: var(--chrome); }
+.tabs button { min-height: 36px; padding: 0 10px; border: 0; border-radius: 3px; text-align: left; }
+.tabs button[aria-selected="true"] { background: var(--surface-hover); box-shadow: inset 2px 0 var(--accent); }
+.panel { grid-column: 2; grid-row: 2; }
+.workspace > :global(.configuration-diagnostics) { grid-column: 2; grid-row: 1; max-height: 110px; overflow: auto; margin: 8px 12px 0; }
+.driveSetup { display: grid; gap: 16px; margin-bottom: 20px; }
+.toolbar select { height: 30px; max-width: 220px; padding: 0 8px; border: 1px solid var(--rule); border-radius: var(--radius-control); background: var(--surface); color: var(--ink); font: inherit; }
+@media (max-width: 720px) {
+ .overlay:global(.robot-configuration-dialog) { padding: 12px; }
+ .dialog:global(.robot-configuration-pane--dialog) { height: calc(100dvh - 24px); }
+ .workspace { grid-template-columns: 145px minmax(0, 1fr); }
+ .tabs button { font-size: 11px; gap: 6px; padding-inline: 8px; }
+}
+
+/* Phone settings: keep category navigation visible while giving forms the width. */
+@media (max-width: 600px) {
+  .overlay:global(.robot-configuration-dialog) {
+    padding: max(4px, env(safe-area-inset-top)) max(4px, env(safe-area-inset-right))
+      max(4px, env(safe-area-inset-bottom)) max(4px, env(safe-area-inset-left));
+  }
+
+  .dialog:global(.robot-configuration-pane--dialog) {
+    width: 100%;
+    height: calc(100dvh - max(8px, env(safe-area-inset-top) + env(safe-area-inset-bottom)));
+    max-height: calc(100dvh - max(8px, env(safe-area-inset-top) + env(safe-area-inset-bottom)));
+    grid-template-rows: auto minmax(0, 1fr) auto;
+  }
+
+  .workspace {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto minmax(0, 1fr);
+  }
+
+  .tabs {
+    grid-column: 1;
+    grid-row: 1;
+    flex-direction: row;
+    gap: 4px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 4px 6px;
+    border-right: 0;
+    border-bottom: 1px solid var(--rule-soft);
+    overscroll-behavior-inline: contain;
+    scrollbar-width: thin;
+  }
+
+  .categoryHeading { display: none; }
+
+  .tabs button {
+    min-height: 44px;
+    padding-inline: 10px;
+    white-space: nowrap;
+  }
+
+  .tabs .robotCategory { padding-left: 10px; }
+  .tabs .topLevelCategory { margin-top: 0; }
+  .tabs button[aria-selected="true"] { box-shadow: inset 0 -2px var(--accent); }
+
+  .workspace > :global(.configuration-diagnostics) {
+    grid-column: 1;
+    grid-row: 2;
+    max-height: 72px;
+    margin: 6px 8px 0;
+  }
+
+  .panel {
+    grid-column: 1;
+    grid-row: 3;
+    overflow: auto;
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable;
+  }
+
+  .panel[hidden] { display: none; }
+
+  .toolbar button,
+  .toolbar select,
+  .keyBinding button,
+  .dialog :global(.robot-configuration-pane__header button),
+  .dialog :global(.robot-configuration-dialog__footer button),
+  .dialog :global(.robot-configuration-dialog__error button) {
+    min-height: 44px;
+  }
+
+  .keyBinding { min-height: 48px; }
+  .keyBindings { grid-template-columns: minmax(0, 1fr); }
+  .dialog :global(.robot-configuration-pane__header) { min-height: 48px; }
+  .dialog :global(.robot-configuration-dialog__footer) { align-items: stretch; flex-direction: column; padding: 6px 8px; }
+  .dialog :global(.robot-configuration-dialog__footer > div) { justify-content: flex-end; }
+}
+
+/* Landscape phones have little vertical room, so use the same compact category row. */
+@media (max-height: 500px) and (orientation: landscape) and (min-width: 601px) {
+  .overlay:global(.robot-configuration-dialog) {
+    padding: max(4px, env(safe-area-inset-top)) max(6px, env(safe-area-inset-right))
+      max(4px, env(safe-area-inset-bottom)) max(6px, env(safe-area-inset-left));
+  }
+
+  .dialog:global(.robot-configuration-pane--dialog) {
+    height: calc(100dvh - max(8px, env(safe-area-inset-top) + env(safe-area-inset-bottom)));
+    max-height: calc(100dvh - max(8px, env(safe-area-inset-top) + env(safe-area-inset-bottom)));
+    grid-template-rows: auto minmax(0, 1fr) auto;
+  }
+
+  .workspace { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto auto minmax(0, 1fr); }
+  .tabs { grid-column: 1; grid-row: 1; flex-direction: row; overflow-x: auto; overflow-y: hidden; padding: 2px 6px; border-right: 0; border-bottom: 1px solid var(--rule-soft); }
+  .categoryHeading { display: none; }
+  .tabs button { min-height: 44px; white-space: nowrap; }
+  .tabs .robotCategory { padding-left: 10px; }
+  .tabs .topLevelCategory { margin-top: 0; }
+  .tabs button[aria-selected="true"] { box-shadow: inset 0 -2px var(--accent); }
+  .workspace > :global(.configuration-diagnostics) { grid-column: 1; grid-row: 2; max-height: 48px; margin: 4px 8px 0; }
+  .panel { grid-column: 1; grid-row: 3; overflow: auto; overscroll-behavior: contain; }
+  .panel[hidden] { display: none; }
+  .dialog :global(.robot-configuration-pane__header button),
+  .dialog :global(.robot-configuration-dialog__footer button) { min-height: 44px; }
+  .dialog :global(.robot-configuration-pane__header) { min-height: 48px; }
+  .dialog :global(.robot-configuration-dialog__footer) { align-items: center; padding-inline: 8px; }
+}
+
+/* The standalone importer keeps the full review workspace. */
+.dialog[hidden] { display: none; }
+.cadImporterDialog:global(.robot-configuration-pane--dialog) { width: min(1480px, 100%); height: calc(100dvh - 48px); }
+.cadImporterBody { min-width: 0; min-height: 0; overflow: hidden; }
+@media (max-width: 600px), (max-height: 500px) and (orientation: landscape) {
+  .cadImporterDialog:global(.robot-configuration-pane--dialog) { height: calc(100dvh - 8px); }
+}

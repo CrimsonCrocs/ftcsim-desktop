@@ -1,0 +1,32 @@
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  height: 100%;
+  min-height: 48px;
+  color: var(--ink-muted, #b8bdc6);
+}
+.overlay { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
+.spinner { position: relative; display: block; width: 28px; height: 28px; filter: drop-shadow(0 1px 3px #0008); }
+.spinner > span {
+  position: absolute;
+  left: 12.5px;
+  top: 1px;
+  width: 3px;
+  height: 7px;
+  border-radius: 2px;
+  background: currentColor;
+  transform-origin: 1.5px 13px;
+  transform: rotate(calc(var(--step) * 30deg));
+  animation: fade 1.2s linear infinite;
+  animation-delay: calc((var(--step) - 12) * 0.1s);
+}
+.reducedLabel { display: none; font-size: 13px; }
+@keyframes fade { from { opacity: 1; } to { opacity: 0.15; } }
+@media (prefers-reduced-motion: reduce) {
+  .spinner { display: none; }
+  .reducedLabel { display: block; }
+}

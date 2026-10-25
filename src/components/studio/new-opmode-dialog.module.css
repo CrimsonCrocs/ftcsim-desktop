@@ -1,0 +1,302 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  padding: var(--space-6);
+  background: rgb(8 9 11 / 62%);
+}
+
+.dialog {
+  width: min(640px, 100%);
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--rule-soft) 55%, var(--ink-muted));
+  border-radius: var(--radius-overlay);
+  background: var(--surface);
+  box-shadow: 0 12px 30px rgb(0 0 0 / 40%);
+  color: var(--ink);
+}
+
+.header,
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-6);
+}
+
+.header {
+  border-bottom: 1px solid var(--rule-soft);
+}
+
+.header h2,
+.header p {
+  margin: 0;
+}
+
+.header h2 {
+  font-size: 16px;
+  font-weight: 650;
+}
+
+.header p {
+  margin-top: 3px;
+  color: var(--ink-muted);
+  font-size: 12px;
+}
+
+.iconButton {
+  display: grid;
+  width: 28px;
+  height: 28px;
+  place-items: center;
+  border: 0;
+  border-radius: var(--radius-control);
+  background: transparent;
+  color: var(--ink-muted);
+}
+
+.iconButton:hover:not(:disabled) {
+  background: var(--surface-hover);
+  color: var(--ink);
+}
+
+.iconButton svg {
+  width: 16px;
+  height: 16px;
+}
+
+.body {
+  display: grid;
+  gap: var(--space-4);
+  padding: var(--space-6);
+}
+
+.field {
+  display: grid;
+  gap: 6px;
+}
+
+.field > span,
+.languageFieldset legend,
+.destination > span {
+  color: var(--ink-faint);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.field input,
+.field select {
+  width: 100%;
+  height: 34px;
+  border: 1px solid color-mix(in srgb, var(--rule-soft) 55%, var(--ink-muted));
+  border-radius: var(--radius-control);
+  outline: 0;
+  background: var(--canvas);
+  color: var(--ink);
+  font: inherit;
+  padding: 0 10px;
+}
+
+.field input:focus,
+.field select:focus {
+  border-color: var(--accent);
+  box-shadow: var(--focus-ring);
+}
+
+.languageFieldset {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.languageFieldset legend {
+  margin-bottom: 7px;
+}
+
+.languageGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-2);
+}
+
+.languageOption {
+  position: relative;
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr);
+  gap: 9px;
+  align-items: center;
+  min-height: 58px;
+  padding: 9px 10px;
+  border: 1px solid var(--rule-soft);
+  border-radius: var(--radius-control);
+  background: var(--canvas);
+  cursor: pointer;
+}
+
+.languageOption:hover {
+  border-color: color-mix(in srgb, var(--rule-soft) 55%, var(--ink-muted));
+  background: var(--surface-hover);
+}
+
+.languageOption.selected {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 12%, var(--canvas));
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 36%, transparent);
+}
+
+.languageOption input {
+  position: absolute;
+  opacity: 0;
+}
+
+.languageOption svg {
+  width: 20px;
+  height: 20px;
+  color: var(--ink-faint);
+}
+
+.languageOption span {
+  display: grid;
+  min-width: 0;
+}
+
+.languageOption strong {
+  font-size: 13px;
+}
+
+.languageOption small {
+  overflow: hidden;
+  color: var(--ink-muted);
+  font-size: 11px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.twoColumns {
+  display: grid;
+  grid-template-columns: minmax(150px, 0.72fr) minmax(200px, 1.28fr);
+  gap: var(--space-3);
+}
+
+.destination {
+  display: grid;
+  gap: 5px;
+}
+
+.destination code {
+  overflow: hidden;
+  color: var(--ink-muted);
+  font: 12px/1.5 var(--font-code);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.blocksNote,
+.error {
+  margin: 0;
+  padding: 9px 10px;
+  border-radius: var(--radius-control);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.blocksNote {
+  border: 1px solid color-mix(in srgb, var(--accent) 38%, var(--rule-soft));
+  background: color-mix(in srgb, var(--accent) 8%, var(--canvas));
+  color: var(--ink-faint);
+}
+
+.error {
+  border: 1px solid color-mix(in srgb, var(--danger) 48%, var(--rule-soft));
+  background: color-mix(in srgb, var(--danger) 10%, var(--canvas));
+  color: var(--danger-text, #f2a4a4);
+}
+
+.footer {
+  justify-content: flex-end;
+  border-top: 1px solid var(--rule-soft);
+  background: var(--chrome);
+}
+
+.primaryButton,
+.secondaryButton {
+  min-width: 82px;
+  height: 32px;
+  border-radius: var(--radius-control);
+  font: inherit;
+  font-size: 12px;
+}
+
+.secondaryButton {
+  border: 1px solid color-mix(in srgb, var(--rule-soft) 55%, var(--ink-muted));
+  background: var(--surface);
+  color: var(--ink);
+}
+
+.primaryButton {
+  border: 1px solid color-mix(in srgb, var(--accent) 72%, #fff);
+  background: var(--accent);
+  color: #fff;
+  font-weight: 650;
+}
+
+.primaryButton:disabled,
+.secondaryButton:disabled,
+.iconButton:disabled {
+  cursor: default;
+  opacity: 0.5;
+}
+
+@media (max-width: 620px) {
+  .languageGrid,
+  .twoColumns {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .backdrop {
+    padding: max(4px, env(safe-area-inset-top)) max(4px, env(safe-area-inset-right))
+      max(4px, env(safe-area-inset-bottom)) max(4px, env(safe-area-inset-left));
+    align-items: safe center;
+  }
+
+  .dialog {
+    display: flex;
+    max-height: calc(100dvh - max(8px, env(safe-area-inset-top) + env(safe-area-inset-bottom)));
+    flex-direction: column;
+  }
+
+  .header,
+  .footer { padding: 10px 14px; }
+  .body { min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 14px; }
+  .iconButton { width: 44px; height: 44px; flex: 0 0 44px; }
+  .field input,
+  .field select { height: 44px; }
+  .languageOption { min-height: 58px; }
+  .primaryButton,
+  .secondaryButton { height: auto; min-height: 44px; }
+}
+
+@media (max-height: 500px) and (orientation: landscape) {
+  .backdrop {
+    padding: max(4px, env(safe-area-inset-top)) max(6px, env(safe-area-inset-right))
+      max(4px, env(safe-area-inset-bottom)) max(6px, env(safe-area-inset-left));
+  }
+  .dialog {
+    display: flex;
+    max-height: calc(100dvh - max(8px, env(safe-area-inset-top) + env(safe-area-inset-bottom)));
+    flex-direction: column;
+  }
+  .body { min-height: 0; overflow-y: auto; overscroll-behavior: contain; }
+  .iconButton,
+  .field input,
+  .field select,
+  .primaryButton,
+  .secondaryButton { min-height: 44px; }
+  .iconButton { width: 44px; flex: 0 0 44px; }
+}

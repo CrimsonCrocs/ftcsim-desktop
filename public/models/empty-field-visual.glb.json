@@ -1,0 +1,113 @@
+{
+  "input": "DECODE™ presented by RTX Full Field - am-5700_Full.step",
+  "inputSha256": "63e8cd502a177743382a4fcaef80b504faf2ab476c73e47aafc09e13ada75d58",
+  "output": "empty-field-visual.glb",
+  "outputBytes": 858832,
+  "sourceUnits": "metres",
+  "tessellationUnits": "millimetres",
+  "outputUnits": "metres",
+  "triangulation": {
+    "linearDeflectionMillimetres": 1.2,
+    "angularDeflectionRadians": 0.3
+  },
+  "optimization": {
+    "tool": "gltfpack",
+    "simplifyRatio": 0.025,
+    "simplificationError": 0.004,
+    "permissive": true
+  },
+  "material": {
+    "source": "STEP"
+  },
+  "assetPack": "decode-2025-2026@1",
+  "coordinateTransform": {
+    "centered": false,
+    "rotateXDegrees": -90
+  },
+  "sceneFilter": {
+    "includedNodeNameSubstrings": [
+      "Taped Field"
+    ],
+    "excludedNodeNameSubstrings": [
+      "Artifact Triple"
+    ],
+    "excludedMeshNameSubstrings": [
+      "Tape",
+      "Strap",
+      "NewStrapClip"
+    ],
+    "excludedNodes": [
+      "Artifact Triple <8>",
+      "Artifact Triple <7>",
+      "Artifact Triple <6>",
+      "Artifact Triple <2>",
+      "Artifact Triple <3>",
+      "Artifact Triple <5>",
+      "Artifact Triple <1>",
+      "Artifact Triple <4>"
+    ],
+    "omittedNodes": [
+      "OBELISK <1>",
+      "Ramp Assembly Red - am-5715_red <1>",
+      "Ramp Assembly Blue - am-5715_blue <1>"
+    ],
+    "excludedMeshes": [
+      "Blue Depot White Tape",
+      "Front Launch Line White Tape",
+      "Blue Alliance Center Spike Mark White Tape",
+      "Blue Alliance Loading Zone in White Tape",
+      "Blue Alliance Back Spike Mark White Tape",
+      "Red Alliance Loading Zone in White Tape",
+      "Gate Zone Red Tape",
+      "Red Depot White Tape",
+      "Red Alliance Base Zone Red Tape",
+      "Blue Alliance Secret Tunnel Zone Blue Tape",
+      "Blue Alliance Base Zone Blue Tape",
+      "Gate Zone Blue Tape",
+      "Red Alliance Front Spike Mark White Tape",
+      "Gate Zone Blue Tape",
+      "Red Alliance Back Spike Mark White Tape",
+      "Gate Zone Red Tape",
+      "Blue Alliance Front Spike Mark White Tape",
+      "Red Alliance Center Spike Mark White Tape",
+      "Red Alliance Secret Tunnel Zone Red Tape",
+      "Launch Line White Tape",
+      "NewStrapClip",
+      "NewStrapClip",
+      "NewStrapClip",
+      "Perimeter Mid-Section Strap",
+      "NewStrapClip",
+      "Perimeter Mid-Section Strap"
+    ]
+  },
+  "statistics": {
+    "triangulated": {
+      "meshes": 264,
+      "vertices": 960664,
+      "triangles": 1257104
+    },
+    "output": {
+      "meshes": 1,
+      "primitives": 4,
+      "vertices": 46081,
+      "triangles": 50500
+    }
+  },
+  "bounds": {
+    "min": [
+      -1.81991039529272,
+      -1.82070414688527,
+      -0.015025094599118487
+    ],
+    "max": [
+      1.8199103952929,
+      1.8191166437002622,
+      0.3259896543081259
+    ],
+    "size": [
+      3.6398207905856204,
+      3.6398207905855324,
+      0.34101474890724437
+    ]
+  }
+}

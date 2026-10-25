@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "assetPack": "decode-2025-2026@1",
+  "coordinateSystem": "metres, Y-up",
+  "sourceSha256": "63e8cd502a177743382a4fcaef80b504faf2ab476c73e47aafc09e13ada75d58",
+  "artifacts": [
+    { "id": "official-01", "color": "green", "position": [1.725094, 0.063166, 1.588271] },
+    { "id": "official-02", "color": "purple", "position": [1.724960, 0.063062, 1.461189] },
+    { "id": "official-03", "color": "purple", "position": [1.724990, 0.062878, 1.715435] },
+    { "id": "official-04", "color": "purple", "position": [1.318466, 0.063199, 0.896065] },
+    { "id": "official-05", "color": "purple", "position": [1.191400, 0.063198, 0.896101] },
+    { "id": "official-06", "color": "green", "position": [1.064120, 0.063101, 0.896141] },
+    { "id": "official-07", "color": "purple", "position": [1.328048, 0.063062, 0.305735] },
+    { "id": "official-08", "color": "green", "position": [1.200967, 0.063166, 0.305869] },
+    { "id": "official-09", "color": "purple", "position": [1.073803, 0.062878, 0.305765] },
+    { "id": "official-10", "color": "purple", "position": [-1.081740, 0.062878, 0.295898] },
+    { "id": "official-11", "color": "green", "position": [-1.208904, 0.063166, 0.295793] },
+    { "id": "official-12", "color": "purple", "position": [-1.335986, 0.063062, 0.295928] },
+    { "id": "official-13", "color": "purple", "position": [-1.335890, 0.062880, 0.896183] },
+    { "id": "official-14", "color": "green", "position": [-1.081863, 0.063198, 0.896186] },
+    { "id": "official-15", "color": "purple", "position": [-1.208842, 0.063198, 0.896226] },
+    { "id": "official-16", "color": "purple", "position": [1.064410, 0.062880, -0.303967] },
+    { "id": "official-17", "color": "green", "position": [1.318437, 0.063198, -0.303964] },
+    { "id": "official-18", "color": "purple", "position": [1.191458, 0.063198, -0.303924] },
+    { "id": "official-19", "color": "purple", "position": [-1.081834, 0.063199, -0.304085] },
+    { "id": "official-20", "color": "green", "position": [-1.336180, 0.063101, -0.304009] },
+    { "id": "official-21", "color": "purple", "position": [-1.208900, 0.063198, -0.304049] },
+    { "id": "official-22", "color": "purple", "position": [-1.721503, 0.062782, 1.461189] },
+    { "id": "official-23", "color": "purple", "position": [-1.721473, 0.062599, 1.715435] },
+    { "id": "official-24", "color": "green", "position": [-1.721368, 0.062886, 1.588271] }
+  ]
+}

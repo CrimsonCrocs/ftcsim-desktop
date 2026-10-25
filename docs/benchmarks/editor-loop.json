@@ -1,0 +1,36 @@
+{
+  "firstRunMs": 2095,
+  "editToRestartMs": 2246,
+  "hotReloadLog": [
+    "Hot Reload — applying saved edits…",
+    "Hot Reload restarted Red Pollen — Tips + Park in 0.8s."
+  ],
+  "compileFailure": {
+    "status": "failed",
+    "title": "Hot Reload failed",
+    "diagnostics": [
+      {
+        "message": "cannot find symbol",
+        "kind": "error",
+        "line": 28,
+        "file": "TeamCode/src/main/java/org/firstinspires/ftc/teamcode/RedPollenAuto.java"
+      }
+    ],
+    "detail": "Fix the error and save again."
+  },
+  "errorNeutral": true,
+  "runWithoutBuildMs": 500,
+  "status": "PASS",
+  "cases": [
+    "MCP discovery",
+    "checked source writes",
+    "real UI build/run",
+    "physics advances",
+    "live editor Hot Reload",
+    "compile failure neutralizes motors",
+    "compile error recovery",
+    "Run without build",
+    "STOP neutral",
+    "native view capture"
+  ]
+}

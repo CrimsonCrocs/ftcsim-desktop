@@ -1,0 +1,58 @@
+{
+  "assetPack": "biobuzz-2026-2027@1",
+  "source": {
+    "url": "https://ftc-resources.firstinspires.org/ftc/field/field-cad-step?fileId=75826b4d-e3e0-454d-9816-3b1d4992b2df",
+    "sha256": "05b35961c7df847741031f00fda73ddd068537f809e92a11b1cd59a94bcc8331",
+    "bytes": 35206208
+  },
+  "output": {
+    "path": "/models/biobuzz/collision/hive-blue-mechanism.glb",
+    "bytes": 1502036,
+    "sha256": "d5aa659acd1e18a410565a9237cbf773f370833affdc38614955a1796c1c6d9f"
+  },
+  "units": "metres",
+  "axes": "source STEP Y-up; geometry expressed in metres",
+  "originSubtractedMeters": [
+    0.324038318982907,
+    1.11632385238056,
+    0
+  ],
+  "triangulation": {
+    "tool": "existing OCCT CAD converter",
+    "linearDeflectionMillimetres": 0.2,
+    "angularDeflectionRadians": 0.2
+  },
+  "components": 31,
+  "vertices": 44034,
+  "triangles": 69782,
+  "boundsMeters": {
+    "min": [
+      -0.01904999434072563,
+      -0.14164843543414896,
+      -0.18182386457920074
+    ],
+    "max": [
+      0.019050009855441363,
+      0.04434523598308737,
+      0.12564751505851746
+    ]
+  },
+  "sourceParts": [
+    "am-4457 8 mm ID 22 mm OD Shielded Flanged Bearing F608ZZ_57155K629__CirPattern1[1]",
+    "am-4457 8 mm ID 22 mm OD Shielded Flanged Bearing F608ZZ_57155K629__CirPattern1[2]",
+    "am-4457 8 mm ID 22 mm OD Shielded Flanged Bearing F608ZZ_57155K629__CirPattern1[3]",
+    "am-4457 8 mm ID 22 mm OD Shielded Flanged Bearing F608ZZ_57155K629__CirPattern1[4]",
+    "am-4457 8 mm ID 22 mm OD Shielded Flanged Bearing F608ZZ_57155K629__CirPattern1[5]",
+    "am-4457 8 mm ID 22 mm OD Shielded Flanged Bearing F608ZZ_57155K629__CirPattern1[6]",
+    "am-4457 8 mm ID 22 mm OD Shielded Flanged Bearing F608ZZ_57155K629__CirPattern1[7]",
+    "am-4457 8 mm ID 22 mm OD Shielded Flanged Bearing F608ZZ_57155K629__CirPattern1[8]",
+    "am-4457 8 mm ID 22 mm OD Shielded Flanged Bearing F608ZZ_57155K629__CirPattern1[9]",
+    "am-4457 8 mm ID 22 mm OD Shielded Flanged Bearing F608ZZ_57155K629__Revolve3",
+    "am-4457 8 mm ID 22 mm OD Shielded Flanged Bearing F608ZZ_57155K629__Revolve4",
+    "am-4457 8 mm ID 22 mm OD Shielded Flanged Bearing F608ZZ_57155K629__Revolve5[1]",
+    "am-4457 8 mm ID 22 mm OD Shielded Flanged Bearing F608ZZ_57155K629__Revolve5[2]",
+    "am-4457 8 mm ID 22 mm OD Shielded Flanged Bearing F608ZZ_57155K629__Revolve6",
+    "am-5873: Goal Pivot Bracket",
+    "am-5881: 0.196 ID x 0.43 OD x 1.500 Long Aluminum Stepped Spacer"
+  ]
+}

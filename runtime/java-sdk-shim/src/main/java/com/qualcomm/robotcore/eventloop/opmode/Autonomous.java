@@ -1,0 +1,17 @@
+package com.qualcomm.robotcore.eventloop.opmode;
+
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
+/** Marks an autonomous OpMode for simulator discovery. */
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.TYPE)
+public @interface Autonomous {
+    String name() default "";
+
+    String group() default "";
+
+    String preselectTeleOp() default "";
+}

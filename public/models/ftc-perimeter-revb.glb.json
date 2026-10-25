@@ -1,0 +1,66 @@
+{
+  "input": "am-0481b FTC Perimeter RevB.STEP",
+  "inputSha256": "ecfb46af6244ea38995efcf4cb9e038eb59e731b6e546d652d44d464ea5c6546",
+  "output": "ftc-perimeter-revb.glb",
+  "outputBytes": 2534452,
+  "sourceUnits": "inches",
+  "tessellationUnits": "millimetres",
+  "outputUnits": "metres",
+  "triangulation": {
+    "linearDeflectionMillimetres": 0.55,
+    "angularDeflectionRadians": 0.22
+  },
+  "optimization": {
+    "tool": "gltfpack",
+    "simplifyRatio": 0.12,
+    "simplificationError": 0.0015,
+    "permissive": true
+  },
+  "material": {
+    "source": "named-profile",
+    "profile": "ftc-perimeter"
+  },
+  "sceneFilter": {
+    "excludedNodeNameSubstrings": [
+      "Strap"
+    ],
+    "excludedNodes": [
+      "NewStrapClip",
+      "NewStrapClip",
+      "Perimeter Mid-Section Strap",
+      "Perimeter Mid-Section Strap",
+      "NewStrapClip",
+      "NewStrapClip"
+    ]
+  },
+  "statistics": {
+    "triangulated": {
+      "meshes": 282,
+      "vertices": 956968,
+      "triangles": 1477976
+    },
+    "output": {
+      "meshes": 1,
+      "primitives": 4,
+      "vertices": 122656,
+      "triangles": 176600
+    }
+  },
+  "bounds": {
+    "min": [
+      -1.8225334985632138,
+      -0.0059689999999997115,
+      -1.822533498563214
+    ],
+    "max": [
+      1.8225334985632142,
+      0.33655704890639315,
+      1.8225334985632142
+    ],
+    "size": [
+      3.645066997126428,
+      0.3425260489063929,
+      3.6450669971264285
+    ]
+  }
+}

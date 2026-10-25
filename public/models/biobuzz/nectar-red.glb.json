@@ -1,0 +1,77 @@
+{
+  "input": "am-5852_red Red Alliance Nectar.STEP",
+  "inputSha256": "d25b13b0bcf422196f68afb374a823209ace6f3609b9b4c99b55b8617cb04610",
+  "output": {
+    "kind": "nectar-red",
+    "path": "/models/biobuzz/nectar-red.glb",
+    "bytes": 136488,
+    "sha256": "2753a3466c661593e71c97524446acf0975d4f48edda6330690377689cfa4085",
+    "triangles": 9250,
+    "source": {
+      "filename": "am-5852_red Red Alliance Nectar.STEP",
+      "sha256": "d25b13b0bcf422196f68afb374a823209ace6f3609b9b4c99b55b8617cb04610",
+      "units": "millimetres",
+      "provenance": "User-supplied CAD, 2026-09-17"
+    },
+    "cadDiameterMeters": 0.09194800000000002,
+    "nominalDiameterMeters": 0.09144,
+    "renderScaleToNominal": 0.9944751381215468
+  },
+  "outputBytes": 136488,
+  "sourceUnits": "millimetres",
+  "tessellationUnits": "millimetres",
+  "outputUnits": "metres",
+  "triangulation": {
+    "linearDeflectionMillimetres": 0.1,
+    "angularDeflectionRadians": 0.15
+  },
+  "optimization": {
+    "tool": "gltfpack",
+    "simplifyRatio": 0.18,
+    "simplificationError": 0.0008,
+    "permissive": true
+  },
+  "material": {
+    "source": "override",
+    "srgbHex": "#CF3845"
+  },
+  "assetPack": "biobuzz-2026-2027@1",
+  "coordinateTransform": {
+    "centered": true,
+    "rotateXDegrees": 0
+  },
+  "sceneFilter": null,
+  "statistics": {
+    "triangulated": {
+      "meshes": 2,
+      "vertices": 13362,
+      "triangles": 16932
+    },
+    "output": {
+      "meshes": 1,
+      "primitives": 1,
+      "vertices": 6647,
+      "triangles": 9250
+    }
+  },
+  "bounds": {
+    "min": [
+      -0.04597400000000001,
+      -0.05050406063800409,
+      -0.04597400000000001
+    ],
+    "max": [
+      0.04597400000000001,
+      0.04001825740014605,
+      0.04597400000000001
+    ],
+    "size": [
+      0.09194800000000002,
+      0.09052231803815014,
+      0.09194800000000002
+    ]
+  },
+  "visualGeometry": "Perforated hollow CAD shell; openings are geometry, not a texture",
+  "collisionGeometry": "Existing nominal spherical contact approximation; unchanged",
+  "scalePolicy": "Centre the source CAD and scale uniformly to the existing nominal simulation diameter"
+}

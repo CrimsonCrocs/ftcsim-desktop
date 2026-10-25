@@ -1,0 +1,127 @@
+# FTC Simulator Desktop
+
+Write FTC autonomous code, run it locally, and test the next change without a cloud build queue.
+
+FTC Simulator Desktop is a native macOS app with a Java/Kotlin editor, a 3D field, robot configuration, telemetry, and the FTC Simulator physics and scoring engine. It runs real FTC OpModes against the published SDK and project libraries. The included Red Pollen Auto uses NextFTC and Pedro Pathing.
+
+The main task is simple: change a value, save the file, and see what the robot does. You can use the editor or connect an AI coding agent through MCP. Both use the same local project files and runner.
+
+## What makes the loop fast
+
+The app keeps the compiler and runtime JVMs open. After the first Gradle build, a source edit uses the Java compiler already in memory. A fresh classloader then starts the changed program. Static fields reset, and changes can add or remove fields and methods.
+
+Run reuses the loaded build. It does not upload or unpack the project each time. Changes to Gradle files or the dependency graph still need a full build.
+
+Autonomous evaluation runs 30 simulated seconds without waiting 30 real seconds. The physics step stays at 5 ms. A repeated trial can reuse an unchanged section of the previous physics run. The new Java program still runs every control tick. If a motor or servo output changes, the evaluator restores a checkpoint and computes the remaining physics. A feedback mismatch causes a fresh full trial.
+
+Measured on an Apple M4 Pro during development:
+
+| Operation | Observed time |
+| --- | ---: |
+| Run an already built OpMode | 0.50 s |
+| Save a constant and restart through Hot Reload | 2.25 s |
+| Compile a small autonomous edit in the warm evaluator | 0.18–0.51 s |
+| Run all 30 simulated seconds with fresh physics | 12.54 s |
+| Repeat an unchanged 30-second trial | 1.36 s |
+| Test an edit to the final volley | 4.0–4.8 s |
+
+These are observed runs, not fixed limits. The first Gradle build, dependency downloads, robot geometry, and camera work can take longer. See [performance notes](docs/PERFORMANCE.md) for the test method.
+
+## Build and install
+
+This version builds from source on an Apple Silicon Mac. It targets macOS 14 or later and uses an APFS volume for fast bundle copies. You need Xcode command-line tools, Bun 1.3.14, JDK 17, Gradle 8.9, and an Android SDK with platform 30 and build-tools 34.0.0. Use your existing Android SDK installation and accepted licenses.
+
+1. Install the command-line tools if needed: `xcode-select --install`.
+2. Install JDK 17 and download the [Gradle 8.9 binary distribution](https://services.gradle.org/distributions/gradle-8.9-bin.zip). Extract Gradle to a permanent folder.
+3. Clone this repository and prepare its dependencies:
+
+```sh
+git clone https://github.com/CrimsonCrocs/ftcsim-desktop.git
+cd ftcsim-desktop
+bun install --frozen-lockfile
+bun install --cwd desktop --frozen-lockfile
+
+export JAVA_HOME="$(/usr/libexec/java_home -v 17)"
+export PATH="$JAVA_HOME/bin:$PATH"
+export FTC_DESKTOP_GRADLE_HOME="/absolute/path/to/gradle-8.9"
+
+bun run toolchains:install
+bun run assets:prepare
+bun run build
+bun run install:app
+open "$HOME/Applications/FTC Simulator Desktop.app"
+```
+
+The toolchain command downloads checksum-checked FTC SDK and Kotlin compiler files. The packager uses `~/Library/Android/sdk` for Android build tools. Set `FTC_DESKTOP_ANDROID_SDK` if your SDK is elsewhere. Set `FTC_DESKTOP_JDK` if JDK 17 is not your selected `JAVA_HOME`.
+
+The installed app includes the runtime tools and assets. It can run after you move or close this checkout. It is signed locally with an ad hoc signature; this repository does not provide a notarized download.
+
+## Edit and run an autonomous
+
+The app opens a copy of Red Pollen Auto on first launch. The project is stored at:
+
+```text
+~/Library/Application Support/FTC Simulator Desktop/Projects/Red Pollen Auto
+```
+
+Use **Build and Play** for the first run. **Hot Reload** is on by default. Save a source edit to compile it and restart the OpMode. If the edit does not compile, the runtime stops and the editor shows the compiler error. Correct the file and save again to resume.
+
+Use **Run** to start the loaded build again. Use **Stop** to end the run and return motor demand to zero. Use **Evaluate 30 s** or `⌘E` for an accelerated autonomous trial.
+
+Use **File → Open Project** for another folder that contains `ftcsim.project.json`. Files save to disk automatically. If another process changes a file, unchanged editor buffers preserve that change. Conflicting edits require a reload. Use **View → Reload Project** or `⌘R` after a disk edit.
+
+The included [Red Pollen Auto](desktop/examples/Red%20Pollen%20Auto/README.md) handles pollen through a compliant intake. Its shooter and drivetrain do not use compliant rollers. It uses FTC SDK 11.1.0, NextFTC 1.1.0, and Pedro core/revhub 3.0.2. The baseline completes one tip and parks for 28 points.
+
+## Connect an AI agent through MCP
+
+The app includes a local MCP server. It lets an agent edit code, build, run, stop, inspect telemetry, view the app, and compare autonomous trials without a browser driver or computer-use tool. Keep the app open while using it.
+
+For Codex, register the installed server:
+
+```sh
+codex mcp add ftcsim-desktop -- \
+  "$HOME/Applications/FTC Simulator Desktop.app/Contents/Resources/bin/bun" \
+  "$HOME/Applications/FTC Simulator Desktop.app/Contents/Resources/desktop/mcp.js"
+```
+
+For another MCP client, use a stdio server configuration with `/bin/sh` as the command and the absolute path to `desktop/scripts/mcp-launch.sh` as its argument. The launcher uses the installed app's Bun runtime. It does not need a separate JavaScript installation.
+
+| Tool | Use it to |
+| --- | --- |
+| `simulator_status` | Read the live state, compiler errors, Run log, motor commands, and telemetry. |
+| `project_files` | List the current project's files. |
+| `read_file` | Read source and its SHA-256. |
+| `write_file` / `patch_file` | Change disk source with a check against the last file hash. |
+| `editor_patch` | Change source through the editor and test actual Hot Reload. |
+| `editor_control` | Build, run, stop, reload, show, or quit the app. |
+| `build_project` | Compile disk source through the evaluator's warm build path. |
+| `evaluate_autonomous` | Run a timed autonomous trial and return its result and ID. |
+| `get_trial` | Read the recorded robot path, telemetry, and optional pollen flight paths. |
+| `simulator_view` | Get a PNG of the actual app through its native snapshot API. |
+
+A useful tuning loop is: read the source, patch one value, evaluate with a fixed seed, and inspect the result. Set `full: true` on `evaluate_autonomous` to check a candidate with fresh physics. Compare tip count, parking, payload, and STOP output before keeping the edit.
+
+You can also call the MCP from a shell:
+
+```sh
+bun run mcp:call evaluate_autonomous '{"seed":20261024}'
+bun run mcp:call get_trial '{"includeSamples":true}'
+bun run mcp:call simulator_view '{}' /tmp/ftcsim-view.png
+```
+
+The server uses stdio and a private connection file with owner-only permissions. No connection key belongs in your agent configuration or project source. TeamCode and Gradle scripts run locally with your account permissions, so open projects you trust.
+
+## Checks and source layout
+
+```sh
+bun run typecheck
+bun run test
+# Opt-in: exercise the installed app and reversibly edit its example auton.
+bun run test:app
+```
+
+`desktop/` contains the native shell, local service, warm JVM host, evaluator, and MCP server. `src/` contains the shared editor and simulator interface. `packages/ftc-sim-core/` contains the physics and game rules. `services/java-runner/` and `runtime/` contain SDK integration. The [reference notes](desktop/CCC.md) explain the borrowed workflow patterns and implementation choices.
+
+The evaluator currently uses Red/Near with other robots present and idle. It supports geometric AprilTag observations. Camera pixel processing needs the interactive simulator. Physics parameters remain unvalidated against a real robot, so transfer results to hardware with measured calibration. Windows and Linux packages are not provided.
+
+Third-party code, libraries, model assets, and tools retain their own terms. See [third-party notes](THIRD_PARTY_NOTICES.md). Publication does not assign a new license to those materials.

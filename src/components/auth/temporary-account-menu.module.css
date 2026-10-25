@@ -1,0 +1,153 @@
+.root {
+  position: relative;
+  z-index: 20;
+}
+
+.welcome {
+  position: fixed;
+  top: 14px;
+  right: 16px;
+}
+
+.trigger {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 5px;
+  color: #b7bac0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.trigger:hover,
+.trigger:focus-visible,
+.trigger[aria-expanded="true"] {
+  color: #eef0f3;
+  background: #3b3e43;
+}
+
+.trigger:focus-visible {
+  outline: 2px solid #78a3f8;
+  outline-offset: 1px;
+}
+
+.trigger svg {
+  width: 19px;
+  height: 19px;
+}
+
+.menu {
+  position: absolute;
+  top: calc(100% + 7px);
+  right: 0;
+  width: min(300px, calc(100vw - 24px));
+  overflow: hidden;
+  border: 1px solid #4b4f56;
+  border-radius: 7px;
+  color: #e2e4e8;
+  background: #2b2d31;
+  box-shadow: 0 14px 36px rgb(0 0 0 / 38%);
+}
+
+.identity {
+  display: grid;
+  grid-template-columns: 36px minmax(0, 1fr);
+  align-items: center;
+  gap: 10px;
+  padding: 13px;
+  border-bottom: 1px solid #41444a;
+}
+
+.identity > span:last-child {
+  min-width: 0;
+}
+
+.identity strong,
+.identity small {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.identity strong {
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.identity small {
+  margin-top: 3px;
+  color: #9ea2a9;
+  font-size: 11px;
+}
+
+.avatar {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: #d9e4ff;
+  background: #465b85;
+}
+
+.avatar svg {
+  width: 18px;
+  height: 18px;
+}
+
+.error {
+  margin: 0;
+  padding: 10px 13px 4px;
+  color: #f0a09c;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.menu button,
+.menuLink {
+  width: calc(100% - 12px);
+  min-height: 34px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 6px;
+  padding: 0 9px;
+  border: 0;
+  border-radius: 4px;
+  color: #e2e4e8;
+  background: transparent;
+  font: inherit;
+  font-size: 12px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.menu button:hover,
+.menu button:focus-visible,
+.menuLink:hover,
+.menuLink:focus-visible {
+  background: #365880;
+}
+
+.menuLink {
+  text-decoration: none;
+}
+
+.menu button:disabled {
+  color: #858991;
+  cursor: default;
+}
+
+.menu button svg {
+  width: 16px;
+  height: 16px;
+}
+
+.menuLink svg {
+  width: 16px;
+  height: 16px;
+}

@@ -1,0 +1,100 @@
+{
+  "assetPack": "biobuzz-2026-2027@1",
+  "source": {
+    "url": "https://ftc-resources.firstinspires.org/ftc/field/field-cad-step?fileId=8b91cac3-833d-459a-9fa3-6dad3f56f642",
+    "sha256": "05b35961c7df847741031f00fda73ddd068537f809e92a11b1cd59a94bcc8331",
+    "bytes": 35206208
+  },
+  "output": {
+    "path": "/models/biobuzz/cell-red-audience.glb",
+    "bytes": 1347936,
+    "sha256": "9d9d1fcb694c15af3844c5c423f140155a46c0eec1dc672ba91d27dffe23b8a5",
+    "triangles": 91642
+  },
+  "units": "metres",
+  "axes": "source STEP Y-up; geometry expressed in metres",
+  "originSubtractedMeters": [
+    -0.323661681017093,
+    1.11632090761168,
+    0
+  ],
+  "triangulation": {
+    "tool": "existing OCCT CAD converter",
+    "linearDeflectionMillimetres": 0.2,
+    "angularDeflectionRadians": 0.2
+  },
+  "components": 71,
+  "vertices": 785996,
+  "triangles": 1230070,
+  "boundsMeters": {
+    "min": [
+      -0.2674475948007781,
+      -0.028561532039475424,
+      0.028220368549227715
+    ],
+    "max": [
+      0.26749559839647225,
+      0.5605941419412375,
+      0.5096279978752136
+    ]
+  },
+  "sourceParts": [
+    "Hex lock nut with nylon insert #10-32",
+    "Socket head cap screw #10-32 x 1",
+    "Socket head cap screw #10-32 x 1.5",
+    "Socket head cap screw #10-32 x 2",
+    "am-1483: 10-32 Wing Nut",
+    "am-1523: #10 Fender Washer",
+    "am-1589 Basket End Skin Cable Tie_Red__Fillet1",
+    "am-1589 Basket End Skin Wing Cable Tie_Red__Fillet1",
+    "am-1589 Basket Joiner Cable Tie_Red__Fillet3",
+    "am-1589 Rib Top Back Cable Tie_Red__Fillet2",
+    "am-1589 Rib Top Front Cable Tie_Red__Fillet2",
+    "am-1696: Nylon Spacer, 0.194in ID, 0.375in OD, 1.000in Long",
+    "am-1767: 1x1 Square Press In Plug (Black)",
+    "am-5864: Pivot Damper Holder",
+    "am-5865: Blumotion 970A Damper",
+    "am-5866-red: Red Goal Rib",
+    "am-5867: 10.5in Churro Lite",
+    "am-5868: Basket Base Tube",
+    "am-5869: Hive Goal Top Skin",
+    "am-5871: Hive Goal Back Skin",
+    "am-5888-red1: Red Goal April Tag (Audience)",
+    "am-5888: Hive Goal Bottom Skin"
+  ],
+  "visualMaterials": {
+    "revision": "biobuzz-appearance-v2",
+    "source": "User-supplied BIOBUZZ season-animation reference, 2026-09-17",
+    "profile": "tools/cad-convert/biobuzz-material-profile.mjs",
+    "status": "Visual approximation; optical properties are not physically calibrated",
+    "clearPanels": "FTC Field Side Glass; Hive Goal Top, Back and Bottom Skin",
+    "floor": "Neutral grey foam tiles, matte roughness 1; original tile geometry retained"
+  },
+  "visualOptimization": {
+    "tool": "gltfpack 1.2.0",
+    "passes": [
+      {
+        "targetRatio": 0.08,
+        "relativeErrorLimit": 0.0004
+      },
+      {
+        "targetRatio": 0.02,
+        "relativeErrorLimit": 0.00012889181074953582
+      }
+    ],
+    "cumulativeRelativeErrorLimit": 0.0005288918107495358,
+    "sourceBoundsDiagonalMeters": 0.9300655534450272,
+    "configuredSimplificationDeviationMeters": 0.0004919040546773096,
+    "positionQuantizationBoundMeters": 0.0000070959453226903725,
+    "configuredTotalDeviationMeters": 0.000499,
+    "positionQuantizationBits": 16,
+    "borderVerticesLocked": true,
+    "losslessTriangleChunking": {
+      "method": "partition triangles into <=65000-unique-vertex primitives with Uint16 indices",
+      "chunks": 8,
+      "sourceVertices": 87823,
+      "outputVertices": 87916
+    },
+    "decoderRequired": false
+  }
+}

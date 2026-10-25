@@ -1,0 +1,5 @@
+ONNX Runtime Web 1.30.0
+Copyright Microsoft Corporation. Licensed under the MIT License.
+License text: https://github.com/microsoft/onnxruntime/blob/v1.30.0/LICENSE
+
+These same-origin WebAssembly assets are copied from the version-pinned npm package.

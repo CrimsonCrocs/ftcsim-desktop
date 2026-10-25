@@ -1,0 +1,42 @@
+{
+  "trialId": "5d405d9c-3b49-4464-b469-760df185e7a9",
+  "seed": 20261024,
+  "sourceDigest": "17b42f97afac469bf74c02c8b3f99772c80ce2e0f0f7cae7bff798c6ef91e972",
+  "entryClass": "org.firstinspires.ftc.teamcode.RedPollenAuto",
+  "compileKind": "gradle",
+  "compileMs": 24570,
+  "wallMs": 12543,
+  "reusedPrefixSeconds": 0,
+  "physicsTicksExecuted": 6000,
+  "checkpointBytes": 200438679,
+  "simulatedSeconds": 30,
+  "tips": 1,
+  "score": 28,
+  "parked": true,
+  "stoppedNeutral": true,
+  "peakPayload": 4,
+  "collected": [
+    "pollen-25",
+    "pollen-26",
+    "pollen-27",
+    "pollen-28",
+    "pollen-19",
+    "pollen-20",
+    "pollen-18"
+  ],
+  "collectedNectar": [],
+  "valid": true,
+  "scoreBreakdown": {
+    "leave": 3,
+    "autoPark": 5,
+    "teleopPark": 0,
+    "hiveTips": 20,
+    "upwardCellElements": 0,
+    "ownedFlowerElements": 0,
+    "bottomNectarBonuses": 0,
+    "gardenElements": 0,
+    "foulsReceived": 0,
+    "refereeAdjustments": 0
+  },
+  "sampleCount": 31
+}

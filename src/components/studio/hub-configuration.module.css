@@ -1,0 +1,65 @@
+.root { display: grid; gap: 14px; min-width: 0; }
+.categories { display: flex; gap: 4px; border-bottom: 1px solid var(--rule-soft); padding-bottom: 8px; }
+.root button { display: inline-flex; align-items: center; gap: 6px; min-height: 30px; padding: 0 10px; border: 1px solid var(--rule-soft); border-radius: var(--radius-control); background: var(--chrome); color: var(--ink); font: inherit; font-size: 12px; cursor: pointer; }
+.root button:hover:not(:disabled) { background: var(--surface-hover); }
+.categories button[aria-pressed="true"] { background: var(--surface-hover); border-color: var(--accent); }
+.root button:disabled { opacity: .5; cursor: default; }
+.root svg { width: 14px; height: 14px; }
+.root button:focus-visible, .root summary:focus-visible, .root input:focus-visible, .root select:focus-visible, .fields select:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.fields, .root :global(.hub-configuration__node-fields) { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.fields label, .root :global(.hub-configuration__node-fields) label, .hubSelect { display: grid; gap: 5px; min-width: 0; font-size: 12px; color: var(--ink-muted); }
+.fields select, .fields input, .root input, .root select { width: 100%; min-width: 0; height: 30px; padding: 0 8px; border: 1px solid var(--rule); border-radius: var(--radius-control); background: var(--surface); color: var(--ink); font: inherit; }
+.hubSelect { grid-template-columns: 40px minmax(0, 280px); align-items: center; }
+.ports { border: 1px solid var(--rule-soft); border-radius: var(--radius-control); overflow: hidden; }
+.device + .device, .emptyPort + .device, .device + .emptyPort, .emptyPort + .emptyPort { border-top: 1px solid var(--rule-soft); }
+.device > summary, .emptyPort { padding: 12px; font-size: 12px; cursor: pointer; }
+.device > summary { display: list-item; list-style-position: inside; }
+.device > summary > span { display: inline-block; width: 65px; color: var(--ink-muted); }
+.device > summary strong { font-weight: 550; overflow-wrap: anywhere; }
+.device > summary small { display: block; margin: 5px 0 0 84px; color: var(--ink-muted); }
+.device[open] > summary { background: var(--chrome); }
+.deviceFields { padding: 14px; }
+.emptyPort { display: flex; gap: 16px; align-items: center; cursor: default; color: var(--ink-muted); }
+.emptyPort button { margin-left: auto; }
+.hubDetails > summary, .profileDetails > summary { cursor: pointer; font-size: 12px; color: var(--ink-muted); }
+.hubDetails > .fields { margin-block: 12px; }
+.profileDetails { margin-top: 14px; }
+.root :global(.hub-configuration__motor-profile) { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 16px; padding-top: 12px; font-size: 11px; }
+.root :global(.hub-configuration__motor-image) img { max-width: 100%; max-height: 100px; object-fit: contain; }
+.root :global(.hub-configuration__motor-profile) dl { margin: 0 0 8px; }
+.root :global(.hub-configuration__motor-profile) dl > div { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 4px; }
+.root :global(.hub-configuration__motor-profile) dd { margin: 0; }
+.root :global(.hub-configuration__motor-profile) a { color: var(--accent); }
+@media (max-width: 720px) { .fields, .root :global(.hub-configuration__node-fields) { grid-template-columns: minmax(0, 1fr); } }
+
+.root :global(.hub-configuration__node-fields) > button { align-self: end; justify-self: start; height: 30px; }
+
+@media (max-width: 720px) {
+  .categories { flex-wrap: wrap; gap: 6px; }
+  .root button { min-height: 44px; padding-inline: 10px; }
+  .fields select,
+  .fields input,
+  .root input,
+  .root select { height: 44px; }
+  .hubSelect { grid-template-columns: 44px minmax(0, 1fr); }
+  .device > summary,
+  .emptyPort { min-height: 48px; }
+  .emptyPort { flex-wrap: wrap; gap: 8px; }
+  .emptyPort button { margin-left: 0; }
+  .deviceFields { padding: 10px; }
+  .root :global(.hub-configuration__node-fields) { grid-template-columns: minmax(0, 1fr); }
+  .root :global(.hub-configuration__node-fields) > button { height: auto; min-height: 44px; }
+  .root :global(.hub-configuration__motor-profile) { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+  .root :global(.hub-configuration__motor-image) img { max-height: 80px; }
+}
+
+@media (max-height: 500px) and (orientation: landscape) {
+  .root button { min-height: 44px; }
+  .fields select,
+  .fields input,
+  .root input,
+  .root select { height: 44px; }
+  .device > summary,
+  .emptyPort { min-height: 48px; }
+  .root :global(.hub-configuration__node-fields) > button { min-height: 44px; height: auto; }
+}

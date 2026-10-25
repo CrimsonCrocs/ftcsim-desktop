@@ -1,0 +1,793 @@
+.root {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.trigger {
+  position: relative;
+  display: inline-grid;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  place-items: center;
+  border: 0;
+  border-radius: var(--radius-control);
+  background: transparent;
+  color: #aebbd8;
+  cursor: pointer;
+}
+
+.trigger:hover,
+.trigger[aria-expanded="true"] {
+  background: color-mix(in srgb, var(--surface-hover) 82%, transparent);
+  color: var(--ink);
+}
+
+.trigger svg {
+  width: 18px;
+  height: 18px;
+}
+
+.slotNumber {
+  position: absolute;
+  right: 2px;
+  bottom: 1px;
+  display: grid;
+  width: 13px;
+  height: 13px;
+  place-items: center;
+  border: 1px solid var(--chrome);
+  border-radius: 50%; /* intentional-slop-disable-line 16 -- numbered controller slot badge */
+  background: #4d6598;
+  color: white;
+  font-size: 8px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.popover {
+  position: absolute;
+  z-index: var(--layer-overlay);
+  top: calc(100% + 7px);
+  right: 0;
+  width: min(360px, calc(100vw - 24px));
+  padding: 10px;
+  border: 1px solid #4b4f56;
+  border-radius: 8px;
+  background: #2a2c30;
+  box-shadow: 0 16px 36px rgb(0 0 0 / 38%);
+  color: var(--ink);
+}
+
+.popover::before {
+  position: absolute;
+  top: -7px;
+  right: 13px;
+  width: 12px;
+  height: 12px;
+  border-top: 1px solid #4b4f56;
+  border-left: 1px solid #4b4f56;
+  background: #2a2c30;
+  content: "";
+  transform: rotate(45deg);
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 28px;
+  padding: 0 4px 7px;
+  border-bottom: 1px solid var(--rule);
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.close {
+  display: grid;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  place-items: center;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--ink-muted);
+  cursor: pointer;
+}
+
+.close:hover {
+  background: var(--surface-hover);
+  color: var(--ink);
+}
+
+.close svg {
+  width: 14px;
+  height: 14px;
+}
+
+.slots {
+  display: grid;
+  gap: 2px;
+  padding-top: 7px;
+}
+
+.slot {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr) auto;
+  gap: 9px;
+  align-items: center;
+  min-height: 55px;
+  padding: 7px;
+  border-radius: 5px;
+}
+
+.slot:hover {
+  background: rgb(255 255 255 / 4%);
+}
+
+.slotIcon {
+  position: relative;
+  display: grid;
+  width: 28px;
+  height: 28px;
+  place-items: center;
+  color: #9fb1d8;
+}
+
+.slotIcon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.slotIcon span {
+  position: absolute;
+  right: -2px;
+  bottom: -1px;
+  display: grid;
+  width: 13px;
+  height: 13px;
+  place-items: center;
+  border-radius: 50%; /* intentional-slop-disable-line 16 -- numbered controller slot badge */
+  background: #4d6598;
+  color: #fff;
+  font-size: 8px;
+  font-weight: 700;
+}
+
+.slotCopy {
+  display: grid;
+  min-width: 0;
+  gap: 2px;
+}
+
+.slotCopy strong,
+.slotCopy span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.slotCopy strong {
+  color: #d6d9de;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.slotCopy span {
+  color: #a4a9b1;
+  font-size: 10px;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.action {
+  min-height: 26px;
+  padding: 0 8px;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: #aab0b9;
+  cursor: pointer;
+  font-size: 10px;
+}
+
+.action:hover {
+  background: var(--surface-hover);
+  color: var(--ink);
+}
+
+.notice {
+  margin: 7px 4px 1px;
+  padding: 7px 8px;
+  border-radius: 4px;
+  background: rgb(79 115 177 / 16%);
+  color: #aebbd8;
+  font-size: 10px;
+  line-height: 1.4;
+}
+
+.unsupported {
+  color: #d8a46a !important;
+}
+
+.detected {
+  display: grid;
+  gap: 2px;
+  margin-top: 7px;
+  padding-top: 9px;
+  border-top: 1px solid var(--rule);
+}
+
+.detected h3 {
+  margin: 0;
+  padding: 0 7px 3px;
+  color: #b9bdc4;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.detectedRow {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr) auto;
+  min-height: 48px;
+  align-items: center;
+  gap: 9px;
+  padding: 6px 7px;
+  border-radius: 5px;
+}
+
+.detectedRow:hover {
+  background: rgb(255 255 255 / 4%);
+}
+
+.detectedRow > svg {
+  width: 19px;
+  height: 19px;
+  justify-self: center;
+  color: #9fb1d8;
+}
+
+.detectedRow > div {
+  display: grid;
+  min-width: 0;
+  gap: 2px;
+}
+
+.detectedRow strong,
+.detectedRow span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.detectedRow strong {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.detectedRow span {
+  color: #a4a9b1;
+  font-size: 10px;
+}
+
+.mappingBackdrop {
+  position: fixed;
+  z-index: calc(var(--layer-overlay) + 10);
+  inset: 0;
+  display: grid;
+  padding: var(--space-4);
+  place-items: center;
+  background: rgb(8 9 11 / 68%);
+}
+
+.mappingDialog {
+  display: grid;
+  width: min(900px, 100%);
+  max-height: calc(100dvh - var(--space-8));
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  overflow: hidden;
+  border: 1px solid #51545b;
+  border-radius: var(--radius-overlay);
+  background: var(--chrome);
+  box-shadow: 0 16px 36px rgb(0 0 0 / 48%);
+  color: var(--ink);
+}
+
+.mappingHeader,
+.mappingFooter,
+.sectionHeading,
+.mappingTitle,
+.mappingFooter > div {
+  display: flex;
+  align-items: center;
+}
+
+.mappingHeader {
+  min-height: 56px;
+  justify-content: space-between;
+  padding: 0 var(--space-4);
+  border-bottom: 1px solid var(--rule);
+  background: var(--chrome-raised);
+}
+
+.mappingTitle {
+  min-width: 0;
+  gap: var(--space-3);
+}
+
+.mappingTitle > svg {
+  width: 22px;
+  height: 22px;
+  flex: 0 0 auto;
+  color: #9fb1d8;
+}
+
+.mappingTitle > div {
+  min-width: 0;
+}
+
+.mappingTitle h2,
+.mappingTitle p,
+.sectionHeading h3,
+.mappingFooter p,
+.disconnectedMessage {
+  margin: 0;
+}
+
+.mappingTitle h2 {
+  color: #e0e3e8;
+  font-size: 14px;
+  font-weight: 650;
+  line-height: 20px;
+}
+
+.mappingTitle p {
+  overflow: hidden;
+  color: var(--ink-muted);
+  font-size: 11px;
+  line-height: 16px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.mappingBody {
+  min-height: 0;
+  overflow: auto;
+}
+
+.liveControls,
+.mappingForm {
+  padding: var(--space-4);
+}
+
+.liveControls {
+  border-bottom: 1px solid var(--rule);
+}
+
+.sectionHeading {
+  min-height: 30px;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.sectionHeading h3 {
+  color: #d8dbe0;
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.connected,
+.disconnected {
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.connected {
+  color: var(--success);
+}
+
+.disconnected,
+.fieldError {
+  color: var(--danger);
+}
+
+.liveGrid {
+  display: grid;
+  grid-template-columns: minmax(250px, 1fr) minmax(280px, 1.25fr);
+  gap: var(--space-4);
+  padding-top: var(--space-2);
+}
+
+.axisPreview {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.axisValue {
+  display: grid;
+  min-height: 22px;
+  grid-template-columns: 48px minmax(80px, 1fr) 38px;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--ink-muted);
+  font-size: 10px;
+}
+
+.axisValue output {
+  color: #c7cad0;
+  font-family: var(--font-code);
+  text-align: right;
+}
+
+.axisTrack {
+  position: relative;
+  height: 6px;
+  overflow: hidden;
+  border-radius: 3px;
+  background: #1e2024;
+}
+
+.axisTrack::after {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  background: #5b5f67;
+  content: "";
+}
+
+.axisTrack i {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  max-width: 50%;
+  background: #6487cf;
+}
+
+.axisPositive {
+  left: 50%;
+}
+
+.axisNegative {
+  right: 50%;
+}
+
+.buttonPreview {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(40px, 1fr));
+  align-content: start;
+  gap: var(--space-1);
+}
+
+.buttonPreview > div {
+  display: grid;
+  min-height: 30px;
+  padding: 3px 5px;
+  border: 1px solid var(--rule-soft);
+  border-radius: 3px;
+  background: #25272b;
+  color: var(--ink-muted);
+  font-size: 9px;
+  line-height: 11px;
+}
+
+.buttonPreview output {
+  color: #c5c8ce;
+  font-family: var(--font-code);
+}
+
+.buttonPreview .buttonActive {
+  border-color: #6586ca;
+  background: var(--accent-surface);
+  color: #c9d7f4;
+}
+
+.disconnectedMessage {
+  padding: var(--space-3) 0 var(--space-1);
+  color: var(--ink-muted);
+  font-size: 11px;
+}
+
+.presetLabel {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--ink-muted);
+  font-size: 10px;
+}
+
+.presetLabel select,
+.mappingControl select {
+  height: 30px;
+  border: 1px solid #4a4d54;
+  border-radius: var(--radius-control);
+  background: #232529;
+  color: var(--ink);
+}
+
+.presetLabel select {
+  min-width: 170px;
+  padding: 0 28px 0 var(--space-2);
+}
+
+.mappingColumns {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.72fr) minmax(480px, 1.6fr);
+  gap: var(--space-4);
+  padding-top: var(--space-3);
+}
+
+.mappingGroup {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.mappingGroup legend {
+  margin-bottom: var(--space-2);
+  color: var(--ink-muted);
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.buttonMappingGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-2) var(--space-3);
+}
+
+.axisMappingGroup {
+  display: grid;
+  align-content: start;
+  gap: var(--space-2);
+}
+
+.mappingField {
+  display: grid;
+  min-width: 0;
+  align-content: start;
+  gap: 3px;
+}
+
+.mappingField > label {
+  display: flex;
+  min-width: 0;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-2);
+  color: #c7cad0;
+  font-size: 10px;
+  line-height: 14px;
+}
+
+.mappingField > label span {
+  color: var(--ink-faint);
+  font-size: 9px;
+}
+
+.mappingControl {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 82px;
+  gap: var(--space-1);
+}
+
+.mappingControl select {
+  width: 100%;
+  min-width: 0;
+  padding: 0 24px 0 var(--space-2);
+  font-size: 10px;
+}
+
+.mappingControl select[aria-invalid="true"] {
+  border-color: var(--danger);
+}
+
+.detectButton,
+.secondaryButton,
+.primaryButton {
+  display: inline-flex;
+  min-height: 30px;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-control);
+  cursor: pointer;
+  font-size: 10px;
+}
+
+.detectButton {
+  gap: var(--space-1);
+  padding: 0 var(--space-2);
+  border: 1px solid #4a4d54;
+  background: var(--chrome-raised);
+  color: var(--ink-muted);
+}
+
+.detectButton:hover,
+.detectButton[aria-pressed="true"] {
+  border-color: #6282c2;
+  background: var(--accent-surface);
+  color: #c9d7f4;
+}
+
+.detectButton svg {
+  width: 12px;
+  height: 12px;
+}
+
+.fieldError {
+  min-height: 12px;
+  font-size: 9px;
+  line-height: 12px;
+}
+
+.mappingFooter {
+  min-height: 58px;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-2) var(--space-4);
+  border-top: 1px solid var(--rule);
+  background: var(--chrome-raised);
+}
+
+.mappingFooter p {
+  max-width: 62ch;
+  color: var(--ink-muted);
+  font-size: 10px;
+  line-height: 14px;
+}
+
+.mappingFooter > div {
+  flex: 0 0 auto;
+  gap: var(--space-2);
+}
+
+.secondaryButton,
+.primaryButton {
+  min-width: 92px;
+  padding: 0 var(--space-3);
+}
+
+.secondaryButton {
+  border: 1px solid #4a4d54;
+  background: var(--chrome-raised);
+  color: var(--ink);
+}
+
+.primaryButton {
+  border: 1px solid #668ce2;
+  background: #3d66b5;
+  color: #fff;
+}
+
+.secondaryButton:hover {
+  background: var(--surface-hover);
+}
+
+.primaryButton:hover:not(:disabled) {
+  background: #4974c8;
+}
+
+.primaryButton:disabled {
+  border-color: #4a4d54;
+  background: #383b40;
+  color: var(--ink-faint);
+  cursor: not-allowed;
+}
+
+@media (max-width: 760px) {
+  .mappingBackdrop {
+    padding: var(--space-2);
+  }
+
+  .mappingDialog {
+    max-height: calc(100dvh - var(--space-4));
+  }
+
+  .liveGrid,
+  .mappingColumns {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .buttonMappingGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .sectionHeading,
+  .mappingFooter {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .mappingFooter > div {
+    justify-content: flex-end;
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .trigger {
+    width: 44px;
+    height: 44px;
+  }
+
+  .action,
+  .close,
+  .presetLabel select,
+  .mappingControl select,
+  .detectButton,
+  .secondaryButton,
+  .primaryButton {
+    min-height: 44px;
+  }
+}
+
+@media (max-width: 720px) {
+  .popover {
+    width: min(360px, calc(100vw - max(16px, env(safe-area-inset-left) + env(safe-area-inset-right))));
+    max-height: calc(100dvh - max(16px, env(safe-area-inset-top) + env(safe-area-inset-bottom)));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: 8px;
+  }
+
+  .close,
+  .action,
+  .mappingControl select,
+  .presetLabel select,
+  .detectButton,
+  .secondaryButton,
+  .primaryButton { min-height: 44px; }
+
+  .slot,
+  .detectedRow { grid-template-columns: 28px minmax(0, 1fr); }
+  .actions,
+  .detectedRow > button { grid-column: 2; justify-self: start; }
+  .actions { flex-wrap: wrap; }
+  .slotCopy strong,
+  .slotCopy span,
+  .detectedRow strong,
+  .detectedRow span { white-space: normal; overflow-wrap: anywhere; }
+
+  .mappingBackdrop {
+    padding: max(4px, env(safe-area-inset-top)) max(4px, env(safe-area-inset-right))
+      max(4px, env(safe-area-inset-bottom)) max(4px, env(safe-area-inset-left));
+  }
+
+  .mappingDialog {
+    max-height: calc(100dvh - max(8px, env(safe-area-inset-top) + env(safe-area-inset-bottom)));
+    grid-template-rows: auto minmax(0, 1fr) auto;
+  }
+
+  .mappingHeader { min-height: 56px; padding-inline: 12px; }
+  .liveControls,
+  .mappingForm { padding: 12px; }
+  .mappingFooter { padding: 8px 12px; }
+}
+
+@media (max-height: 500px) and (orientation: landscape) {
+  .trigger { width: 44px; height: 44px; }
+  .close,
+  .action,
+  .mappingControl select,
+  .presetLabel select,
+  .detectButton,
+  .secondaryButton,
+  .primaryButton { min-height: 44px; }
+  .mappingBackdrop {
+    padding: max(4px, env(safe-area-inset-top)) max(6px, env(safe-area-inset-right))
+      max(4px, env(safe-area-inset-bottom)) max(6px, env(safe-area-inset-left));
+  }
+  .mappingDialog {
+    max-height: calc(100dvh - max(8px, env(safe-area-inset-top) + env(safe-area-inset-bottom)));
+  }
+  .mappingFooter { flex-wrap: wrap; }
+}

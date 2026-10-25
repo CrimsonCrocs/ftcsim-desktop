@@ -1,0 +1,15 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "incremental": false,
+    "plugins": [],
+    "types": ["bun", "node", "react", "react-dom", "vite/client"],
+    "paths": {
+      "@/*": ["../src/*"],
+      "@ftc-studio/sim-core": ["../packages/ftc-sim-core/src/index.ts"],
+      "@ftc-studio/opmode-protocol": ["../packages/opmode-protocol/src/index.ts"]
+    }
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx", "compat/**/*.ts", "compat/**/*.tsx", "scripts/**/*.ts", "vite.config.ts", "../src/types/**/*.d.ts"],
+  "exclude": ["node_modules", "build", "dist", ".cache"]
+}

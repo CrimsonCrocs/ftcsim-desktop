@@ -1,0 +1,77 @@
+{
+  "input": "am-5851_yellow Pollen.STEP",
+  "inputSha256": "3876dea7b683c2085286da2899504555aab1a13720ab8c02c1d0107e1095f445",
+  "output": {
+    "kind": "pollen",
+    "path": "/models/biobuzz/pollen.glb",
+    "bytes": 123444,
+    "sha256": "3fbbc7578847e7c1e95357fcf58688985729edd6d64eb8d64f75ab7b347006cf",
+    "triangles": 8232,
+    "source": {
+      "filename": "am-5851_yellow Pollen.STEP",
+      "sha256": "3876dea7b683c2085286da2899504555aab1a13720ab8c02c1d0107e1095f445",
+      "units": "inches",
+      "provenance": "User-supplied CAD, 2026-09-17"
+    },
+    "cadDiameterMeters": 0.07111999999999999,
+    "nominalDiameterMeters": 0.07111999999999999,
+    "renderScaleToNominal": 1
+  },
+  "outputBytes": 123444,
+  "sourceUnits": "inches",
+  "tessellationUnits": "millimetres",
+  "outputUnits": "metres",
+  "triangulation": {
+    "linearDeflectionMillimetres": 0.1,
+    "angularDeflectionRadians": 0.15
+  },
+  "optimization": {
+    "tool": "gltfpack",
+    "simplifyRatio": 0.18,
+    "simplificationError": 0.0008,
+    "permissive": true
+  },
+  "material": {
+    "source": "override",
+    "srgbHex": "#F1D933"
+  },
+  "assetPack": "biobuzz-2026-2027@1",
+  "coordinateTransform": {
+    "centered": true,
+    "rotateXDegrees": 0
+  },
+  "sceneFilter": null,
+  "statistics": {
+    "triangulated": {
+      "meshes": 2,
+      "vertices": 12542,
+      "triangles": 15268
+    },
+    "output": {
+      "meshes": 1,
+      "primitives": 1,
+      "vertices": 6069,
+      "triangles": 8232
+    }
+  },
+  "bounds": {
+    "min": [
+      -0.035559999999999994,
+      -0.035118198359255275,
+      -0.035559999999999994
+    ],
+    "max": [
+      0.035559999999999994,
+      0.035118198359255275,
+      0.035559999999999994
+    ],
+    "size": [
+      0.07111999999999999,
+      0.07023639671851055,
+      0.07111999999999999
+    ]
+  },
+  "visualGeometry": "Perforated hollow CAD shell; openings are geometry, not a texture",
+  "collisionGeometry": "Existing nominal spherical contact approximation; unchanged",
+  "scalePolicy": "Centre the source CAD and scale uniformly to the existing nominal simulation diameter"
+}

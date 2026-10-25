@@ -1,0 +1,305 @@
+{
+  "schemaVersion": "biobuzz-collision-sidecar/v2",
+  "source": "Official BIOBUZZ full-field STEP-derived FLOWER collision source.",
+  "input": {
+    "bytes": 57447928,
+    "sha256": "e5bb81af46bdf93bde335cd304dab0d98ea4284ba934da7154c212405e175bbb",
+    "triangles": 3189864
+  },
+  "output": {
+    "url": "/models/biobuzz/collision/field-flowers.glb",
+    "bytes": 9537528,
+    "sha256": "95bf6e3b3483099c4c039be3950eca91e5a211cfb6cfb6ac93ead6992d0d0314",
+    "triangles": 528294
+  },
+  "nodeNames": [
+    "flowers/am-5855: Flower Assembly <2>/am-5884: Flower Backstop",
+    "flowers/am-5855: Flower Assembly <2>/am-5892: Flower Peanut Support#2",
+    "flowers/am-5855: Flower Assembly <2>/am-5892: Flower Peanut Support#3",
+    "flowers/am-5855: Flower Assembly <2>/am-5859: Flower Layer X#9",
+    "flowers/am-5855: Flower Assembly <2>/am-5857: Flower Layer C#15",
+    "flowers/am-5855: Flower Assembly <2>/am-5861: Flower Under Field Bracket#16",
+    "flowers/am-5855: Flower Assembly <2>/am-5858: Flower Layer B#18",
+    "flowers/am-5855: Flower Assembly <2>/am-5862: Flower HIPS Pipe#21",
+    "flowers/am-5855: Flower Assembly <2>/am-5862: Flower HIPS Pipe#22",
+    "flowers/am-5855: Flower Assembly <2>/am-5862: Flower HIPS Pipe#26",
+    "flowers/am-5855: Flower Assembly <2>/am-5860: Flower Field Bracket#31",
+    "flowers/am-5855: Flower Assembly <2>/am-5862: Flower HIPS Pipe#33",
+    "flowers/am-5855: Flower Assembly <4>/am-5884: Flower Backstop",
+    "flowers/am-5855: Flower Assembly <4>/am-5892: Flower Peanut Support#3",
+    "flowers/am-5855: Flower Assembly <4>/am-5892: Flower Peanut Support#4",
+    "flowers/am-5855: Flower Assembly <4>/am-5859: Flower Layer X#9",
+    "flowers/am-5855: Flower Assembly <4>/am-5861: Flower Under Field Bracket#13",
+    "flowers/am-5855: Flower Assembly <4>/am-5857: Flower Layer C#16",
+    "flowers/am-5855: Flower Assembly <4>/am-5858: Flower Layer B#17",
+    "flowers/am-5855: Flower Assembly <4>/am-5862: Flower HIPS Pipe#18",
+    "flowers/am-5855: Flower Assembly <4>/am-5862: Flower HIPS Pipe#23",
+    "flowers/am-5855: Flower Assembly <4>/am-5862: Flower HIPS Pipe#28",
+    "flowers/am-5855: Flower Assembly <4>/am-5860: Flower Field Bracket#32",
+    "flowers/am-5855: Flower Assembly <4>/am-5862: Flower HIPS Pipe#33",
+    "flowers/am-5855: Flower Assembly <3>/am-5857: Flower Layer C#4",
+    "flowers/am-5855: Flower Assembly <3>/am-5892: Flower Peanut Support#5",
+    "flowers/am-5855: Flower Assembly <3>/am-5892: Flower Peanut Support#8",
+    "flowers/am-5855: Flower Assembly <3>/am-5860: Flower Field Bracket#9",
+    "flowers/am-5855: Flower Assembly <3>/am-5862: Flower HIPS Pipe#13",
+    "flowers/am-5855: Flower Assembly <3>/am-5862: Flower HIPS Pipe#15",
+    "flowers/am-5855: Flower Assembly <3>/am-5884: Flower Backstop#19",
+    "flowers/am-5855: Flower Assembly <3>/am-5862: Flower HIPS Pipe#20",
+    "flowers/am-5855: Flower Assembly <3>/am-5858: Flower Layer B#23",
+    "flowers/am-5855: Flower Assembly <3>/am-5861: Flower Under Field Bracket#25",
+    "flowers/am-5855: Flower Assembly <3>/am-5862: Flower HIPS Pipe#28",
+    "flowers/am-5855: Flower Assembly <3>/am-5859: Flower Layer X#33",
+    "flowers/am-5855: Flower Assembly <1>/am-5862: Flower HIPS Pipe#6",
+    "flowers/am-5855: Flower Assembly <1>/am-5862: Flower HIPS Pipe#7",
+    "flowers/am-5855: Flower Assembly <1>/am-5862: Flower HIPS Pipe#10",
+    "flowers/am-5855: Flower Assembly <1>/am-5892: Flower Peanut Support#12",
+    "flowers/am-5855: Flower Assembly <1>/am-5892: Flower Peanut Support#13",
+    "flowers/am-5855: Flower Assembly <1>/am-5860: Flower Field Bracket#14",
+    "flowers/am-5855: Flower Assembly <1>/am-5884: Flower Backstop#17",
+    "flowers/am-5855: Flower Assembly <1>/am-5859: Flower Layer X#26",
+    "flowers/am-5855: Flower Assembly <1>/am-5862: Flower HIPS Pipe#28",
+    "flowers/am-5855: Flower Assembly <1>/am-5858: Flower Layer B#30",
+    "flowers/am-5855: Flower Assembly <1>/am-5861: Flower Under Field Bracket#34",
+    "flowers/am-5855: Flower Assembly <1>/am-5857: Flower Layer C#35"
+  ],
+  "sourceParts": [
+    "am-5857: Flower Layer C",
+    "am-5858: Flower Layer B",
+    "am-5859: Flower Layer X",
+    "am-5860: Flower Field Bracket",
+    "am-5861: Flower Under Field Bracket",
+    "am-5862: Flower HIPS Pipe",
+    "am-5884: Flower Backstop",
+    "am-5892: Flower Peanut Support"
+  ],
+  "exactSourcePreserved": false,
+  "exactWholeMeshPreserved": false,
+  "geometryPolicy": "protected-scoring-well-exterior-simplified",
+  "topologyValidation": {
+    "comparison": "Named-part topology counts are diagnostic only; functional opening, finite-ball contact, and sampled surface gates decide acceptance.",
+    "sourceToOutputGeometryIdentical": false,
+    "topologyRewrite": true,
+    "openingProbeResults": [
+      {
+        "node": "flowers/am-5855: Flower Assembly <1>/am-5857: Flower Layer C#35",
+        "clearRays": 65,
+        "blockedBallOpeningRays": {
+          "source": 0,
+          "candidate": 0
+        },
+        "scoringRadiusOccupancyMismatches": {
+          "count": 0,
+          "rays": 16
+        }
+      },
+      {
+        "node": "flowers/am-5855: Flower Assembly <1>/am-5858: Flower Layer B#30",
+        "clearRays": 65,
+        "blockedBallOpeningRays": {
+          "source": 0,
+          "candidate": 0
+        },
+        "scoringRadiusOccupancyMismatches": {
+          "count": 0,
+          "rays": 16
+        }
+      },
+      {
+        "node": "flowers/am-5855: Flower Assembly <1>/am-5859: Flower Layer X#26",
+        "clearRays": 65,
+        "blockedBallOpeningRays": {
+          "source": 0,
+          "candidate": 0
+        },
+        "scoringRadiusOccupancyMismatches": {
+          "count": 0,
+          "rays": 16
+        }
+      },
+      {
+        "node": "flowers/am-5855: Flower Assembly <2>/am-5857: Flower Layer C#15",
+        "clearRays": 65,
+        "blockedBallOpeningRays": {
+          "source": 0,
+          "candidate": 0
+        },
+        "scoringRadiusOccupancyMismatches": {
+          "count": 0,
+          "rays": 16
+        }
+      },
+      {
+        "node": "flowers/am-5855: Flower Assembly <2>/am-5858: Flower Layer B#18",
+        "clearRays": 65,
+        "blockedBallOpeningRays": {
+          "source": 0,
+          "candidate": 0
+        },
+        "scoringRadiusOccupancyMismatches": {
+          "count": 0,
+          "rays": 16
+        }
+      },
+      {
+        "node": "flowers/am-5855: Flower Assembly <2>/am-5859: Flower Layer X#9",
+        "clearRays": 65,
+        "blockedBallOpeningRays": {
+          "source": 0,
+          "candidate": 0
+        },
+        "scoringRadiusOccupancyMismatches": {
+          "count": 0,
+          "rays": 16
+        }
+      },
+      {
+        "node": "flowers/am-5855: Flower Assembly <3>/am-5857: Flower Layer C#4",
+        "clearRays": 65,
+        "blockedBallOpeningRays": {
+          "source": 0,
+          "candidate": 0
+        },
+        "scoringRadiusOccupancyMismatches": {
+          "count": 0,
+          "rays": 16
+        }
+      },
+      {
+        "node": "flowers/am-5855: Flower Assembly <3>/am-5858: Flower Layer B#23",
+        "clearRays": 65,
+        "blockedBallOpeningRays": {
+          "source": 0,
+          "candidate": 0
+        },
+        "scoringRadiusOccupancyMismatches": {
+          "count": 0,
+          "rays": 16
+        }
+      },
+      {
+        "node": "flowers/am-5855: Flower Assembly <3>/am-5859: Flower Layer X#33",
+        "clearRays": 65,
+        "blockedBallOpeningRays": {
+          "source": 0,
+          "candidate": 0
+        },
+        "scoringRadiusOccupancyMismatches": {
+          "count": 0,
+          "rays": 16
+        }
+      },
+      {
+        "node": "flowers/am-5855: Flower Assembly <4>/am-5857: Flower Layer C#16",
+        "clearRays": 65,
+        "blockedBallOpeningRays": {
+          "source": 0,
+          "candidate": 0
+        },
+        "scoringRadiusOccupancyMismatches": {
+          "count": 0,
+          "rays": 16
+        }
+      },
+      {
+        "node": "flowers/am-5855: Flower Assembly <4>/am-5858: Flower Layer B#17",
+        "clearRays": 65,
+        "blockedBallOpeningRays": {
+          "source": 0,
+          "candidate": 0
+        },
+        "scoringRadiusOccupancyMismatches": {
+          "count": 0,
+          "rays": 16
+        }
+      },
+      {
+        "node": "flowers/am-5855: Flower Assembly <4>/am-5859: Flower Layer X#9",
+        "clearRays": 65,
+        "blockedBallOpeningRays": {
+          "source": 0,
+          "candidate": 0
+        },
+        "scoringRadiusOccupancyMismatches": {
+          "count": 0,
+          "rays": 16
+        }
+      }
+    ]
+  },
+  "simplification": {
+    "tool": "tools/cad-convert/biobuzz-protect-openings.mjs via gltfpack 1.2.0",
+    "applied": true,
+    "method": "Preserve source triangles inside the 0.051 m vertical scoring cylinder per FLOWER instance; simplify only exterior triangles.",
+    "protectedRegion": "scoring-cylinder",
+    "protectedRadiusMeters": 0.051,
+    "exteriorRelativeError": 0.0001,
+    "borderVerticesLocked": true,
+    "positionsFloat32": true,
+    "draco": false,
+    "sourceTriangles": 3189864,
+    "outputTriangles": 528294,
+    "measuredSurfaceValidation": {
+      "method": "bidirectional deterministic source/candidate triangle-centroid samples, point-to-triangle distance",
+      "maximumSampledDistanceMeters": 0.00010793000441830903,
+      "samples": 3072,
+      "toleranceMeters": 0.0005
+    }
+  },
+  "functionalOpeningValidation": {
+    "method": "65 vertical rays through the 2.79-inch POLLEN disk at every Layer C/B/X instance, plus 16 scoring-radius occupancy rays",
+    "instances": 12,
+    "raysPerInstance": 65,
+    "blockedSourceRays": 0,
+    "blockedCandidateRays": 0,
+    "scoringRadiusOccupancyMismatches": 0,
+    "passed": true
+  },
+  "finiteBallContactValidation": {
+    "method": "Rapier finite-sphere intersectsShape grid around each source Layer C/B/X surface; centers constrained to fit within the official 4-inch scoring radius; 2.5 mm spatial steps and 16 angles",
+    "sampling": {
+      "stepMeters": 0.0025,
+      "angleCount": 16,
+      "layerMeshes": 12,
+      "pollenDiameterMeters": 0.07112,
+      "nectarDiameterMeters": 0.09144,
+      "scoringRadiusMeters": 0.0508
+    },
+    "source": {
+      "bytes": 57447928,
+      "sha256": "e5bb81af46bdf93bde335cd304dab0d98ea4284ba934da7154c212405e175bbb",
+      "triangles": 3189864,
+      "role": "exact post-filter source input"
+    },
+    "candidate": {
+      "bytes": 9537528,
+      "sha256": "95bf6e3b3483099c4c039be3950eca91e5a211cfb6cfb6ac93ead6992d0d0314",
+      "triangles": 528294,
+      "role": "protected-region candidate output"
+    },
+    "totals": {
+      "POLLEN": {
+        "testedCenters": 58688,
+        "contactMismatches": 0,
+        "sourceOnly": 0,
+        "candidateOnly": 0
+      },
+      "NECTAR": {
+        "testedCenters": 29760,
+        "contactMismatches": 0,
+        "sourceOnly": 0,
+        "candidateOnly": 0
+      }
+    },
+    "testedCenters": 88448,
+    "passed": true
+  },
+  "provenance": {
+    "generator": "biobuzz-protect-openings.mjs",
+    "sourceSidecarSha256": "e5bb81af46bdf93bde335cd304dab0d98ea4284ba934da7154c212405e175bbb",
+    "claims": [
+      "The protected scoring region passed the measured functional gates.",
+      "The candidate is simplified outside that protected region.",
+      "The candidate is not an exact whole-mesh copy of the source."
+    ]
+  }
+}

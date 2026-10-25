@@ -1,0 +1,48 @@
+{
+  "input": "3625-0001-0104.step",
+  "inputSha256": "b5b0b7710976692d14551de2c56ed61620db449872fbbac62887a28abb24fa40",
+  "output": "gobilda-3625-0001-0104-right-mecanum.glb",
+  "outputBytes": 1517116,
+  "sourceUnits": "millimetres",
+  "outputUnits": "metres",
+  "triangulation": {
+    "linearDeflectionMillimetres": 0.3,
+    "angularDeflectionRadians": 0.25
+  },
+  "optimization": {
+    "tool": "gltfpack",
+    "simplifyRatio": 0.02,
+    "simplificationError": 0.005,
+    "permissive": true
+  },
+  "statistics": {
+    "triangulated": {
+      "meshes": 223,
+      "vertices": 1888650,
+      "triangles": 2717306
+    },
+    "output": {
+      "meshes": 1,
+      "primitives": 7,
+      "vertices": 86393,
+      "triangles": 79268
+    }
+  },
+  "bounds": {
+    "min": [
+      -0.05198794001852276,
+      -0.018897191945664596,
+      -0.0519739851530791
+    ],
+    "max": [
+      0.051989228916774946,
+      0.018897191945664596,
+      0.05198264770067856
+    ],
+    "size": [
+      0.10397716893529771,
+      0.03779438389132919,
+      0.10395663285375766
+    ]
+  }
+}

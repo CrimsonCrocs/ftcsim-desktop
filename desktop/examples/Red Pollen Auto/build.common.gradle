@@ -1,0 +1,45 @@
+apply plugin: 'com.android.application'
+
+def androidCompileSdk = providers.gradleProperty('androidCompileSdk').get().toInteger()
+def androidMinSdk = providers.gradleProperty('androidMinSdk').get().toInteger()
+def androidTargetSdk = providers.gradleProperty('androidTargetSdk').get().toInteger()
+def ftcAppVersionCode = providers.gradleProperty('ftcAppVersionCode').get().toInteger()
+def ftcAppVersionName = providers.gradleProperty('ftcAppVersionName').get()
+
+android {
+    compileSdkVersion androidCompileSdk
+    ndkVersion '21.3.6528147'
+
+    defaultConfig {
+        applicationId 'com.qualcomm.ftcrobotcontroller'
+        minSdkVersion androidMinSdk
+        targetSdkVersion androidTargetSdk
+        versionCode ftcAppVersionCode
+        versionName ftcAppVersionName
+    }
+
+    buildTypes {
+        debug {
+            debuggable true
+            jniDebuggable true
+            ndk {
+                abiFilters 'armeabi-v7a', 'arm64-v8a'
+            }
+        }
+        release {
+            minifyEnabled false
+            ndk {
+                abiFilters 'armeabi-v7a', 'arm64-v8a'
+            }
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    packagingOptions {
+        pickFirst '**/*.so'
+    }
+}

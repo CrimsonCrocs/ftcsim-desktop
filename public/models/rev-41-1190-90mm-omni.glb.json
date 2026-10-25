@@ -1,0 +1,48 @@
+{
+  "input": "REV-41-1190.STEP",
+  "inputSha256": "bbf2a5edc818dda4cc992e0474164d50acca1a7387f30d00174e8cd6cd4e9666",
+  "output": "rev-41-1190-90mm-omni.glb",
+  "outputBytes": 309292,
+  "sourceUnits": "millimetres",
+  "outputUnits": "metres",
+  "triangulation": {
+    "linearDeflectionMillimetres": 0.25,
+    "angularDeflectionRadians": 0.25
+  },
+  "optimization": {
+    "tool": "gltfpack",
+    "simplifyRatio": 0.02,
+    "simplificationError": 0.005,
+    "permissive": true
+  },
+  "statistics": {
+    "triangulated": {
+      "meshes": 29,
+      "vertices": 149352,
+      "triangles": 194869
+    },
+    "output": {
+      "meshes": 1,
+      "primitives": 1,
+      "vertices": 17916,
+      "triangles": 15508
+    }
+  },
+  "bounds": {
+    "min": [
+      -0.044689966101448445,
+      -0.0443243830047696,
+      -0.0075
+    ],
+    "max": [
+      0.04469378315016351,
+      0.04474912073403809,
+      0.007500000000000002
+    ],
+    "size": [
+      0.08938374925161195,
+      0.0890735037388077,
+      0.015000000000000003
+    ]
+  }
+}
