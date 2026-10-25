@@ -44,7 +44,7 @@ server.registerTool("evaluate_autonomous",{description:"Run 30 simulated seconds
   const {samples,flightPaths,...result}=await request("/evaluate",{...options,...(full?{replay:false}:{})});
   return {...result,sampleCount:Array.isArray(samples)?samples.length:0};
 }));
-server.registerTool("get_trial",{description:"View a completed autonomous result, recorded path, collected elements, and one-second Java telemetry samples. Set includeFlightPaths to inspect pollen flight at 20 ms intervals. The app keeps its last 12 trials in memory. Omit trialId for the newest result.",inputSchema:{trialId:z.string().optional(),includeSamples:z.boolean().optional(),includeFlightPaths:z.boolean().optional()},annotations:readonly},args=>respond(async()=>{
+server.registerTool("get_trial",{description:"View a completed autonomous result, recorded path, collected elements, and one-second Java telemetry samples with actual hive angles, element positions and cell occupancy. Set includeFlightPaths to inspect pollen flight at 20 ms intervals. The app keeps its last 12 trials in memory. Omit trialId for the newest result.",inputSchema:{trialId:z.string().optional(),includeSamples:z.boolean().optional(),includeFlightPaths:z.boolean().optional()},annotations:readonly},args=>respond(async()=>{
   const result=await request("/trials/get",{trialId:args.trialId});
   if(!args.includeFlightPaths)delete result.flightPaths;
   if(args.includeSamples===false)delete result.samples;

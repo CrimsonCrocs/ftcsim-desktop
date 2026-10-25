@@ -3,7 +3,11 @@ import { deflateSync, inflateSync } from "node:zlib";
 import type { GameSnapshot } from "../../packages/ftc-sim-core/src/game-simulation";
 import type { SimulationFrame, WorldRobotSensorFrame } from "@ftc-studio/opmode-protocol";
 
-export type TrialSample = { time: number; tips: number; position: { x:number;y:number;z:number }; heading: number; payload: string[] };
+export type TrialSample = {
+  time: number; tips: number; position: { x:number;y:number;z:number }; heading: number; payload: string[];
+  hives?: Array<{id:string;angleRadians:number;angularVelocity:number}>;
+  elements?: Array<{id:string;position:{x:number;y:number;z:number};controlledBy:string|null;cells:readonly {hiveAlliance:"red"|"blue";facing:"up"|"down"}[]}>;
+};
 export type TrialFlight = { time:number; elements:Array<{id:string;position:{x:number;y:number;z:number};velocity:{x:number;y:number;z:number}}> };
 export type TrialTick = { sensors: WorldRobotSensorFrame; frame: SimulationFrame; signature: string; payload: string[]; sample?: TrialSample; flight?:TrialFlight };
 export type TrialTrace = { key: string; initSensors: WorldRobotSensorFrame; ticks: TrialTick[]; checkpoints: Map<number, Uint8Array> };
