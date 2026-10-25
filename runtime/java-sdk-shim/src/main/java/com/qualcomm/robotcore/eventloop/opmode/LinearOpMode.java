@@ -31,8 +31,9 @@ public abstract class LinearOpMode extends OpMode {
     @Override public final void stop() {}
 
     public void waitForStart() {
-        waitForStartReached.countDown();
         synchronized (lifecycleLock) {
+            if (!started && !stopRequested) SimulatorClock.setWaitingForStartForSimulator(true);
+            waitForStartReached.countDown();
             while (!started && !stopRequested) {
                 try {
                     lifecycleLock.wait();
@@ -41,6 +42,7 @@ public abstract class LinearOpMode extends OpMode {
                     return;
                 }
             }
+            SimulatorClock.setWaitingForStartForSimulator(false);
         }
     }
 
@@ -92,6 +94,8 @@ public abstract class LinearOpMode extends OpMode {
 
     public final void startForSimulator() {
         synchronized (lifecycleLock) {
+            // Clear the INIT yield before the host begins its START barrier.
+            SimulatorClock.setWaitingForStartForSimulator(false);
             started = true;
             stopRequested = false;
             resetRuntime();

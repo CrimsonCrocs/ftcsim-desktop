@@ -44,6 +44,7 @@ fi
 
 java -cp "$BUILD_DIR" org.firstinspires.ftc.sim.PathingHardwareSmokeTest
 java -cp "$BUILD_DIR" org.firstinspires.ftc.sim.LibraryClockSmokeTest
+java -cp "$BUILD_DIR" org.firstinspires.ftc.sim.ClockBarrierSmokeTest
 java -cp "$BUILD_DIR" org.firstinspires.ftc.sim.TelemetryContractSmokeTest
 java -cp "$BUILD_DIR" org.firstinspires.ftc.sim.HardwareSensorContractSmokeTest
 java -cp "$BUILD_DIR" org.firstinspires.ftc.sim.YawPitchRollAnglesContractSmokeTest

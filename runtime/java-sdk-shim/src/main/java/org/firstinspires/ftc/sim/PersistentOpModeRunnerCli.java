@@ -421,7 +421,12 @@ public final class PersistentOpModeRunnerCli {
             neutralize();
             return;
         }
-        SimulatorClock.awaitLinearLoopForCurrentTick(20);
+        // A fixed 20 ms wall wait could expire during JIT or host contention and
+        // silently publish the previous tick. Wait for a real cooperative yield.
+        if (!SimulatorClock.awaitLinearLoopForCurrentTick(120)) {
+            neutralize();
+            throw new IllegalStateException("LinearOpMode did not yield at idle() or sleep() within the control deadline");
+        }
     }
 
     private void stop() {

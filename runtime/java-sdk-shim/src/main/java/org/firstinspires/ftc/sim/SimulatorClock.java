@@ -9,6 +9,7 @@ public final class SimulatorClock {
     private static long lastIdleGeneration;
     private static boolean closed;
     private static boolean linearWorkerCompleted;
+    private static boolean waitingForStart;
 
     private SimulatorClock() {}
 
@@ -20,6 +21,7 @@ public final class SimulatorClock {
             lastIdleGeneration = -1;
             closed = false;
             linearWorkerCompleted = false;
+            waitingForStart = false;
             LOCK.notifyAll();
         }
     }
@@ -100,22 +102,28 @@ public final class SimulatorClock {
         }
     }
 
-    public static void awaitLinearLoopForCurrentTick(long wallTimeoutMillis) {
+    public static boolean awaitLinearLoopForCurrentTick(long wallTimeoutMillis) {
         synchronized (LOCK) {
             // The host debugger bounds active execution and total pause time.
             // Wall-clock waits inside a suspended target must survive a breakpoint.
             long deadline = System.nanoTime() + (Boolean.getBoolean("ftcsim.debug") ? 86400000L : wallTimeoutMillis) * 1_000_000L;
-            while (!closed && !linearWorkerCompleted && lastIdleGeneration < tickGeneration) {
+            while (!closed && !linearWorkerCompleted && !waitingForStart && lastIdleGeneration < tickGeneration) {
                 long remaining = deadline - System.nanoTime();
-                if (remaining <= 0) return;
+                if (remaining <= 0) return false;
                 try {
                     LOCK.wait(Math.max(1L, remaining / 1_000_000L));
                 } catch (InterruptedException interrupted) {
                     Thread.currentThread().interrupt();
-                    return;
+                    return false;
                 }
             }
+            return true;
         }
+    }
+
+    /** INIT may advance sensors while the worker is blocked at waitForStart(). */
+    public static void setWaitingForStartForSimulator(boolean waiting) {
+        synchronized (LOCK) { waitingForStart = waiting; LOCK.notifyAll(); }
     }
 
     /** Marks a newly initialized LinearOpMode worker as active for tick-barrier waits. */
@@ -138,6 +146,10 @@ public final class SimulatorClock {
         synchronized (LOCK) {
             long target = nowMillis + durationMillis;
             while (!closed && nowMillis < target) {
+                // A virtual sleep cooperatively yields each generation it spans.
+                // On its final generation, wait for TeamCode to finish and yield again.
+                lastIdleGeneration = tickGeneration;
+                LOCK.notifyAll();
                 try {
                     LOCK.wait();
                 } catch (InterruptedException interrupted) {

@@ -14,6 +14,8 @@ Run reuses the loaded build. It does not upload or unpack the project each time.
 
 Autonomous evaluation runs 30 simulated seconds without waiting 30 real seconds. The physics step stays at 5 ms. A repeated trial can reuse an unchanged section of the previous physics run. The new Java program still runs every control tick. If a motor or servo output changes, the evaluator restores a checkpoint and computes the remaining physics. A feedback mismatch causes a fresh full trial.
 
+For a LinearOpMode, each tick waits for the program to reach `idle()` or a simulated `sleep()`. Host delays do not count as completed ticks. A program that misses this bounded control deadline stops with an error and neutral motor output.
+
 Measured on an Apple M4 Pro during development:
 
 | Operation | Observed time |
